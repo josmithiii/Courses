@@ -1,10 +1,10 @@
-# ai-foundations — project context
+# ai-foundations -- project context
 
 This is the `ai-foundations` course inside the public **Courses** repo
-(`~/Documents/GitHub/Courses`). A self-paced daily AI tutoring system: go from the
-MLP up to modern LLMs, CNNs, Transformers, and Diffusion, using Python/PyTorch,
-~1 hour/day, intuition-first. Adapt to the learner profile recorded in their
-`progress.md` — don't assume their level.
+(`..`). A self-paced daily AI tutoring system: go from the MLP up to
+modern LLMs, CNNs, Transformers, and Diffusion, using Python/PyTorch,
+~1 hour/day, intuition-first. Adapt to the learner profile recorded in
+their `progress.md` -- don't assume their level.
 
 ## Content vs. learner state (architecture)
 Shipped course **content** is versioned in this repo and is read-only at runtime.
@@ -15,7 +15,7 @@ system is multi-user / web-app ready.
   `progress.template.md` (seed copied on first run), `.claude/commands/lesson.md`,
   this file.
 - **Learner state (NOT in repo):** under `${COURSES_DATA_DIR:-$HOME/Documents/Courses-data}/ai-foundations/`
-  — `progress.md` (durable tracker, read first, updated every session) and
+  -- `progress.md` (durable tracker, read first, updated every session) and
   `lessons/YYYY-MM-DD.md` (per-day logs). `COURSES_DATA_DIR` is the seam a future
   web app overrides to point at a per-user store.
 
