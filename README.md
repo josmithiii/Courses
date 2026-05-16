@@ -2,9 +2,15 @@
 
 A growing collection of self-paced, daily, tutor-style courses run through
 [Claude Code](https://claude.com/claude-code). Each course is a self-contained
-folder with its own curriculum, progress tracker, daily lesson logs, and a
-`/lesson` slash command that runs an interactive ~1-hour session with an AI tutor
-that teaches one concept at a time and verifies understanding with small exercises.
+folder with its own curriculum and a `/lesson` slash command that runs an
+interactive ~1-hour session with an AI tutor — teaching one concept at a time and
+verifying understanding with small exercises.
+
+**Course content vs. learner state are deliberately separated.** This repo holds
+only shipped, version-controlled course content (read-only at runtime). Each
+learner's personal progress and lesson journal live *outside* the repo, so the
+repo stays pristine and the system is multi-user / web-app ready (a future web app
+just repoints the data location per user — see "Architecture" below).
 
 ## Courses
 
@@ -15,15 +21,24 @@ that teaches one concept at a time and verifies understanding with small exercis
 | `claude-app/` | ⚪ Planned | Getting the most out of the Claude app: projects, connectors, workflows. |
 | _more to come_ | ⚪ Planned | |
 
-## How a course works
+## Architecture
 
-Each course folder contains:
+**Content (this repo — versioned, read-only at runtime).** Each course folder:
 
 - `curriculum.md` — the full syllabus and the teaching method.
-- `progress.md` — durable state: what's mastered, what's next (the tutor reads this first).
-- `lessons/YYYY-MM-DD.md` — one log per day (lesson content, exercises, your answers).
+- `progress.template.md` — the seed tracker, copied to the learner's data dir on first run.
 - `.claude/commands/lesson.md` — the `/lesson` command that runs the live session.
 - `CLAUDE.md` — context that tells any Claude Code session how to act as the tutor.
+
+**Learner state (outside the repo — personal, per-user, never committed).**
+Resolved as `${COURSES_DATA_DIR:-$HOME/Documents/Courses-data}/<course>/`:
+
+- `progress.md` — durable state: what's mastered, what's next (the tutor reads this first).
+- `lessons/YYYY-MM-DD.md` — one log per day (lesson content, exercises, your answers).
+
+`COURSES_DATA_DIR` is the single seam for going multi-user: a web app sets it to a
+per-user directory/object store and nothing else changes. On a fresh machine the
+`/lesson` command auto-seeds `progress.md` from `progress.template.md`.
 
 ### To take a course
 
@@ -38,6 +53,8 @@ a Slack DM) so the day's session is easy to remember — see the course folder.
 
 ## Authoring a new course
 
-Copy an existing course folder as a template, replace `curriculum.md` with the new
-syllabus, reset `progress.md`, empty `lessons/`, and adjust `CLAUDE.md` for the new
-subject. The `/lesson` command and teaching loop are reusable as-is.
+Copy an existing course folder, replace `curriculum.md` with the new syllabus,
+adjust `progress.template.md` and `CLAUDE.md` for the new subject, and update the
+course id used in that course's `.claude/commands/lesson.md`. No personal state to
+reset — it never lived in the repo. The `/lesson` command and teaching loop are
+reusable as-is.
