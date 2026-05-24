@@ -65,6 +65,14 @@ the [`ai-2012-to-2023` meta-wiki](https://cm-gitlab.stanford.edu/jos/music423-20
 that ties the phase's papers together. Read these as lecture-ready essays;
 they're the seams the roadmap is built around.
 
+Ten of the stops also have a **landmark note** in
+[meta-wiki/notes/](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/ai-2012-to-2023/wiki/notes)
+— a short per-paper "what's dead, what's alive" verdict (DBN, AlexNet,
+ResNet, Transformer, GPT-3, DDPM, CLIP, AlphaFold 2, CoT prompting,
+InstructGPT).  Recommended deeper-read companion for the headline papers
+where the load-bearing ideas are obscured by historical detail.  Format
+and conventions: [meta-wiki SCHEMA §"The dead-vs-alive format"](https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/ai-2012-to-2023/wiki/SCHEMA.md).
+
 ---
 
 ### Phase 0 — Orientation & on-ramp
@@ -242,8 +250,12 @@ lands.
 - **11.1** Re-read the [meta-wiki overview](https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/ai-2012-to-2023/wiki/overview.md).
   It should now feel like a memoir, not a syllabus.
 - **11.2** "What's dead / what's alive" — pick a landmark from the route
-  and write your own dead-vs-alive note in the style of
-  [the DBN note](https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/ai-2012-to-2023/wiki/notes/dbn.md).
+  and write your own dead-vs-alive note.  Format and conventions:
+  [meta-wiki SCHEMA §"The dead-vs-alive format"](https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/ai-2012-to-2023/wiki/SCHEMA.md).
+  Ten exemplars to imitate: [meta-wiki/notes/](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/ai-2012-to-2023/wiki/notes)
+  covers DBN, AlexNet, ResNet, Transformer, GPT-3, DDPM, CLIP, AlphaFold 2,
+  CoT prompting, InstructGPT.  Pick a paper *not* yet covered (e.g. WaveNet,
+  ViT, LDM, BERT, LLaMA, Whisper, Constitutional AI) so the wiki grows.
   The tutor reviews.
 - **11.3** Pick a post-2023 frontier paper — multimodal foundation models
   (Chameleon, Transfusion, BAGEL — all in the [`multimodal/` topic

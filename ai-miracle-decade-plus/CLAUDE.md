@@ -75,3 +75,30 @@ the exact read/seed/write steps.
 This course is intentionally **un-reminded**: no daily macOS dialog, no
 Slack ping.  The learner returns when they return; the roadmap is
 patient by design.
+
+## Cross-repo sync
+
+This course exists in **two parallel copies** that intentionally diverge
+in link style but should stay in step on substance:
+
+- **GitHub (this repo, `josmithiii/Courses/ai-miracle-decade-plus`, fork
+  of GinaGu)** — external links to arXiv (papers) and to the
+  music423-2023 GitLab mirror (concept pages, landmark notes).  Designed
+  to run standalone as a CoursesGinaGu course.
+- **GitLab (`cm-gitlab.stanford.edu/jos/music423-2023/ai-miracle-decade-plus`)**
+  — local relative paths (`../ai-2012-to-2023/...`) into the paper
+  collection and meta-wiki that live in that same repo.
+
+When changing `curriculum.md`, `progress.template.md`,
+`.claude/commands/lesson.md`, `README.md`, or this file: **also apply
+the change in the other copy** with the correct link-style adaptation.
+Periodically (every few months, or after meaningful Phase content
+changes), `diff -u` the two course directories to catch drift:
+
+```bash
+diff -u /w/CoursesGinaGu/ai-miracle-decade-plus /w/music423-2023/ai-miracle-decade-plus
+```
+
+Substantive content (phase structure, stops, pedagogy, side-quest
+protocol) should be identical; differences should be confined to the
+link-style adaptations.
