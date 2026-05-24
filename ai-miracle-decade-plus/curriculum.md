@@ -1,5 +1,8 @@
 # AI Miracle Decade Plus — Curriculum
 
+**Live orientation page:** <https://josmithiii.github.io/ai-miracle-decade-plus/>
+— a one-screen visual overview of the 12 phases with every paper linked.
+
 A self-paced traversal of 40 landmark AI papers from 2006 → 2023. Read every
 "miracle decade" landmark in roughly the order the field experienced it, with
 cross-cutting concept-page stops that connect papers across lineages.
