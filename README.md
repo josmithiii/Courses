@@ -20,6 +20,7 @@ just repoints the data location per user — see "Architecture" below).
 | [`agents101/`](agents101/) | 🟢 Active | Operator-level training on local AI agents: run, extend, coordinate, schedule, message, oversee, debug, containerize. Hermes-agent as case study. Hands-on; ~12 sessions. |
 | [`crypto-foundations/`](crypto-foundations/) | 🟢 Active | From "what's a public key?" to a hardened personal workflow: GPG, signing, SSH, TLS basics, password hashing, encrypted backups, 2FA, full-disk encryption. Intuition + commands; ~25 sessions. |
 | [`ai-miracle-decade-plus/`](ai-miracle-decade-plus/) | 🟢 Active | Self-paced traversal of 40 landmark AI papers (2006 → 2023) — DBN through GPT-4, with cross-cutting concept-page stops. No time budget; side quests first-class. Links to arXiv + the music423-2023 meta-wiki. |
+| [`quantum-states/`](quantum-states/) | 🟢 Active | From bra/ket notation to density matrices, partial traces, and decoherence. Assumes linear algebra, complex numbers, basic Newtonian + a little prior QM. Every abstract object pinned to a worked qubit example; NumPy/SymPy as the oracle. ~25 sessions. |
 | `claude-code-and-tools/` | ⚪ Planned | Using Claude Code effectively: commands, hooks, skills, MCP, subagents, scheduled/remote agents. |
 | `claude-app/` | ⚪ Planned | Getting the most out of the Claude app: projects, connectors, workflows. |
 | _more to come_ | ⚪ Planned | |
