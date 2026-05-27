@@ -1,14 +1,17 @@
 # New Courses — Plan and Progress
 
-A working roadmap for wisdom-tradition courses in this repo. Course
-content is separated by **scope** (single coherent subject) and by
-**philosophy vs. practice** so each course stays well-focused.
+A working roadmap for courses being added to this repo. Two
+independent threads in play: a **wisdom-traditions** thread
+(Buddhism, Vedānta) and a **modern-ML topics** thread (flow
+matching, …). Each course is scoped to a single coherent subject;
+philosophy and practice are split where they'd otherwise blur.
 
 ## Status snapshot (2026-05-27)
 
 | Course | Status | Notes |
 |--------|--------|-------|
 | `buddhism-early-philosophy/` | 🟢 **Active** | Just landed (commit `6210570`). Pali Canon doctrinal foundations: Four Noble Truths → Three Marks → Five Aggregates → Dependent Origination → *nibbāna*. ~40 sessions, 10 phases. Philosophy only. |
+| `flow-matching/` | 🟢 **Active** | Just landed (this commit). From ODEs as generative models through Lipman 2023 (CFM), Liu 2023 (Rectified Flow), Tong 2024 (OT-CFM). ~25 sessions, 8 phases. 2-D toy distributions as the worked example throughout; PyTorch as oracle. Source PDFs at `/l/dttd/FlowStuff/`. |
 | `buddhism-mahayana-philosophy/` | ⚪ Planned | Direct sequel — Phase 8 of the early course (Abhidhamma sketch) sets up Nāgārjuna's critique. Mainstream Mahāyāna is the **largest** branch of Buddhism by adherents (East Asian + Tibetan). |
 | `buddhism-sutra-readings/` | 💭 Candidate | Close-reading course (Heart, Diamond, Lotus, Vimalakīrti, Laṅkāvatāra). Probably comes *after* the two philosophy courses. |
 | `buddhism-practices/` | 💭 Candidate (deferred) | Meditation, *śīla*, the Eightfold Path as instruction. JOS prefers philosophy first. Rajayana / Nanjō / "5 basic practices" thread fits here. |
@@ -69,7 +72,40 @@ but disagree sharply on metaphysics (the *ātman/Brahman* identity is
 exactly what early Buddhism rejects with *anattā*). The two
 traditions' disagreement is worth meeting head-on, not blurred.
 
-## Original seed (from colleague, in `/l/dttd/FlowStuff/`)
+## Flow Matching — what we decided
+
+- **Three foundational papers as the spine.** The course follows
+  the historical and conceptual arc: Lipman 2023 (CFM) → Liu 2023
+  (Rectified Flow) → Tong 2024 (OT-CFM). The PDFs at
+  `/l/dttd/FlowStuff/` are the canonical sources; the curriculum
+  pulls figures and derivations from them as needed.
+- **The conditional-expectation identity is the whole course.**
+  $u_t(x) = \mathbb{E}[u_t(x \mid x_1) \mid x_t = x]$ is what makes
+  "simulation-free" training possible. Topic 4.3 spends as long as
+  it takes to make this land — everything later (rectified flow,
+  OT-CFM, generalized CFM) is a different choice of path or coupling
+  sitting on top of this same identity.
+- **Pedagogical "qubit" of the flow-matching course:** a 2-D toy
+  distribution (two-moons / two-Gaussians / checkerboard) that the
+  learner trains on, plots samples from, and quiver-plots the
+  learned vector field over. Returned to relentlessly, the way the
+  quantum-states course returns to the qubit and the Buddhism
+  courses return to a 10-second moment of experience.
+- **Standard misreadings flagged from day one:** confusing the
+  *marginal* path/velocity with the *conditional* one (the CFM
+  trick lives on this distinction); confusing the learned velocity
+  $u_t$ with the score $\nabla\log p_t$ (related via the
+  probability-flow ODE, not equal in general). The CLAUDE.md tells
+  the tutor to correct on the spot.
+- **Theory-lean vs. implementation-lean** is the analogue of the
+  quantum-states "physics vs. quantum-information" split. Same core
+  curriculum, different exercise depth; the lean is recorded in
+  `progress.md`.
+
+## Wisdom-traditions seed (from colleague)
+
+These are the original notes JOS jotted down, separate from the
+flow-matching prompt:
 
 ```
 ramayana
@@ -94,12 +130,18 @@ How each thread is being routed:
 - **wikipedia / go thru the sutras / experience it** →
   `buddhism-sutra-readings/` candidate (close-reading course)
 
-## Next likely move
+## Next likely moves
 
-`buddhism-mahayana-philosophy/` is the natural next build — it has
-the strongest internal continuation from what's just shipped, and
-Mahāyāna is mainstream enough to be worth a dedicated course. The
-Hindu philosophy course is interesting and on the list; the
-philosophical-comparison value goes up sharply *after* the early-
-Buddhism course exists (so that "early Buddhism vs. Advaita Vedānta"
-becomes a live comparison rather than a wash).
+- **`buddhism-mahayana-philosophy/`** is the natural next
+  wisdom-traditions build — it has the strongest internal
+  continuation from what's shipped, and Mahāyāna is mainstream
+  enough to be worth a dedicated course.
+- **`hindu-philosophy/`** is interesting and on the list; the
+  philosophical-comparison value goes up sharply *after* the
+  early-Buddhism course exists (so that "early Buddhism vs. Advaita
+  Vedānta" becomes a live comparison rather than a wash).
+- **Modern-ML thread successors to `flow-matching/`** — natural
+  candidates if the thread continues: a Schrödinger-bridge course
+  (DSBM, SB-CFM), a flow-on-manifolds course, or pulling the
+  trigger on `claude-code-and-tools/` and `claude-app/` (already
+  ⚪ planned in the top-level README).
