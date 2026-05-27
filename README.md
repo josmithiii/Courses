@@ -57,8 +57,14 @@ a Slack DM) so the day's session is easy to remember — see the course folder.
 
 ## Authoring a new course
 
-Copy an existing course folder, replace `curriculum.md` with the new syllabus,
-adjust `progress.template.md` and `CLAUDE.md` for the new subject, and update the
-course id used in that course's `.claude/commands/lesson.md`. No personal state to
-reset — it never lived in the repo. The `/lesson` command and teaching loop are
-reusable as-is.
+Copy [`course-template/`](course-template/) and follow the checklist in its
+[`README.md`](course-template/README.md). Short version:
+
+1. `cp -r course-template <new-course-id>` and `cd` into it.
+2. Delete the template's `README.md` (it's authoring instructions, not learner content).
+3. Find/replace `{{COURSE-ID}}`, `{{COURSE TITLE}}`, and `{{ONE-LINE SCOPE}}` in the new folder.
+4. Rewrite `curriculum.md` with your syllabus; adjust `progress.template.md` learner-profile fields and environment checkboxes.
+5. Add a row to the *Courses* table above.
+
+No personal state to reset — it never lived in the repo. The `/lesson` command and
+teaching loop are reusable as-is.
