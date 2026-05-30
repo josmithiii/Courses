@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# take — launch a course's daily lesson in Claude Code.
+#
+#   ./take <course>     cd into <course> and start (or resume) today's lesson
+#   ./take              list the available courses
+#
+# Replaces the cd → claude → /lesson dance with one command. Learner state
+# still lives outside the repo under ${COURSES_DATA_DIR:-$HOME/Documents/Courses-data};
+# the /lesson command auto-seeds it on first run.
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+is_course() { [ -f "$repo_root/$1/.claude/commands/lesson.md" ] && [ "$1" != "course-template" ]; }
+
+list_courses() {
+  for d in "$repo_root"/*/; do
+    name="$(basename "$d")"
+    is_course "$name" && echo "  $name"
+  done
+}
+
+course="${1:-}"
+
+if [ -z "$course" ]; then
+  echo "Usage: ./take <course>"
+  echo
+  echo "Available courses:"
+  list_courses
+  exit 0
+fi
+
+# Tolerate a trailing slash from shell tab-completion (e.g. ./take room-acoustics/).
+course="${course%/}"
+
+if ! is_course "$course"; then
+  echo "*** No such course: '$course'" >&2
+  echo "Available courses:" >&2
+  list_courses >&2
+  exit 1
+fi
+
+if ! command -v claude >/dev/null 2>&1; then
+  echo "*** Claude Code ('claude') is not installed or not on PATH." >&2
+  echo "    Install it from https://claude.com/claude-code, then re-run." >&2
+  exit 1
+fi
+
+cd "$repo_root/$course"
+exec claude "/lesson"

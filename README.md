@@ -50,6 +50,22 @@ per-user directory/object store and nothing else changes. On a fresh machine the
 
 ### To take a course
 
+First time on a new machine — clone the repo and drop straight into a course:
+
+```bash
+git clone <repo-url> Courses
+cd Courses
+./take room-acoustics    # cd into the course + launch today's lesson
+```
+
+Every day after that, from the repo:
+
+```bash
+./take <course-folder>   # e.g. ./take room-acoustics  (run ./take with no args to list courses)
+```
+
+`./take` is just a convenience wrapper for the underlying steps, which also work by hand:
+
 ```bash
 cd Courses/<course-folder>
 claude          # start Claude Code in the course folder
