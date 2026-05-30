@@ -59,6 +59,11 @@ claude          # start Claude Code in the course folder
 An optional daily 11:00 reminder can be wired up (local macOS notification and/or
 a Slack DM) so the day's session is easy to remember — see the course folder.
 
+Built for Claude Code (the `/lesson` command above). It also runs in **Claude
+Cowork** — just point it at a course folder and ask it to start a lesson; it reads
+the same `lesson.md` directly (there are no slash commands in Cowork). Fork and
+adapt for other environments.
+
 ## Authoring a new course
 
 Copy [`course-template/`](course-template/) and follow the checklist in its
