@@ -12,6 +12,7 @@ philosophy and practice are split where they'd otherwise blur.
 |--------|--------|-------|
 | `buddhism-early-philosophy/` | 🟢 **Active** | Just landed (commit `6210570`). Pali Canon doctrinal foundations: Four Noble Truths → Three Marks → Five Aggregates → Dependent Origination → *nibbāna*. ~40 sessions, 10 phases. Philosophy only. |
 | `flow-matching/` | 🟢 **Active** | Just landed (this commit). From ODEs as generative models through Lipman 2023 (CFM), Liu 2023 (Rectified Flow), Tong 2024 (OT-CFM). ~25 sessions, 8 phases. 2-D toy distributions as the worked example throughout; PyTorch as oracle. Source PDFs at `/l/dttd/FlowStuff/`. |
+| `room-acoustics/` | 🟢 **Active** | Just landed. From "what is a pressure wave?" to evaluating real performance/speech spaces. ~30 sessions, 9 phases. Keystone = the **Schroeder frequency** (wave-below / ray-above). Pinned to one shoebox room (5×4×3 m) analyzed both ways + a concert-hall foil. Born from a real *Treble-vs-Odeon* question (`motivating-question.md`) — earns every term in that answer, then goes further to RT60/C80/STI measurement. Capstone a/b/c (Python from scratch / REW / dataset). |
 | `buddhism-mahayana-philosophy/` | ⚪ Planned | Direct sequel — Phase 8 of the early course (Abhidhamma sketch) sets up Nāgārjuna's critique. Mainstream Mahāyāna is the **largest** branch of Buddhism by adherents (East Asian + Tibetan). |
 | `buddhism-sutra-readings/` | 💭 Candidate | Close-reading course (Heart, Diamond, Lotus, Vimalakīrti, Laṅkāvatāra). Probably comes *after* the two philosophy courses. |
 | `buddhism-practices/` | 💭 Candidate (deferred) | Meditation, *śīla*, the Eightfold Path as instruction. JOS prefers philosophy first. Rajayana / Nanjō / "5 basic practices" thread fits here. |
@@ -101,6 +102,58 @@ traditions' disagreement is worth meeting head-on, not blurred.
   quantum-states "physics vs. quantum-information" split. Same core
   curriculum, different exercise depth; the lean is recorded in
   `progress.md`.
+
+## Room Acoustics — what we decided
+
+- **Born from a real question, not a syllabus.** A student asked an
+  expert *"when should I use Treble Tech vs. Odeon?"* and got an
+  answer dense with unexplained terms (Schroeder frequency, wave vs.
+  geometrical solvers, RIRs, the f⁴ cost scaling, C80/STI). The
+  course's mandate is to **earn every term in that answer and then
+  go further** — to where she can evaluate a real room herself. The
+  verbatim exchange is preserved as `motivating-question.md` and
+  used as the course's north star (read in Phase 0, reconstructed in
+  Phases 4.4 and 5.4).
+- **The Schroeder frequency is the keystone** ($f_s \approx
+  2000\sqrt{\text{RT60}/V}$). Below it the field is modal / wave-like
+  → a wave solver is needed; above it the field is statistical /
+  diffuse → rays (geometrical acoustics) are valid and far cheaper.
+  This single dichotomy organizes the whole course and the whole
+  Treble-vs-Odeon answer — it's the analogue of flow-matching's
+  conditional-expectation identity. Phase 4 spends as long as it
+  takes to make it land.
+- **Pedagogical "qubit": one shoebox room, analyzed two ways.** A
+  5×4×3 m room (V=60 m³) whose discrete modes (wave picture) and
+  Sabine reverberation (statistical picture) the learner computes
+  herself, meeting at its Schroeder frequency (≈183 Hz); plus a
+  **concert-hall foil** (V≈15000 m³, f_s≈23 Hz) showing why big
+  halls live entirely above Schroeder. Returned to relentlessly, the
+  way quantum-states returns to the qubit and flow-matching to
+  two-moons.
+- **Naming.** Chosen `room-acoustics` over `spatial-acoustics`
+  (which reads as spatial *audio* / HRTF / Ambisonics) and
+  `architectural-acoustics` (broader/more formal) — narrowest and
+  clearest for the music-hall + speech-room culmination.
+- **Scope: physics-led, with one psychoacoustics phase.** Core is
+  physical room acoustics (modes → reverberation → Schroeder →
+  solvers → ISO 3382 / STI parameters); Phase 6 brings in spatial
+  hearing (ITD/ILD, the precedence effect) precisely to motivate why
+  the parameters split early/late where they do (C80 at 80 ms music,
+  C50 at 50 ms speech). Not a spatial-audio / HRTF-reproduction
+  course.
+- **Standard misreadings flagged from day one:** the two different
+  Schroeders (the *frequency* vs. the backward-*integration*
+  method); "RT60 is one number" (it's per-band); "GA is just a worse
+  approximation" (above Schroeder it's correct *and* cheaper); "more
+  reverb = richer" (clarity vs. reverberance trade off; speech vs.
+  music differ); absorption vs. scattering coefficient. CLAUDE.md
+  tells the tutor to correct on the spot and keep a running list.
+- **Hands-on vs. conceptual lean** (analogue of the
+  theory/implementation split). Capstone is learner-chosen a/b/c:
+  (a) Python from scratch — measure a real room via swept-sine →
+  RIR → parameters, or simulate with `pyroomacoustics`; (b) REW +
+  light Python; (c) dataset/conceptual — no mic needed. Chosen
+  partway through Phase 6.
 
 ## Wisdom-traditions seed (from colleague)
 
