@@ -30,7 +30,7 @@ No DSP background assumed — the first course builds the needed audio intuition
 | # | Course | Status | Why here |
 |---|--------|--------|----------|
 | 1 | [`../audio-codecs/`](../audio-codecs/) | 🟢 Active | The shared foundation: how raw audio becomes tokens and latents — and **the discrete-RVQ vs continuous-VAE fork** that splits the whole field downstream. |
-| 2 | [`../audio-codec-lms/`](../audio-codec-lms/) | ⚪ Planned | The first paradigm: generate audio by *language-modeling* codec tokens (AudioLM → MusicGen → VALLE/MIDI-VALLE). |
+| 2 | [`../audio-codec-lms/`](../audio-codec-lms/) | 🟢 Active | The first paradigm: generate audio by *language-modeling* codec tokens (AudioLM → MusicGen → VALLE/MIDI-VALLE). |
 | 3 | [`../audio-diffusion-dit/`](../audio-diffusion-dit/) | ⚪ Planned | The second paradigm: generate audio by *diffusion/flow* in a continuous VAE latent (AudioLDM → DiT → Stable Audio → DiffRhythm/ACE-Step). |
 
 The codec/LM vs diffusion/DiT split is *the* organizing idea, so it is the **seam

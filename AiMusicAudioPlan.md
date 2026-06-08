@@ -1,7 +1,12 @@
 # AI Music & Audio — Curriculum Plan
 
-**Status:** ✅ Planning complete (2026-06-07) — ready to build, rooted in `/l/cllm/`.
-Nothing built yet; this is the working design spec. Companion to [`NewCoursesPlan.md`](NewCoursesPlan.md)
+**Status:** 🟢 Building (updated 2026-06-07). Steps 0–2 done: repo-wide
+`curriculum.md → syllabus.md` rename, the **curricula concept** landed
+(`curricula/ai-music-audio.md` + assets), and **course 1 `audio-codecs/`** authored
+with the shared **through-line clip** in place (CC0 Chopin B.150, mono 24 kHz). Course
+2 **`audio-codec-lms/`** is now authored too (keystone = the RVQ token grid). **Next:
+course 3 `audio-diffusion-dit/`.** Rooted in `/l/cllm/`. Companion to
+[`NewCoursesPlan.md`](NewCoursesPlan.md)
 (general roadmap); this file is the focused plan for the **AI music/audio
 generation** thread *and* for introducing the **curriculum** (course-sequence)
 concept the repo doesn't yet have.
@@ -323,20 +328,23 @@ See the **Decisions locked** block near the top for the canonical list. Summary:
 7. ~~Course 1 DSP scope~~ → **brisk, intuition-first**, one phase, link out to JOS's
    DSP books.
 
-## Part 6 — Build order (decisions locked — ready to execute)
+## Part 6 — Build order (decisions locked — executing)
 
-0. **Repo-wide rename** `curriculum.md → syllabus.md` (8 courses + `course-template/`),
+0. ✅ **Repo-wide rename** `curriculum.md → syllabus.md` (8 courses + `course-template/`),
    then grep-and-update references in each `.claude/commands/lesson.md`, `CLAUDE.md`,
    `README.md`, `course-template/README.md`, `NewCoursesPlan.md`, and `./take` if it
-   names the file (Part 1 checklist). No back-compat.
-1. Land the **curricula concept**: `curricula/README.md`, `curricula/ai-music-audio.md`,
-   `curricula/assets/ai-music-audio/` (the through-line clip), and a Curricula table in
-   the top-level `README.md`. Backfill latent curricula (AI Generative Media; Buddhism)
-   to prove the format.
-2. Author **`audio-codecs`** first (shared foundation, lightest; brisk DSP phase).
-3. Then **`audio-codec-lms`**, then **`audio-diffusion-dit`** (self-contained
-   rectified-flow primer + link to `flow-matching/`).
+   names the file (Part 1 checklist). No back-compat. *(commit `35b5ee6`)*
+1. ✅ Land the **curricula concept**: `curricula/README.md`, `curricula/ai-music-audio.md`,
+   `curricula/assets/ai-music-audio/`, and a Curricula table in the top-level `README.md`.
+   Backfilled latent curricula (AI Generative Media; Buddhism). *(commit `ba11b46`)*
+   The **through-line clip** is now in place: CC0 Chopin B.150 opening phrase, mono
+   24 kHz 16-bit, ~2.2 s, with `SOURCE.md` provenance *(commit `695e72e`)*.
+2. ✅ Author **`audio-codecs`** (shared foundation, brisk DSP phase; keystone =
+   `the-fork.md`). *(commit `6d73416`)*
+3. **Author `audio-codec-lms`** (✅ done — keystone = `the-token-grid.md`; AR/masked
+   codec-LM lineage; MusicGen capstone), then 🟢 **`audio-diffusion-dit`** *(next)*
+   (self-contained rectified-flow primer + link to `flow-matching/`).
 4. Each course ships tiered capstones (CPU/Colab/local-GPU) and wires the through-line
-   clip into its qubit.
+   clip into its qubit. *(course 1 done; courses 2–3 pending)*
 5. Add rows to the top-level Courses table and to `NewCoursesPlan.md`'s status snapshot
-   as each lands.
+   as each lands. *(course 1 done)*
