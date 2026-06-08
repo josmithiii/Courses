@@ -1,6 +1,6 @@
 # AI Music & Audio
 
-**Status:** 🟡 Building — the spine is fixed; the three courses are authored in order
+**Status:** 🟢 Complete — the spine is fixed and all three courses are authored
 (see [`../AiMusicAudioPlan.md`](../AiMusicAudioPlan.md) for the full design spec).
 
 ## Goal
@@ -31,7 +31,7 @@ No DSP background assumed — the first course builds the needed audio intuition
 |---|--------|--------|----------|
 | 1 | [`../audio-codecs/`](../audio-codecs/) | 🟢 Active | The shared foundation: how raw audio becomes tokens and latents — and **the discrete-RVQ vs continuous-VAE fork** that splits the whole field downstream. |
 | 2 | [`../audio-codec-lms/`](../audio-codec-lms/) | 🟢 Active | The first paradigm: generate audio by *language-modeling* codec tokens (AudioLM → MusicGen → VALLE/MIDI-VALLE). |
-| 3 | [`../audio-diffusion-dit/`](../audio-diffusion-dit/) | ⚪ Planned | The second paradigm: generate audio by *diffusion/flow* in a continuous VAE latent (AudioLDM → DiT → Stable Audio → DiffRhythm/ACE-Step). |
+| 3 | [`../audio-diffusion-dit/`](../audio-diffusion-dit/) | 🟢 Active | The second paradigm: generate audio by *diffusion/flow* in a continuous VAE latent (AudioLDM → DiT → Stable Audio → DiffRhythm/ACE-Step). |
 
 The codec/LM vs diffusion/DiT split is *the* organizing idea, so it is the **seam
 between courses 2 and 3** — the structure teaches the distinction.

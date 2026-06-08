@@ -1,11 +1,13 @@
 # AI Music & Audio — Curriculum Plan
 
-**Status:** 🟢 Building (updated 2026-06-07). Steps 0–2 done: repo-wide
+**Status:** 🟢 Complete (updated 2026-06-07). All steps done: repo-wide
 `curriculum.md → syllabus.md` rename, the **curricula concept** landed
-(`curricula/ai-music-audio.md` + assets), and **course 1 `audio-codecs/`** authored
-with the shared **through-line clip** in place (CC0 Chopin B.150, mono 24 kHz). Course
-2 **`audio-codec-lms/`** is now authored too (keystone = the RVQ token grid). **Next:
-course 3 `audio-diffusion-dit/`.** Rooted in `/l/cllm/`. Companion to
+(`curricula/ai-music-audio.md` + assets), the shared **through-line clip** in place
+(CC0 Chopin B.150, mono 24 kHz), and **all three courses authored** — course 1
+`audio-codecs/` (keystone = the fork), course 2 `audio-codec-lms/` (keystone = the RVQ
+token grid), and course 3 `audio-diffusion-dit/` (keystone = the latent canvas; ships a
+self-contained rectified-flow primer). **The curriculum is complete.** Rooted in
+`/l/cllm/`. Companion to
 [`NewCoursesPlan.md`](NewCoursesPlan.md)
 (general roadmap); this file is the focused plan for the **AI music/audio
 generation** thread *and* for introducing the **curriculum** (course-sequence)
@@ -341,10 +343,13 @@ See the **Decisions locked** block near the top for the canonical list. Summary:
    24 kHz 16-bit, ~2.2 s, with `SOURCE.md` provenance *(commit `695e72e`)*.
 2. ✅ Author **`audio-codecs`** (shared foundation, brisk DSP phase; keystone =
    `the-fork.md`). *(commit `6d73416`)*
-3. **Author `audio-codec-lms`** (✅ done — keystone = `the-token-grid.md`; AR/masked
-   codec-LM lineage; MusicGen capstone), then 🟢 **`audio-diffusion-dit`** *(next)*
-   (self-contained rectified-flow primer + link to `flow-matching/`).
-4. Each course ships tiered capstones (CPU/Colab/local-GPU) and wires the through-line
-   clip into its qubit. *(course 1 done; courses 2–3 pending)*
-5. Add rows to the top-level Courses table and to `NewCoursesPlan.md`'s status snapshot
-   as each lands. *(course 1 done)*
+3. ✅ **Author `audio-codec-lms`** (keystone = `the-token-grid.md`; AR/masked codec-LM
+   lineage; MusicGen capstone), then ✅ **`audio-diffusion-dit`** (keystone =
+   `the-latent-canvas.md`; AudioLDM → DiT → Stable Audio → U-Net→DiT swap → FluxMusic →
+   DiffRhythm/ACE-Step; self-contained `rectified-flow-primer.md` + link to
+   `flow-matching/`; Stable-Audio-Open/DiffRhythm capstone). **All three courses done —
+   curriculum complete.**
+4. ✅ Each course ships tiered capstones (CPU/Colab/local-GPU) and wires the through-line
+   clip into its qubit. *(all three done)*
+5. ✅ Add rows to the top-level Courses table and to `NewCoursesPlan.md`'s status snapshot
+   as each lands. *(all three done)*
