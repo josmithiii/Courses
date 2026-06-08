@@ -1,7 +1,7 @@
 # AI Music & Audio — Curriculum Plan
 
-**Status:** 📝 Draft for next session (rooted in `/l/cllm/`). Nothing built yet — this
-is the working design doc. Companion to [`NewCoursesPlan.md`](NewCoursesPlan.md)
+**Status:** ✅ Planning complete (2026-06-07) — ready to build, rooted in `/l/cllm/`.
+Nothing built yet; this is the working design spec. Companion to [`NewCoursesPlan.md`](NewCoursesPlan.md)
 (general roadmap); this file is the focused plan for the **AI music/audio
 generation** thread *and* for introducing the **curriculum** (course-sequence)
 concept the repo doesn't yet have.
@@ -10,6 +10,28 @@ This plan turns the knowledge base we curated in
 `/w/music423-2023/` (the `ai-audio-codecs`, `ai-music-audio-gen`, and `diffusion`
 wikis) into a learner path that starts where [`ai-foundations/`](ai-foundations/)
 ends and ends at the 2026 state of the art (DiffRhythm, ACE-Step, MIDI-VALLE).
+
+### ✅ Decisions locked (2026-06-07)
+
+All Part 5 open questions are resolved; this doc is now a build spec.
+
+1. **Terminology** — per-course file = **`syllabus.md`**; top-level sequence =
+   **curriculum** (`curricula/<name>.md`). Repo-wide rename pending (Part 1 checklist).
+2. **Course count** — **3** (codec→LM vs VAE→DiT fork is the seam between courses).
+   4-course split (symbolic/performance) kept as a documented future option.
+3. **Course slugs** — **`audio-`-prefixed** for sort-grouping:
+   **`audio-codecs`**, **`audio-codec-lms`**, **`audio-diffusion-dit`**.
+   (Descriptive titles kept in prose; the slug is the folder name.)
+4. **Through-line clip** — **yes**: one shared ~2-second solo-piano phrase carried
+   across all three courses, stored in-repo (it's content). Actual clip TBD at build
+   time (see Part 3 note).
+5. **Capstone compute** — **CPU/Colab fallbacks throughout**, tiered like
+   room-acoustics' a/b/c: tier-a CPU pretrained-checkpoint inference, tier-b Colab
+   GPU for the heavy generators, tier-c local GPU.
+6. **`flow-matching` dependency** — **enrichment, not a gate**: course 3 ships a
+   self-contained rectified-flow primer and links to `flow-matching/` for depth.
+7. **Course 1 DSP scope** — **brisk, intuition-first**, one phase; link out to JOS's
+   DSP books for depth (learners are ML-first).
 
 ---
 
@@ -102,10 +124,10 @@ Documenting curricula also captures sequences that *already* exist informally:
 ### The spine (where the learner comes from → goes)
 
 ```
-ai-foundations  ──(required)──▶  neural-audio-codecs  ──▶  audio-codec-language-models
-   │  (MLP→CNN→Transformers→LLMs→basic Diffusion)              │ (codec-LM lineage)
-   │                                                           ▼
-   └──(enrichment)──▶ flow-matching ──────────────▶  audio-diffusion-and-the-dit
+ai-foundations  ──(required)──▶  audio-codecs  ──────▶  audio-codec-lms
+   │  (MLP→CNN→Transformers→LLMs→basic Diffusion)         │ (codec-LM lineage)
+   │                                                      ▼
+   └──(enrichment)──▶ flow-matching ──────────────▶  audio-diffusion-dit
                        (CFM / rectified flow)          (VAE-latent → DiT lineage)
 ```
 
@@ -127,11 +149,11 @@ The split mirrors the actual thesis of the `ai-music-audio-gen` wiki overview: t
 field forks into a **codec-language-model** lineage and a **VAE→diffusion-transformer**
 lineage, sitting on a **shared representation** foundation. So:
 
-| # | Course (proposed slug) | Covers | ~Sessions | Source wiki |
-|---|------------------------|--------|-----------|-------------|
-| 1 | `neural-audio-codecs` | How raw audio becomes ML-friendly: DSP basics → autoencoders → VQ-VAE → RVQ → EnCodec/SoundStream/DAC → **the discrete-token vs continuous-VAE fork** → semantic vs acoustic tokens | ~20 | `ai-audio-codecs/` |
-| 2 | `audio-codec-language-models` | Generate audio by language-modeling codec tokens: WaveNet/SampleRNN → Jukebox → AudioLM → MusicLM → MusicGen → VampNet/MAGNeT → VALLE/MIDI-VALLE | ~25 | `ai-music-audio-gen/` (codec-LM half) |
-| 3 | `audio-diffusion-and-the-dit` | Generate audio by diffusion/flow in a VAE latent: AudioLDM(2)/Tango → **DiT** → Stable Audio → Long-Form Latent Diffusion → FluxMusic (rectified flow) → DiffRhythm → ACE-Step | ~25 | `diffusion/` + `ai-music-audio-gen/` (diffusion half) |
+| # | Course (slug) | Title | Covers | ~Sessions | Source wiki |
+|---|---------------|-------|--------|-----------|-------------|
+| 1 | `audio-codecs` | Neural Audio Codecs | How raw audio becomes ML-friendly: DSP basics → autoencoders → VQ-VAE → RVQ → EnCodec/SoundStream/DAC → **the discrete-token vs continuous-VAE fork** → semantic vs acoustic tokens | ~20 | `ai-audio-codecs/` |
+| 2 | `audio-codec-lms` | Audio Codec Language Models | Generate audio by language-modeling codec tokens: WaveNet/SampleRNN → Jukebox → AudioLM → MusicLM → MusicGen → VampNet/MAGNeT → VALLE/MIDI-VALLE | ~25 | `ai-music-audio-gen/` (codec-LM half) |
+| 3 | `audio-diffusion-dit` | Audio Diffusion & the DiT | Generate audio by diffusion/flow in a VAE latent: AudioLDM(2)/Tango → **DiT** → Stable Audio → Long-Form Latent Diffusion → FluxMusic (rectified flow) → DiffRhythm → ACE-Step | ~25 | `diffusion/` + `ai-music-audio-gen/` (diffusion half) |
 
 **Why 3 and not 1:** each is a single coherent subject (the repo's rule), each ends
 in a runnable capstone, and the codec/LM vs diffusion/DiT split is *the* organizing
@@ -161,16 +183,24 @@ solo-piano phrase**:
 Same clip, three paradigms — the through-line *is* the curriculum's spine made
 audible. (Per-course qubits can still specialize; the clip is the connective tissue.)
 
+**Decided (2026-06-07): adopt the shared clip.** Storage and selection (build-time):
+the clip is *content*, so it lives in-repo under the curriculum, e.g.
+`curricula/assets/ai-music-audio/through-line.wav` (mono, 24 kHz to match common
+codec sample rates, ~2 s). Pick a **freely licensed** source (public-domain or CC0
+solo-piano phrase) so it can ship in the repo — record the source/license alongside
+it. Each course's syllabus references this one path.
+
 ---
 
 ## Part 3 — Per-course design sketches
 
-Each follows the house format (`course-template/`): `curriculum.md` syllabus,
-`progress.template.md`, `.claude/commands/lesson.md`, `CLAUDE.md`. Phase counts are
+Each follows the house format (`course-template/`): `syllabus.md` (the renamed
+per-course listing), `progress.template.md`, `.claude/commands/lesson.md`,
+`CLAUDE.md`. Phase counts are
 provisional. Theory-lean vs implementation-lean is recorded per learner in
 `progress.md` (as in `quantum-states`/`flow-matching`/`room-acoustics`).
 
-### Course 1 — `neural-audio-codecs`
+### Course 1 — `audio-codecs` (Neural Audio Codecs)
 
 *One-line scope:* How raw audio is turned into the tokens and latents that every
 modern audio generator consumes — and why the discrete-vs-continuous choice splits
@@ -190,7 +220,7 @@ the whole field.
   7 Capstone: encode/decode the clip through a real codec, inspect the codebooks.
 - **Source:** `/w/music423-2023/ai-audio-codecs/wiki/`.
 
-### Course 2 — `audio-codec-language-models`
+### Course 2 — `audio-codec-lms` (Audio Codec Language Models)
 
 *One-line scope:* Generating audio by predicting codec tokens with Transformers —
 the AudioLM/MusicGen lineage — through autoregressive, masked, and performance-synthesis
@@ -209,7 +239,7 @@ variants.
   8 Capstone: run MusicGen/AudioCraft — generate, continue, infill.
 - **Source:** `/w/music423-2023/ai-music-audio-gen/wiki/` (codec-LM pages).
 
-### Course 3 — `audio-diffusion-and-the-dit`
+### Course 3 — `audio-diffusion-dit` (Audio Diffusion & the DiT)
 
 *One-line scope:* Generating audio by diffusion/flow in a continuous VAE latent —
 the AudioLDM→Stable-Audio→DiT lineage — up to full-song and hybrid LM-planner systems.
@@ -260,10 +290,11 @@ flow-matching / room-acoustics courses do).
   (the way `flow-matching` cites `/l/dttd/FlowStuff/` and `ai-miracle-decade-plus`
   links the meta-wiki). The wiki stays canonical; courses stay pedagogical. Keep
   them in sync when the wiki gains papers.
-- **Naming.** `ai-music-audio` is the **curriculum** name (JOS's preference). Course
-  **slugs** are unprefixed and descriptive (repo style: `flow-matching`,
-  `room-acoustics`). Open question: prefix the three with `audio-` for sort-grouping
-  (`audio-codecs`, `audio-codec-lms`, `audio-diffusion-dit`) vs leave as proposed.
+- **Naming (decided).** `ai-music-audio` is the **curriculum** name (JOS's preference).
+  Course **slugs** are **`audio-`-prefixed** for sort-grouping: `audio-codecs`,
+  `audio-codec-lms`, `audio-diffusion-dit`. Human-readable titles (Neural Audio Codecs,
+  Audio Codec Language Models, Audio Diffusion & the DiT) live in the syllabus + README
+  row, not the folder name.
 - **Tooling/runtime.** Standard repo machinery (`/lesson`, `./take`, `COURSES_DATA_DIR`
   learner state) is reused as-is. Capstones need `torch`/`torchaudio` and a GPU-or-Colab
   path for the heavier generators (MusicGen, Stable Audio Open, DiffRhythm) — call out
@@ -275,30 +306,37 @@ flow-matching / room-acoustics courses do).
 
 ---
 
-## Part 5 — Open questions for next session
+## Part 5 — Open questions — ALL RESOLVED (2026-06-07)
 
-1. ~~**Sequence terminology**~~ — **✅ Decided 2026-06-07:** **syllabus** (per course)
-   + **curriculum** (top-level sequence). Repo-wide rename `curriculum.md → syllabus.md`
-   pending (see Part 1 checklist). "Program" set aside.
-2. **Course count** — 3 (recommended) vs 2 (fold codecs in) vs 4 (split out
-   symbolic/performance)?
-3. **Course slugs** — bare descriptive vs `audio-`-prefixed for grouping?
-4. **Through-line clip** — adopt the shared 2-second piano phrase across all three?
-   If so, pick the actual clip and where it's stored (it's content, so in-repo).
-5. **Capstone compute** — assume Colab/GPU, or design CPU-only fallbacks throughout?
-6. **`flow-matching` dependency** — hard prereq for course 3, or self-contained primer
-   + link-out?
-7. **Scope of course 1's DSP** — how far into signal processing (JOS's home turf) do we
-   go, given the *learners* may be ML-first? (Likely: brisk, intuition-first, link to
-   JOS's DSP books for depth.)
+See the **Decisions locked** block near the top for the canonical list. Summary:
 
-## Part 6 — Build order (once decisions are made)
+1. ~~Sequence terminology~~ → **syllabus** (per course) + **curriculum** (sequence).
+   Repo-wide rename `curriculum.md → syllabus.md` pending (Part 1 checklist).
+2. ~~Course count~~ → **3** (4-course symbolic/performance split kept as future option).
+3. ~~Course slugs~~ → **`audio-`-prefixed**: `audio-codecs`, `audio-codec-lms`,
+   `audio-diffusion-dit`.
+4. ~~Through-line clip~~ → **yes, shared clip**; in-repo under `curricula/assets/`,
+   freely licensed solo-piano ~2 s (final clip chosen at build time).
+5. ~~Capstone compute~~ → **CPU/Colab fallbacks throughout**, tiered a/b/c.
+6. ~~`flow-matching` dependency~~ → **enrichment, not a gate**: course 3 ships a
+   self-contained rectified-flow primer + links to `flow-matching/`.
+7. ~~Course 1 DSP scope~~ → **brisk, intuition-first**, one phase, link out to JOS's
+   DSP books.
 
-1. Land the **curricula concept** (Option A): `curricula/README.md`,
-   `curricula/ai-music-audio.md`, and a Curricula table in the top-level `README.md`.
-   Backfill the latent curricula (AI Generative Media; Buddhism) to prove the format.
-2. Author **`neural-audio-codecs`** first (it's the shared foundation and the lightest).
-3. Then **`audio-codec-language-models`**, then **`audio-diffusion-and-the-dit`**
-   (which can lean on `flow-matching`).
-4. Add rows to the top-level Courses table and to `NewCoursesPlan.md`'s status snapshot
+## Part 6 — Build order (decisions locked — ready to execute)
+
+0. **Repo-wide rename** `curriculum.md → syllabus.md` (8 courses + `course-template/`),
+   then grep-and-update references in each `.claude/commands/lesson.md`, `CLAUDE.md`,
+   `README.md`, `course-template/README.md`, `NewCoursesPlan.md`, and `./take` if it
+   names the file (Part 1 checklist). No back-compat.
+1. Land the **curricula concept**: `curricula/README.md`, `curricula/ai-music-audio.md`,
+   `curricula/assets/ai-music-audio/` (the through-line clip), and a Curricula table in
+   the top-level `README.md`. Backfill latent curricula (AI Generative Media; Buddhism)
+   to prove the format.
+2. Author **`audio-codecs`** first (shared foundation, lightest; brisk DSP phase).
+3. Then **`audio-codec-lms`**, then **`audio-diffusion-dit`** (self-contained
+   rectified-flow primer + link to `flow-matching/`).
+4. Each course ships tiered capstones (CPU/Colab/local-GPU) and wires the through-line
+   clip into its qubit.
+5. Add rows to the top-level Courses table and to `NewCoursesPlan.md`'s status snapshot
    as each lands.
