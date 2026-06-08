@@ -55,6 +55,21 @@ between courses 2 and 3** — the structure teaches the distinction.
 - [`../ai-miracle-decade-plus/`](../ai-miracle-decade-plus/) — a survey companion that
   can run in parallel; it already links the `music423-2023` meta-wiki.
 
+### Capstone (the destination the thread feeds)
+
+- [`../neural-audio-resynthesis/`](../neural-audio-resynthesis/) — the **capstone meta-course**:
+  *creating and editing audio with neural methods.* Not a new body of theory but an **integration
+  course** — it **surveys** the field (parametric/DDSP → codec-LM → continuous-VAE/DiT →
+  resynthesis-as-editing), then **drills the load-bearing survivors** into the **encode→steer→decode**
+  loop: an SSL conditioning latent (`audio-ssl-representations/`) + a disentangling inductive bias
+  (`disentanglement/`) + a rectified-flow-DiT decoder (`flow-matching/` + course 3) = the
+  resynthesis paradigm (static recording → **steerable object**), closing on the **no-reference
+  evaluation** problem and the open frontier. Where the enrichment courses each teach **one box** of
+  the loop, this **assembles the loop** and asks what it would take to *steer* it. **Plunge-in
+  friendly — no hard prereq gates** (strong recommendations + recall-primers). Pinned to the shared
+  piano clip — *resynthesize a variation that preserves identity, A/B listen.* The curriculum is
+  complete; this is the capstone it points to.
+
 ## Through-line
 
 One shared **~2-second solo-piano phrase** is carried across all three courses (per-course

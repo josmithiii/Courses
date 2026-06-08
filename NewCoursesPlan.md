@@ -22,7 +22,7 @@ philosophy and practice are split where they'd otherwise blur.
 | `hindu-philosophy/` (working title) | 💭 Candidate | Upaniṣads + Advaita Vedānta (Śaṅkara). Home for "we are all eyes of God" (*ātman = Brahman*) and "God playing hide-and-seek with himself" (*līlā*). JOS is interested. |
 | `disentanglement/` | 🟢 **Active** | Just landed. Disentangled representation learning: InfoGAN → β-VAE → Burgess (information bottleneck) → FactorVAE / β-TCVAE (**isolating total correlation**) → **Locatello's impossibility result** → pitch/timbre audio (Luo). ~15–18 sessions, 9 phases (0–8). Two-part keystone = **the decomposition & the impossibility** (`the-decomposition.md`): TC is the disentanglement driver, but the objective alone can't identify factors without an inductive bias. Pinned to **dSprites** (latent traversals + MIG) with an audio pitch/timbre payoff; tiered a/b/c capstone (CPU dSprites / Colab multi-seed / local-GPU audio swap). Standalone; **enrichment** for the AI Music & Audio curriculum. Source of truth: new `music423-2023/disentanglement/` wiki. |
 | `audio-ssl-representations/` | 🟢 **Active** | Just landed. The **encoder side** the AI Music & Audio curriculum only ever treated *instrumentally* (as the source of "semantic tokens"). Self-supervised audio representation learning as a subject in its own right: contrastive (**wav2vec 2.0**) → masked prediction (**HuBERT**) → *the target shapes the representation* (data2vec / w2v-BERT / **BEST-RQ**) → music (**MERT**: EnCodec + CQT teachers) → **probing** → the resynthesis gap (not invertible, not disentangled). ~18–22 sessions, 8 phases (0–7). Two-part keystone = **the pretext task & the target** (`the-pretext-task.md`): SSL grows a *shadow of its prediction target*, so an understanding-grade encoder is neither invertible nor factor-disentangled. Pinned to the curriculum's shared **piano clip**, probed **layer by layer** (specialization curve as oracle); tiered a/b/c capstone (CPU probes / Colab two-encoder / local-GPU invert-and-listen). Standalone; **encoder-side enrichment** for AI Music & Audio and **sibling of `disentanglement/`**. Source of truth: `music423-2023/ai-music-audio-gen/` wiki. |
-| `neural-audio-resynthesis/` | 💭 Candidate (capstone **meta-course**) | The **integration course** — not a new body of theory but a *survey + drill-down* that ties the prerequisites/enrichments together for one express purpose: **creating audio with neural methods.** Surveys the field (parametric → codec-LM → diffusion/DiT → resynthesis-as-editing), then **drills down on the load-bearing survivors**: a self-supervised conditioning representation (`audio-ssl-representations/`) + a disentangling inductive bias (`disentanglement/`) + a rectified-flow-DiT decoder (`flow-matching/` + `audio-diffusion-dit/`) = **the neural-audio-resynthesis paradigm** (static recording → steerable object), closing with the **evaluation challenge** (no ground-truth target for a "coherent variation"). Draws on all of the above as prereqs/enrichments; lands `disentanglement/`'s Phase 8.4 & `audio-ssl-representations/`'s Phase 7 "open frontier" as a course. Deferred until those feeder courses are exercised. |
+| `neural-audio-resynthesis/` | 🟢 **Active** (capstone **meta-course**) | Just landed. The **integration course** — not a new body of theory but a *survey + drill-down* that ties the prerequisites/enrichments together for one express purpose: **creating and editing audio with neural methods.** Surveys the field (parametric/DDSP → codec-LM → continuous-VAE/DiT → resynthesis-as-editing), then **drills the load-bearing survivors** into the **encode→steer→decode** loop: a self-supervised conditioning representation (`audio-ssl-representations/`) + a disentangling inductive bias (`disentanglement/`) + a rectified-flow-DiT decoder (`flow-matching/` + `audio-diffusion-dit/`) = **the neural-audio-resynthesis paradigm** (static recording → steerable object), closing with the **no-reference evaluation challenge** and the open frontier. ~20–25 sessions, 9 phases (0–8), three acts (survey → drill-down → evaluation). Two-part keystone = **the resynthesis loop & the control problem** (`the-resynthesis-loop.md`): the latent is expressive but illegible; the game is winning back legible control. Pinned to the shared **piano clip** — *resynthesize a variation that preserves identity*, A/B listen (ear-first oracle); tiered a/b/c capstone (**RAVE on CPU** / Colab flow-conditioning / local-GPU MERT-latent DiT). **Plunge-in friendly — no hard prereq gates** (strong recommendations + recall-primers); **capstone enrichment** for AI Music & Audio. Source of truth: `music423-2023/ai-music-audio-gen/` wiki (+ diffusion, disentanglement, ddsp). Design spec: [`NeuralAudioResynthesisPlan.md`](NeuralAudioResynthesisPlan.md). |
 
 Legend: 🟢 active · ⚪ planned · 💭 candidate (not committed)
 
@@ -207,16 +207,18 @@ draws on.
   Two-part keystone (`the-pretext-task.md`): SSL grows a *shadow of its
   prediction target*, so a great MIR encoder is **neither invertible nor
   disentangled** — which is exactly what hands off to the meta-course.
-- **`neural-audio-resynthesis/`** — reframed as a **capstone meta-course**
+- **`neural-audio-resynthesis/`** — 🟢 **authored** as the **capstone meta-course**
   (JOS's framing): not new theory but a *survey + drill-down* whose express
-  purpose is **creating audio with neural methods.** It surveys the field,
-  then drills into the **load-bearing survivors** and shows them composing
-  into the neural-audio-resynthesis paradigm: SSL conditioning representation
-  (`audio-ssl-representations/`) + disentangling inductive bias
+  purpose is **creating and editing audio with neural methods.** It surveys the
+  field, then drills the **load-bearing survivors** into the **encode→steer→decode**
+  loop, composing them into the neural-audio-resynthesis paradigm: SSL conditioning
+  representation (`audio-ssl-representations/`) + disentangling inductive bias
   (`disentanglement/`) + rectified-flow-DiT decoder (`flow-matching/` +
-  `audio-diffusion-dit/`), closing on the no-reference evaluation problem.
-  Deferred until the feeder courses are exercised — it's the integration
-  layer, most valuable once its prerequisites are real.
+  `audio-diffusion-dit/`), closing on the no-reference evaluation problem and the
+  open frontier. Two-part keystone (`the-resynthesis-loop.md`): the latent is
+  *expressive but illegible*; the game is winning back legible control. **Plunge-in
+  friendly — no hard prereq gates** (strong recommendations + recall-primers). Design
+  spec and resolved decisions: [`NeuralAudioResynthesisPlan.md`](NeuralAudioResynthesisPlan.md).
 
 **The dependency picture (what feeds the meta-course):**
 
