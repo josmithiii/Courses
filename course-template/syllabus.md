@@ -1,4 +1,4 @@
-# {{COURSE TITLE}} Curriculum
+# {{COURSE TITLE}} Syllabus
 
 **Learner profile:** _(describe the assumed starting point — background expected,
 tools available, math/code comfort)_. So: intuition first, visuals and analogies

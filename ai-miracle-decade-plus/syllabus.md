@@ -1,4 +1,4 @@
-# AI Miracle Decade+ — Curriculum
+# AI Miracle Decade+ — Syllabus
 
 **Live orientation page:** <https://josmithiii.github.io/ai-miracle-decade-plus/>
 — a one-screen visual overview of the 12 phases with every paper linked.

@@ -1,4 +1,4 @@
-# AI Curriculum — Complete Beginner → Modern LLMs
+# AI Syllabus — Complete Beginner → Modern LLMs
 
 **Learner profile:** New to ML, new to Python, math is rusty. So: intuition first,
 visuals and analogies before notation, Python and math taught *just-in-time* as each

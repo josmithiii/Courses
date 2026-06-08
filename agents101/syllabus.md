@@ -1,4 +1,4 @@
-# agents101 — Curriculum
+# agents101 — Syllabus
 
 A practical course on building, running, and overseeing a fleet of
 local AI agents. Distilled from a real day-long session where Claude

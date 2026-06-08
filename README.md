@@ -12,6 +12,17 @@ learner's personal progress and lesson journal live *outside* the repo, so the
 repo stays pristine and the system is multi-user / web-app ready (a future web app
 just repoints the data location per user — see "Architecture" below).
 
+## Curricula
+
+A **curriculum** is an ordered *sequence* of courses sharing a goal (a *syllabus* is one
+course; a *curriculum* is a program of study). They're a thin overlay — each course still
+stands alone — declared in [`curricula/`](curricula/). See [`curricula/README.md`](curricula/README.md).
+
+| Curriculum | Status | Sequence |
+|------------|--------|----------|
+| [AI Music & Audio](curricula/ai-music-audio.md) | 🟡 Building | `ai-foundations` → `audio-codecs` → `audio-codec-lms` → `audio-diffusion-dit` (enrichment: `flow-matching`) |
+| [Buddhist Philosophy](curricula/buddhist-philosophy.md) | 🟡 Partial | `buddhism-early-philosophy` → `buddhism-mahayana-philosophy` |
+
 ## Courses
 
 | Course | Status | What it covers |
