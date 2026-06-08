@@ -41,6 +41,10 @@ between courses 2 and 3** — the structure teaches the distinction.
 - [`../flow-matching/`](../flow-matching/) — its conditional-flow-matching / rectified-flow
   spine is the training objective behind FluxMusic and modern audio DiTs. Recommended
   *before or alongside* course 3, which ships a self-contained primer and links here for depth.
+- [`../disentanglement/`](../disentanglement/) — *what a VAE latent encodes.* The representation
+  side of the continuous-VAE branch (course 3's `latent canvas`): total correlation, the
+  impossibility result, and pitch/timbre audio disentanglement. Any time after a VAE is
+  understood; deepens *why* the latent is the thing we generate.
 - [`../ai-miracle-decade-plus/`](../ai-miracle-decade-plus/) — a survey companion that
   can run in parallel; it already links the `music423-2023` meta-wiki.
 
