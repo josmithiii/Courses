@@ -17,7 +17,7 @@ not a gate — each course still stands alone.
 
 | Curriculum | Status | Sequence |
 |------------|--------|----------|
-| [`ai-music-audio.md`](ai-music-audio.md) | 🟡 Building | `ai-foundations` → `audio-codecs` → `audio-codec-lms` → `audio-diffusion-dit` (enrichment: `flow-matching`) |
+| [`ai-music-audio.md`](ai-music-audio.md) | 🟢 Complete | `ai-foundations` → `audio-codecs` → `audio-codec-lms` → `audio-diffusion-dit` (enrichment: `flow-matching`, `disentanglement`) |
 | [`buddhist-philosophy.md`](buddhist-philosophy.md) | 🟡 Partial | `buddhism-early-philosophy` → `buddhism-mahayana-philosophy` |
 
 ## What a `curricula/<name>.md` file declares

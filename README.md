@@ -20,7 +20,7 @@ stands alone — declared in [`curricula/`](curricula/). See [`curricula/README.
 
 | Curriculum | Status | Sequence |
 |------------|--------|----------|
-| [AI Music & Audio](curricula/ai-music-audio.md) | 🟢 Complete | `ai-foundations` → `audio-codecs` → `audio-codec-lms` → `audio-diffusion-dit` (enrichment: `flow-matching`) |
+| [AI Music & Audio](curricula/ai-music-audio.md) | 🟢 Complete | `ai-foundations` → `audio-codecs` → `audio-codec-lms` → `audio-diffusion-dit` (enrichment: `flow-matching`, `disentanglement`) |
 | [Buddhist Philosophy](curricula/buddhist-philosophy.md) | 🟡 Partial | `buddhism-early-philosophy` → `buddhism-mahayana-philosophy` |
 
 ## Courses
