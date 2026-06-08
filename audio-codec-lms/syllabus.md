@@ -248,7 +248,7 @@ Record this in the data-dir `progress.md` mastery log.
 This course is the *pedagogical* front-end of a curated knowledge base; the wiki stays
 canonical, the course stays pedagogical. Read / link these on JOS's machine:
 
-- **`/w/music423-2023/ai-music-audio-gen/wiki/`** — the home wiki (codec-LM half).
+- **[`ai-music-audio-gen/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/ai-music-audio-gen/wiki)** — the home wiki (codec-LM half).
   Concept pages: `concepts/generation-paradigms.md` (AR vs masked vs diffusion),
   `concepts/codec-based-generation.md` (the two-stage pipeline + multi-stream table),
   `concepts/text-to-music-conditioning.md`,
@@ -258,7 +258,7 @@ canonical, the course stays pedagogical. Read / link these on JOS's machine:
   `stack-and-delay`, `magnet`, `midi-valle`, **`speech-ssl-foundations`** (wav2vec 2.0 +
   HuBERT) and **`mert`** (HuBERT-for-music — the semantic-representation lineage behind
   Phase 3.2) (and `overview.md` for the arc).
-- **`/w/music423-2023/ai-audio-codecs/wiki/`** — course 1's wiki, for codec/token recall
+- **[`ai-audio-codecs/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/ai-audio-codecs/wiki)** — course 1's wiki, for codec/token recall
   (SoundStream, EnCodec, DAC, SoundStorm).
 - Keep the course in sync if the wiki gains papers; the wiki is canonical, the course is
   the lesson plan over it.

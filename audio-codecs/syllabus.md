@@ -239,7 +239,7 @@ Record this in the data-dir `progress.md` mastery log.
 This course is the *pedagogical* front-end of a curated knowledge base; the wiki stays
 canonical, the course stays pedagogical. Read / link these on JOS's machine:
 
-- **`/w/music423-2023/ai-audio-codecs/wiki/`** — the home wiki for this course.
+- **[`ai-audio-codecs/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/ai-audio-codecs/wiki)** — the home wiki for this course.
   Key pages: `overview.md` (the convergence arc), `vector-quantization.md`,
   `residual-vector-quantization.md`, `neural-audio-codecs.md`, `codebook-learning.md`
   (collapse + fixes + FSQ), `audio-representations.md`, `bitrate-scalability.md`,

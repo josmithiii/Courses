@@ -265,7 +265,7 @@ Record this in the data-dir `progress.md` mastery log.
 This course is the *pedagogical* front-end of a curated knowledge base; the wiki stays canonical,
 the course stays pedagogical. Read / link these on JOS's machine:
 
-- **`/w/music423-2023/ai-music-audio-gen/wiki/`** — the home wiki. Concept page:
+- **[`ai-music-audio-gen/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/ai-music-audio-gen/wiki)** — the home wiki. Concept page:
   **`concepts/self-supervised-audio-representations.md`** (the two epistemologies, the
   representation→decoder→generator stack, and the disentanglement frontier — this course's
   spine). Source summaries: **`sources/speech-ssl-foundations.md`** (the speech-SSL ladder —
@@ -273,9 +273,9 @@ the course stays pedagogical. Read / link these on JOS's machine:
   **`sources/mert.md`** (HuBERT-for-music), `sources/rave.md` (the invertible β-VAE counterpoint),
   `sources/audiolm.md` (w2v-BERT semantic tokens), `sources/fluxmusic.md` / `sources/dit.md`
   (the rectified-flow DiT decoder).
-- **`/w/music423-2023/ai-audio-codecs/wiki/`** — for the **EnCodec** teacher (Phase 5.2) and the
+- **[`ai-audio-codecs/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/ai-audio-codecs/wiki)** — for the **EnCodec** teacher (Phase 5.2) and the
   autoencoder-vs-SSL contrast (Phase 1.4): `sources/encodec.md`, `overview.md`.
-- **`/w/music423-2023/disentanglement/wiki/`** — for Phase 7.2: `audio-disentanglement.md`,
+- **[`disentanglement/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/disentanglement/wiki)** — for Phase 7.2: `audio-disentanglement.md`,
   `overview.md` (the impossibility result and why factor-naming needs an inductive bias).
 - Keep the course in sync if the wiki gains papers; the wiki is canonical, the course is the
   lesson plan over it.

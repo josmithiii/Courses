@@ -309,16 +309,16 @@ This course is the *pedagogical* front-end of curated knowledge bases; the wikis
 the course stays pedagogical. It teaches from the **same wikis as its feeders**. Read / link these
 on JOS's machine:
 
-- **`/w/music423-2023/ai-music-audio-gen/wiki/`** — the home wiki. Concept pages:
+- **[`ai-music-audio-gen/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/ai-music-audio-gen/wiki)** — the home wiki. Concept pages:
   **`concepts/self-supervised-audio-representations.md`** (literally the resynthesis concept page —
   *the* spine), `concepts/codec-based-generation.md` (the discrete-LM route set aside in Phase 2).
   Source summaries: `sources/rave.md` (the tier-a audible loop), `sources/mert.md` (the encode
   box), `sources/fluxmusic.md` / `sources/dit.md` (the rectified-flow DiT decode box),
   `sources/stable-audio.md`, `sources/audiolm.md`, `sources/musicgen.md` (the survey).
-- **`/w/music423-2023/diffusion/wiki/`** — the **DiT / rectified-flow decoder** side (Phase 5).
-- **`/w/music423-2023/disentanglement/wiki/`** — the **inductive-bias / control** side (Phase 4):
+- **[`diffusion/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/diffusion/wiki)** — the **DiT / rectified-flow decoder** side (Phase 5).
+- **[`disentanglement/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/disentanglement/wiki)** — the **inductive-bias / control** side (Phase 4):
   `audio-disentanglement.md`, the impossibility result and why factor-naming needs a bias.
-- **`/w/music423-2023/ddsp/wiki/`** — the **parametric contrast** (Phase 1.1), legible-but-bounded.
+- **[`ddsp/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/ddsp/wiki)** — the **parametric contrast** (Phase 1.1), legible-but-bounded.
 - Same contract as the other courses: the wikis stay canonical, the course stays the pedagogical
   front-end; keep in sync as wikis gain papers.
 

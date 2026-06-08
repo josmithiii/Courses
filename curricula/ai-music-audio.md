@@ -1,7 +1,8 @@
 # AI Music & Audio
 
-**Status:** 🟢 Complete — the spine is fixed and all three courses are authored
-(see [`../AiMusicAudioPlan.md`](../AiMusicAudioPlan.md) for the full design spec).
+**Status:** 🟢 Complete — a 3-course core spine (codecs → codec-LMs → diffusion/DiT),
+plus enrichments and a capstone (below). *Design spec:
+[`../AiMusicAudioPlan.md`](../AiMusicAudioPlan.md).*
 
 ## Goal
 
@@ -86,9 +87,10 @@ The clip and its license live in [`assets/ai-music-audio/`](assets/ai-music-audi
 
 ## Source of truth
 
-The courses *teach from* and *link into* the curated wikis (canonical) while staying
-pedagogical themselves. Keep courses in sync when the wikis gain papers.
+The courses *teach from* and *link into* curated wikis (the canonical knowledge base) while
+staying pedagogical themselves — the wikis are the record; the courses are the front-end over
+them. Browse them on the CCRMA GitLab:
 
-- `/w/music423-2023/ai-audio-codecs/wiki/` — course 1.
-- `/w/music423-2023/ai-music-audio-gen/wiki/` — courses 2 & 3 (codec-LM and diffusion halves).
-- `/w/music423-2023/diffusion/wiki/` — course 3.
+- [`ai-audio-codecs/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/ai-audio-codecs/wiki) — course 1.
+- [`ai-music-audio-gen/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/ai-music-audio-gen/wiki) — courses 2 & 3 (codec-LM and diffusion halves).
+- [`diffusion/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/diffusion/wiki) — course 3.

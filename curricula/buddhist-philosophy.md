@@ -1,7 +1,6 @@
 # Buddhist Philosophy
 
-**Status:** 🟡 Partial — course 1 is active; course 2 is planned. This curriculum
-documents a sequence that already exists informally in the repo, to validate the format.
+**Status:** 🟡 Partial — course 1 is active; course 2 is planned.
 
 ## Goal
 

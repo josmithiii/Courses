@@ -235,14 +235,14 @@ Record this in the data-dir `progress.md` mastery log.
 This course is the *pedagogical* front-end of a curated knowledge base; the wiki stays
 canonical, the course stays pedagogical. Read / link these on JOS's machine:
 
-- **`/w/music423-2023/disentanglement/wiki/`** — the home wiki. Concept pages:
+- **[`disentanglement/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/disentanglement/wiki)** — the home wiki. Concept pages:
   `overview.md` (the 2016→2019 arc), **`vae-disentanglement-methods.md`** (the β-VAE → TC line +
   the key identity), **`disentanglement-metrics.md`** (β-VAE / FactorVAE / MIG, and why they
   disagree), **`audio-disentanglement.md`** (the music-domain instance + resynthesis frontier).
   Source summaries: `infogan-chen-2016`, `beta-vae-higgins-2017`,
   `burgess-understanding-beta-vae-2018`, `factorvae-kim-2018`, `beta-tcvae-chen-2018`,
   `locatello-2019`, `timbre-pitch-luo-2019`.
-- **`/w/music423-2023/ai-music-audio-gen/wiki/`** — for the audio bridge:
+- **[`ai-music-audio-gen/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/ai-music-audio-gen/wiki)** — for the audio bridge:
   `concepts/self-supervised-audio-representations.md` (resynthesis, the open frontier) and
   `sources/rave.md` (the β knob in a real audio VAE).
 - Keep the course in sync if the wiki gains papers; the wiki is canonical, the course is the

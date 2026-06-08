@@ -282,7 +282,7 @@ Record this in the data-dir `progress.md` mastery log.
 This course is the *pedagogical* front-end of a curated knowledge base; the wikis stay
 canonical, the course stays pedagogical. Read / link these on JOS's machine:
 
-- **`/w/music423-2023/diffusion/wiki/`** — the diffusion home wiki. Concept pages:
+- **[`diffusion/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/diffusion/wiki)** — the diffusion home wiki. Concept pages:
   `diffusion-fundamentals.md` (DDPM / score / SDE — three views of one model),
   `latent-diffusion-models.md` (the VAE + LDM paradigm), `audio-diffusion.md` (the
   audio pipeline), **`flow-matching-rectified-flow.md`** (the canonical source for
@@ -294,13 +294,13 @@ canonical, the course stays pedagogical. Read / link these on JOS's machine:
   `audioldm2-liu-2023`, `tango-ghosal-2023`, `noise2music-huang-2023`,
   `mousai-schneider-2023`, `multiband-diffusion-roman-2023`, `ditto-novack-2024`,
   `emd-one-step-2024`.
-- **`/w/music423-2023/ai-music-audio-gen/wiki/`** — the generation wiki (diffusion half).
+- **[`ai-music-audio-gen/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/ai-music-audio-gen/wiki)** — the generation wiki (diffusion half).
   `overview.md` (Phase 5: the VAE→DiT standard), `concepts/generation-paradigms.md` (AR
   vs masked vs **diffusion** — the comparison table), `concepts/codec-based-generation.md`
   (the continuous-latent alternative + the semantic-token challenge). Source summaries:
   **`dit`**, **`stable-audio`**, **`diffusion-long-form-music`**, **`fluxmusic`**,
   **`diffrhythm`**, **`ace-step`**.
-- **`/w/music423-2023/ai-audio-codecs/wiki/`** — course 1's wiki, for the **continuous
+- **[`ai-audio-codecs/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/ai-audio-codecs/wiki)** — course 1's wiki, for the **continuous
   VAE** recall the whole course rests on.
 - Keep the course in sync if the wikis gain papers; the wikis are canonical, the course
   is the lesson plan over them.
