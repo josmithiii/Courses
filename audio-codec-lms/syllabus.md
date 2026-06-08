@@ -94,7 +94,12 @@ infill the clip.
 - **3.2** **AudioLM's insight (2022): two kinds of token.** **Semantic** tokens (from a
   self-supervised model, w2v-BERT) capture structure — melody, rhythm, "syntax" — but
   reconstruct poorly. **Acoustic** tokens (from a SoundStream/EnCodec RVQ) capture
-  fidelity but lack structure. Use **both**.
+  fidelity but lack structure. Use **both**. *(Where semantic tokens come from:* w2v-BERT
+  descends from the **speech self-supervised** line — **wav2vec 2.0** (contrastive) →
+  **HuBERT** (masked prediction of cluster IDs) — models that learn structure from
+  *unlabeled* audio by masking and predicting in latent space. **MERT** is the
+  music-domain analogue. See the wiki's
+  `concepts/self-supervised-audio-representations.md`.)*
 - **3.3** **The hierarchical pipeline.** Generate **semantic tokens first** (structure),
   then **acoustic tokens conditioned on the semantics** (fidelity), coarse RVQ levels
   before fine. Why this beats either token type alone — the result is coherent *and*
@@ -246,9 +251,13 @@ canonical, the course stays pedagogical. Read / link these on JOS's machine:
 - **`/w/music423-2023/ai-music-audio-gen/wiki/`** — the home wiki (codec-LM half).
   Concept pages: `concepts/generation-paradigms.md` (AR vs masked vs diffusion),
   `concepts/codec-based-generation.md` (the two-stage pipeline + multi-stream table),
-  `concepts/text-to-music-conditioning.md`. Source summaries: `wavenet`, `samplernn`,
-  `nsynth`, `jukebox`, `audiolm`, `musiclm`, `musicgen`, `vampnet`, `stack-and-delay`,
-  `magnet`, `midi-valle` (and `overview.md` for the arc).
+  `concepts/text-to-music-conditioning.md`,
+  `concepts/self-supervised-audio-representations.md` (the **semantic-token** backstory —
+  where w2v-BERT/MERT come from; relevant to Phase 3). Source summaries: `wavenet`,
+  `samplernn`, `nsynth`, `jukebox`, `audiolm`, `musiclm`, `musicgen`, `vampnet`,
+  `stack-and-delay`, `magnet`, `midi-valle`, **`speech-ssl-foundations`** (wav2vec 2.0 +
+  HuBERT) and **`mert`** (HuBERT-for-music — the semantic-representation lineage behind
+  Phase 3.2) (and `overview.md` for the arc).
 - **`/w/music423-2023/ai-audio-codecs/wiki/`** — course 1's wiki, for codec/token recall
   (SoundStream, EnCodec, DAC, SoundStorm).
 - Keep the course in sync if the wiki gains papers; the wiki is canonical, the course is

@@ -213,9 +213,11 @@ obstacle.
    [Liu 2023](https://arxiv.org/abs/2209.03003),
    [Tong 2024](https://arxiv.org/abs/2302.00482))
   are now readable. Suggested followups: Stable Diffusion 3 (uses
-  rectified flow); Meta's `flow_matching` library; the
-  Schrödinger-bridge variants (DSBM, SB-CFM); flow matching on
-  non-Euclidean spaces (manifolds, discrete data).
+  rectified flow) — and for where rectified flow lands in **audio**,
+  the [`audio-diffusion-dit`](../audio-diffusion-dit/) course (SD3 →
+  FluxMusic's rectified-flow MM-DiT for music); Meta's `flow_matching`
+  library; the Schrödinger-bridge variants (DSBM, SB-CFM); flow
+  matching on non-Euclidean spaces (manifolds, discrete data).
 
 ---
 

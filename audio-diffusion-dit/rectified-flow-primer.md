@@ -82,11 +82,22 @@ the path).
 
 ## 5. Where this lands in the course
 
+- **SD3 / Stable Diffusion 3** (Esser et al. 2024) [Phase 6.2] is the paper that made
+  the **rectified-flow transformer** standard practice — a large-scale study favoring the
+  flow objective, the **MM-DiT** backbone (separate-weight text/latent streams, joint
+  attention), and **logit-normal timestep sampling** to weight the perceptually hard
+  middle of the path. It is the [DiT](the-latent-canvas.md) backbone plus the flow
+  objective.
 - **FluxMusic** [Phase 6.2] trains its **MM-DiT** with exactly this rectified-flow
-  objective in a mel-VAE latent — the FLUX / Stable-Diffusion-3 recipe ported to music.
+  objective in a mel-VAE latent — SD3's recipe ported to music.
 - The takeaway for the keystone: the **latent canvas** [`the-latent-canvas.md`](the-latent-canvas.md)
   is denoised *either* by a noise-predicting diffusion DiT *or* a velocity-predicting
   flow DiT. Same canvas, same backbone — a swapped objective.
+
+> **Source of truth.** The curated wiki collects this precisely in
+> `/w/music423-2023/diffusion/wiki/flow-matching-rectified-flow.md` (with source
+> summaries `sources/flow-matching-lipman-2022.md`, `sources/rectified-flow-liu-2022.md`,
+> `sources/sd3-esser-2024.md`). This primer is the lesson-plan front end of those pages.
 
 > **Notation note.** Conventions vary: some papers run `t` from 0 (data) to 1 (noise),
 > the reverse of the convention used here. The flow-matching course standardizes on

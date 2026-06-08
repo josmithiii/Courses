@@ -176,10 +176,15 @@ and **MM-DiT** (FluxMusic) as an objective+architecture variant; place **DiffRhy
   [`flow-matching/`](../flow-matching/) for the full derivation.
 - **6.2** **FluxMusic (2024): the FLUX / SD3 recipe for music.** A text-to-music **MM-DiT**
   trained with **rectified flow** (not DDPM) in a **mel-VAE** latent, conditioned by
-  **T5 + CLAP**. The image world's frontier recipe, ported to audio.
-- **6.3** **MM-DiT: multimodal, two-stream.** Text and music tokens first get separate
-  (**double-stream**) attention, then are concatenated into a **single joint stream** —
-  vs vanilla DiT's single adaLN-Zero stream. The architectural step beyond Phase 3's DiT.
+  **T5 + CLAP**. The recipe was made standard practice by **SD3 / Stable Diffusion 3**
+  (Esser et al. 2024) — a large-scale study that favored rectified flow and introduced the
+  MM-DiT; FluxMusic ports it to audio, image-world frontier and all.
+- **6.3** **MM-DiT: multimodal, two-stream.** Text and music tokens get **separate weight
+  sets** ("two experts") and first attend in independent (**double-stream**) blocks, then
+  are concatenated into a **single joint** attention stream — vs vanilla DiT's single
+  adaLN-Zero stream. SD3's other lever worth knowing: **logit-normal timestep sampling**,
+  which weights training toward the perceptually hard middle of the noise→data path. The
+  architectural step beyond Phase 3's DiT.
 - **6.4** **Two misreadings to kill.** *(i)* "**flow matching is just diffusion**" —
   related but a **different objective**; the `flow-matching` course settles it. *(ii)*
   "**mel-VAE vs waveform-VAE is a paradigm change**" — both are **continuous VAE
@@ -280,11 +285,15 @@ canonical, the course stays pedagogical. Read / link these on JOS's machine:
 - **`/w/music423-2023/diffusion/wiki/`** — the diffusion home wiki. Concept pages:
   `diffusion-fundamentals.md` (DDPM / score / SDE — three views of one model),
   `latent-diffusion-models.md` (the VAE + LDM paradigm), `audio-diffusion.md` (the
-  audio pipeline), `distillation-fast-sampling.md` (DDIM, ODE solvers, distillation,
-  DITTO). Source summaries: `ddpm-ho-2020`, `ddim-song-2020`, `score-sde-song-2020`,
-  **`dit-peebles-2022`**, `audioldm-liu-2023`, `audioldm2-liu-2023`, `tango-ghosal-2023`,
-  `noise2music-huang-2023`, `mousai-schneider-2023`, `multiband-diffusion-roman-2023`,
-  `ditto-novack-2024`, `emd-one-step-2024`.
+  audio pipeline), **`flow-matching-rectified-flow.md`** (the canonical source for
+  Phase 6 and the primer — diffusion→flow, straight paths, SD3/MM-DiT),
+  `distillation-fast-sampling.md` (DDIM, ODE solvers, distillation, DITTO). Source
+  summaries: `ddpm-ho-2020`, `ddim-song-2020`, `score-sde-song-2020`,
+  **`dit-peebles-2022`**, **`flow-matching-lipman-2022`**, **`rectified-flow-liu-2022`**,
+  **`sd3-esser-2024`** (the rectified-flow MM-DiT keystone), `audioldm-liu-2023`,
+  `audioldm2-liu-2023`, `tango-ghosal-2023`, `noise2music-huang-2023`,
+  `mousai-schneider-2023`, `multiband-diffusion-roman-2023`, `ditto-novack-2024`,
+  `emd-one-step-2024`.
 - **`/w/music423-2023/ai-music-audio-gen/wiki/`** — the generation wiki (diffusion half).
   `overview.md` (Phase 5: the VAE→DiT standard), `concepts/generation-paradigms.md` (AR
   vs masked vs **diffusion** — the comparison table), `concepts/codec-based-generation.md`
@@ -306,6 +315,12 @@ canonical, the course stays pedagogical. Read / link these on JOS's machine:
   Models* (Stable Diffusion). arXiv:2112.10752.
 - **Peebles & Xie (2022)** — *Scalable Diffusion Models with Transformers (DiT)*.
   arXiv:2212.09748.
+- **Lipman et al. (2022)** — *Flow Matching for Generative Modeling*. arXiv:2210.02747.
+  *(Foundations; depth in [`rectified-flow-primer.md`](rectified-flow-primer.md) and
+  [`flow-matching/`](../flow-matching/).)*
+- **Liu et al. (2022)** — *Rectified Flow (Flow Straight and Fast)*. arXiv:2209.03003.
+- **Esser et al. (2024)** — *Scaling Rectified Flow Transformers (Stable Diffusion 3 /
+  MM-DiT)*. arXiv:2403.03206. *(The recipe FluxMusic ports to audio.)*
 - **Liu et al. (2023)** — *AudioLDM*. arXiv:2301.12503.
 - **Liu et al. (2023)** — *AudioLDM 2 (Holistic / "language of audio")*. arXiv:2308.05734.
 - **Ghosal et al. (2023)** — *Tango (Text-to-Audio with an instruction-tuned LLM)*.

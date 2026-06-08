@@ -20,6 +20,7 @@ philosophy and practice are split where they'd otherwise blur.
 | `buddhism-sutra-readings/` | 💭 Candidate | Close-reading course (Heart, Diamond, Lotus, Vimalakīrti, Laṅkāvatāra). Probably comes *after* the two philosophy courses. |
 | `buddhism-practices/` | 💭 Candidate (deferred) | Meditation, *śīla*, the Eightfold Path as instruction. JOS prefers philosophy first. Rajayana / Nanjō / "5 basic practices" thread fits here. |
 | `hindu-philosophy/` (working title) | 💭 Candidate | Upaniṣads + Advaita Vedānta (Śaṅkara). Home for "we are all eyes of God" (*ātman = Brahman*) and "God playing hide-and-seek with himself" (*līlā*). JOS is interested. |
+| `disentanglement/` (working title) | 💭 Candidate | Disentangled representation learning: β-VAE → FactorVAE / β-TCVAE → InfoGAN, Locatello's *impossibility* result, and **audio disentanglement** (Timbre-Pitch, RAVE's β-VAE latent). New `music423-2023/disentanglement/` wiki is the source of truth. Natural enrichment for the **AI Music & Audio** curriculum — *what a VAE latent encodes* — sitting beside `flow-matching/` in the modern-ML thread. |
 
 Legend: 🟢 active · ⚪ planned · 💭 candidate (not committed)
 
@@ -197,7 +198,13 @@ How each thread is being routed:
   early-Buddhism course exists (so that "early Buddhism vs. Advaita
   Vedānta" becomes a live comparison rather than a wash).
 - **Modern-ML thread successors to `flow-matching/`** — natural
-  candidates if the thread continues: a Schrödinger-bridge course
-  (DSBM, SB-CFM), a flow-on-manifolds course, or pulling the
-  trigger on `claude-code-and-tools/` and `claude-app/` (already
-  ⚪ planned in the top-level README).
+  candidates if the thread continues: **`disentanglement/`** (β-VAE →
+  FactorVAE → InfoGAN + Locatello + audio disentanglement; new
+  `music423-2023/disentanglement/` wiki) — the strongest fit, since it
+  enriches the AI Music & Audio curriculum (what a VAE latent encodes);
+  a Schrödinger-bridge course (DSBM, SB-CFM); a flow-on-manifolds
+  course; or pulling the trigger on `claude-code-and-tools/` and
+  `claude-app/` (already ⚪ planned in the top-level README).
+  *(Note: `flow-matching/` now links forward to `audio-diffusion-dit/`
+  — SD3 → FluxMusic's rectified-flow MM-DiT is where the thread lands in
+  audio, tracked in the `music423-2023/diffusion/` wiki.)*

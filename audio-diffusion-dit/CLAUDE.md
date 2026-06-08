@@ -77,9 +77,13 @@ canonical, the course stays pedagogical. Teach from and link into:
 - **`/w/music423-2023/diffusion/wiki/`** — the diffusion home wiki. Pull from
   `diffusion-fundamentals.md` (DDPM / score / SDE are one model — three views),
   `latent-diffusion-models.md` (VAE + LDM), `audio-diffusion.md` (the audio pipeline),
+  **`flow-matching-rectified-flow.md`** (Phase 6's canonical source — diffusion→flow,
+  straight paths, SD3/MM-DiT; pairs with the in-repo `rectified-flow-primer.md`),
   `distillation-fast-sampling.md` (DDIM / ODE solvers / distillation / DITTO). Source
   summaries: `ddpm-ho-2020`, `ddim-song-2020`, `score-sde-song-2020`, **`dit-peebles-2022`**,
-  `audioldm-liu-2023`, `audioldm2-liu-2023`, `tango-ghosal-2023`, `noise2music-huang-2023`,
+  **`flow-matching-lipman-2022`**, **`rectified-flow-liu-2022`**, **`sd3-esser-2024`**
+  (the rectified-flow MM-DiT keystone behind FluxMusic), `audioldm-liu-2023`,
+  `audioldm2-liu-2023`, `tango-ghosal-2023`, `noise2music-huang-2023`,
   `mousai-schneider-2023`, `multiband-diffusion-roman-2023`, `ditto-novack-2024`,
   `emd-one-step-2024`.
 - **`/w/music423-2023/ai-music-audio-gen/wiki/`** — the generation wiki (diffusion half).

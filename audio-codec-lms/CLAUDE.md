@@ -68,10 +68,13 @@ canonical, the course stays pedagogical. Teach from and link into:
 - **`/w/music423-2023/ai-music-audio-gen/wiki/`** — the home wiki (codec-LM half). Pull
   from `overview.md` (the 2016→2026 arc), `concepts/generation-paradigms.md` (AR vs
   masked vs diffusion — the comparison table is gold), `concepts/codec-based-generation.md`
-  (the two-stage pipeline + the multi-stream strategy table), and
-  `concepts/text-to-music-conditioning.md`. Source summaries: `wavenet`, `samplernn`,
-  `nsynth`, `jukebox`, `audiolm`, `musiclm`, `musicgen`, `vampnet`, `stack-and-delay`,
-  `magnet`, `midi-valle`.
+  (the two-stage pipeline + the multi-stream strategy table),
+  `concepts/text-to-music-conditioning.md`, and
+  `concepts/self-supervised-audio-representations.md` (the **semantic-token** backstory:
+  where w2v-BERT/MERT come from — use it in Phase 3 if a learner asks *where do semantic
+  tokens come from?*). Source summaries: `wavenet`, `samplernn`, `nsynth`, `jukebox`,
+  `audiolm`, `musiclm`, `musicgen`, `vampnet`, `stack-and-delay`, `magnet`, `midi-valle`,
+  **`speech-ssl-foundations`** (wav2vec 2.0 + HuBERT) and **`mert`** (HuBERT-for-music).
 - **`/w/music423-2023/ai-audio-codecs/wiki/`** — course 1's wiki, for token/codec recall
   (SoundStream, EnCodec, DAC, SoundStorm).
 - Note: the diffusion systems (`stable-audio`, `dit`, `fluxmusic`, `diffrhythm`,
