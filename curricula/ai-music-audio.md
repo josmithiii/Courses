@@ -45,6 +45,13 @@ between courses 2 and 3** — the structure teaches the distinction.
   side of the continuous-VAE branch (course 3's `latent canvas`): total correlation, the
   impossibility result, and pitch/timbre audio disentanglement. Any time after a VAE is
   understood; deepens *why* the latent is the thing we generate.
+- [`../audio-ssl-representations/`](../audio-ssl-representations/) — *how a representation is
+  learned without labels, and what it encodes.* The **encoder-side sibling** of `disentanglement/`:
+  the pretext task and *the target shapes the representation* (wav2vec 2.0 → HuBERT → MERT),
+  probing, and why an understanding-grade SSL encoder is **neither invertible nor disentangled**
+  — the gap the resynthesis paradigm must close. The curriculum otherwise treats SSL only
+  instrumentally (as the source of course 1/2's "semantic tokens"); this makes it a subject.
+  Any time after the codecs course; pairs with `disentanglement/`.
 - [`../ai-miracle-decade-plus/`](../ai-miracle-decade-plus/) — a survey companion that
   can run in parallel; it already links the `music423-2023` meta-wiki.
 

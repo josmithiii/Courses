@@ -6,7 +6,7 @@ independent threads in play: a **wisdom-traditions** thread
 matching, …). Each course is scoped to a single coherent subject;
 philosophy and practice are split where they'd otherwise blur.
 
-## Status snapshot (2026-05-27)
+## Status snapshot (2026-06-07)
 
 | Course | Status | Notes |
 |--------|--------|-------|
@@ -21,6 +21,8 @@ philosophy and practice are split where they'd otherwise blur.
 | `buddhism-practices/` | 💭 Candidate (deferred) | Meditation, *śīla*, the Eightfold Path as instruction. JOS prefers philosophy first. Rajayana / Nanjō / "5 basic practices" thread fits here. |
 | `hindu-philosophy/` (working title) | 💭 Candidate | Upaniṣads + Advaita Vedānta (Śaṅkara). Home for "we are all eyes of God" (*ātman = Brahman*) and "God playing hide-and-seek with himself" (*līlā*). JOS is interested. |
 | `disentanglement/` | 🟢 **Active** | Just landed. Disentangled representation learning: InfoGAN → β-VAE → Burgess (information bottleneck) → FactorVAE / β-TCVAE (**isolating total correlation**) → **Locatello's impossibility result** → pitch/timbre audio (Luo). ~15–18 sessions, 9 phases (0–8). Two-part keystone = **the decomposition & the impossibility** (`the-decomposition.md`): TC is the disentanglement driver, but the objective alone can't identify factors without an inductive bias. Pinned to **dSprites** (latent traversals + MIG) with an audio pitch/timbre payoff; tiered a/b/c capstone (CPU dSprites / Colab multi-seed / local-GPU audio swap). Standalone; **enrichment** for the AI Music & Audio curriculum. Source of truth: new `music423-2023/disentanglement/` wiki. |
+| `audio-ssl-representations/` | 🟢 **Active** | Just landed. The **encoder side** the AI Music & Audio curriculum only ever treated *instrumentally* (as the source of "semantic tokens"). Self-supervised audio representation learning as a subject in its own right: contrastive (**wav2vec 2.0**) → masked prediction (**HuBERT**) → *the target shapes the representation* (data2vec / w2v-BERT / **BEST-RQ**) → music (**MERT**: EnCodec + CQT teachers) → **probing** → the resynthesis gap (not invertible, not disentangled). ~18–22 sessions, 8 phases (0–7). Two-part keystone = **the pretext task & the target** (`the-pretext-task.md`): SSL grows a *shadow of its prediction target*, so an understanding-grade encoder is neither invertible nor factor-disentangled. Pinned to the curriculum's shared **piano clip**, probed **layer by layer** (specialization curve as oracle); tiered a/b/c capstone (CPU probes / Colab two-encoder / local-GPU invert-and-listen). Standalone; **encoder-side enrichment** for AI Music & Audio and **sibling of `disentanglement/`**. Source of truth: `music423-2023/ai-music-audio-gen/` wiki. |
+| `neural-audio-resynthesis/` | 💭 Candidate (capstone **meta-course**) | The **integration course** — not a new body of theory but a *survey + drill-down* that ties the prerequisites/enrichments together for one express purpose: **creating audio with neural methods.** Surveys the field (parametric → codec-LM → diffusion/DiT → resynthesis-as-editing), then **drills down on the load-bearing survivors**: a self-supervised conditioning representation (`audio-ssl-representations/`) + a disentangling inductive bias (`disentanglement/`) + a rectified-flow-DiT decoder (`flow-matching/` + `audio-diffusion-dit/`) = **the neural-audio-resynthesis paradigm** (static recording → steerable object), closing with the **evaluation challenge** (no ground-truth target for a "coherent variation"). Draws on all of the above as prereqs/enrichments; lands `disentanglement/`'s Phase 8.4 & `audio-ssl-representations/`'s Phase 7 "open frontier" as a course. Deferred until those feeder courses are exercised. |
 
 Legend: 🟢 active · ⚪ planned · 💭 candidate (not committed)
 
@@ -158,6 +160,78 @@ traditions' disagreement is worth meeting head-on, not blurred.
   RIR → parameters, or simulate with `pyroomacoustics`; (b) REW +
   light Python; (c) dataset/conceptual — no mic needed. Chosen
   partway through Phase 6.
+
+## Neural audio resynthesis — where it fits
+
+**Neural audio resynthesis is a standing end goal for this thread**
+(an upcoming talk was the proximate nudge, but it's one of many): replace
+parametric synthesis (FM, wavetable, physical modeling, spectral) with a
+**self-supervised learned latent** that captures a recording's tonal
+character, room acoustics, signal chain, and performer articulation
+*while minimizing entanglement* with the underlying composition, then
+resynthesize coherent variations with a **rectified-flow diffusion
+transformer** conditioned on that latent — turning static recordings into
+"fluid, adaptable, steerable objects." The `neural-audio-resynthesis/`
+meta-course is the eventual destination; the courses below are what it
+draws on.
+
+**Recommended study sequence (covers the paradigm, all already authored):**
+
+1. **`ai-foundations/`** *(prereq)* — MLP → Transformers → basic diffusion.
+2. **`flow-matching/`** — the **rectified-flow** training objective behind
+   the resynthesis generator (Liu 2023 is named explicitly there).
+3. **`audio-codecs/`** — raw audio → **continuous-VAE latent**; the
+   discrete-vs-continuous fork (resynthesis lives on the continuous side);
+   semantic-vs-acoustic, which first introduces SSL representations.
+4. **`audio-ssl-representations/`** — *how the conditioning representation
+   is learned without labels, and why it's neither invertible nor
+   disentangled* — the encoder side the paradigm rests on.
+5. **`audio-diffusion-dit/`** — the **rectified-flow MM-DiT** conditioned
+   on a continuous latent; *exactly* the resynthesis decoder architecture.
+6. **`disentanglement/`** — *minimizing the entanglement* between
+   attributes and composition. Its **Phase 8.4 ("the open frontier")**
+   names the program almost verbatim: self-supervised, decodable,
+   attribute-disentangled representations of *full recordings* — decoder
+   side (rectified-flow DiT / RAVE) mature, representation side unsolved.
+
+**Holes found → resolution:**
+
+- **`audio-ssl-representations/`** ✅ **built** (🟢 active). The genuine
+  gap: the curriculum touched SSL only as *the place semantic tokens come
+  from* (w2v-BERT in `audio-codecs`/`audio-codec-lms`) and never taught
+  self-supervised audio representation learning as a subject — yet the
+  resynthesis paradigm's *entire foundation* is "self-supervised learned
+  audio representations." Now a full ~18–22-session course (wav2vec 2.0 → HuBERT
+  → *the target shapes the representation* → MERT → probing → the
+  resynthesis gap), the **encoder-side sibling of `disentanglement/`**.
+  Two-part keystone (`the-pretext-task.md`): SSL grows a *shadow of its
+  prediction target*, so a great MIR encoder is **neither invertible nor
+  disentangled** — which is exactly what hands off to the meta-course.
+- **`neural-audio-resynthesis/`** — reframed as a **capstone meta-course**
+  (JOS's framing): not new theory but a *survey + drill-down* whose express
+  purpose is **creating audio with neural methods.** It surveys the field,
+  then drills into the **load-bearing survivors** and shows them composing
+  into the neural-audio-resynthesis paradigm: SSL conditioning representation
+  (`audio-ssl-representations/`) + disentangling inductive bias
+  (`disentanglement/`) + rectified-flow-DiT decoder (`flow-matching/` +
+  `audio-diffusion-dit/`), closing on the no-reference evaluation problem.
+  Deferred until the feeder courses are exercised — it's the integration
+  layer, most valuable once its prerequisites are real.
+
+**The dependency picture (what feeds the meta-course):**
+
+```
+  ai-foundations ─┬─▶ audio-codecs ─┬─▶ audio-codec-lms        (codec→LM paradigm)
+                  │                 └─▶ audio-diffusion-dit ──┐ (continuous-VAE→DiT paradigm)
+                  │                                            │
+  flow-matching ──┴──────────────────────────────────────────┤ (rectified-flow objective)
+                                                              │
+  disentanglement ──────────────── (what a latent encodes) ──┤
+  audio-ssl-representations ─────── (how it's learned) ───────┤
+                                                              ▼
+                                          neural-audio-resynthesis  (meta-course:
+                                          survey + drill-down → the neural-audio-resynthesis paradigm)
+```
 
 ## Wisdom-traditions seed (from colleague)
 
