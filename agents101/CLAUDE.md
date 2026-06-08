@@ -18,7 +18,7 @@ runtime. Personal **learner state** lives OUTSIDE the repo so the repo
 stays pristine and the system is multi-user / web-app ready.
 
 - **Content (repo):**
-  - `curriculum.md` — syllabus + teaching method (the tutor's plan)
+  - `syllabus.md` — syllabus + teaching method (the tutor's plan)
   - `progress.template.md` — seed copied on first run
   - `.claude/commands/lesson.md` — the `/lesson` command
   - `lessons/00-…11-*.md` — reference depth per topic (the tutor reads
@@ -75,4 +75,4 @@ the pedagogy. The tutor session is the primary surface.
 ## Updates between sessions
 If the learner asks to update a lesson (e.g., "lesson 5 has the wrong
 flag now"), edit `lessons/NN-*.md` directly. Curriculum changes go in
-`curriculum.md`. Both are versioned content; commit when complete.
+`syllabus.md`. Both are versioned content; commit when complete.

@@ -18,7 +18,7 @@ Shipped course **content** is versioned in this repo and is read-only at runtime
 Personal **learner state** lives OUTSIDE the repo so the repo stays pristine and the
 system is multi-user / web-app ready.
 
-- **Content (repo):** `curriculum.md` (syllabus + teaching method),
+- **Content (repo):** `syllabus.md` (syllabus + teaching method),
   `progress.template.md` (seed copied on first run),
   `.claude/commands/lesson.md`, this file.
 - **Learner state (NOT in repo):** under
@@ -134,7 +134,7 @@ themselves give them something to keep.
 
 ## Updates between sessions
 If the learner wants a topic expanded, a translation choice changed,
-or an example added, edit `curriculum.md` directly (and this file or
+or an example added, edit `syllabus.md` directly (and this file or
 `lesson.md` if the change is structural). Both are versioned content;
 commit when complete.
 

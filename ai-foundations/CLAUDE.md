@@ -11,7 +11,7 @@ Shipped course **content** is versioned in this repo and is read-only at runtime
 Personal **learner state** lives OUTSIDE the repo so the repo stays pristine and the
 system is multi-user / web-app ready.
 
-- **Content (repo):** `curriculum.md` (syllabus + teaching method),
+- **Content (repo):** `syllabus.md` (syllabus + teaching method),
   `progress.template.md` (seed copied on first run), `.claude/commands/lesson.md`,
   this file.
 - **Learner state (NOT in repo):** under `${COURSES_DATA_DIR:-$HOME/Documents/Courses-data}/ai-foundations/`

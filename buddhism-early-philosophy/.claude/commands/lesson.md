@@ -15,7 +15,7 @@ depth/pace to the learner profile recorded in their progress file
 This course separates shipped **content** (in the repo, read-only) from personal
 **learner state** (private, outside the repo, lived-in and rewritten each session):
 
-- **Content (repo, do not write here):** `curriculum.md`, `progress.template.md`,
+- **Content (repo, do not write here):** `syllabus.md`, `progress.template.md`,
   this command, `CLAUDE.md` — all in the course directory you launched from.
 - **Learner state (read AND write here):** resolve the data root as
   `${COURSES_DATA_DIR:-$HOME/Documents/Courses-data}`, then this course's state
@@ -31,10 +31,10 @@ This course separates shipped **content** (in the repo, read-only) from personal
 2. If `<data root>/buddhism-early-philosophy/progress.md` does **not** exist,
    create it by copying the repo's `progress.template.md` into that path (this is
    a brand-new learner — the next step's interview fills in the profile).
-3. Read `<data root>/buddhism-early-philosophy/progress.md` and the repo `curriculum.md`.
+3. Read `<data root>/buddhism-early-philosophy/progress.md` and the repo `syllabus.md`.
 4. If today's log `<data root>/buddhism-early-philosophy/lessons/<YYYY-MM-DD>.md`
    already exists with content, use it as today's plan; otherwise build today's
-   plan from `curriculum.md` at the "Next topic" point.
+   plan from `syllabus.md` at the "Next topic" point.
 5. Give a 2–3 sentence warm recap of the last concept and ask **one** quick recall
    question. Wait for the answer. If they're shaky, re-teach before continuing.
    - If this is **Lesson 0** (Lessons completed = 0): instead do the interview —

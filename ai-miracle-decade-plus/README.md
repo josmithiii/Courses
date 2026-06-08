@@ -7,7 +7,7 @@ budget.
 ## Where to start
 
 - **One-screen visual overview** — <https://josmithiii.github.io/ai-miracle-decade-plus/>
-- **Full prose curriculum** — [`curriculum.md`](curriculum.md)
+- **Full prose syllabus** — [`syllabus.md`](syllabus.md)
 - **Take the course interactively** —
 
   ```bash
@@ -26,7 +26,7 @@ budget.
 
 | File | What it is |
 |---|---|
-| [`curriculum.md`](curriculum.md) | Full syllabus — 12 phases, 40 papers, 7 ★ concept-page stops |
+| [`syllabus.md`](syllabus.md) | Full syllabus — 12 phases, 40 papers, 7 ★ concept-page stops |
 | [`progress.template.md`](progress.template.md) | Learner-state seed (copied to your private data dir on first run) |
 | [`.claude/commands/lesson.md`](.claude/commands/lesson.md) | The `/lesson` tutor contract |
 | [`CLAUDE.md`](CLAUDE.md) | Context for the Claude Code session (tutor only) |

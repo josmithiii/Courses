@@ -20,7 +20,7 @@ learner is invited to take it, the tutor logs it, and the spine resumes
 when they return.  The roadmap's job is to make sure that however long
 the detours last, no landmark gets quietly skipped.
 
-Phases 0 → 11 in `curriculum.md`; concept-page stops (★) connect papers
+Phases 0 → 11 in `syllabus.md`; concept-page stops (★) connect papers
 across the seven lineages described in
 [the meta-wiki overview](https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/ai-2012-to-2023/wiki/overview.md).
 
@@ -30,7 +30,7 @@ Shipped course **content** is versioned in this repo and read-only at
 runtime.  Personal **learner state** lives OUTSIDE the repo so the repo
 stays pristine and the system is multi-user / web-app ready.
 
-- **Content (repo):** `curriculum.md` (syllabus + teaching method),
+- **Content (repo):** `syllabus.md` (syllabus + teaching method),
   `progress.template.md` (seed copied on first run),
   `.claude/commands/lesson.md`, this file.
 - **Learner state (NOT in repo):** under
@@ -63,7 +63,7 @@ the exact read/seed/write steps.
   `curl -OL https://arxiv.org/pdf/<arxiv-id>.pdf && pdf2txt.py <arxiv-id>.pdf > /tmp/paper.txt`
   (any equivalent `pdf2txt` / `pdftotext` works).  For the few non-arXiv
   papers (DBN, AlexNet, GPT-1, GPT-2, AlphaGo, AlphaFold 2), the
-  curriculum link goes straight to the publisher.
+  syllabus link goes straight to the publisher.
 - **Cross-link to the meta-wiki, don't recapitulate it.** The seven
   cross-cutting concept pages
   ([meta-wiki index](https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/ai-2012-to-2023/wiki/index.md))
@@ -89,7 +89,7 @@ in link style but should stay in step on substance:
   — local relative paths (`../ai-2012-to-2023/...`) into the paper
   collection and meta-wiki that live in that same repo.
 
-When changing `curriculum.md`, `progress.template.md`,
+When changing `syllabus.md`, `progress.template.md`,
 `.claude/commands/lesson.md`, `README.md`, or this file: **also apply
 the change in the other copy** with the correct link-style adaptation.
 Periodically (every few months, or after meaningful Phase content

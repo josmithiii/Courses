@@ -14,7 +14,7 @@ recorded in their progress file (do not assume — read it).
 This course separates shipped **content** (in the repo, read-only) from personal
 **learner state** (private, outside the repo, lived-in and rewritten each session):
 
-- **Content (repo, do not write here):** `curriculum.md`, `progress.template.md`,
+- **Content (repo, do not write here):** `syllabus.md`, `progress.template.md`,
   `motivating-question.md`, this command, `CLAUDE.md` — all in the course directory
   you launched from.
 - **Learner state (read AND write here):** resolve the data root as
@@ -38,10 +38,10 @@ answer from first principles).
 2. If `<data root>/room-acoustics/progress.md` does **not** exist, create it by
    copying the repo's `progress.template.md` into that path (brand-new learner —
    the next step's interview fills in the profile).
-3. Read `<data root>/room-acoustics/progress.md` and the repo `curriculum.md`.
+3. Read `<data root>/room-acoustics/progress.md` and the repo `syllabus.md`.
 4. If today's log `<data root>/room-acoustics/lessons/<YYYY-MM-DD>.md` already
    exists with content, use it as today's plan; otherwise build today's plan from
-   `curriculum.md` at the "Next topic" point.
+   `syllabus.md` at the "Next topic" point.
 5. Give a 2–3 sentence warm recap of the last concept and ask **one** quick recall
    question. Wait for the answer. If shaky, re-teach before continuing.
    - If this is **Lesson 0** (Lessons completed = 0): instead do the interview —

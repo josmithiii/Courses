@@ -14,7 +14,7 @@
 
 ## Status
 - **Current phase:** 0 — Orientation
-- **Next topic:** 0.1 — _(first topic from curriculum.md, e.g. after the Lesson 0 interview)_
+- **Next topic:** 0.1 — _(first topic from syllabus.md, e.g. after the Lesson 0 interview)_
 - **Last session date:** (none yet)
 - **Lessons completed:** 0
 

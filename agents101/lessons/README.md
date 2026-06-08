@@ -11,7 +11,7 @@ claude                 # launches Claude Code in this directory
 /lesson                # begins (or resumes) today's ~1-hour session
 ```
 
-See `../curriculum.md` for the syllabus and `../CLAUDE.md` for the
+See `../syllabus.md` for the syllabus and `../CLAUDE.md` for the
 tutor's contract.
 
 That said, these reference files are also readable directly. If

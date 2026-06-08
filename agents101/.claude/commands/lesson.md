@@ -16,7 +16,7 @@ This course separates shipped **content** (in the repo, read-only) from
 personal **learner state** (private, outside the repo, lived-in and
 rewritten each session):
 
-- **Content (repo, do not write here):** `curriculum.md`,
+- **Content (repo, do not write here):** `syllabus.md`,
   `progress.template.md`, this command, `CLAUDE.md`, and the
   `lessons/NN-*.md` reference depth files — all in the course
   directory you launched from.
@@ -38,12 +38,12 @@ rewritten each session):
    (this is a brand-new learner — the next step's interview fills in
    the profile).
 3. Read `<data root>/agents101/progress.md` and the repo
-   `curriculum.md`. Skim the topic's `lessons/NN-*.md` reference file
+   `syllabus.md`. Skim the topic's `lessons/NN-*.md` reference file
    if relevant.
 4. If today's log
    `<data root>/agents101/lessons/<YYYY-MM-DD>.md` already exists with
    content, use it as today's plan; otherwise build today's plan from
-   `curriculum.md` at the "Next topic" point.
+   `syllabus.md` at the "Next topic" point.
 5. Give a 2–3 sentence warm recap of the last concept and ask **one**
    quick recall question. Wait for the answer. If they're shaky,
    re-teach before continuing.
