@@ -63,14 +63,16 @@ Follow the six-beat structure from `syllabus.md`:
 
 1. **Frame** the paper (~5–10 min).  Why now; what tension it tried to
    resolve; what came before; what the concept-page thread says about it.
-2. **Read together.**  Papers live on arXiv (or the original publisher
-   for the ~5 non-arXiv papers); the curriculum link goes straight there.
-   For fast skimming, arXiv's HTML view is best; for deep reading, the
-   PDF.  If the learner wants a text dump for grep/notes:
-   `curl -OL https://arxiv.org/pdf/<arxiv-id>.pdf && pdf2txt.py <arxiv-id>.pdf > /tmp/paper.txt`
-   (or any `pdf2txt`/`pdftotext`).  Reach for the `Read` tool with narrow
-   `pages:` only when figures or equations are genuinely load-bearing.
-   Never use `Read` on a PDF without converting it to text first.
+2. **Read together.**  Papers are linked from `syllabus.md`.  For arXiv papers,
+   read the **arXiv HTML** rendering — `WebFetch https://arxiv.org/html/<id>`
+   (fall back to `https://ar5iv.org/abs/<id>`): generated from the LaTeX source,
+   it preserves structure, equations, and reading order far better than a PDF
+   text dump, at bounded context cost.  The arXiv id is in the link (and in JOS's
+   local filenames, e.g. `ALiBi-2108.12409.pdf`).  For the ~5 non-arXiv papers,
+   when offline, or when the HTML is missing/broken, convert the PDF first:
+   `pdf2txt.py <paper>.pdf > /tmp/paper.txt` (any `pdf2txt`/`pdftotext` works).
+   Never `Read` a PDF directly; reach for `Read` with narrow `pages:` only when a
+   figure or equation is genuinely load-bearing and got mangled.
 3. **Probe** with one or two *open* questions — not a quiz.  Examples:
    "What's the load-bearing claim?" / "What survived the next five
    years?" / "What's the experiment that, if it failed, would have
