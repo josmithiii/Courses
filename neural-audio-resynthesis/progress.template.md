@@ -38,7 +38,7 @@
 - [ ] Can **encode → decode** the piano clip through RAVE (the loop runs end to end)
 - [ ] Can **perturb** the latent and decode a **variation** (encode-perturb-decode)
 - [ ] Can play audio / render an A/B (source vs variation) to **listen**
-- [ ] The shared **~2 s solo-piano clip** is available (from `assets/ai-music-audio/`)
+- [ ] The shared **~2 s solo-piano clip** resolves at `../curricula/assets/ai-music-audio/through-line.wav`
 - [ ] (eval) Can compute an **identity** number (embedding cosine / CLAP to source)
 - [ ] (eval) Can compute a **distribution** number (FAD to a small reference set)
 - [ ] (tier b/c, optional) Can condition a **rectified-flow / Stable-Audio-Open / MERT-latent DiT** decoder

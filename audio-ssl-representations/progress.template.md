@@ -31,7 +31,7 @@
 - [ ] Hugging Face `transformers` importable
 - [ ] A **pretrained SSL checkpoint** loads (`MERT-95M-public`, or `wav2vec2-base` / `hubert-base`)
 - [ ] Can extract **per-layer hidden states** for the piano clip (`output_hidden_states=True` → `[layers × frames × dim]`)
-- [ ] The shared **~2 s solo-piano clip** is available (from `assets/ai-music-audio/`)
+- [ ] The shared **~2 s solo-piano clip** resolves at `../curricula/assets/ai-music-audio/through-line.wav`
 - [ ] A small **labeled** probe set fetched (NSynth pitch/instrument subset, or a few GTZAN genre clips)
 - [ ] Can fit a **linear probe** (e.g. `sklearn` LogisticRegression / Ridge) on frozen features
 - [ ] (capstone tier c, optional) can attach a decoder head / tiny RAVE-or-flow decoder and play audio
