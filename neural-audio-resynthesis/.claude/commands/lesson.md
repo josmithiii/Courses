@@ -64,7 +64,9 @@ This course separates shipped **content** (in the repo, read-only) from personal
 - Keep it to roughly one hour of material. It's fine to cover just one topic.
 - For code: prefer they type and run it themselves; explain each line.
 - **Diagnostic-first.** This course's oracle is the **ear**: load a **pretrained** resynthesis
-  model (default **RAVE** — real-time, CPU-feasible), **encode** the **shared piano clip**,
+  model (default **RAVE** — real-time, CPU-feasible), **encode** the **shared piano clip** (at
+  `../curricula/assets/ai-music-audio/through-line.wav`, mono 24 kHz — the same through-line clip
+  the rest of the AI Music & Audio thread uses; if that file is missing, **fail fast and say so**),
   **perturb** the latent, **decode** a variation, and **A/B listen** — *is it recognizably the same
   source, yet genuinely different?* Pin every claim about the loop to a variation the learner can
   hear. Two numbers **corroborate, never lead**: an **identity** score (embedding cosine / CLAP to
