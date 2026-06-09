@@ -139,7 +139,9 @@ inspect, and reconstruct the clip.
   codec) → **EnCodec** (2022, MS-STFT discriminator, gradient balancer, transformer
   entropy coding for 25–40% fewer bits) → **DAC / Improved RVQGAN** (2023, Snake
   activation, factorized codebooks fixing collapse, ~90× compression at 8 kbps). Place
-  each on a quality–bitrate map; say in one line what each *added*.
+  each on a quality–bitrate map; say in one line what each *added*. (Forward pointer: DAC's
+  encoder/decoder backbone is re-used *unchanged* by **DACVAE** in Phase 5.5 — only the RVQ
+  bottleneck is swapped out, which is the fork made literal.)
 - **4.6** **Pin to the clip.** Sweep the clip through `N_q = 1, 2, 4, 8` codebooks of a
   real codec and **listen to the quality climb**; plot bitrate vs a quality proxy.
 
@@ -162,6 +164,30 @@ inspect, and reconstruct the clip.
   continuous VAE latent); "more RVQ codebooks = independent quality"; "discrete codec
   tokens are lossless." The learner should be able to *predict the downstream paradigm*
   from the representation, and *catch* each wrong claim.
+- **5.5** **The fork made literal — DAC → DACVAE (a real-world worked example).** The
+  fork isn't only a teaching device: Meta shipped both sides on *one codebase*. **DAC**
+  (Phase 4.5) is the discrete branch (encoder → RVQ → decoder). **DACVAE** (Meta, in
+  *Movie Gen*, Polyak et al. 2024) keeps DAC's encoder, decoder, multi-scale STFT
+  discriminators, and Snake activation **unchanged**, and makes exactly *one* change at
+  the bottleneck: **delete the RVQ, train a VAE objective with KL regularization
+  instead** (Phase 2.4). Their stated reason is the fork in one sentence — *discrete
+  tokens are not necessary for diffusion-style models* — and in *Movie Gen* the resulting
+  continuous latent is then denoised by a **flow-matching** generator (course 3's
+  paradigm; the bridge to `flow-matching/`). Carry the numbers: DACVAE encodes **48 kHz**
+  audio to a **25 Hz, 128-dim** continuous latent, vs the EnCodec continuous-feature
+  baseline of **75 Hz / 128-dim at 24 kHz** — lower frame rate, higher sample rate,
+  higher fidelity, purpose-built as a diffusion substrate (numbers are config-dependent;
+  these are the *Movie Gen* settings). **The payoff:** DACVAE is the cleanest refutation
+  of the field's #1 confusion — "audio codec → diffusion uses the discrete tokens." No:
+  Meta *removed* the quantizer *because* diffusion wants the continuous latent. Two
+  codecs, one `git diff` apart, each on its own branch of the fork. *Optional pin to the
+  clip:* if a DACVAE checkpoint is handy, encode the through-line clip and inspect the
+  latent shape `[128, T]` (continuous, no codebook indices) next to DAC's discrete codes
+  `[N_q, T]` from Phase 4.6 — *see* the fork in two tensors. (See `the-fork.md`'s
+  "The fork made literal: DAC → DACVAE". Canonical wiki: the **DAC-VAE** section of
+  `sources/descript-rvqgan.md` and the **"Two Bottlenecks: Discrete RVQ vs. Continuous
+  VAE"** subsection of `neural-audio-codecs.md`, which cross-link Movie Gen in the
+  diffusion wiki.)
 
 ## Phase 6 — Semantic vs Acoustic Tokens; Evaluation
 - **6.1** **Two kinds of token.** **Acoustic** tokens (from a codec's RVQ) carry
@@ -246,8 +272,14 @@ canonical, the course stays pedagogical. Read / link these on JOS's machine:
   `adversarial-training-audio.md`, `evaluation-metrics.md`, and
   `timeline-ai-audio-codecs.md`.
 - **Source summaries** under `…/wiki/sources/`: `vq-vae`, `soundstream`, `encodec`,
-  `descript-rvqgan` (DAC), `fsq`, `hifigan`, `melgan`, `gansynth`, `audiolm`,
+  `descript-rvqgan` (DAC — now with a **DAC-VAE** section for the continuous-VAE fork,
+  cross-linked to Movie Gen), `fsq`, `hifigan`, `melgan`, `gansynth`, `audiolm`,
   `musiclm`, `soundstorm`.
+- **The DAC-VAE / Movie Gen thread (Phase 5.5)** lives across `sources/descript-rvqgan.md`
+  (DAC-VAE section), `neural-audio-codecs.md` ("Two Bottlenecks" subsection),
+  `audio-representations.md` ("Continuous Codec Latent (VAE)"),
+  `residual-vector-quantization.md` ("When RVQ is removed"), and the 2024-10 row in
+  `timeline-ai-audio-codecs.md` — all pointing at Movie Gen in the sibling `diffusion/` wiki.
 
 ### DSP depth (Phase 1 links out here — ML-first learners don't need it to proceed)
 JOS's books, for any learner who wants the signal-processing under the hood:
@@ -266,3 +298,7 @@ moves on.
 - **Mentzer et al. (2023)** — *Finite Scalar Quantization*. arXiv:2309.15505.
 - **Borsos et al. (2022)** — *AudioLM* (semantic + acoustic tokens; the bridge to
   course 2). arXiv:2209.03143.
+- **Polyak et al. (2024)** — *Movie Gen: A Cast of Media Foundation Models*
+  (introduces **DACVAE** — DAC with the RVQ replaced by a VAE+KL continuous latent,
+  denoised by flow matching; the fork made literal, Phase 5.5). arXiv:2410.13720.
+  Code/checkpoints: `github.com/facebookresearch/dacvae`.

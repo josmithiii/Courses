@@ -70,6 +70,13 @@ canonical, the course stays pedagogical. Teach from and link into:
   `audio-representations.md`, `bitrate-scalability.md`, `adversarial-training-audio.md`,
   `evaluation-metrics.md`, and the `sources/` summaries (vq-vae, soundstream, encodec,
   descript-rvqgan, fsq, hifigan, melgan, gansynth, audiolm, musiclm, soundstorm).
+- **DAC-VAE / Movie Gen (the fork made literal — Phase 5.5)** is threaded through the
+  existing codec pages, not a standalone source page: the **DAC-VAE** section of
+  `sources/descript-rvqgan.md`, the **"Two Bottlenecks"** subsection of
+  `neural-audio-codecs.md`, **"Continuous Codec Latent (VAE)"** in `audio-representations.md`,
+  a **"When RVQ is removed"** note in `residual-vector-quantization.md`, and a 2024-10 row
+  in `timeline-ai-audio-codecs.md` — all cross-linking Movie Gen in the sibling
+  `diffusion/` wiki. Keep Phase 5.5 and `the-fork.md`'s DAC-VAE section in sync with these.
 - Keep the course in sync if the wiki gains papers. The wiki is the canonical record;
   the course is the lesson plan over it.
 

@@ -62,6 +62,46 @@ about how you turn a bottleneck back into sound. Course 1 builds the encoder/dec
 and the bottleneck; courses 2 and 3 each build a different *generator* for the
 bottleneck.
 
+## The fork made literal: DAC → DACVAE
+
+The fork is not just a teaching abstraction — someone shipped *both sides of it on the
+same codebase*. **DAC** [Phase 4.5] is the discrete branch: DAC's encoder → **RVQ**
+[Phase 4.1] → decoder. **DACVAE** (Meta, in *Movie Gen*, Polyak et al. 2024) is the
+*same DAC encoder/decoder and the same multi-scale STFT discriminators + Snake
+activation* — with **one change at the bottleneck: the RVQ is deleted and replaced by a
+VAE objective with KL regularization** [Phase 2.4]. Same skeleton, forked at the middle:
+
+```
+   DAC      :  enc ──▶ [ RVQ codebooks ]  ──▶ dec      ▶ discrete tokens  → language model (course 2)
+   DACVAE   :  enc ──▶ [ VAE  +  KL    ]  ──▶ dec      ▶ continuous latent → diffusion/flow (course 3)
+              └────────── identical ──────────┘
+                         (only the box in brackets differs)
+```
+
+Why Meta did it, in their words: *discrete tokens are not necessary for diffusion-style
+models*, so they removed the RVQ and trained the same backbone with a VAE objective —
+which **improves reconstruction**, especially at an aggressively compressed frame rate.
+In *Movie Gen* the resulting continuous latent is then denoised by a **flow-matching**
+generator (course 3's paradigm, and exactly why course 3 leans on `flow-matching/`).
+
+Concrete numbers worth carrying: DACVAE in *Movie Gen* encodes **48 kHz** audio to a
+**25 Hz**, **128-dim** continuous latent — vs the EnCodec [Phase 4.5] continuous-feature
+baseline of **75 Hz / 128-dim at 24 kHz**. So DACVAE is *lower frame rate, higher sample
+rate, higher fidelity* — a continuous latent built specifically to be a good diffusion
+substrate. (The numbers are config-dependent; these are the *Movie Gen* settings.)
+
+DACVAE is the cleanest possible refutation of the field's most common confusion: *"audio
+codec → diffusion must mean the diffusion model consumes the discrete codec tokens."* No
+— Meta **explicitly removed** the discrete quantizer precisely *because* the diffusion
+model wants the continuous latent. The codec and the fork are one `git diff` apart.
+
+> *Canonical wiki:* the `ai-audio-codecs` wiki threads DAC-VAE through its existing codec
+> pages — the **DAC-VAE** section of `sources/descript-rvqgan.md` (the 48 kHz / 25 Hz /
+> 128-d config and why the RVQ is dropped), the **"Two Bottlenecks: Discrete RVQ vs.
+> Continuous VAE"** subsection of `neural-audio-codecs.md`, and a **"Continuous Codec
+> Latent (VAE)"** representation in `audio-representations.md` — each cross-linked to
+> Meta's *Movie Gen* page in the sibling `diffusion/` wiki.
+
 ---
 
 ## The misreadings this course exists to kill
@@ -75,7 +115,7 @@ tutor flags each on the spot and logs recurrences in `progress.md`.
 | "A neural codec is *just* a VAE." | **Discrete RVQ vs continuous VAE is the fork**, not a detail. They feed different paradigms. | Phase 2.4, 5 |
 | "More RVQ codebooks just = more quality knobs." | RVQ is **residual refinement** — each stage quantizes the *previous stage's leftover*; the stages are ordered and interdependent. | Phase 4.1 |
 | "Discrete codec tokens are lossless." | They're a **lossy** quantization; more codebooks reduce but never eliminate the loss. | Phase 4.1–4.2 |
-| "'audio codec → DiT' uses the discrete codec tokens." | The DiT denoises a **continuous VAE latent**, *not* discrete RVQ tokens. This is the single most common confusion in the field. | Phase 5.3–5.4 |
+| "'audio codec → DiT' uses the discrete codec tokens." | The DiT denoises a **continuous VAE latent**, *not* discrete RVQ tokens. This is the single most common confusion in the field. **DACVAE** is the proof: Meta *deleted* DAC's RVQ and trained a VAE bottleneck precisely so a diffusion/flow model could use the continuous latent. | Phase 5.3–5.5 |
 | "Semantic and acoustic tokens are the same thing." | **Semantic** tokens (self-supervised, structure/melody) vs **acoustic** tokens (codec RVQ, fidelity) carry complementary information; AudioLM uses both. | Phase 6.1 |
 | "Waveform-L2 (MSE) measures audio quality." | The ear hears artifacts L2 doesn't penalize; use **spectral / perceptual** metrics (ViSQOL, MUSHRA), and **adversarial** training to fix what L2 misses. | Phase 2.3, 4.4, 6.3 |
 | "VQ trains end-to-end like any layer." | `argmin` over a codebook has **zero gradient**; the **straight-through estimator** is what makes it trainable. | Phase 3.2 |
@@ -93,5 +133,6 @@ tutor flags each on the spot and logs recurrences in `progress.md`.
 | discrete tokens, codebook, straight-through, collapse | **Phase 3** |
 | residual VQ, bitrate, real codecs (SoundStream/EnCodec/DAC) | **Phase 4** |
 | **the fork stated precisely + both downstream paradigms** | **Phase 5** (the keystone) |
+| **DAC → DACVAE: the fork as one bottleneck swap on one codebase** | **Phase 5.5** |
 | semantic vs acoustic tokens; the right metric | **Phase 6** |
 | reciting both branches end-to-end on the clip | **Phase 7.1** |
