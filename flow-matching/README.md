@@ -6,6 +6,10 @@ From ODEs as generative models to modern simulation-free training: Lipman's
 formalism is pinned to a 2-D toy distribution (Gaussian → two-moons / checkerboard) you
 can actually plot, with PyTorch as the oracle the moment a derivation feels abstract.
 
+A closing **living frontier** (syllabus Phase 9) carries the course to the current edge —
+**stochastic interpolants** (the unifying theory), **flow-based editing/inversion**, and
+**one-step successors** (shortcut models, mean flows) — and is revised as the field moves.
+
 **Keystone:** the conditional-expectation identity (syllabus Phase 4.3) —
 `u_t(x) = E[u_t(x | x₁) | x_t = x]`: why regressing on the *conditional* velocity gives
 the same gradient as the intractable *marginal* one. Every later method sits on top of it.

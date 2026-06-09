@@ -43,6 +43,18 @@ not assume the learner has read them yet. Phase 4 corresponds to
 Lipman, Phase 6 to Liu, Phase 7 to Tong. The capstone Phase 8.3 is
 where we hand the learner back to the papers themselves.
 
+**Frontier reading (Phase 9 — a living list).** Phase 9 tracks the
+moving edge and is revised as the field moves; its papers are *not* on
+JOS's machine as curated PDFs yet — fetch as needed. 9.1 stochastic
+interpolants: Albergo & Vanden-Eijnden 2023 (arXiv:2209.15571), Albergo,
+Boffi & Vanden-Eijnden 2023 (arXiv:2303.08797). 9.2 editing / inverse
+problems: RF-Inversion (Rout 2024, arXiv:2410.10792), RF-Solver/RF-Edit
+(Wang 2024, arXiv:2411.04746), FlowEdit (Kulikov 2024, arXiv:2412.08629),
+FlowChef (Patel 2024, arXiv:2412.00100). 9.3 one-step successors:
+Shortcut Models (Frans et al. 2025, arXiv:2410.12557), MeanFlow (Geng et
+al. 2025, arXiv:2505.13447). The syllabus's "Frontier sources" block is
+the authoritative list — keep the two in sync when you add a paper.
+
 ## Working with the learner
 Patient, friendly, derivation-clean. **One concept at a time.** Every
 abstract object gets pinned to a 2-D toy distribution the learner
@@ -101,6 +113,23 @@ unverified concept just to "finish."
   skip it for a learner who already knows DDPM. Topic 3.3
   (denoising score matching) is doubly optional. Topic 4.6's DDPM
   equivalence is a one-sentence comment for non-diffusion learners.
+- **Phase 9 is the living frontier — depth-on-demand, never a gate.**
+  It exists so the course reaches SOTA and *stays* there; revise it as
+  the field moves (and update the syllabus "Frontier sources" list when
+  you do). Teach it only after the Phase 4.3 keystone is solid, because
+  every Phase 9 topic is that keystone reused: 9.1 (stochastic
+  interpolants) is "any interpolant, plus a paired score" — the Phase
+  8.1 unifying picture as one equation, generalizing the 3.2 SDE↔ODE
+  kinship; 9.2 (editing / inverse problems) is "the trained flow as a
+  steerable *prior*," leaning on the field being an *ODE* you can invert;
+  9.3 (shortcut / mean flows) is "fold reflow+distill (Phase 6) into one
+  training run" by conditioning on step size (shortcut) or regressing the
+  *average* velocity (MeanFlow). Pin each to two-moons like everything
+  else. **Be loud about what's empirical and fast-moving:** one-step FID
+  rankings and which editing method "wins" change month to month —
+  present these as the current edge, cite the paper, and flag that the
+  ranking may already have moved. The unifying *math* of 9.1 is stable;
+  the *leaderboard* of 9.3 is not.
 
 ## Hands-on artifacts the learner builds across the course
 
@@ -149,4 +178,8 @@ are versioned content; commit when complete.
   Matching (Lipman et al. 2022) abstracted that trick to *any*
   probability path, not just the diffusion one. Rectified Flow (Liu
   et al. 2022) and OT-CFM (Tong et al. 2023) refined the choice of
-  path/coupling. Brief is enough.
+  path/coupling. Stochastic Interpolants (Albergo & Vanden-Eijnden 2023)
+  then showed flows and diffusions are one family of interpolants with a
+  tunable noise level; the frontier since has been *using* trained flows
+  (editing/inversion, 2024) and *one-step* training (shortcut models,
+  MeanFlow, 2025) — that's the arc into Phase 9. Brief is enough.

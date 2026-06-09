@@ -31,6 +31,16 @@ _(Add as many phases as the subject needs. The five existing courses range from 
 - **N.2** Capstone: pick a small project and build it with guidance.
 - **N.3** Where to go next: references, communities, staying current.
 
+## Phase N+1 — The Frontier (a living section)
+> _Optional but recommended for fast-moving technical subjects. **This phase tracks
+> the current state of the art and is revised as the field moves** — depth-on-demand,
+> never a gate. Each frontier topic should reuse this course's keystone idea and pin to
+> the same worked example; keep a companion "Frontier sources" citation list below, and
+> be honest about which claims are empirical and likely to change. Delete this phase if
+> the subject isn't fast-moving. See `flow-matching/`'s Phase 9 for the reference pattern._
+- **(N+1).1** _(current-edge topic — what's new since the foundations above, and why)_
+- **(N+1).2** _(another, as the field warrants)_
+
 ---
 
 ### Teaching method (applies every lesson)

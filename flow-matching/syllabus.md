@@ -29,7 +29,9 @@ Flow's "reflow" procedure and why it enables one-step generation;
 explain OT-CFM's minibatch-OT coupling and what it buys over
 independent coupling; and read the three foundational papers
 (Lipman 2023, Liu 2023, Tong 2024) without the notation being an
-obstacle.
+obstacle — and, optionally, follow the living frontier (Phase 9:
+stochastic interpolants, flow-based editing/inversion, and one-step
+successors like shortcut and mean flows) as it tracks the field.
 
 ---
 
@@ -217,7 +219,68 @@ obstacle.
   the [`audio-diffusion-dit`](../audio-diffusion-dit/) course (SD3 →
   FluxMusic's rectified-flow MM-DiT for music); Meta's `flow_matching`
   library; the Schrödinger-bridge variants (DSBM, SB-CFM); flow
-  matching on non-Euclidean spaces (manifolds, discrete data).
+  matching on non-Euclidean spaces (manifolds, discrete data). The
+  three big *current* frontiers — a unifying theory, using a trained
+  flow to *edit*, and *one-step* training — are Phase 9.
+
+## Phase 9 — The Frontier (a living section)
+> **This phase tracks the moving edge of the field and is revised as it
+> moves** — treat it as depth-on-demand, not a gate. Everything here
+> still sits on the Phase 4.3 keystone (regress on a conditional target;
+> the marginal field is its conditional expectation); each topic is just
+> a different choice of interpolant, a new *use* of the trained field, or
+> a new *training schedule*. Pin each to the same two-moons toy. Be
+> honest that the empirical rankings below can change between sessions —
+> when in doubt, read the linked paper, and update this section.
+
+- **9.1** **Stochastic interpolants (Albergo, Boffi, Vanden-Eijnden
+  2023) — the unifying frame.** Generalize the path to *any* interpolant
+  $x_t = \alpha_t x_0 + \beta_t x_1 \,(+\, \gamma_t z)$ joining two
+  densities, with an optional latent-noise term $\gamma_t z$. Lipman-FM,
+  rectified flow, and diffusion all fall out as schedule choices — this
+  is Phase 8.1's "one family" claim made into one equation. The object
+  you learn is a *velocity and a score, paired*; from that pair you may
+  sample **deterministically** (the probability-flow ODE) **or
+  stochastically** (a one-parameter family of SDEs with the *same*
+  marginals), choosing the noise level at sample time. This is the exact
+  generalization of the Phase 3.2 SDE↔ODE kinship. **Pin:** recover the
+  two-moons straight-line CFM path as $\alpha_t=1-t,\ \beta_t=t,\
+  \gamma_t=0$; then switch on a small $\gamma_t z$ and watch sampling
+  gain an SDE "temperature" knob the deterministic sampler didn't have.
+
+- **9.2** **Rectified flow for inverse problems and editing.** A trained
+  flow is a *prior you can steer*, not only a one-shot sampler. Two
+  moves: **(i) inversion** — because the flow is an *ODE*, you can
+  integrate it *backward* from a real datapoint $x_1$ to its latent
+  $x_0$, edit in latent- or condition-space, and integrate forward again
+  (RF-Inversion, Rout et al. 2024; RF-Solver/RF-Edit, Wang et al. 2024),
+  or skip inversion entirely by building a direct source→target ODE
+  (FlowEdit, Kulikov et al. 2024); **(ii) guidance for inverse
+  problems** — add a measurement-consistency term so samples satisfy
+  $y = A x_1$ (deblur, inpaint, super-resolve; FlowChef, Patel et al.
+  2024). **Pin:** invert a two-moons point to its latent, nudge the
+  latent, re-integrate, and see the sample move along the data manifold;
+  or steer sampling so trajectories land inside a chosen half-plane.
+  *Honest caveat:* exact ODE inversion is exact only up to solver error,
+  and the guidance terms are principled **approximations**, not theorems
+  — the editing-vs-inverting trade is an engineering choice.
+
+- **9.3** **One-step successors: shortcut models and mean flows.** Phase
+  6 reached one-step generation by a *two-stage* pipeline — reflow to
+  straighten, then distill. The 2025 frontier folds that into a *single*
+  training run. **Shortcut models (Frans, Hafner, Levine, Abbeel 2025):**
+  condition the network on the *step size* $d$ as well as $(t, x)$, and
+  add a self-consistency loss — "one step of size $2d$ equals two steps
+  of size $d$" — so *one* network samples well at *any* budget, one step
+  included, with no separate distillation or reflow. **MeanFlow (Geng et
+  al. 2025):** learn the *average* velocity over an interval rather than
+  the instantaneous one (a single identity relates the two); one network,
+  trained from scratch, one-step generation, no distillation — currently
+  near the top of one-step FID. **Pin:** add a step-size input to the
+  two-moons MLP, train the shortcut self-consistency loss, then sample
+  the *same* network at 1, 2, and 4 steps and compare to the
+  reflow+distill model from Phase 6.5. Contrast crisply: same goal
+  (straight/one-step), but *one* training run instead of *two*.
 
 ---
 
@@ -280,3 +343,25 @@ The PDFs live in `/l/dttd/FlowStuff/` on JOS's machine:
   with Minibatch Optimal Transport.* TMLR 2024. arXiv:2302.00482.
   — introduces minibatch-OT couplings and the unifying generalized
   CFM framework.
+
+### Frontier sources (Phase 9 — a living list, updated as the field moves)
+
+These track the current edge and *will* be added to / reordered as the
+field moves; treat them as the reading behind Phase 9, not a fixed canon.
+
+- **9.1 — unifying theory.** Albergo & Vanden-Eijnden (2023), *Building
+  Normalizing Flows with Stochastic Interpolants*, arXiv:2209.15571;
+  Albergo, Boffi & Vanden-Eijnden (2023), *Stochastic Interpolants: A
+  Unifying Framework for Flows and Diffusions*, arXiv:2303.08797.
+- **9.2 — editing / inverse problems.** Rout et al. (2024), *Semantic
+  Image Inversion and Editing using Rectified Stochastic Differential
+  Equations* (RF-Inversion), arXiv:2410.10792; Wang et al. (2024),
+  *Taming Rectified Flow for Inversion and Editing* (RF-Solver/RF-Edit),
+  arXiv:2411.04746; Kulikov et al. (2024), *FlowEdit: Inversion-Free
+  Text-Based Editing Using Pre-Trained Flow Models*, arXiv:2412.08629;
+  Patel et al. (2024), *FlowChef: Steering Rectified Flow Models in the
+  Vector Field* (training-free editing + linear inverse problems),
+  arXiv:2412.00100.
+- **9.3 — one-step successors.** Frans, Hafner, Levine & Abbeel (2025),
+  *One Step Diffusion via Shortcut Models*, arXiv:2410.12557; Geng et al.
+  (2025), *Mean Flows for One-Step Generative Modeling*, arXiv:2505.13447.

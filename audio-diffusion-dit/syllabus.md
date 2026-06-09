@@ -202,7 +202,10 @@ and **MM-DiT** (FluxMusic) as an objective+architecture variant; place **DiffRhy
   problem. The VAE-latent DiT now owns territory that slow AR LM pipelines once held.
 - **7.2** **Why diffusion isn't "1000 steps slow."** **DDIM** (~50 steps, deterministic),
   **ODE solvers** (DPM-Solver++, 10–20), and **distillation** (progressive; one-step EMD)
-  collapse the step count. This is what makes the next system fast.
+  collapse the step count. This is what makes the next system fast. On the *flow* side the
+  step count is collapsing the same way, but in a *single* training run rather than a
+  separate distillation — **shortcut models** and **MeanFlow** (2025); see
+  [`flow-matching/`](../flow-matching/) Phase 9.3 for how.
 - **7.3** **ACE-Step (2026): the hybrid — LM planner + DiT renderer.** A **language model
   plans** the song (lyrics, metadata, captions, via chain-of-thought); a **DiT renders**
   the audio ("a specialized acoustic renderer, freed from semantic ambiguity").
@@ -238,7 +241,10 @@ and **MM-DiT** (FluxMusic) as an objective+architecture variant; place **DiffRhy
   Stable Audio, Long-Form Latent Diffusion, FluxMusic, DiffRhythm, and ACE-Step — and you
   have walked **both branches of course 1's fork** on one solo-piano clip: *predicted* as
   tokens (course 2), *denoised* as a latent (course 3). Where next: `flow-matching/` for
-  rectified-flow depth; the curated wikis for new papers; `ai-miracle-decade-plus/` for
+  rectified-flow depth — including its **living Phase 9 frontier** (stochastic
+  interpolants; **flow-based editing/inversion**, the prior behind img2img-style latent
+  edits; and the **one-step successors** shortcut models / MeanFlow, beyond the
+  distillation of 7.2); the curated wikis for new papers; `ai-miracle-decade-plus/` for
   the wider survey.
 
 ---
@@ -336,3 +342,11 @@ canonical, the course stays pedagogical. Read / link these on JOS's machine:
 - **Ning et al. (2025)** — *DiffRhythm (Full-Length Song Generation with Latent
   Diffusion)*. arXiv:2503.01183.
 - **Gong et al. (2026)** — *ACE-Step (LM-planner + DiT-renderer)*. arXiv:2602.00744.
+
+**Frontier (flow side — the living list lives in [`flow-matching/`](../flow-matching/)
+Phase 9; pulled here where it touches audio):** rectified-flow **editing/inversion** —
+RF-Inversion (Rout et al. 2024, arXiv:2410.10792), FlowEdit (Kulikov et al. 2024,
+arXiv:2412.08629) — the principled version of the img2img latent edits in Phase 5.4/8.2;
+and **one-step successors** — Shortcut Models (Frans et al. 2025, arXiv:2410.12557),
+MeanFlow (Geng et al. 2025, arXiv:2505.13447) — the flow analogue of Phase 7.2's
+distillation. Keep this in sync with `flow-matching/` Phase 9 as the field moves.
