@@ -22,7 +22,7 @@ None. [`../buddhism-early-philosophy/`](../buddhism-early-philosophy/) is the en
 | # | Course | Status | Why here |
 |---|--------|--------|----------|
 | 1 | [`../buddhism-early-philosophy/`](../buddhism-early-philosophy/) | 🟢 Active | The foundation: Four Noble Truths, Three Marks, Five Aggregates, Dependent Origination, *nibbāna* — from the Pali Canon. |
-| 2 | [`../buddhism-mahayana-philosophy/`](../buddhism-mahayana-philosophy/) | ⚪ Planned | The development: emptiness (*śūnyatā*) via Prajñāpāramitā, Madhyamaka (Nāgārjuna), Yogācāra, Buddha-nature — building directly on course 1. |
+| 2 | `../buddhism-mahayana-philosophy/` | ⚪ Planned | The development: emptiness (*śūnyatā*) via Prajñāpāramitā, Madhyamaka (Nāgārjuna), Yogācāra, Buddha-nature — building directly on course 1. |
 
 ## Through-line
 
