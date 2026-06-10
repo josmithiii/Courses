@@ -28,7 +28,7 @@
 - [ ] matplotlib working (we plot samples + vector fields every phase)
 - [ ] (Optional) `POT` (`pip install POT`) — used in Phase 7 for OT couplings
 - [ ] A scratch `.py` file or notebook open and being used during sessions
-- [ ] Source PDFs accessible (`/l/dttd/FlowStuff/` on JOS's machine, or downloaded from arXiv)
+- [ ] Source PDFs accessible (see the course CLAUDE.md for local paths, or download from arXiv)
 
 ## Mastery log
 | Date | Topic | Concept | Exercise | Result | Notes |

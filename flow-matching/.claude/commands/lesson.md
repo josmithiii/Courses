@@ -37,7 +37,10 @@ read them yet. The capstone (Phase 8) hands the learner back to the papers.
 1. Resolve the data root (above). Run `mkdir -p "<data root>/flow-matching/lessons"`.
 2. If `<data root>/flow-matching/progress.md` does **not** exist, create it by
    copying the repo's `progress.template.md` into that path (this is a brand-new
-   learner — the next step's interview fills in the profile).
+   learner — the next step's interview fills in the profile). In the copy,
+   change the title to `# Flow Matching — Learning Progress` and delete the
+   template-note blockquote under it — the copy is the learner's live file,
+   not a template.
 3. Read `<data root>/flow-matching/progress.md` and the repo `syllabus.md`.
 4. If today's log `<data root>/flow-matching/lessons/<YYYY-MM-DD>.md` already
    exists with content, use it as today's plan; otherwise build today's plan from

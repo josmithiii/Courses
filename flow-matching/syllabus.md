@@ -128,8 +128,15 @@ successors like shortcut and mean flows) as it tracks the field.
   (ii) **Optimal-transport (straight-line) paths**:
   $x_t = (1-t) x_0 + t x_1$ with $x_0 \sim \mathcal{N}(0,I)$, whose
   conditional velocity is the *constant* $u_t(x\mid x_0, x_1) = x_1 - x_0$.
-  This is the path that gives Lipman's "OT-CFM" headline result
-  and is the one used by Rectified Flow.
+  This is the path behind Lipman's headline result — he calls it the
+  *OT conditional path* ("FM with OT paths"); reserve the name
+  **OT-CFM** for Tong's minibatch-OT *coupling* method in Phase 7 —
+  and it is the path used by Rectified Flow. Note that the
+  conditioning variable just widened: 4.3 conditioned on $x_1$ alone
+  (with $x_0$ absorbed into the Gaussian path), while this velocity
+  conditions on the pair $(x_0, x_1)$. The 4.3 identity survives
+  because it holds for *any* conditioning latent — exactly Tong's
+  generalization, coming in 7.4.
 
 ## Phase 5 — Implementing Flow Matching on a 2-D Toy
 - **5.1** Set up: target $q$ is two-moons in 2-D. Train a tiny MLP
@@ -157,9 +164,14 @@ successors like shortcut and mean flows) as it tracks the field.
   coupling by pairing $x_0$ with the model's own deterministic
   output $\hat{x}_1 = \phi^{(1)}_1(x_0)$. Train $v^{(2)}$ on this
   new coupling with the same linear interpolation. The paths are
-  now straighter.
+  now straighter. Honest cost note: each training *step* is still
+  simulation-free, but generating the reflow pairs $(x_0, \hat{x}_1)$
+  requires a full ODE integration per pair — simulation sneaks back
+  in at dataset-creation time.
 - **6.3** Reflow as fixed-point iteration. Each rectification step
-  reduces transport cost monotonically. After 1–2 reflows, the
+  never increases *any* convex transport cost (a theorem in Liu's
+  paper — non-strict; the strict decrease seen in practice is
+  empirical). After 1–2 reflows, the
   flow is straight enough that a single Euler step is a good
   generator.
 - **6.4** Distillation. With a near-straight flow,
@@ -198,6 +210,18 @@ successors like shortcut and mean flows) as it tracks the field.
   trained by conditional expectation. The differences are
   (i) which path, (ii) which coupling, (iii) what you do
   post-training (sample directly vs. reflow vs. distill).
+- **8.1b** Conditioning and classifier-free guidance — the bridge to
+  SD3 / Flux / audio DiTs. Conditional FM is just $v_\theta(t, x, c)$:
+  train with the same CFM loss, dropping the condition $c$ some
+  fraction of the time so the one network also learns the
+  unconditional field. At sample time, classifier-free guidance (CFG)
+  integrates $v_\theta(t,x,\varnothing) + w\,[v_\theta(t,x,c) -
+  v_\theta(t,x,\varnothing)]$ — an engineering heuristic, not a
+  theorem: for $w > 1$ the field no longer transports the true
+  conditional marginal. **Pin:** two-moons with a "which moon" label
+  $c$; sweep $w$ and watch samples sharpen onto the chosen moon, then
+  over-concentrate. Phase 9.2's editing methods steer *conditioned*
+  flows in practice — this topic is the piece they assume.
 - **8.2** Capstone — pick one (learner's choice):
   - **(a)** A small image FM on MNIST or CIFAR (sketch only — the
     UNet architecture, the loss, the sampling loop; full training is
@@ -281,6 +305,10 @@ successors like shortcut and mean flows) as it tracks the field.
   the *same* network at 1, 2, and 4 steps and compare to the
   reflow+distill model from Phase 6.5. Contrast crisply: same goal
   (straight/one-step), but *one* training run instead of *two*.
+  *Cross-reference:* consistency models (Song et al. 2023; continuous-time
+  sCM, Lu & Song 2024) are the diffusion-side cousins that reach
+  one-step generation via the same self-consistency idea — useful to
+  recognize when reading the one-step literature.
 
 ---
 
@@ -365,3 +393,6 @@ field moves; treat them as the reading behind Phase 9, not a fixed canon.
 - **9.3 — one-step successors.** Frans, Hafner, Levine & Abbeel (2025),
   *One Step Diffusion via Shortcut Models*, arXiv:2410.12557; Geng et al.
   (2025), *Mean Flows for One-Step Generative Modeling*, arXiv:2505.13447.
+  Context (diffusion-side cousins): Song et al. (2023), *Consistency
+  Models*, arXiv:2303.01469; Lu & Song (2024), *Simplifying, Stabilizing
+  and Scaling Continuous-Time Consistency Models*, arXiv:2410.11081.

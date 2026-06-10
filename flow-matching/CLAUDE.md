@@ -40,8 +40,9 @@ machine at `/l/dttd/FlowStuff/`:
 
 Pull a figure or a line of math from these when it would help; do
 not assume the learner has read them yet. Phase 4 corresponds to
-Lipman, Phase 6 to Liu, Phase 7 to Tong. The capstone Phase 8.3 is
-where we hand the learner back to the papers themselves.
+Lipman, Phase 6 to Liu, Phase 7 to Tong. Phase 8.3 ("Where next") is
+where we hand the learner back to the papers themselves (the
+capstone proper is Phase 8.2).
 
 **Frontier reading (Phase 9 — a living list).** Phase 9 tracks the
 moving edge and is revised as the field moves; its papers are *not* on
@@ -52,7 +53,9 @@ problems: RF-Inversion (Rout 2024, arXiv:2410.10792), RF-Solver/RF-Edit
 (Wang 2024, arXiv:2411.04746), FlowEdit (Kulikov 2024, arXiv:2412.08629),
 FlowChef (Patel 2024, arXiv:2412.00100). 9.3 one-step successors:
 Shortcut Models (Frans et al. 2025, arXiv:2410.12557), MeanFlow (Geng et
-al. 2025, arXiv:2505.13447). The syllabus's "Frontier sources" block is
+al. 2025, arXiv:2505.13447); diffusion-side context: Consistency Models
+(Song et al. 2023, arXiv:2303.01469), sCM (Lu & Song 2024,
+arXiv:2410.11081). The syllabus's "Frontier sources" block is
 the authoritative list — keep the two in sync when you add a paper.
 
 ## Working with the learner
@@ -76,6 +79,16 @@ unverified concept just to "finish."
   topic — rectified flow, OT-CFM, generalized CFM — is a different
   choice of conditional path or coupling sitting on top of this
   same identity. If 4.3 doesn't land, nothing later will.
+- **The DSP bridge for 4.3: it's the orthogonality principle.** For a
+  signal-processing learner, $\mathbb{E}[u_t(x\mid x_1) \mid x_t = x]$
+  is an MMSE estimator, and "the conditional MSE and the marginal MSE
+  have the same gradient" is Wiener filtering's orthogonality
+  principle wearing a new hat — the regression residual is orthogonal
+  to anything measurable from $x_t$, so swapping the target for its
+  conditional mean changes the loss by a $\theta$-independent
+  constant. Lead with this bridge when the learner profile says DSP;
+  it connects to 0.2's "conditional expectation as $L^2$ projection"
+  preview.
 - **Marginal vs. conditional is the #1 trap.** A learner who can
   write the CFM loss but can't tell you which expectation runs over
   $x_1$ vs. $x_t$ has not understood it. Probe explicitly. The CFM
@@ -91,7 +104,7 @@ unverified concept just to "finish."
   checkerboard cover every visualization in this course. A plot of
   samples + a quiver plot of the learned vector field at three
   times $t$ is worth more than a page of algebra. Move to images
-  (Phase 8.1a) only after every formalism has landed in 2-D.
+  (Phase 8.2a) only after every formalism has landed in 2-D.
 - **Solver steps are a separate axis from training quality.** A
   well-trained CFM with curved trajectories needs many Euler steps;
   a well-trained reflow needs one or two. Beginners conflate
@@ -183,3 +196,6 @@ are versioned content; commit when complete.
   tunable noise level; the frontier since has been *using* trained flows
   (editing/inversion, 2024) and *one-step* training (shortcut models,
   MeanFlow, 2025) — that's the arc into Phase 9. Brief is enough.
+  (The years in this paragraph are arXiv years; formal citations
+  elsewhere in the course use publication years — Lipman ICLR 2023,
+  Liu ICLR 2023, Tong TMLR 2024.)
