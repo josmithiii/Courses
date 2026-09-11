@@ -38,7 +38,7 @@
 ## The note & numbers we reuse
 > Filled in as we compute them (Phase 0.3 first); keep consistent across lessons.
 
-- The note: single plucked string, mono, 44.1 kHz, ~1.5 s → ~66 150 samples.
+- The note: electric guitar low E (single-coil pickup, plectrum), mono, 44.1 kHz, ~6 s → 264 600 samples.
 - Measured fundamental `f_1`: _(Hz)_
 - Measured partials table `k, f_k, a_k, d_k, T60_k` (first 10–20): _(fill in)_
 - Stiffness coefficient `B` fitted from `f_n = n f_1 √(1 + B n²)`: _(value; 0 if harmonic)_

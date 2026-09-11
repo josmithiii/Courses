@@ -54,7 +54,7 @@ Everything the linear, proportionally-damped, perfectly-known model leaves out:
 ## The note, modeled three ways
 
 ```
-   the plucked note  x(t)   (mono, 44.1 kHz, ~1.5 s — measured partials f_k, T60_k, a_k in Phase 0.3)
+   the plucked note  x(t)   (mono, 44.1 kHz, ~6 s — measured partials f_k, T60_k, a_k in Phase 0.3)
           │
           ├─(1) MODAL BANK ──────────── Σ_k a_k e^{-d_k t} sin(2π f_k t)   ▶ N biquads, params FITTED
           │        physics fixes: the FORM (decaying sinusoids, one resonator per mode)

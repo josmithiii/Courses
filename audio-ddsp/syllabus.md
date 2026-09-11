@@ -23,7 +23,7 @@ loss** (or better), because sample-wise waveform error does not hear. Every pape
 takes on Phase 2.
 
 **The qubit (worked example):** the curriculum's shared **plucked-string note**
-(`../curricula/assets/audio-differentiable-dsp/note.wav`, mono 44.1 kHz, ~1.5 s; spec and
+(`../curricula/assets/audio-differentiable-dsp/note.wav`, mono 44.1 kHz, ~6 s; spec and
 status in that directory's `README.md`). We carry *this one note* through every block —
 resynthesize it with a hand-built harmonic+noise model, fit that model by gradient
 descent, pass it through learned filters, reverbs and a grey-box compressor — and
@@ -87,8 +87,8 @@ the result.
 > Re-read [`the-differentiable-block.md`](the-differentiable-block.md) here.
 - **2.1** **Gradients through the oscillator.** Make `A_k` and `f₀` `requires_grad`
   tensors; compute a loss; call `.backward()`; inspect `∂L/∂A_k` and `∂L/∂f₀`. Then the
-  experiment that teaches the course: sweep `f₀` from 100 to 120 Hz against the
-  110 Hz note and plot the loss. The `f₀` landscape is **oscillatory with local
+  experiment that teaches the course: sweep `f₀` from 72 to 92 Hz against the
+  82.4 Hz note and plot the loss. The `f₀` landscape is **oscillatory with local
   minima** — the frequency-estimation pathology. Conclusion DDSP draws: *estimate* `f₀`
   (CREPE), *learn* the amplitudes.
 - **2.2** **Why waveform MSE is the wrong ruler.** Render the note twice with a
@@ -107,7 +107,7 @@ the result.
   the responses (adversarial loss, JTFS scattering, learned embeddings — course 2 Phase 4)
   and the review's verdict: good default for harmonic sounds, not ground truth.
 - **2.6** **Pin to the note: gradient-descent copy synthesis.** Fix `f₀` at the
-  measured 110 Hz; initialize `A_k[n]` and the noise magnitudes randomly; optimize with
+  measured 82.4 Hz; initialize `A_k[n]` and the noise magnitudes randomly; optimize with
   Adam against the spectral loss until the resynthesis matches. **Listen** to iterations
   0, 50, 500. The keystone, audible.
 

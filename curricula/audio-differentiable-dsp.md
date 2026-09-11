@@ -52,12 +52,13 @@ best entry for acousticians and instrument builders.
 
 ## Through-line
 
-One **instrument recording** (a single plucked or struck note) carried through all
+One **instrument recording** — a plucked electric-guitar low E (E2, ≈ 82 Hz, single-coil
+pickup, 6 s, with audible beating between partials as it decays) — carried through all
 three courses: course 1 resynthesizes it with a learned harmonic+noise model; course 2
 recovers synthesizer and effect parameters for it; course 3 models the physical object
 that produced it. The note and its license live in
-[`assets/audio-differentiable-dsp/`](assets/audio-differentiable-dsp/) (spec, status, and a
-labelled synthetic placeholder generator until a real recording is chosen).
+[`assets/audio-differentiable-dsp/`](assets/audio-differentiable-dsp/) (spec, provenance in `SOURCE.md`, the
+conditioning script, and a labelled synthetic Karplus–Strong placeholder generator).
 
 ## Source of truth
 

@@ -26,7 +26,7 @@ neural proxies, generative flows, reinforcement learning — is a different resp
 those three facts. We spend as long as it takes on Phases 1.4, 4 and 6.
 
 **The qubit (worked example):** the curriculum's shared **single plucked-string note**
-(`../curricula/assets/audio-differentiable-dsp/note.wav`, mono 44.1 kHz, ~1.5 s). Course 1
+(`../curricula/assets/audio-differentiable-dsp/note.wav`, mono 44.1 kHz, ~6 s). Course 1
 resynthesized it; this course **recovers the parameters that reproduce it** — three times,
 at increasing difficulty: (1) a **two-knob toy synth** (exponential decay rate + lowpass
 cutoff on a plucked excitation — the same shape as the "decay rate and wah pedal angle"

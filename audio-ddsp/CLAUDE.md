@@ -45,17 +45,17 @@ papers instead of rows in one table: *which block, which loss, which pathology, 
 ## The through-line note is the worked example ("qubit")
 Every course in this repo pins everything to one worked example. Here it is the
 **curriculum's shared plucked-string note**, at
-`../curricula/assets/audio-differentiable-dsp/note.wav` (mono, 44.1 kHz, ~1.5 s, open A
-≈ 110 Hz). Carry *this one note* through every block — hand-built harmonic+noise
+`../curricula/assets/audio-differentiable-dsp/note.wav` (mono, 44.1 kHz, ~6 s, low E
+≈ 82.4 Hz). Carry *this one note* through every block — hand-built harmonic+noise
 resynthesis, gradient-descent copy synthesis, learned filters, reverb, a grey-box
 compressor — and **resynthesize and listen at each stage**. The ear is this course's
 oracle. The partial frequencies / amplitudes / decays measured in Phase 0.3 are *the
 numbers we reuse*; record them in `progress.md`.
 
-> **Build-time note (real recording not yet chosen).** As of authoring, `note.wav` may
-> not exist — see `../curricula/assets/audio-differentiable-dsp/README.md` for the spec
-> and status. A deterministic **synthetic placeholder** (Karplus–Strong, A2, labelled
-> `note-placeholder.wav`) can be generated with `python3 make_note.py` in that directory.
+> **If `note.wav` is missing.** It ships in the repo (a real recording — see
+> `../curricula/assets/audio-differentiable-dsp/README.md` and `SOURCE.md`; regenerate
+> with `condition_note.py`). A deterministic **synthetic placeholder** (Karplus–Strong,
+> E2, labelled `note-placeholder.wav`) can be generated with `python3 make_note.py` there.
 > If `note.wav` is missing at lesson time, the tutor's first move is to **fail fast and
 > say so**, then either generate the placeholder *explicitly as a placeholder* (a
 > legitimate Phase 0.2 task: listen to what a synthetic pluck lacks) or help the learner

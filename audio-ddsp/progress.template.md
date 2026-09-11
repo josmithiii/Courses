@@ -40,7 +40,7 @@
 ## The note & numbers we reuse
 > Filled in as we compute them; keep consistent across lessons.
 
-- Through-line note: plucked string, mono, 44.1 kHz, ~1.5 s → ~66150 samples; `f₀` ≈ 110 Hz (A2).
+- Through-line note: electric guitar, single-coil pickup, plectrum, low E, mono, 44.1 kHz, ~6 s → 264 600 samples; `f₀` ≈ 82.4 Hz (E2).
   Real recording or placeholder? _(state which)_
 - First ~10 partials (Phase 0.3): frequencies / amplitudes / rough T60s: _(table)_
 - Inharmonicity coefficient `B` from `f_n = n·f₁·√(1 + B·n²)` (Phase 5.2): _(value)_

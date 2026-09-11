@@ -23,7 +23,7 @@ loss-level, or architecture-level. Everything here builds toward being able to m
 decision for a new problem. We spend as long as it takes on Phases 3–5.
 
 **The qubit (worked example):** the curriculum's shared **single plucked-string note**
-(`../curricula/assets/audio-differentiable-dsp/note.wav`, mono 44.1 kHz, ~1.5 s). The
+(`../curricula/assets/audio-differentiable-dsp/note.wav`, mono 44.1 kHz, ~6 s). The
 note is modeled **three ways** — (1) a modal resonator bank fitted to its measured
 partials, (2) a PINN for the damped stiff-string equation compared against it, (3) a
 hybrid physical core plus a learned excitation/residual — and all three are compared

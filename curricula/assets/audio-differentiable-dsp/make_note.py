@@ -2,8 +2,8 @@
 """Generate the deterministic synthetic PLACEHOLDER through-line note.
 
 Writes ``note-placeholder.wav``: a Karplus-Strong plucked string (extended with a
-one-pole loop filter for frequency-dependent decay), A2 (110 Hz), mono, 44.1 kHz,
-16-bit PCM, 1.5 s.  A fixed random seed makes every learner's file identical.
+one-pole loop filter for frequency-dependent decay), E2 (82.41 Hz), mono, 44.1 kHz,
+16-bit PCM, 6 s.  A fixed random seed makes every learner's file identical.
 
 This is NOT ``note.wav``.  The real through-line note is a recording (see README.md).
 Tutors must never treat the placeholder as the real note without saying so.
@@ -24,8 +24,8 @@ from pathlib import Path
 import numpy as np
 
 SAMPLE_RATE: int = 44_100
-F1_HZ: float = 110.0          # open A string, A2
-DURATION_S: float = 1.5
+F1_HZ: float = 82.41         # low E string, E2 (matches the real note.wav)
+DURATION_S: float = 6.0
 LOOP_GAIN: float = 0.996      # overall decay per period
 LOOP_FILTER_ALPHA: float = 0.5  # one-pole lowpass: y[n] = a*x[n] + (1-a)*x[n-1]
 SEED: int = 423

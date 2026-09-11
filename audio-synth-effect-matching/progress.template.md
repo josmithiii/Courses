@@ -40,7 +40,7 @@
 ## The note & numbers we reuse
 > Filled in as we compute them; keep consistent across lessons.
 
-- Through-line note: plucked string, mono, 44.1 kHz, ~1.5 s → ~66 000 samples; fundamental ≈ _(Hz, measured in 0.2)_.
+- Through-line note: electric guitar, single-coil pickup, plectrum, low E, mono, 44.1 kHz, ~6 s → 264 600 samples; fundamental ≈ _(Hz, measured in 0.2)_.
 - Toy synth `g(a, f_c)`: excitation → exponential decay `a` (per-sample, or as T60 in s) → one-pole lowpass at `f_c` Hz.
 - Loss-surface grid (Phase 1.4): `a ∈ [_, _]`, `f_c ∈ [_, _]` Hz, 50×50; valley direction: _(e.g. faster decay ⇔ lower cutoff)_.
 - Gradient-descent estimates (Phase 1.5), three starts: `(a, f_c)` = _, _, _ ; losses = _.
