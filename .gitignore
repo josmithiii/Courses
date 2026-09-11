@@ -3,3 +3,6 @@
 
 # OS noise
 .DS_Store
+
+# Generated synthetic placeholder through-line note (make_note.py); never commit
+curricula/assets/audio-differentiable-dsp/note-placeholder.wav

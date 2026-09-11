@@ -1,7 +1,7 @@
 # Differentiable & Physical Audio DSP
 
-**Status:** ⚪ Planned — the on-ramp (JOS's books) exists; the three courses are not yet
-authored. Track C of the [Music 423 meta-curriculum](music423.md).
+**Status:** 🟢 Complete — all three courses authored (2026-09-11), sharing one plucked-string
+through-line note. Track C of the [Music 423 meta-curriculum](music423.md).
 
 ## Goal
 
@@ -36,9 +36,9 @@ best entry for acousticians and instrument builders.
 
 | # | Course | Status | Why here |
 |---|--------|--------|----------|
-| 1 | `../audio-ddsp/` | ⚪ Planned | Differentiable DSP: harmonic-plus-noise synthesis with learned control (DDSP), differentiable IIR filters and biquads, differentiable reverb and mixing consoles, MIDI-DDSP. Keystone = **the spectral loss and the gradient through a DSP block** — what makes a filter "differentiable" and what it costs. Pinned to one instrument note resynthesized by a learned harmonic+noise model. |
-| 2 | `../audio-synth-effect-matching/` | ⚪ Planned | Inverse problems: from a sound to the synthesizer or effect parameters that produce it — classical estimation (bowed-string, Bayesian) → learned reverse controls (InverSynth, DeepSynthPE) → DDSP-based matching → effect inversion (dynamic range compression, model-based and neural). Keystone = **many parameters, one sound** (non-identifiability) and how differentiable synthesis sidesteps it. Pinned to one synth patch recovered from audio. |
-| 3 | `../audio-physics-informed/` | ⚪ Planned | Physics + learning: modal synthesis as a learnable model, physics-informed neural networks (PINNs) for wave and string equations, and hybrid physical/neural instrument models. Keystone = **the physical prior as inductive bias** — what the equations give you for free and what the network must learn. Pinned to one struck/plucked object modeled three ways (modes, PINN, hybrid). |
+| 1 | [`../audio-ddsp/`](../audio-ddsp/) | 🟢 Active | Differentiable DSP: harmonic-plus-noise synthesis with learned control (DDSP), differentiable IIR filters and biquads, differentiable reverb and mixing consoles, MIDI-DDSP. Keystone = **the spectral loss and the gradient through a DSP block** — what makes a filter "differentiable" and what it costs. Pinned to one instrument note resynthesized by a learned harmonic+noise model. |
+| 2 | [`../audio-synth-effect-matching/`](../audio-synth-effect-matching/) | 🟢 Active | Inverse problems: from a sound to the synthesizer or effect parameters that produce it — classical estimation (bowed-string, Bayesian) → learned reverse controls (InverSynth, DeepSynthPE) → DDSP-based matching → effect inversion (dynamic range compression, model-based and neural). Keystone = **many parameters, one sound** (non-identifiability) and how differentiable synthesis sidesteps it. Pinned to one synth patch recovered from audio. |
+| 3 | [`../audio-physics-informed/`](../audio-physics-informed/) | 🟢 Active | Physics + learning: modal synthesis as a learnable model, physics-informed neural networks (PINNs) for wave and string equations, and hybrid physical/neural instrument models. Keystone = **the physical prior as inductive bias** — what the equations give you for free and what the network must learn. Pinned to one struck/plucked object modeled three ways (modes, PINN, hybrid). |
 
 ## Enrichment / co-requisites (parallel, not gates)
 
@@ -55,7 +55,9 @@ best entry for acousticians and instrument builders.
 One **instrument recording** (a single plucked or struck note) carried through all
 three courses: course 1 resynthesizes it with a learned harmonic+noise model; course 2
 recovers synthesizer and effect parameters for it; course 3 models the physical object
-that produced it.
+that produced it. The note and its license live in
+[`assets/audio-differentiable-dsp/`](assets/audio-differentiable-dsp/) (spec, status, and a
+labelled synthetic placeholder generator until a real recording is chosen).
 
 ## Source of truth
 
