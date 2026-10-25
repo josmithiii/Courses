@@ -5,7 +5,7 @@ This is the `audio-synth-effect-matching` course inside the public **Courses** r
 [`audio-differentiable-dsp`](../curricula/audio-differentiable-dsp.md) curriculum
 (Track C of the [Music 423 meta-curriculum](../curricula/music423.md)). A self-paced
 daily tutoring system that takes a DSP-literate learner from "a synthesizer is a forward
-map from knobs to sound" to the full 2025 landscape of **sound matching as an inverse
+map from knobs to sound" to the full 2025–2026 landscape of **sound matching as an inverse
 problem**: supervised parameter prediction, the loss question, differentiable synth
 matching, generative/distributional estimation, RL, and audio-effect inversion (with the
 DRC compressor as the worked effect). ~1 hour/day. The learner arrives knowing JOS's
@@ -46,8 +46,8 @@ different route from `L` back to `θ` (Phases 3, 5, 6, 7). `the-inverse-problem.
 the north-star document; point the learner at it in Phase 0.1, make them *see* the
 valley on the two-knob loss surface in Phase 1.4, revisit it when the loss changes
 (Phase 4) and when the field switches to distributions (Phase 6), and have them redraw
-the whole method map from memory in Phase 8.1. If the keystone doesn't land, the 41
-papers look like 41 tricks instead of a 3-by-N table.
+the whole method map from memory in Phase 8.1. If the keystone doesn't land, the 64
+papers look like 64 tricks instead of a 3-by-N table.
 
 ## The through-line note is the worked example ("qubit")
 Every course in this repo pins everything to one worked example. Here it is the
@@ -79,12 +79,14 @@ canonical, the course stays pedagogical. Teach from and link into:
 
 - **`/w/music423-2023/synth-effect-matching/wiki/`** (public:
   `https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/synth-effect-matching/wiki`)
-  — the home wiki, 41 papers. Pull from `overview.md` (four-phase arc, five tensions),
+  — the home wiki, 64 papers (41 core + 7 DAFx26 + 16 plate-reverb challenge). Pull
+  from `overview.md` (four-phase arc, the DAFx26 "what shifted" paragraph, tensions),
   `synth-parameter-estimation.md`, `sound-matching-approaches.md` (the taxonomy the
   keystone's method map is built from — including the comparison table of what each
   route needs), `audio-similarity-metrics.md`, `plug-and-play-priors.md`,
-  `reinforcement-learning-sound-matching.md`, `drc-parameter-estimation.md`, and the
-  `sources/` summaries listed in `syllabus.md`.
+  `reinforcement-learning-sound-matching.md`, `audio-effect-estimation.md`,
+  `drc-parameter-estimation.md`, `plate-reverb-parameter-estimation-challenge.md`, and
+  the `sources/` summaries listed in `syllabus.md`.
 - **The DRC thread (Phase 7.3–7.6)** — `/w/music423-2023/DRC/` holds the self-contained
   forward-model derivation (`DRC.tex` / `DRC.pdf`: static curve, PEAK/RMS detection,
   attack/release ballistics, the two-time-constant cascade and its quadrature rule, and
@@ -122,8 +124,13 @@ an unverified concept just to "finish."
   2024's classification-beats-regression); *(iii)* "you need a differentiable synth" —
   no, white-box / proxies / SPSA / RL / GA; *(iv)* "in-domain accuracy transfers" — no,
   the cross-domain gap; *(v)* "MR-STFT is the universal loss" — no, synth-dependent
-  (Salimi 2025), non-convex in pitch. Flag on the spot and note recurrences in
-  `progress.md`'s "Common misreadings" section.
+  (Salimi 2025), non-convex in pitch; *(vi)* "a smoother loss (OT, log-magnitude)
+  makes descent safe" — no, FM ridges at rational ratios (Tabata 2026), SOT blind to
+  `f_0` and no loss sees onsets in a KS decoder (Tablas de Paula 2026), log compression
+  collapses plate recovery (challenge 83); *(vii)* "match the output waveform" — for
+  device emulation supervise the gain trajectory (Thompson & Heilemann 2026);
+  *(viii)* "search is too slow" — not when `g` is cheap (the DAFx26 challenge). Flag on
+  the spot and note recurrences in `progress.md`'s "Common misreadings" section.
 
 - **DSP is assumed, not taught.** The learner knows one-poles, biquads and the STFT
   from JOS's books. Do *not* re-derive them; *cite* them (e.g. "the gain smoother is a
@@ -160,6 +167,29 @@ an unverified concept just to "finish."
   of regressing parameters. Carry the finding that **threshold dominates** and that
   lookahead / brick-wall limiting are one-to-many and hence non-invertible.
 
+- **The differentiable Karplus–Strong (Phase 5.7) is the through-line note's own
+  model — lean on it.** The note is a plucked guitar string and the decoder is the
+  extended KS of Jaffe & Smith, so this is where the learner's *PASP* knowledge pays
+  off directly. Teach the DSP point first (Lagrange fractional delay makes loop length
+  differentiable in the time domain, with no frequency-sampling time-aliasing), then
+  the two learning results that extend the keystone: no spectral/OT loss supervises
+  onset time, and parameter-loss training on synthetic plucks does not transfer to the
+  real note. Be honest that a single KS loop loses to harmonic-plus-noise on real
+  guitar (no body, hand or fret) — that is a finding about what the model omits, not
+  about physical models in general (contrast Camara 2026, 9.5).
+
+- **Ridges are the dual of valleys (Phase 4.6).** After 1.4 the learner reads loss
+  surfaces for flat directions; 4.6 adds *creases* where the gradient jumps. The FM
+  case is ideal for a DSP learner: the ridge positions follow from Chowning's
+  sideband folding, so they can be *predicted* before they are plotted. Have the
+  learner predict `ω = 1/2` before plotting.
+
+- **The DAFx26 challenge (Phase 9.1) is a method-map exam with an answer key.** Use it
+  in 8.1 or 9.1: give the learner the task, ask them to predict which rows win, then
+  reveal the result (learned initialiser + search polish; training-free CMA-ES close
+  behind; pure DDSP bimodal; modal gains unrecoverable above the modal-overlap
+  crossover). The numbers are from the curated wiki hub page — quote them from there.
+
 - **Theory-leaning vs code-leaning learner.** A theory learner cares about
   ill-posedness, PNP's linearization, equivariance and why classification beats
   regression under many-to-one; a code learner cares about building the toy synths,
@@ -194,6 +224,13 @@ produced themselves, kept as reference and as motivation if they stall mid-cours
 - The DRC forward model on the note (gain curve) and its analytic inversion residual
   (Phases 7.3–7.4).
 - A small reverb's decay estimated from the note convolved with a synthetic IR (7.6).
+- MR-STFT surface with and without `log`; a 2-op FM `W_1` slice with its ridge at
+  `ω = 1/2` (4.6).
+- A one-pluck differentiable KS fit to the note, A/B, plus the failed onset-time
+  gradient (5.7).
+- Toy-synth retrieval vs gradient estimate (6.7); two compressors with matching
+  `L1(y)` but different gain curves (7.7); CMA-ES vs gradient descent from one CNN
+  initialisation (9.1).
 - The method map redrawn from memory (Phase 8.1) and the capstone report (Phase 8.2).
 
 ## Updates between sessions
@@ -223,5 +260,8 @@ Two ~11:00 daily reminders (a local macOS launchd dialog + a remote Slack DM) on
   sinusoidal modeling) is decades old; CNNs made the estimator learnable (2017);
   differentiable synthesis put the audio loss in the loop (Masuda 2021); PNP made the
   perceptual loss affordable (Han 2023); flow matching made the *answer* a distribution
-  (Hayes 2025); and the effect-inversion branch ran the same loop on compressors and
-  reverbs (Gorlow 2013 → Sun 2024 → Peladeau 2025).
+  (Hayes 2025); the effect-inversion branch ran the same loop on compressors and
+  reverbs (Gorlow 2013 → Sun 2024 → Peladeau 2025); and DAFx26 (2026) turned the
+  lens on the loss landscape itself (Tabata, Tablas de Paula), on structure-aware
+  retrieval (Braun & Finkelstein), and — through the plate-reverb challenge — gave the
+  field its first shared benchmark across method-map rows.

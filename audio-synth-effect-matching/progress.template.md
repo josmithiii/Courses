@@ -46,6 +46,7 @@
 - Gradient-descent estimates (Phase 1.5), three starts: `(a, f_c)` = _, _, _ ; losses = _.
 - CNN in-domain vs real-note parameter MSE (Phase 3.4): _ vs _ ; audio (MR-STFT) loss on the real note: _.
 - Finite-difference `JᵀJ` at the toy optimum (Phase 4.3): long-axis direction = _ (should align with the valley).
+- Differentiable KS fit to the note (Phase 5.7): `f_0` = _, `g` = _, `a_1` = _ ; MR-STFT loss = _ ; onset-gradient result: _.
 - DRC forward-model parameters used on the note (Phase 7.3): `L` (threshold dB) = _, `R` = _, `τ_att/τ_rel` (detector, gain) = _ ; inversion residual (Phase 7.4) = _.
 
 ## Mastery log
@@ -71,6 +72,9 @@
 - "PNP is a perceptual loss" — it is a **linearized** one: a quadratic on θ weighted by the perceptual Jacobian
 - "effect inversion is a different field" — same loop, different `g` (the DRC thread)
 - "a framewise match that sounds right is the goal" — interpretable modulation structure is a design axis
+- "a smoother loss (OT, log-magnitude) makes descent safe" — no: FM **ridges** at rational ratios (Tabata 2026); no spectral loss sees KS onsets (Tablas de Paula 2026); log-MR-STFT collapses plate recovery
+- "match the output waveform" — for device emulation, supervise what defines the effect (the compressor's **gain trajectory**, Thompson & Heilemann 2026)
+- "search is too slow — learn an estimator" — not when `g` is cheap; the DAFx26 challenge was won by **learned initialiser + search polish**
 - (add others as they appear)
 
 ## Open questions / things to revisit

@@ -8,7 +8,11 @@ vs JTFS vs **PNP**; no universal best) → differentiable synth matching (Masuda
 DiffMoog, white-box differentiation) → generative and distributional estimation
 (FlowSynth, equivariant flow matching, parameter distributions, neural proxies, RL) →
 effect inversion (DeepAFx, blind estimation, the **DRC** forward model inverted
-analytically and neurally, grey-box, FDN reverb, modulation discovery). Pinned to one
+analytically and neurally, grey-box, FDN reverb, modulation discovery, gain-trajectory
+supervision, effect graphs). DAFx26 (2026) adds loss-landscape *ridges* (FM), a
+differentiable Karplus–Strong for the course's own plucked note, retrieval in a shared
+audio–preset embedding, and the plate-reverb parameter-estimation challenge as a
+head-to-head of every method family. Pinned to one
 plucked-string note whose parameters the learner recovers three ways, *rendered and
 heard* at every step.
 
@@ -19,7 +23,7 @@ heard* at every step.
 Processing*; [`ai-foundations`](../ai-foundations/) through Phase 2 (PyTorch, autograd,
 the training loop). `audio-ddsp` (course 1) recommended, not required.
 
-**Format:** ~1 hr/day, ~20–25 sessions; tiered CPU / Colab / GPU capstone; living
+**Format:** ~1 hr/day, ~25–30 sessions; tiered CPU / Colab / GPU capstone; living
 frontier phase.
 
 **Start:** clone **[Courses](https://github.com/josmithiii/Courses)**, then
