@@ -30,16 +30,16 @@ This course separates shipped **content** from personal **learner state**:
 - **Learner state (read AND write here):** a *data root* the learner owns. Resolve
   it in this order, and tell the learner which one you are using:
   1. If the environment variable `COURSES_DATA_DIR` is set, use it.
-  2. Else if a folder `Courses-data/` exists in the workspace folder (the current
-     working folder in Claude Code; the folder the learner selected in the Claude
-     desktop app), use it.
+  2. Else if a folder `Courses-data/` exists in the workspace folder (the folder
+     this session was started in; in Cowork, the folder the learner selected), use it.
   3. Else if `$HOME/Documents/Courses-data/` exists, use it.
   4. Else this is a first run. Do **not** choose silently: ask the learner where to
      keep their progress, recommending
-     - in the Claude desktop app (Cowork): `Courses-data/` inside the folder they
+     - in Claude Code (a terminal, or the desktop app's Code tab):
+       `~/Documents/Courses-data`;
+     - in the desktop app's Cowork mode: `Courses-data/` inside the folder they
        selected for this task - only that folder survives the session, so never
-       use `$HOME` or a temporary directory there;
-     - in Claude Code: `~/Documents/Courses-data`.
+       use `$HOME` or a temporary directory there.
 
   If the chosen location cannot be written, stop and say so plainly - never fall
   back to a temporary location, or the learner's progress silently disappears.

@@ -61,6 +61,15 @@ def test_room_acoustics_skill(tmp_path: Path) -> None:
 
     manifest = json.loads((out / ".claude-plugin/plugin.json").read_text())
     assert manifest["name"] == "courses"
+    assert manifest["displayName"] == bp.PLUGIN_DISPLAY_NAME
+
+
+def test_marketplace_matches_plugin() -> None:
+    market = json.loads((REPO / ".claude-plugin/marketplace.json").read_text())
+    (entry,) = market["plugins"]
+    assert entry["name"] == bp.PLUGIN_NAME
+    assert entry["displayName"] == bp.PLUGIN_DISPLAY_NAME
+    assert entry["source"] == f"./{bp.PLUGIN_DIR_NAME}"
 
 
 def test_every_course_builds(tmp_path: Path) -> None:

@@ -11,6 +11,7 @@
   "plugins": [
     {
       "name": "courses",
+      "displayName": "JOS Courses",
       "source": "./courses-plugin",
       "description": "Self-paced, tutor-style courses: Claude teaches one concept at a time, checks understanding with small exercises, and keeps your progress in a folder you own."
     }

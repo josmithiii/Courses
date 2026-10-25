@@ -20,10 +20,10 @@ just repoints the data location per user — see "Architecture" below).
 
 | | Claude plugin | Clone the repo |
 |---|---|---|
-| **Runs in** | Claude desktop app (Cowork mode) or Claude Code | Claude Code |
+| **Runs in** | Claude desktop app (Code tab), or Claude Code in a terminal | Claude Code in a terminal |
 | **Setup** | Add a marketplace, install one plugin | `git clone`, then `./take` |
 | **Start a lesson** | Say *"let's do today's room-acoustics lesson"* | `./take room-acoustics` |
-| **Your progress** | `Courses-data/` in a folder you choose | `~/Documents/Courses-data/` |
+| **Your progress** | `~/Documents/Courses-data/`, or a folder you choose | `~/Documents/Courses-data/` |
 | **Course updates** | Update the plugin | `git pull` |
 | **Best for** | Learners who don't want a terminal | Course authors, or terminal users |
 
@@ -36,23 +36,48 @@ files of progress — `progress.md` (what's mastered, what's next) and
 Every course ships as a Skill in the **`courses` plugin**, installable straight from
 this GitHub repo.
 
-**In the Claude desktop app** (Cowork mode needs a paid Claude plan):
+**Quickest, if you're comfortable in a terminal** — one line installs it for both
+Claude Code and the desktop app's Code tab:
 
-1. Open the **Cowork** tab → **Customize** → add the marketplace `josmithiii/Courses`,
-   then install the **courses** plugin.
-2. Start a Cowork task in a folder you'll reuse for your courses, e.g.
-   `~/Documents/Courses`.
-3. Say *"let's do today's room-acoustics lesson"* (any course name from the
-   [Courses](#courses) table works).
+```bash
+claude plugin marketplace add https://github.com/josmithiii/Courses && claude plugin install courses@josmithiii-courses
+```
 
-On your first lesson Claude asks where to keep your progress; accept `Courses-data/`
-inside that folder. **Start every later lesson in the same folder** — Cowork can only
-save inside the folder you selected, so that's where your progress lives.
+**In the Claude desktop app** (no terminal needed):
 
-**In Claude Code:**
+1. In the **Code** tab, open **Customize** → **Plugins**, click **+ Add** → **Add
+   marketplace**, enter `https://github.com/josmithiii/Courses`, and click **Sync**.
+2. **Easy to miss:** the plugin list starts on **Yours**, which shows only plugins
+   you have *already installed* — so **courses** isn't there yet. Click **Discover**
+   (in the **Yours | Discover** toggle, off to the right of the **Plugins** tab), search
+   for **JOS Courses** (by Julius O. Smith III), and install it — searching just
+   "courses" buries it under dozens of course-platform connectors. Afterwards it is
+   listed under **Yours** → *From marketplaces you added*.
+3. Start a session in any folder and say *"let's do today's room-acoustics lesson"*
+   (any course name from the [Courses](#courses) table works).
+
+On your first lesson Claude asks where to keep your progress; `~/Documents/Courses-data`
+is a good choice. The Code tab works directly on your own computer, so progress saved
+anywhere you choose stays put. Plugins installed in the Code tab also show up in Claude
+Code in a terminal — the two share one setup.
+
+Some versions of the desktop app also have a **Cowork** tab, which keeps its own
+separate plugin list; the same steps should work there. Cowork can only save inside
+the folder you selected for the task, so accept `Courses-data/` inside that folder
+and start every later lesson in the same folder.
+
+*Troubleshooting:* if **Add marketplace** just says "Failed to add marketplace", the
+marketplace is probably already declared in your Claude Code settings in another
+form — typically the short `josmithiii/Courses` form, added earlier in a terminal.
+The desktop app always stores the full URL, and Claude Code refuses a second source
+for the same marketplace name. (That's why every command here uses the full URL.) Run
+`claude plugin marketplace remove josmithiii-courses` in a terminal, then add it again.
+On a Mac, the real error is in `~/Library/Logs/Claude/main.log`.
+
+**Inside a Claude Code session** (same as the one-liner above):
 
 ```
-/plugin marketplace add josmithiii/Courses
+/plugin marketplace add https://github.com/josmithiii/Courses
 /plugin install courses@josmithiii-courses
 ```
 
@@ -63,8 +88,7 @@ directly as `/courses:room-acoustics`. To pick up course revisions later:
 **Where the plugin keeps your progress** — the first of these that exists:
 
 1. `$COURSES_DATA_DIR`, if set;
-2. `Courses-data/` in the workspace folder (the folder you started Cowork or Claude
-   Code in);
+2. `Courses-data/` in the workspace folder (the folder you started the session in);
 3. `~/Documents/Courses-data/` — so progress from a cloned-repo setup carries over
    automatically.
 
