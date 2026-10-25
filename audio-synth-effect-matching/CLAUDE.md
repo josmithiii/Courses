@@ -46,8 +46,8 @@ different route from `L` back to `θ` (Phases 3, 5, 6, 7). `the-inverse-problem.
 the north-star document; point the learner at it in Phase 0.1, make them *see* the
 valley on the two-knob loss surface in Phase 1.4, revisit it when the loss changes
 (Phase 4) and when the field switches to distributions (Phase 6), and have them redraw
-the whole method map from memory in Phase 8.1. If the keystone doesn't land, the 64
-papers look like 64 tricks instead of a 3-by-N table.
+the whole method map from memory in Phase 8.1. If the keystone doesn't land, the 78
+papers look like 78 tricks instead of a 3-by-N table.
 
 ## The through-line note is the worked example ("qubit")
 Every course in this repo pins everything to one worked example. Here it is the
@@ -79,7 +79,8 @@ canonical, the course stays pedagogical. Teach from and link into:
 
 - **`/w/music423-2023/synth-effect-matching/wiki/`** (public:
   `https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/synth-effect-matching/wiki`)
-  — the home wiki, 64 papers (41 core + 7 DAFx26 + 16 plate-reverb challenge). Pull
+  — the home wiki, 78 papers (41 core + 7 DAFx26 + 16 plate-reverb challenge + 14
+  late-2025–2026). Pull
   from `overview.md` (four-phase arc, the DAFx26 "what shifted" paragraph, tensions),
   `synth-parameter-estimation.md`, `sound-matching-approaches.md` (the taxonomy the
   keystone's method map is built from — including the comparison table of what each
@@ -129,7 +130,9 @@ an unverified concept just to "finish."
   `f_0` and no loss sees onsets in a KS decoder (Tablas de Paula 2026), log compression
   collapses plate recovery (challenge 83); *(vii)* "match the output waveform" — for
   device emulation supervise the gain trajectory (Thompson & Heilemann 2026);
-  *(viii)* "search is too slow" — not when `g` is cheap (the DAFx26 challenge). Flag on
+  *(viii)* "search is too slow" — not when `g` is cheap (the DAFx26 challenge);
+  *(ix)* "RL means step-by-step knob-turning" — no, SynthRL is a one-shot policy trained
+  against a rendered-audio reward (a contextual bandit). Flag on
   the spot and note recurrences in `progress.md`'s "Common misreadings" section.
 
 - **DSP is assumed, not taught.** The learner knows one-poles, biquads and the STFT
@@ -264,4 +267,6 @@ Two ~11:00 daily reminders (a local macOS launchd dialog + a remote Slack DM) on
   reverbs (Gorlow 2013 → Sun 2024 → Peladeau 2025); and DAFx26 (2026) turned the
   lens on the loss landscape itself (Tabata, Tablas de Paula), on structure-aware
   retrieval (Braun & Finkelstein), and — through the plate-reverb challenge — gave the
-  field its first shared benchmark across method-map rows.
+  field its first shared benchmark across method-map rows; the ISMIR/ICASSP 2026 wave
+  then pulled real recordings into the generative model's training (Hayes 2026) and
+  made "learned guess, then search" the default on both the synth and effect sides.

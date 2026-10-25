@@ -75,6 +75,7 @@
 - "a smoother loss (OT, log-magnitude) makes descent safe" — no: FM **ridges** at rational ratios (Tabata 2026); no spectral loss sees KS onsets (Tablas de Paula 2026); log-MR-STFT collapses plate recovery
 - "match the output waveform" — for device emulation, supervise what defines the effect (the compressor's **gain trajectory**, Thompson & Heilemann 2026)
 - "search is too slow — learn an estimator" — not when `g` is cheap; the DAFx26 challenge was won by **learned initialiser + search polish**
+- "RL here is an agent turning knobs step by step" — no: SynthRL is a one-shot policy trained by **policy gradient against a rendered-audio reward** (a contextual bandit)
 - (add others as they appear)
 
 ## Open questions / things to revisit

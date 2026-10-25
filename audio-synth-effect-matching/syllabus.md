@@ -238,9 +238,19 @@ the method map in `the-inverse-problem.md`.
 - **6.5** **Neural proxies (Combes et al. 2025).** For a black-box commercial synth,
   learn `θ ↦ pretrained-embedding` and optimize through the *proxy*; Peladeau &
   Peeters' hybrid (estimate with a TCN proxy, render with the real DSP).
-- **6.6** **Reinforcement learning (SynthRL, IJCAI 2025).** Matching as an MDP: state =
-  audio features, action = knob adjustments, reward = spectral similarity; no labels, no
-  gradients through `g`, cross-domain by construction; slower and reward-design-heavy.
+- **6.6** **Reinforcement learning (SynthRL, IJCAI 2025).** Not iterative
+  knob-turning: a **single-step** MDP — a *contextual bandit*. State = the target
+  sound; action = the **whole parameter vector**, decoded in one shot (a
+  non-autoregressive Transformer, one query per knob); reward = how close
+  `g(θ̂)` sounds to the target (log-spectrogram MAE + spectral convergence + MFCC).
+  Train with REINFORCE, `∇J = E[R · ∇ log π(θ̂ | x)]`, after a parameter-loss warm-up;
+  plain REINFORCE fails until high-reward samples are replayed (reward-prioritised
+  experience replay). No labels and no gradient through `g` in the RL stage, so it can
+  fine-tune on real recordings — Masuda's recipe (5.1) with a *reward* in place of a
+  differentiable synth. Inference is one forward pass; training needs a render per
+  reward. Exercise: on the toy synth, replace 1.5's Adam with REINFORCE on a Gaussian
+  policy over `(a, f_c)` and count renders to the same loss. (2026 successors swap
+  REINFORCE for GRPO on generative policies — 9.7.)
 - **6.7** **Matching by retrieval in a shared audio–preset embedding (Braun &
   Finkelstein, DAFx26 — "SynAPSE").** Don't predict, optimise or sample `θ` — embed
   every preset and every sound in one space and *look up* the nearest preset. The
@@ -394,6 +404,9 @@ the method map in `the-inverse-problem.md`.
   via neural proxies (Combes), VST-deployed DDSP synths (Mitcheltree), real-plugin
   effect graphs (WildFX), topology-general FM retrieval (SynAPSE). The open problem is
   hundreds of parameters *with* modulation *on* real recordings.
+- **9.4** **JOS's ASA 2025 overheads** (*Neural Parameter Estimation for Musical Sound
+  Synthesis*, in the collection) and the *Neural Spectral Modeling Template* — the
+  CCRMA-local view of the same map, and the codebase the tier-a capstone mirrors.
 - **9.5** **Physical decoders and the sim-to-real gap.** DAFx26 gave opposite answers
   to "does a physical `g` beat a harmonic-plus-noise DDSP decoder?": a single KS loop
   loses on real guitar (Tablas de Paula, 5.7) while a Kelly–Lochbaum vocal tract wins
@@ -401,53 +414,68 @@ the method map in `the-inverse-problem.md`.
   physical model *omits* (body, hand, fret). This is course 3's question, asked from
   the inverse side.
 
-> **9.6–9.8 are newer than the curated wiki** (preprints and ISMIR/ICASSP 2026 papers
-> found by web search, Oct 2026). They are **not yet in the paper collection or the
-> wiki**, and are summarised from their abstracts only — treat details as provisional
-> until ingested.
+> **9.6–9.8 — the post-DAFx26 wave** (late 2025 – Oct 2026; ingested into the wiki
+> on 2026-10-24, section "Late 2025-2026" of its index). Several are preprints:
+> treat rankings as provisional.
 
 - **9.6** **Closing the cross-domain gap inside the generative route (Hayes 2026).**
-  *Off-manifold robustness … with joint distribution flow matching* (Hayes, preprint):
-  model the **joint** `p(audio, θ)` with a multimodal flow and *independent* noise
-  schedules per modality, so **unlabelled real recordings** can train the audio
-  marginal — Masuda's "fine-tune on real sounds" (5.1), rebuilt for 6.3's flow;
-  partially noising the reference at inference helps further (Surge XT, Dexed).
-  *Synth-JEPA* (Hayes, Tian, Lattner, preprint): learn audio and parameter embeddings
-  that *predict each other*, then **search** presets scored in that space **without
-  rendering** — 6.7's retrieval and 9.1's search, fused; quality grows with test-time
-  search budget; listeners preferred it in 85 % of pairwise trials. Ask: which method-map
-  rows does each combine?
+  *Off-manifold robustness … with joint distribution flow matching* (Hayes, ISMIR
+  2026): train one flow over the **joint** `(θ, audio)` space with an *independent*
+  noise time per modality, so different edges of the `(t_θ, t_audio)` square are
+  different tasks — inversion `p(θ | x)`, the audio marginal `p(x)`, a parameter
+  prior — and **unlabelled real recordings** can train the audio edge. Masuda's
+  "fine-tune on real sounds" (5.1), rebuilt for 6.3's flow. On real one-shots, MSS
+  drops 15.5 → 7.7 (Surge XT) and 13.0 → 8.0 (Dexed, all 32 algorithms) against the
+  2025 conditional model; in-domain improves too. The surprise: adding the real audio
+  barely helps — **the joint objective itself** does the work (training sees
+  partially noised audio near the synth's manifold). Partially noising the target at
+  inference gives a "smoothed posterior". No listening test. *Synth-JEPA* (Hayes,
+  Tian, Lattner, preprint): audio and parameter encoders trained to *predict each
+  other*; presets are then **searched** in that embedding **without rendering a
+  single candidate** (MSS 8.4 on Surge XT vs 12.8 flow matching, 10.8 for a
+  Combes-style proxy aimed at a generic embedding, 9.5 for render-in-the-loop search);
+  listeners preferred it in 85 % of pairwise trials. Ask: which method-map rows does
+  each combine, and why does a *task-specific* embedding beat a generic one as a
+  search space?
 - **9.7** **Discrete generation, RL fine-tuning, editable programs.** *DDSynth-RL*
-  (Wu, Chin, … Xia, ISMIR 2026): inversion as **masked discrete diffusion** over
-  quantised parameters (echoing 3.2's classification into levels), then GRPO-style
-  RL with rewards on the *rendered* audio — no gradient through the black-box Dexed;
-  RL improves out-of-domain matching (6.6 meets 6.3). *AutoSynth* (same group,
-  preprint): one autoregressive sequence of MIDI events + synth settings +
-  **variable-length modulation routes**, so text-to-synth becomes text → audio
-  generator → inversion → an *editable* program. Liu et al. (Dolby, submitted to ICASSP
-  2027) extend modulation discovery (7.6): first find **which destinations** are
-  modulated, then each LFO shape; a Gammatone loss + CQT discriminator beats MR-STFT.
-  Takemoto, Nakamura, Saruwatari (APSIPA 2026): a diffusion prior over parameter
-  *trajectories*, guided by a DDSP mixture's reconstruction error, estimates each
-  source's parameters in a polyphonic ensemble.
+  (Wu, Chin, … Xia, ISMIR 2026): Dexed patches as 25-bin tokens (echoing 3.2's
+  classification into levels); a **masked discrete-diffusion** inverter, then
+  **GRPO** with rewards on the *rendered* audio. RL improves out-of-domain matching
+  (NSynth MSS 4.41 → 3.11) but **costs in-domain accuracy** — and an adapted
+  flow-matching baseline is *weakest* here, against 9.6 (reimplemented on quantised
+  presets — a caveat, and a live disagreement). *AutoSynth* (same group, preprint):
+  an autoregressive policy writes a whole Helm program — MIDI, 133 parameters, 0–13
+  **modulation routes** — so text-to-synth becomes text → audio generator →
+  inversion → an *editable* program; mixing in-domain audio into RL avoids
+  DDSynth-RL's in-domain loss. Liu et al. (Dolby, submitted to ICASSP 2027) extend
+  modulation discovery (7.6): first classify **which destinations** are modulated,
+  then regress each LFO, then the oscillator; Gammatone loss beats MSS on objective
+  metrics, though plain MSE wins the expert MUSHRA overall. Takemoto, Nakamura,
+  Saruwatari (APSIPA 2026): a diffusion prior over parameter *trajectories*, guided
+  by a DDSP mixture's spectral-loss gradient (plug-and-play), estimates each source in
+  a polyphonic ensemble (loudness error −24…57 %, `f_0` mixed).
 - **9.8** **Effects and the loss question, 2026.** The DRC thread continues: Sun,
-  Fourer, Maaref (preprint) replace their 2024 neural estimator with **black-box
-  optimisation in a perceptual feature space** (non-differentiable, histogram-based
-  descriptors allowed) for blind compressor estimation and dry-signal recovery.
-  Okita & Katayose (ICASSP 2026): **predict which effects are present, then search
-  their order and parameters** — 9.1's "learn, then search" lesson in the effect
-  branch. Effect *chains* go generative and agentic: StemFX (Cheng … Yang, ISMIR 2026;
-  autoregressive per-stem FX-chain tokens, >4000× faster style transfer than iterative
-  optimisation); LLM2Fx-Tools (Doh … Mitsufuji, ICLR 2026; a multimodal LLM emits an
-  executable effect chain by tool calling); PEACE (Braun & Finkelstein, ISMIR 2026;
-  SynAPSE's joint embedding between **Faust effect code** and wet audio). The loss
-  question: Salimi et al.'s follow-up to 4.5 (preprint) handles *out-of-domain*
-  matching with a **partial parameter distance** over the knobs two synths share —
-  still no universal loss (SIMSE on spectra for cutoff, DTW on envelopes for AM, JTFS
-  for smooth pitch), and its top loss agrees with blind listening in 5 of 7 scenarios.
-- **9.4** **JOS's ASA 2025 overheads** (*Neural Parameter Estimation for Musical Sound
-  Synthesis*, in the collection) and the *Neural Spectral Modeling Template* — the
-  CCRMA-local view of the same map, and the codebase the tier-a capstone mirrors.
+  Fourer, Maaref (preprint) replace their 2024 neural estimator with **derivative-free
+  search** (pattern search / Bayesian optimisation) over the inverse model's
+  parameters, scored by dynamic-histogram features — the MEE regressor has the best
+  *parameter* MSE but the worst *reconstruction* (feature distance 0.90 vs 0.29):
+  misreading #1 again, from the search side. Okita & Katayose (ICASSP 2026): **predict
+  which effects are present, then CMA-ES their order and parameters** (wet SI-SDR
+  23.1 vs 18.2 dB for prediction alone) — 9.1's "learn, then search" in the effect
+  branch. Counter-example: StemFX (Cheng … Yang, ISMIR 2026) writes per-stem FX
+  chains autoregressively and beats CMA-ES optimisation over a fixed "universal"
+  chain (which falls *below the unprocessed anchor* in MUSHRA) at ~1/7000 of its
+  runtime — a learned *structure* prior beats parameter search over the wrong
+  structure. Agentic and code-level: LLM2Fx-Tools (Doh … Mitsufuji,
+  ICLR 2026) has an LLM emit a plan plus JSON tool calls for the chain — and its
+  pure-regression baseline, best on parameter error, scores *below the unprocessed
+  input* in MUSHRA; FxSearcher wins listening tests while losing on CLAP score (CLAP
+  is an incomplete ruler); PEACE (Braun & Finkelstein, ISMIR 2026) retrieves **Faust
+  effect code** from wet audio with SynAPSE's objective. The loss question: Salimi et
+  al.'s follow-up to 4.5 (preprint) handles *out-of-domain* matching with a **partial
+  parameter distance** over the knobs two synths share — still no universal loss
+  (SIMSE on spectra for cutoff, soft-DTW on envelopes for AM, JTFS for smooth pitch),
+  and its top loss agrees with blind listening in 5 of 7 scenarios.
 
 ### Frontier sources
 - Hayes, Saitis, Fazekas (ISMIR 2025) — synthesizer inversion in symmetric parameter
@@ -487,8 +515,9 @@ the method map in `the-inverse-problem.md`.
   differentiable resonator refinement).
 - Camara et al. (DAFx26, paper 39) — differentiable articulatory copy-synthesis of
   biphonic singing (in the `ddsp` wiki; the physical-decoder counterpoint of 9.5).
-- **Post-DAFx26 (not yet in the collection; abstracts verified on arXiv, Oct 2026):**
-  - Hayes (2026) — off-manifold robustness in synthesizer inversion with joint
+- **Post-DAFx26 (late 2025–2026; PDFs `SynthMatch-*-<arXiv id>.pdf` in the collection,
+  summaries in the wiki's "Late 2025-2026" index section):**
+  - Hayes (ISMIR 2026) — off-manifold robustness in synthesizer inversion with joint
     distribution flow matching. arXiv:2609.29320.
   - Hayes, Tian, Lattner (2026) — Synth-JEPA: joint embedding prediction for
     renderer-free synthesizer parameter search. arXiv:2609.31024.
@@ -511,11 +540,12 @@ the method map in `the-inverse-problem.md`.
   - Doh, Koo, Martínez-Ramírez, Choi, Liao, Wu, Nam, Mitsufuji (ICLR 2026) —
     LLM2Fx-Tools: tool calling for music post-production. arXiv:2512.01559.
   - Braun & Finkelstein (ISMIR 2026) — PEACE: joint embeddings of DSP effects code and
-    audio. `github.com/DBraun/PEACE` (no arXiv ID found; venue from the ISMIR
-    accepted-papers list, not independently checked).
-  - Also noted, smaller: Bogdan (2026), INSTRUMENTAL — CMA-ES on a 28-parameter
-    subtractive synth (arXiv:2603.15905); Ki et al. (2025), FxSearcher — CLAP-scored
-    Bayesian optimisation for text-to-effect (arXiv:2511.14138).
+    audio. arXiv:2610.03405; `github.com/DBraun/PEACE`.
+  - Ki, Kim, Kwon, Kim (2025) — FxSearcher: gradient-free text-driven audio
+    transformation (CLAP-scored Bayesian optimisation). arXiv:2511.14138.
+  - Bogdan (2026) — INSTRUMENTAL: CMA-ES on a 28-parameter subtractive synth; a small
+    single-target study with internal inconsistencies (see its wiki page).
+    arXiv:2603.15905.
 
 ---
 
@@ -559,7 +589,8 @@ This course is the *pedagogical* front-end of a curated knowledge base; the wiki
 canonical, the course stays pedagogical. Read / link these:
 
 - **[`synth-effect-matching/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/synth-effect-matching/wiki)**
-  — the home wiki (64 papers: 41 core, 7 DAFx26, 16 plate-reverb challenge — the
+  — the home wiki (78 papers: 41 core, 7 DAFx26, 16 plate-reverb challenge, 14
+  late-2025–2026 — the
   largest in the collection). Key pages: `overview.md` (the four-phase arc, the
   "DAFx26: what shifted" paragraph, and the tensions), `synth-parameter-estimation.md`
   (the problem), `sound-matching-approaches.md` (the taxonomy behind the method map),
@@ -581,7 +612,13 @@ canonical, the course stays pedagogical. Read / link these:
   `han-thesis-2025`; DAFx26: `tablas-diff-karplus-strong-dafx26`,
   `fm-wasserstein-landscape-dafx26`, `fm-shared-embeddings-dafx26`,
   `drc-control-voltage-dataset-dafx26`, `wildfx-fx-graph-dafx26`,
-  `instructfx2fx-dafx26`, `clean2fx-dafx26`, and `dafx26-challenge-76…91-*`.
+  `instructfx2fx-dafx26`, `clean2fx-dafx26`, and `dafx26-challenge-76…91-*`; late
+  2025–2026: `hayes-joint-distribution-fm-2026`, `synth-jepa-2026`,
+  `ddsynth-rl-ismir26`, `autosynth-2026`, `instrumental-cmaes-2026`,
+  `destination-aware-modulation-recovery-2026`, `ddsp-mixture-guided-diffusion-apsipa26`,
+  `salimi-partial-parameter-distance-2026`, `sun-drc-blackbox-optimization-2026`,
+  `okita-afx-prediction-search-icassp26`, `stemfx-ismir26`, `llm2fx-tools-iclr26`,
+  `fxsearcher-2025`, `peace-ismir26`.
 - **The DRC thread (Phase 7.3–7.6)** — the forward-model derivation and the Zölzer ↔
   Gorlow/Sun notation map live in the collection's `DRC/` directory (`DRC.tex` /
   `DRC.pdf`); the grey-box counterpart is `ddsp/wiki/sources/wright2022-greybox-drc.md`.

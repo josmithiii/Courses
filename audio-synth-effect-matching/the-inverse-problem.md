@@ -58,8 +58,8 @@ Three things make this hard, and each one is a phase of the course:
 
 The loop has only three boxes — `g`, `L`, and *the route by which `L` reaches `θ`* —
 and every paper in the collection is a choice for one of the three. Hold that picture
-and the 64-paper reading list (41 core + the DAFx26 papers and plate-reverb challenge
-entries) becomes a 3-by-N table.
+and the 78-paper reading list (41 core + the DAFx26 papers, the plate-reverb challenge
+entries, and the late-2025–2026 wave) becomes a 3-by-N table.
 
 ## The two-parameter toy that shows everything [Phase 1.3–1.4]
 
@@ -87,11 +87,11 @@ Everything after Phase 1 is the same three facts at higher dimension.
 | **White-box differentiation** — differentiate the synth's *actual code*, discontinuities included (A-delta) | source code | yes; no training at all | Yang et al. 2023 (ISMIR + FM) |
 | **DDSP-differentiable** — reimplement `g` in torch, backprop an audio loss | a reimplementation | yes (fine-tune on real sounds) | Masuda & Saito 2021/2023; DiffMoog; PNP (Han); differentiable Karplus–Strong (Tablas de Paula 2026); differentiable modal plate (challenge 77); wedge-constrained FM (Tabata 2026) |
 | **Neural proxy / stochastic gradient** — approximate the gradient of a black box | (θ, audio) pairs or perturbation budget | possible | DeepAFx (SPSA); Combes neural proxies; Peladeau hybrid |
-| **Generative / distributional** — model `p(θ | x)`, sample many valid `θ` | (θ, audio) pairs | possible | FlowSynth; preset-VAE; Hayes equivariant flow; Peladeau distributions; simulation-based inference (challenge 84) |
-| **Retrieval in a shared embedding** — embed presets and sounds jointly, look up the nearest preset | a preset gallery + renders | possible; answer limited to the gallery | SynAPSE / DX7-GNN (Braun & Finkelstein 2026) |
-| **Reinforcement learning** — iterative knob-turning, reward = similarity | a reward, no labels, no gradients | yes | SynthRL |
+| **Generative / distributional** — model `p(θ | x)`, sample many valid `θ` | (θ, audio) pairs | possible | FlowSynth; preset-VAE; Hayes equivariant flow; Hayes joint-distribution flow (2026); Peladeau distributions; simulation-based inference (challenge 84); diffusion prior + DDSP likelihood (Takemoto 2026) |
+| **Retrieval / search in a learned embedding** — embed presets and sounds jointly; look up the nearest preset, or search presets in the embedding without rendering | a preset gallery + renders | possible; retrieval is gallery-limited, embedding search is not | SynAPSE / DX7-GNN and PEACE (Braun & Finkelstein 2026); Synth-JEPA (Hayes et al. 2026) |
+| **Reinforcement learning** — a one-shot policy proposes `θ`, the rendered audio's similarity is the reward (policy gradient; a contextual bandit, not iterative knob-turning) | a reward, no labels, no gradients | yes | SynthRL; DDSynth-RL and AutoSynth (GRPO, 2026) |
 | **Hybrid / model-based** — analytic inversion once `θ` is known; neural estimate feeds the inversion | a known DSP structure | n/a | Gorlow & Reiss DRC; Sun et al. 2024; Wright grey-box; Thompson & Heilemann 2026 (fit to measured gain CV) |
-| **Hybrid / learned initialiser + search polish** — a network's guess, refined by PSO, CMA-ES or gradient descent through `g` | training pairs *and* a callable `g` | as good as the polish | DAFx26 challenge winner (Marttila et al., transformer/flow + PSO); band-count + DDSP refinement (Lu & Reiss) |
+| **Hybrid / learned initialiser + search polish** — a network's guess, refined by PSO, CMA-ES or gradient descent through `g` | training pairs *and* a callable `g` | as good as the polish | DAFx26 challenge winner (Marttila et al., transformer/flow + PSO); band-count + DDSP refinement (Lu & Reiss); Okita & Katayose 2026 (effect types, then CMA-ES); Sun et al. 2026 (MEE-seeded DRC search) |
 
 The rows are not competitors so much as *answers to different constraints*: do you
 have the code? can you render a billion examples? must it match a real recording?
@@ -118,3 +118,4 @@ recurrences in `progress.md`.
 | "A smoother loss (spectral OT, log-magnitude) makes the landscape safe to descend." | Not globally. Tabata et al. 2026: the Wasserstein loss for FM has non-differentiable **ridges at rational frequency ratios** (sideband folding and ordering swaps). Tablas de Paula et al. 2026: SOT is blind to `f_0` in a resonant Karplus–Strong decoder, and **no** spectral loss supervises onset time. Park, Yi et al. 2026: log compression in MR-STFT collapses plate-reverb recovery. Read the ridges as well as the valleys. | Phase 4.6, 5.7 |
 | "Matching the output waveform is the right objective for an effect model." | Depends on the goal. For device emulation, Thompson & Heilemann 2026 show waveform `L1` and MSTE give near-identical scores to compressors whose **gain trajectories** differ by 86 %; supervise the quantity that defines the effect. For a *perceptual* match, Peladeau 2024 still says optimise audio. Both reject sample-wise waveform `L1`. | Phase 7.7 |
 | "Search is too slow — learn an estimator instead." | Only when `g` is slow or `θ` is high-dimensional. In the DAFx26 plate-reverb challenge a training-free CMA-ES reached NMSE ≈ 2e-11, and the winner was a *network initialiser polished by search* (≈ 2e-13). Learned and search routes compose. | Phase 2.2, 9.1 |
+| "RL for sound matching is an agent turning knobs step by step." | Not in this literature. SynthRL is a **single-step** MDP (a contextual bandit): the policy emits the whole `θ` at once and the rendered audio's similarity is the reward; DDSynth-RL and AutoSynth (2026) do the same with GRPO on generative policies. "RL" here means *policy-gradient training against a rendered-audio reward* — the way to fine-tune on real recordings without a differentiable `g`. (The course's own source wiki got this wrong until Oct 2026.) | Phase 6.6, 9.7 |

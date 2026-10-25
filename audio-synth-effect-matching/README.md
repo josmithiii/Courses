@@ -12,7 +12,9 @@ analytically and neurally, grey-box, FDN reverb, modulation discovery, gain-traj
 supervision, effect graphs). DAFx26 (2026) adds loss-landscape *ridges* (FM), a
 differentiable Karplus–Strong for the course's own plucked note, retrieval in a shared
 audio–preset embedding, and the plate-reverb parameter-estimation challenge as a
-head-to-head of every method family. Pinned to one
+head-to-head of every method family; the 2026 wave adds joint-distribution flow
+matching, renderer-free embedding search, GRPO-trained generative inverters, and
+prediction + search for effect chains. Pinned to one
 plucked-string note whose parameters the learner recovers three ways, *rendered and
 heard* at every step.
 
