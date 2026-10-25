@@ -208,21 +208,21 @@ desktop app it is listed (and searchable) as **{PLUGIN_DISPLAY_NAME}**.
 
 ## Install
 
-Always use the full URL `https://github.com/josmithiii/Courses`: the desktop app
-stores that form, and Claude Code refuses the same marketplace under a second form.
-
-**Terminal (one line; covers Claude Code and the desktop app's Code tab):**
+**Recommended - one line in a terminal** (needs Claude Code installed). It covers
+both Claude Code and the Claude desktop app's Code tab, which share one setup:
 
 ```bash
 claude plugin marketplace add https://github.com/josmithiii/Courses && claude plugin install {PLUGIN_NAME}@josmithiii-courses
 ```
 
-**Claude desktop app:** in the Code tab, open Customize -> Plugins, click + Add ->
-Add marketplace, enter `https://github.com/josmithiii/Courses`, and click Sync. The
-list starts on Yours (installed plugins only), so click Discover, search for
-"{PLUGIN_DISPLAY_NAME}", and install it. Start a session in any folder and name a course.
-(If your app has a Cowork tab, it keeps a separate plugin list; the same steps work
-there, and progress is saved in `Courses-data/` inside the folder you selected.)
+Then start a session in any folder (a terminal, or the desktop app's Code tab) and
+name a course. Always use the full URL: the desktop app stores that form, and Claude
+Code refuses the same marketplace under a second form.
+
+**Point-and-click (unreliable as of Oct 2026):** the desktop app's Code tab ->
+Customize -> Plugins -> + Add -> Add marketplace accepts the URL, but in testing the
+plugin ("{PLUGIN_DISPLAY_NAME}") never appeared under Discover, even after Check for
+updates. If it isn't listed, run the one-liner - it then shows up in the app at once.
 
 ## Courses
 

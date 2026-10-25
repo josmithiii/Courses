@@ -21,11 +21,11 @@ just repoints the data location per user — see "Architecture" below).
 | | Claude plugin | Clone the repo |
 |---|---|---|
 | **Runs in** | Claude desktop app (Code tab), or Claude Code in a terminal | Claude Code in a terminal |
-| **Setup** | Add a marketplace, install one plugin | `git clone`, then `./take` |
+| **Setup** | One terminal command | `git clone`, then `./take` |
 | **Start a lesson** | Say *"let's do today's room-acoustics lesson"* | `./take room-acoustics` |
 | **Your progress** | `~/Documents/Courses-data/`, or a folder you choose | `~/Documents/Courses-data/` |
 | **Course updates** | Update the plugin | `git pull` |
-| **Best for** | Learners who don't want a terminal | Course authors, or terminal users |
+| **Best for** | Learners: one command once, then lessons in the app or a terminal | Course authors, or terminal users |
 
 Both run the same course content and the same teaching loop, and both keep the same
 files of progress — `progress.md` (what's mastered, what's next) and
@@ -36,25 +36,25 @@ files of progress — `progress.md` (what's mastered, what's next) and
 Every course ships as a Skill in the **`courses` plugin**, installable straight from
 this GitHub repo.
 
-**Quickest, if you're comfortable in a terminal** — one line installs it for both
-Claude Code and the desktop app's Code tab:
+**Recommended: one line in a terminal.** Paste this into Terminal (it needs
+[Claude Code](https://claude.com/claude-code) installed). It installs the plugin for
+both Claude Code and the Claude desktop app's **Code** tab, which share one setup:
 
 ```bash
 claude plugin marketplace add https://github.com/josmithiii/Courses && claude plugin install courses@josmithiii-courses
 ```
 
-**In the Claude desktop app** (no terminal needed):
+Then start a session in any folder — in a terminal (`claude`) or in the desktop app's
+**Code** tab — and say *"let's do today's room-acoustics lesson"* (any course name
+from the [Courses](#courses) table works).
 
-1. In the **Code** tab, open **Customize** → **Plugins**, click **+ Add** → **Add
-   marketplace**, enter `https://github.com/josmithiii/Courses`, and click **Sync**.
-2. **Easy to miss:** the plugin list starts on **Yours**, which shows only plugins
-   you have *already installed* — so **courses** isn't there yet. Click **Discover**
-   (in the **Yours | Discover** toggle, off to the right of the **Plugins** tab), search
-   for **JOS Courses** (by Julius O. Smith III), and install it — searching just
-   "courses" buries it under dozens of course-platform connectors. Afterwards it is
-   listed under **Yours** → *From marketplaces you added*.
-3. Start a session in any folder and say *"let's do today's room-acoustics lesson"*
-   (any course name from the [Courses](#courses) table works).
+**Point-and-click in the desktop app (unreliable as of Oct 2026).** In the **Code**
+tab, **Customize** → **Plugins** → **+ Add** → **Add marketplace** accepts
+`https://github.com/josmithiii/Courses`, but in testing the plugin then never showed
+up under **Discover** (the **Yours | Discover** toggle off to the right of the
+**Plugins** tab; search **JOS Courses**), even after **Manage plugins** → **Check for
+updates**. If you get that far and it isn't listed, run the one-liner above — the
+plugin appears in the app immediately.
 
 On your first lesson Claude asks where to keep your progress; `~/Documents/Courses-data`
 is a good choice. The Code tab works directly on your own computer, so progress saved
