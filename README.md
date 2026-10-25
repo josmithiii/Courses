@@ -108,6 +108,35 @@ Cowork** — just point it at a course folder and ask it to start a lesson; it r
 the same `lesson.md` directly (there are no slash commands in Cowork). Fork and
 adapt for other environments.
 
+### As a Claude plugin (no clone needed)
+
+The courses also ship as the **`courses` plugin**, one Skill per course, installable
+straight from this GitHub repo (the root `.claude-plugin/marketplace.json` is the
+marketplace). In the Claude desktop app (Cowork): add the marketplace
+`josmithiii/Courses`, install `courses`, start a task in a folder of your choice, and
+say "let's do today's room-acoustics lesson". Progress goes to `Courses-data/` in that
+folder. In Claude Code:
+
+```
+/plugin marketplace add josmithiii/Courses
+/plugin install courses@josmithiii-courses
+```
+
+`courses-plugin/` is a **generated build output**, committed so GitHub installs work —
+never edit it by hand. After editing any course, rebuild it:
+
+```bash
+tools/build_plugin.py --all            # or name specific courses: tools/build_plugin.py room-acoustics
+tools/build_plugin.py --check          # fails if courses-plugin/ is stale (also run by tests/)
+uvx pytest tests/
+```
+
+The generator copies each course's Markdown and swaps the "Content vs. learner state"
+sections of `lesson.md` and `CLAUDE.md` for a plugin version. In the plugin the content
+is the skill's own read-only folder, and the data root resolves from `$COURSES_DATA_DIR`,
+then `Courses-data/` in the workspace folder, then `~/Documents/Courses-data/`. Failing
+all three, Claude asks the learner where to keep their progress.
+
 ## Authoring a new course
 
 Copy [`course-template/`](course-template/) and follow the checklist in its

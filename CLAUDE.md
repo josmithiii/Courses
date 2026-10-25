@@ -47,6 +47,10 @@ with a `.claude/commands/lesson.md` (except `course-template`).
   study (`curricula/<name>.md`). Shared through-line assets live under `curricula/assets/`.
   See `curricula/README.md`.
 - `take` — Bash launcher (`cd` into a course + run `/lesson`).
+- `courses-plugin/` — **generated** Claude plugin (one Skill per course), built by
+  `tools/build_plugin.py` and served by the root `.claude-plugin/marketplace.json`. Never
+  hand-edit it; after any course content edit run `tools/build_plugin.py --check` and
+  rebuild if stale (`uvx pytest tests/` checks this too). See README "As a Claude plugin".
 - `*.md` plan files at root (`AiMusicAudioPlan.md`, etc.) — authoring/design notes, not
   learner content.
 
