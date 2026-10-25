@@ -1,16 +1,109 @@
 # Courses
 
-A growing collection of self-paced, daily, tutor-style courses run through
-[Claude Code](https://claude.com/claude-code). Each course is a self-contained
-folder with its own syllabus and a `/lesson` slash command that runs an
-interactive ~1-hour session with an AI tutor — teaching one concept at a time and
-verifying understanding with small exercises.
+A growing collection of self-paced, daily, tutor-style courses run by Claude. Each
+course runs an interactive ~1-hour session with an AI tutor — teaching one concept at
+a time and verifying understanding with small exercises — and remembers where you left
+off. Take them either way (see [Taking a course](#taking-a-course)):
+
+- **As a Claude plugin — nothing to clone.** Install the `courses` plugin in the
+  Claude desktop app or Claude Code and say *"let's do today's room-acoustics lesson"*.
+- **From a clone of this repo** with [Claude Code](https://claude.com/claude-code):
+  `./take <course>` runs the course's `/lesson` slash command.
 
 **Course content vs. learner state are deliberately separated.** This repo holds
 only shipped, version-controlled course content (read-only at runtime). Each
 learner's personal progress and lesson journal live *outside* the repo, so the
 repo stays pristine and the system is multi-user / web-app ready (a future web app
 just repoints the data location per user — see "Architecture" below).
+
+## Taking a course
+
+| | Claude plugin | Clone the repo |
+|---|---|---|
+| **Runs in** | Claude desktop app (Cowork mode) or Claude Code | Claude Code |
+| **Setup** | Add a marketplace, install one plugin | `git clone`, then `./take` |
+| **Start a lesson** | Say *"let's do today's room-acoustics lesson"* | `./take room-acoustics` |
+| **Your progress** | `Courses-data/` in a folder you choose | `~/Documents/Courses-data/` |
+| **Course updates** | Update the plugin | `git pull` |
+| **Best for** | Learners who don't want a terminal | Course authors, or terminal users |
+
+Both run the same course content and the same teaching loop, and both keep the same
+files of progress — `progress.md` (what's mastered, what's next) and
+`lessons/YYYY-MM-DD.md` (a record of each session) per course.
+
+### Option 1: the `courses` Claude plugin (no clone needed)
+
+Every course ships as a Skill in the **`courses` plugin**, installable straight from
+this GitHub repo.
+
+**In the Claude desktop app** (Cowork mode needs a paid Claude plan):
+
+1. Open the **Cowork** tab → **Customize** → add the marketplace `josmithiii/Courses`,
+   then install the **courses** plugin.
+2. Start a Cowork task in a folder you'll reuse for your courses, e.g.
+   `~/Documents/Courses`.
+3. Say *"let's do today's room-acoustics lesson"* (any course name from the
+   [Courses](#courses) table works).
+
+On your first lesson Claude asks where to keep your progress; accept `Courses-data/`
+inside that folder. **Start every later lesson in the same folder** — Cowork can only
+save inside the folder you selected, so that's where your progress lives.
+
+**In Claude Code:**
+
+```
+/plugin marketplace add josmithiii/Courses
+/plugin install courses@josmithiii-courses
+```
+
+Then, in any folder, say *"let's do today's room-acoustics lesson"* or run the skill
+directly as `/courses:room-acoustics`. To pick up course revisions later:
+`claude plugin update courses@josmithiii-courses`.
+
+**Where the plugin keeps your progress** — the first of these that exists:
+
+1. `$COURSES_DATA_DIR`, if set;
+2. `Courses-data/` in the workspace folder (the folder you started Cowork or Claude
+   Code in);
+3. `~/Documents/Courses-data/` — so progress from a cloned-repo setup carries over
+   automatically.
+
+If none exists, Claude asks you where to put it rather than guessing. Nothing is ever
+written into the plugin itself.
+
+### Option 2: clone the repo (Claude Code)
+
+First time on a new machine — clone the repo and drop straight into a course:
+
+```bash
+git clone https://github.com/josmithiii/Courses.git
+cd Courses
+./take room-acoustics    # cd into the course + launch today's lesson
+```
+
+Every day after that, from the repo:
+
+```bash
+./take <course-folder>   # e.g. ./take room-acoustics  (run ./take with no args to list courses)
+```
+
+`./take` is just a convenience wrapper for the underlying steps, which also work by hand:
+
+```bash
+cd Courses/<course-folder>
+claude          # start Claude Code in the course folder
+/lesson         # begin (or resume) today's ~1-hour session
+```
+
+Progress goes to `${COURSES_DATA_DIR:-$HOME/Documents/Courses-data}/<course>/`.
+
+An optional daily 11:00 reminder can be wired up (local macOS notification and/or
+a Slack DM) so the day's session is easy to remember — see the course folder.
+
+A cloned course also runs in **Cowork** without the plugin: point a Cowork task at
+the course folder and ask it to start a lesson; it reads the same `lesson.md`
+directly (there are no slash commands in Cowork). Fork and adapt for other
+environments.
 
 ## Curricula
 
@@ -74,68 +167,32 @@ Resolved as `${COURSES_DATA_DIR:-$HOME/Documents/Courses-data}/<course>/`:
 
 `COURSES_DATA_DIR` is the single seam for going multi-user: a web app sets it to a
 per-user directory/object store and nothing else changes. On a fresh machine the
-`/lesson` command auto-seeds `progress.md` from `progress.template.md`.
+`/lesson` command auto-seeds `progress.md` from `progress.template.md`. (The plugin
+resolves the data root a little differently — see
+[Option 1](#option-1-the-courses-claude-plugin-no-clone-needed).)
 
-### To take a course
+### The `courses` plugin (generated)
 
-First time on a new machine — clone the repo and drop straight into a course:
-
-```bash
-git clone <repo-url> Courses
-cd Courses
-./take room-acoustics    # cd into the course + launch today's lesson
-```
-
-Every day after that, from the repo:
-
-```bash
-./take <course-folder>   # e.g. ./take room-acoustics  (run ./take with no args to list courses)
-```
-
-`./take` is just a convenience wrapper for the underlying steps, which also work by hand:
-
-```bash
-cd Courses/<course-folder>
-claude          # start Claude Code in the course folder
-/lesson         # begin (or resume) today's ~1-hour session
-```
-
-An optional daily 11:00 reminder can be wired up (local macOS notification and/or
-a Slack DM) so the day's session is easy to remember — see the course folder.
-
-Built for Claude Code (the `/lesson` command above). It also runs in **Claude
-Cowork** — just point it at a course folder and ask it to start a lesson; it reads
-the same `lesson.md` directly (there are no slash commands in Cowork). Fork and
-adapt for other environments.
-
-### As a Claude plugin (no clone needed)
-
-The courses also ship as the **`courses` plugin**, one Skill per course, installable
-straight from this GitHub repo (the root `.claude-plugin/marketplace.json` is the
-marketplace). In the Claude desktop app (Cowork): add the marketplace
-`josmithiii/Courses`, install `courses`, start a task in a folder of your choice, and
-say "let's do today's room-acoustics lesson". Progress goes to `Courses-data/` in that
-folder. In Claude Code:
-
-```
-/plugin marketplace add josmithiii/Courses
-/plugin install courses@josmithiii-courses
-```
-
-`courses-plugin/` is a **generated build output**, committed so GitHub installs work —
-never edit it by hand. After editing any course, rebuild it:
+`courses-plugin/` holds one Skill per course and is served by the root
+`.claude-plugin/marketplace.json`, which makes this repo a plugin marketplace
+(`josmithiii-courses`). It is a **generated build output**, committed so GitHub
+installs work — never edit it by hand. After editing any course, rebuild it:
 
 ```bash
 tools/build_plugin.py --all            # or name specific courses: tools/build_plugin.py room-acoustics
 tools/build_plugin.py --check          # fails if courses-plugin/ is stale (also run by tests/)
 uvx pytest tests/
+claude plugin validate --strict courses-plugin
 ```
 
-The generator copies each course's Markdown and swaps the "Content vs. learner state"
-sections of `lesson.md` and `CLAUDE.md` for a plugin version. In the plugin the content
-is the skill's own read-only folder, and the data root resolves from `$COURSES_DATA_DIR`,
-then `Courses-data/` in the workspace folder, then `~/Documents/Courses-data/`. Failing
-all three, Claude asks the learner where to keep their progress.
+When publishing content changes, also bump `PLUGIN_VERSION` in
+`tools/build_plugin.py` so installed copies see a new version to update to.
+
+The generator copies each course's Markdown into `skills/<course>/`, turns
+`lesson.md` into `SKILL.md`, and swaps the "Content vs. learner state" sections of
+`lesson.md` and `CLAUDE.md` for a plugin version: in the plugin the content is the
+skill's own read-only folder (replaced on every update), and the data root resolves
+as described above.
 
 ## Authoring a new course
 
@@ -147,6 +204,8 @@ Copy [`course-template/`](course-template/) and follow the checklist in its
 3. Find/replace `{{COURSE-ID}}`, `{{COURSE TITLE}}`, and `{{ONE-LINE SCOPE}}` in the new folder.
 4. Rewrite `syllabus.md` with your syllabus; adjust `progress.template.md` learner-profile fields and environment checkboxes.
 5. Add a row to the *Courses* table above.
+6. Rebuild the plugin so the new course ships there too: `tools/build_plugin.py --all`
+   (see [The `courses` plugin](#the-courses-plugin-generated)).
 
 No personal state to reset — it never lived in the repo. The `/lesson` command and
 teaching loop are reusable as-is.
