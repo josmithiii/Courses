@@ -51,6 +51,7 @@ def skip_without_source(book_id: str) -> None:
         ('<span style="text-decoration:overline">&alpha;</span>', "α̅"),
         ("2&gamma;&thinsp;cos(&theta;)", "2γ cos(θ)"),
         ("<b>bold</b> and <code>fft(x)</code>", "**bold** and `fft(x)`"),
+        ("<strong>never</strong> cancel", "**never** cancel"),
         ("<u,v> = 0", "<u,v> = 0"),  # plain-text angle brackets survive
     ],
 )
@@ -61,6 +62,8 @@ def test_html_to_text(html_in: str, text_out: str) -> None:
 def test_unknown_tag_fails_loudly() -> None:
     with pytest.raises(SystemExit):
         bx.html_to_text('<span class="mystery">x</span>')
+    with pytest.raises(SystemExit):
+        bx.html_to_text("a <br> b")
 
 
 def test_missing_source_fails_loudly(tmp_path: Path) -> None:
@@ -101,7 +104,7 @@ def test_committed_bank_is_well_formed(book_id: str) -> None:
         answers = re.findall(r"^\*\*Answer: \([a-z]\)\.\*\*", text, re.M)
         assert len(heads) == len(answers) == int(n), name
         assert not re.search(r"&[A-Za-z#0-9]+;", text), f"{name}: unescaped HTML entity"
-        assert not re.search(r"</?(?:span|sup|sub|i|b|em|code)>", text), f"{name}: leftover HTML tag"
+        assert not re.search(r"</?(?:span|sup|sub|i|b|strong|em|code)>", text), f"{name}: leftover HTML tag"
         assert f"Book page: {bx.BOOKS[book_id].url}" in text
         count += len(heads)
     assert count == total

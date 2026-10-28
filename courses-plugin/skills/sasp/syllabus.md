@@ -11,7 +11,9 @@ book *Mathematics of the DFT*, https://ccrma.stanford.edu/~jos/mdft/). That mean
 numbers and Euler's identity, sinusoids, the DFT as projection onto orthogonal sinusoids,
 the Fourier theorems (shift, convolution, Parseval, zero padding), and a first numpy
 spectrum analysis. **No hard gate:** a learner can plunge in and backfill from `mdft`
-when a gap shows (the tutor names the exact `mdft` topic). From there, the course climbs
+when a gap shows (the tutor names the exact `mdft` topic). Phases 3 and 10 also lean on
+filter basics (the z transform, poles and zeros); the `filters` course covers them, and
+the tutor can backfill from it the same way. From there, the course climbs
 as high as each of the book's topics reaches: integrals, random processes, linear
 programming, multirate systems, and finally the current research literature. Each new
 piece of mathematics is introduced just in time, as `mdft` did for complex numbers.
@@ -403,7 +405,7 @@ derivations and numpy experiments. They never replace them.
   Gradient Heap Integration (non-iterative: integrate the phase derivatives that a
   Gaussian window ties to the magnitude, chapter 2.6). Then neural vocoders that predict
   STFT coefficients and resynthesize by iSTFT/OLA: iSTFTNet, Vocos, and complex-valued
-  networks. *(empirical: quality rankings vs time-domain vocoders shift
+  networks (ComVo). *(empirical: quality rankings vs time-domain vocoders shift
   benchmark-to-benchmark.)*
 - **12.2 The phase vocoder done right** (extends 9.4). Phase locking (Laroche & Dolson)
   and phase-gradient-integration TSM (Průša & Holighaus), heard against the 9.4 baseline
@@ -444,8 +446,11 @@ derivations and numpy experiments. They never replace them.
   2022*. arXiv:2203.02395.
 - Siuzdak, H. (2023). Vocos: Closing the gap between time-domain and Fourier-based neural
   vocoders for high-quality audio synthesis. arXiv:2306.00814 (ICLR 2024).
-- ComVo, a complex-valued iSTFT vocoder. arXiv:2603.11589 (ICLR 2026). *(Recent; check
-  the paper for authors and claims before teaching from it.)*
+- Oh, H.-S., Cho, D.-H., Kim, S.-B., & Lee, S.-W. (2026). Toward complex-valued neural
+  networks for waveform generation (ComVo). *ICLR 2026*. arXiv:2603.11589. A
+  complex-valued iSTFT vocoder whose generator and discriminator use native complex
+  arithmetic, with phase quantization as a regularizer. It reports higher quality than
+  comparable real-valued baselines *(empirical)*.
 - Laroche, J., & Dolson, M. (1999). Improved phase vocoder time-scale modification of
   audio. *IEEE Trans. Speech and Audio Processing*, 7(3), 323-332.
 - Průša, Z., & Holighaus, N. (2017). Phase vocoder done right. *EUSIPCO 2017*.

@@ -45,6 +45,7 @@ updates. If it isn't listed, run the one-liner - it then shows up in the app at 
 | `buddhism-early-philosophy` | "let's do today's buddhism-early-philosophy lesson" |
 | `crypto-foundations` | "let's do today's crypto-foundations lesson" |
 | `disentanglement` | "let's do today's disentanglement lesson" |
+| `filters` | "let's do today's filters lesson" |
 | `flow-matching` | "let's do today's flow-matching lesson" |
 | `mdft` | "let's do today's mdft lesson" |
 | `neural-audio-resynthesis` | "let's do today's neural-audio-resynthesis lesson" |

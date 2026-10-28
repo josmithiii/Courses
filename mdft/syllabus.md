@@ -329,7 +329,8 @@ by-hand and coding exercises. They never replace them.
     classmate, with the N = 2 and N = 4 pins worked out in full.
 - **9.3** Where to go next: the companion books in the same series
   (*Introduction to Digital Filters*, *Spectral Audio Signal Processing*, *Physical Audio
-  Signal Processing*, all free at https://ccrma.stanford.edu/~jos/) and Phase 10.
+  Signal Processing*, all free at https://ccrma.stanford.edu/~jos/), the first two of which
+  are tutored courses here (`filters/`, `sasp/`), and Phase 10.
 
 ## Phase 10 — Where the DFT Goes Next (a living bridge)
 
