@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  // Apply the visitor's saved light/dark choice before first paint. Same key as the
+  // toggle on https://ccrma.stanford.edu/~jos/ and the books, so one choice holds site-wide.
+  (function () {
+    try {
+      var theme = localStorage.getItem("jos-theme");
+      if (theme === "light" || theme === "dark") document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {}
+  }());
+</script>
+<title>Differentiable and Physical Audio DSP</title>
+<meta name="description" content="Research Track C of the Music 423 courses: differentiable DSP, synthesizer and effect parameter estimation, and physics-informed audio models, built on JOS's signal processing books. Free, self-paced, with an AI tutor.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Differentiable and Physical Audio DSP">
+<meta property="og:description" content="Research Track C of the Music 423 courses: differentiable DSP, synthesizer and effect parameter estimation, and physics-informed audio models, built on JOS's signal processing books. Free, self-paced, with an AI tutor.">
+<!-- Source: CoursesLLM repo, landing-pages/research/audio-differentiable-dsp/index.html. Edit there, run
+     uvx pytest tests/, then landing-pages/publish. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../assets/landing.css">
+<style>
+/* Page-specific: the through-line figure. */
+.thru .what { font-family: var(--display); font-size: 1.25rem; font-style: italic; }
+.thru dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; margin: 0; font-size: 0.95rem; }
+.thru dt { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--track); padding-top: 3px; }
+.thru dd { margin: 0; }
+</style>
+</head>
+<body class="track-phys">
+<button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle color theme"></button>
+<div class="wrap">
+
+  <nav class="topbar"><a href="../">← Research tracks</a></nav>
+
+  <section class="hero">
+    <div class="stack">
+      <span class="label tinted">Research Track C · complete</span>
+      <h1>Neural methods inside the DSP toolbox.</h1>
+      <p class="lede">Make classical audio building blocks (oscillators, filters, reverbs, compressors, physical models) differentiable so their parameters can be learned from audio; invert synthesizers and effects, from a sound back to the settings that made it; and combine physics with learned parts.</p>
+      <p class="byline">For signal-processing people, acousticians and instrument builders who want the neural part to be a thin, legible layer on top of the DSP rather than a replacement for it.</p>
+    </div>
+    <figure class="figure thru" aria-label="The track's shared worked example">
+      <span class="label">One example, every course</span>
+      <p class="what">One plucked guitar note: a low E, about 82 Hz.</p>
+      <dl>
+        <dt>Course 1</dt><dd>Resynthesized by a learned harmonic-plus-noise model.</dd>
+        <dt>Course 2</dt><dd>Matched: the synthesizer and effect parameters recovered from the sound.</dd>
+        <dt>Course 3</dt><dd>Modeled as the physical string that made it: modes, a PINN, a hybrid.</dd>
+      </dl>
+      <figcaption>Six seconds with audible beating between partials as it decays, heard and compared at every stage.</figcaption>
+    </figure>
+  </section>
+
+  <section id="before">
+    <div class="section-head">
+      <span class="label">Before you start</span>
+      <h2>What the track assumes</h2>
+      <p>JOS's books, as the <a href="../../book-series/">four tutored book courses</a>: <em>Introduction to Digital Filters</em> and <em>Spectral Audio Signal Processing</em> for course 1, <em>SASP</em> for course 2, and <em>Physical Audio Signal Processing</em> for course 3. Read as far as you need and come back. On the machine-learning side, <a href="../../ai-foundations/">AI Foundations</a> through its PyTorch phase is enough.</p>
+    </div>
+  </section>
+
+  <section id="courses">
+    <div class="section-head">
+      <span class="label">The courses</span>
+      <h2>Three courses, one note</h2>
+      <p>Each course takes the same note further: from resynthesis, to inverting the synthesizer, to modeling the physical object.</p>
+    </div>
+    <div class="cards">
+      <article class="course" data-course="audio-ddsp">
+        <span class="label">Course 1 · <span class="mono">audio-ddsp</span></span>
+        <h3>Differentiable DSP</h3>
+        <p>Harmonic oscillators, filtered noise and reverb with learned control (DDSP), why waveform loss fails and spectral losses work, differentiable IIR filters and biquads, all-pass and grey-box effects, then DDX7, DDSP-Piano and MIDI-DDSP.</p>
+        <p class="keystone">The differentiable block: which block, and which loss.</p>
+        <div class="meta"><span>~20–25 sessions</span></div>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/tree/main/audio-ddsp">Course on GitHub</a></div>
+      </article>
+      <article class="course" data-course="audio-synth-effect-matching">
+        <span class="label">Course 2 · <span class="mono">audio-synth-effect-matching</span></span>
+        <h3>Synth and Effect Matching</h3>
+        <p>Sound matching as an inverse problem: handcrafted features, supervised prediction, the loss question, differentiable synth matching, generative and RL estimators, and effect inversion, through the DAFx26 papers and challenge.</p>
+        <p class="keystone">Many parameters, one sound.</p>
+        <div class="meta"><span>~25–30 sessions</span></div>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/tree/main/audio-synth-effect-matching">Course on GitHub</a></div>
+      </article>
+      <article class="course" data-course="audio-physics-informed">
+        <span class="label">Course 3 · <span class="mono">audio-physics-informed</span></span>
+        <h3>Physics-Informed Audio</h3>
+        <p>Physics plus learning on one note, three ways: a learnable modal resonator bank, a physics-informed network for the damped stiff string, and hybrid physical and neural models.</p>
+        <p class="keystone">The physical prior as inductive bias: where does the network go?</p>
+        <div class="meta"><span>~18–22 sessions</span></div>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/tree/main/audio-physics-informed">Course on GitHub</a></div>
+      </article>
+    </div>
+    <div class="section-head" style="margin-top:40px">
+      <h3>Enrichments</h3>
+      <p>Parallel, not gates.</p>
+    </div>
+    <div class="cards">
+      <article class="course" data-course="neural-audio-resynthesis">
+        <span class="label"><span class="mono">neural-audio-resynthesis</span></span>
+        <h3>Neural Audio Resynthesis</h3>
+        <p>Track A's capstone uses DDSP as the legible contrast to learned resynthesis; take it after course 1 to see both ends.</p>
+        <div class="meta"><span>~20–25 sessions</span></div>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/tree/main/neural-audio-resynthesis">Course on GitHub</a></div>
+      </article>
+      <article class="course" data-course="room-acoustics">
+        <span class="label"><span class="mono">room-acoustics</span></span>
+        <h3>Room Acoustics</h3>
+        <p>Not part of the paper collection, but the natural acoustics companion for course 3: room modes, reverberation time and the Schroeder frequency.</p>
+        <div class="meta"><span>~30 sessions</span></div>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/tree/main/room-acoustics">Course on GitHub</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="papers">
+    <div class="section-head">
+      <span class="label">The papers</span>
+      <h2>Six topic collections</h2>
+      <p>Most of the 41 DAFx26 papers added in September 2026 landed here, especially in synth and effect parameter estimation.</p>
+    </div>
+    <ul class="collections">
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/ddsp/README.md">Differentiable DSP</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/synth-effect-matching/README.md">Synth and Effect Parameter Estimation</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/modal-synthesis/README.md">Modal Synthesis</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/pinn/README.md">Physics-Informed Neural Networks</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/DRC/README.md">Dynamic Range Compression</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/ai-misc/README.md">Miscellaneous</a></li>
+    </ul>
+  </section>
+
+  <section id="start">
+    <div class="section-head">
+      <span class="label">Get started</span>
+      <h2>One line to install every course</h2>
+      <p>Install <a href="https://claude.com/claude-code">Claude Code</a> (it runs in a terminal and in the Claude desktop app's Code tab, and needs a Claude account), then paste this into a terminal, once:</p>
+    </div>
+    <div class="cmd">
+      <pre id="install-cmd">claude plugin marketplace add https://github.com/josmithiii/Courses &amp;&amp; claude plugin install courses@josmithiii-courses</pre>
+      <button type="button" data-copy="install-cmd">Copy</button>
+    </div>
+    <p class="say">Then start a session in any folder and say <q>let's do today's audio-ddsp lesson</q>, or name any course on this page.</p>
+    <p class="fine">The courses are free and open, and the full track plan is in the <a href="https://github.com/josmithiii/Courses/blob/main/curricula/audio-differentiable-dsp.md">Differentiable &amp; Physical Audio DSP curriculum</a>. The tutor runs on your own Claude account, and your progress stays in a folder on your own computer.</p>
+  </section>
+
+  <footer>
+    <span>Julius O. Smith III · CCRMA, Stanford University</span>
+    <a href="../">Research tracks</a>
+    <a href="../../">All courses</a>
+    <a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/README.md">The paper collection</a>
+  </footer>
+</div>
+<script src="../../assets/landing.js"></script>
+</body>
+</html>

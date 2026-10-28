@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  // Apply the visitor's saved light/dark choice before first paint. Same key as the
+  // toggle on https://ccrma.stanford.edu/~jos/ and the books, so one choice holds site-wide.
+  (function () {
+    try {
+      var theme = localStorage.getItem("jos-theme");
+      if (theme === "light" || theme === "dark") document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {}
+  }());
+</script>
+<title>LLMs and Sequence Models</title>
+<meta name="description" content="Research Track B of the Music 423 courses: attention, Transformers, LLMs, state-space models, RL and alignment, and multimodal models. One tutored course is live; the architecture and post-training courses are planned.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LLMs and Sequence Models">
+<meta property="og:description" content="Research Track B of the Music 423 courses: attention, Transformers, LLMs, state-space models, RL and alignment, and multimodal models. One tutored course is live; the architecture and post-training courses are planned.">
+<!-- Source: CoursesLLM repo, landing-pages/research/ai-llms-and-sequence-models/index.html. Edit there, run
+     uvx pytest tests/, then landing-pages/publish. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../assets/landing.css">
+<style>
+/* Page-specific: the through-line figure. */
+.thru .what { font-family: var(--display); font-size: 1.25rem; font-style: italic; }
+.thru dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; margin: 0; font-size: 0.95rem; }
+.thru dt { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--track); padding-top: 3px; }
+.thru dd { margin: 0; }
+</style>
+</head>
+<body class="track-seq">
+<button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle color theme"></button>
+<div class="wrap">
+
+  <nav class="topbar"><a href="../">← Research tracks</a></nav>
+
+  <section class="hero">
+    <div class="stack">
+      <span class="label tinted">Research Track B · in progress</span>
+      <h1>From attention to the models after the Transformer.</h1>
+      <p class="lede">The general AI backbone: the Transformer and its LLM descendants, the long-context and efficiency responses (linear attention, state-space models, Mamba, RWKV, hybrids), and the post-training that turns a language model into an assistant.</p>
+      <p class="byline">For anyone who wants the backbone itself, or an audio researcher who wants to read the codec-LM and DiT papers of Track A as an insider.</p>
+    </div>
+    <figure class="figure thru" aria-label="The track's shared worked example">
+      <span class="label">One example, every course</span>
+      <p class="what">One small language model, trained from scratch.</p>
+      <dl>
+        <dt>Planned</dt><dd>Rebuilt with each architecture in turn: RNN, attention, Transformer, Mamba, hybrid.</dd>
+        <dt>Compared</dt><dd>Perplexity, usable context length and speed, side by side.</dd>
+        <dt>Then</dt><dd>Fine-tuned with preference data in the post-training course.</dd>
+      </dl>
+      <figcaption>The worked example of the planned architecture course. The live course reads the history these models came from.</figcaption>
+    </figure>
+  </section>
+
+  <section id="before">
+    <div class="section-head">
+      <span class="label">Before you start</span>
+      <h2>What the track assumes</h2>
+      <p><a href="../../ai-foundations/">AI Foundations</a> or equivalent; its phases on attention, Transformers and LLMs are where this track starts.</p>
+    </div>
+  </section>
+
+  <section id="courses">
+    <div class="section-head">
+      <span class="label">The courses</span>
+      <h2>One live course, two planned</h2>
+      <p>Track B is partly built. Its first course is live. The architecture and post-training courses are scoped in the curriculum, and their papers are already in the collection.</p>
+    </div>
+    <div class="cards">
+      <article class="course" data-course="ai-miracle-decade-plus">
+        <span class="label">Course 1 · <span class="mono">ai-miracle-decade-plus</span></span>
+        <h3>AI Miracle Decade+</h3>
+        <p>Forty landmark papers from DBN (2006) to GPT-4 (2023), with concept stops that connect them: the history the rest of the track fills in.</p>
+        <div class="meta"><span>no time budget</span></div>
+        <div class="links"><a href="../../ai-miracle-decade-plus/">About the course</a></div>
+      </article>
+      <article class="course">
+        <span class="label">Course 2 · <span class="planned">ai-sequence-models</span></span>
+        <span class="status">planned</span>
+        <h3>Sequence Models</h3>
+        <p>The architecture course: word2vec and seq2seq, attention, the Transformer read closely, GPT-style LLMs, then linear attention, S4 and Mamba, RWKV, gated linear RNNs and Transformer-SSM hybrids.</p>
+      </article>
+      <article class="course">
+        <span class="label">Course 3 · <span class="planned">ai-post-training-and-rl</span></span>
+        <span class="status">planned</span>
+        <h3>Post-Training and RL</h3>
+        <p>From a pretrained model to an assistant: deep RL landmarks, RLHF, Constitutional AI and tool use, with scaling laws and double descent alongside.</p>
+      </article>
+    </div>
+    <div class="section-head" style="margin-top:40px">
+      <h3>Enrichments</h3>
+      <p>Parallel, not gates.</p>
+    </div>
+    <div class="cards">
+      <article class="course">
+        <span class="label"><span class="planned">ai-vision-and-multimodal</span></span>
+        <span class="status">planned</span>
+        <h3>Vision and Multimodal</h3>
+        <p>The vision branches of the same backbone: CNN backbones, VAEs and GANs, ViT and autoregressive image generation, unified text-and-image models.</p>
+      </article>
+      <article class="course" data-course="audio-codec-lms">
+        <span class="label"><span class="mono">audio-codec-lms</span></span>
+        <h3>Codec Language Models</h3>
+        <p>The audio application of this track's architectures, and the bridge to Track A: language-modeling codec tokens, AudioLM to MusicGen and MIDI-VALLE.</p>
+        <div class="meta"><span>~25 sessions</span></div>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/tree/main/audio-codec-lms">Course on GitHub</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="papers">
+    <div class="section-head">
+      <span class="label">The papers</span>
+      <h2>Ten topic collections</h2>
+      <p>The papers for the planned courses are already here, each directory with an interlinked wiki.</p>
+    </div>
+    <ul class="collections">
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/attention/README.md">Attention</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/natural-language-processing/README.md">Natural Language Processing</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/mamba/README.md">Mamba</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/rwkv/wiki/index.md">RWKV</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/gated-recurrence/wiki/index.md">Gated Recurrence</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/hybrid/README.md">Hybrid (Attention + SSM)</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/reinforcement-learning/README.md">Reinforcement Learning</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/multimodal/README.md">Multimodal</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/images-ar/README.md">Autoregressive Image Generation</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/double-descent/README.md">Double Descent</a></li>
+    </ul>
+  </section>
+
+  <section id="start">
+    <div class="section-head">
+      <span class="label">Get started</span>
+      <h2>One line to install every course</h2>
+      <p>Install <a href="https://claude.com/claude-code">Claude Code</a> (it runs in a terminal and in the Claude desktop app's Code tab, and needs a Claude account), then paste this into a terminal, once:</p>
+    </div>
+    <div class="cmd">
+      <pre id="install-cmd">claude plugin marketplace add https://github.com/josmithiii/Courses &amp;&amp; claude plugin install courses@josmithiii-courses</pre>
+      <button type="button" data-copy="install-cmd">Copy</button>
+    </div>
+    <p class="say">Then start a session in any folder and say <q>let's do today's ai-miracle-decade-plus lesson</q>, or name any course on this page.</p>
+    <p class="fine">The courses are free and open, and the full track plan is in the <a href="https://github.com/josmithiii/Courses/blob/main/curricula/ai-llms-and-sequence-models.md">LLMs &amp; Sequence Models curriculum</a>. The tutor runs on your own Claude account, and your progress stays in a folder on your own computer.</p>
+  </section>
+
+  <footer>
+    <span>Julius O. Smith III · CCRMA, Stanford University</span>
+    <a href="../">Research tracks</a>
+    <a href="../../">All courses</a>
+    <a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/README.md">The paper collection</a>
+  </footer>
+</div>
+<script src="../../assets/landing.js"></script>
+</body>
+</html>

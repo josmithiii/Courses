@@ -10,7 +10,8 @@ import pytest
 
 REPO = Path(__file__).resolve().parent.parent
 SITE = REPO / "landing-pages"
-PAGES = sorted([SITE / "index.html", *SITE.glob("*/index.html")])
+PAGES = sorted(SITE.rglob("index.html"))
+MUSIC423 = Path("/w/music423-2023")  # JOS's local clone of the paper collection, when present
 BOOK_SERIES = SITE / "book-series/index.html"
 GITHUB_REPO = "https://github.com/josmithiii/Courses"
 
@@ -78,7 +79,9 @@ def parse(page: Path) -> TagChecker:
 def test_expected_pages_exist() -> None:
     names = {p.relative_to(SITE).as_posix() for p in PAGES}
     assert {"index.html", "book-series/index.html", "ai-foundations/index.html",
-            "ai-miracle-decade-plus/index.html"} <= names
+            "ai-miracle-decade-plus/index.html", "research/index.html",
+            "research/ai-music-audio/index.html", "research/ai-llms-and-sequence-models/index.html",
+            "research/audio-differentiable-dsp/index.html"} <= names
 
 
 @pytest.mark.parametrize("page", PAGES, ids=lambda p: p.relative_to(SITE).as_posix())
@@ -107,6 +110,9 @@ def test_page_links_resolve(page: Path) -> None:
                 m = re.match(rf"{re.escape(GITHUB_REPO)}/(?:tree|blob)/main/([^#]+)", url)
                 if m:
                     assert (REPO / m.group(1)).exists(), f"GitHub link to a missing repo path: {url}"
+            m = re.match(r"https://cm-gitlab\.stanford\.edu/jos/music423-2023/-/(?:tree|blob)/master/([^#]+)", url)
+            if m and MUSIC423.is_dir():
+                assert (MUSIC423 / m.group(1)).exists(), f"GitLab link to a missing collection path: {url}"
             continue
         target, frag = resolve(page, url)
         assert target.is_file(), f"broken relative link {url}"
@@ -180,3 +186,32 @@ def test_page_has_the_jos_theme_toggle(page: Path) -> None:
     assert 0 <= head_script < first_css, "jos-theme must be applied in <head> before any stylesheet"
     assert '<button type="button" id="themeToggle" class="theme-toggle"' in text
     assert 'src="' in text and "assets/landing.js" in text
+
+
+RESEARCH_TRACKS = sorted((SITE / "research").glob("*/index.html"))
+
+
+def readme_sessions(course: str) -> str | None:
+    """The "~N sessions" claim in the course's row of the top-level README, if it has one."""
+    readme = (REPO / "README.md").read_text()
+    row = re.search(rf"^\| \[`{re.escape(course)}/`\].*$", readme, re.M)
+    assert row, f"no README row for {course}"
+    m = re.search(r"~[0-9][0-9–-]*\s+sessions", row.group(0))
+    return m.group(0) if m else None
+
+
+@pytest.mark.parametrize("page", RESEARCH_TRACKS, ids=lambda p: p.parent.name)
+def test_research_track_cards_match_courses(page: Path) -> None:
+    text = page.read_text()
+    cards = re.findall(r'<article class="course" data-course="([a-z0-9-]+)">(.*?)</article>', text, re.S)
+    assert cards, "a track page lists no live courses"
+    for course, card in cards:
+        assert (REPO / course / ".claude/commands/lesson.md").is_file(), f"no course {course}"
+        claimed = readme_sessions(course)
+        if claimed:
+            assert f"<span>{claimed}</span>" in card, f"{course}: README says {claimed}"
+    for planned in re.findall(r'<span class="planned">([a-z0-9-]+)</span>', text):
+        assert not (REPO / planned / ".claude/commands/lesson.md").exists(), (
+            f"{planned} is marked planned but now exists: make its card live")
+    curriculum = page.parent.name
+    assert (REPO / "curricula" / f"{curriculum}.md").is_file()

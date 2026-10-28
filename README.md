@@ -136,7 +136,9 @@ environments.
 (AI, spectral, physical), the [book-series page](landing-pages/book-series/index.html) for
 the four courses on JOS's music signal processing books, and pages for
 [AI Foundations](landing-pages/ai-foundations/index.html) and
-[AI Miracle Decade+](landing-pages/ai-miracle-decade-plus/index.html). See
+[AI Miracle Decade+](landing-pages/ai-miracle-decade-plus/index.html), plus
+[graduate research tracks](landing-pages/research/index.html) over the Music 423 paper
+collection (Tracks A, B, C). See
 [`landing-pages/README.md`](landing-pages/README.md).
 
 ## Curricula

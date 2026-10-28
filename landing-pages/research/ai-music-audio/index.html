@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  // Apply the visitor's saved light/dark choice before first paint. Same key as the
+  // toggle on https://ccrma.stanford.edu/~jos/ and the books, so one choice holds site-wide.
+  (function () {
+    try {
+      var theme = localStorage.getItem("jos-theme");
+      if (theme === "light" || theme === "dark") document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {}
+  }());
+</script>
+<title>AI Music and Audio Generation</title>
+<meta name="description" content="Research Track A of the Music 423 courses: how modern audio generators work, from neural codecs to codec language models and diffusion transformers, with enrichments and a resynthesis capstone. Free, self-paced, with an AI tutor.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Music and Audio Generation">
+<meta property="og:description" content="Research Track A of the Music 423 courses: how modern audio generators work, from neural codecs to codec language models and diffusion transformers, with enrichments and a resynthesis capstone. Free, self-paced, with an AI tutor.">
+<!-- Source: CoursesLLM repo, landing-pages/research/ai-music-audio/index.html. Edit there, run
+     uvx pytest tests/, then landing-pages/publish. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../assets/landing.css">
+<style>
+/* Page-specific: the through-line figure. */
+.thru .what { font-family: var(--display); font-size: 1.25rem; font-style: italic; }
+.thru dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; margin: 0; font-size: 0.95rem; }
+.thru dt { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--track); padding-top: 3px; }
+.thru dd { margin: 0; }
+</style>
+</head>
+<body class="track-ai">
+<button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle color theme"></button>
+<div class="wrap">
+
+  <nav class="topbar"><a href="../">← Research tracks</a></nav>
+
+  <section class="hero">
+    <div class="stack">
+      <span class="label tinted">Research Track A · complete</span>
+      <h1>How modern music and audio generators work.</h1>
+      <p class="lede">From raw waveforms to the tokens and latents every audio generator consumes, then both ways of generating from them: language-modeling codec tokens, and diffusion in a continuous latent. It ends at 2024-2026 systems such as Stable Audio, MusicGen, DiffRhythm and ACE-Step.</p>
+      <p class="byline">For learners who know modern deep learning in general and want the audio-generation specialization. No DSP background is assumed; the first course builds the audio intuition it needs.</p>
+    </div>
+    <figure class="figure thru" aria-label="The track's shared worked example">
+      <span class="label">One example, every course</span>
+      <p class="what">One 2-second solo-piano phrase.</p>
+      <dl>
+        <dt>Course 1</dt><dd>Encoded to codec tokens and to a continuous latent, and decoded back.</dd>
+        <dt>Course 2</dt><dd>Continued, infilled and conditioned by a codec language model.</dd>
+        <dt>Course 3</dt><dd>Denoised out of a latent by a diffusion transformer.</dd>
+        <dt>Capstone</dt><dd>Resynthesized as a variation that keeps its identity, A/B listened.</dd>
+      </dl>
+      <figcaption>Heard at every stage, so each method's gains and artifacts are something you hear, not just a number.</figcaption>
+    </figure>
+  </section>
+
+  <section id="before">
+    <div class="section-head">
+      <span class="label">Before you start</span>
+      <h2>What the track assumes</h2>
+      <p><a href="../../ai-foundations/">AI Foundations</a> or equivalent: MLPs, backprop, PyTorch, CNNs, attention and Transformers, LLMs and basic diffusion. That is exactly where the first course starts. No signal processing is required; the <a href="../../book-series/">book courses</a> are there for anyone who wants the DSP underneath.</p>
+    </div>
+  </section>
+
+  <section id="courses">
+    <div class="section-head">
+      <span class="label">The courses</span>
+      <h2>Three core courses, split at the field's main fork</h2>
+      <p>The first course ends at the fork that organizes the whole field: discrete tokens or a continuous latent. Courses 2 and 3 take one branch each.</p>
+    </div>
+    <div class="cards">
+      <article class="course" data-course="audio-codecs">
+        <span class="label">Course 1 · <span class="mono">audio-codecs</span></span>
+        <h3>Audio Codecs</h3>
+        <p>Brisk DSP (sampling, STFT, mel), then autoencoders, VQ-VAE, residual vector quantization, and SoundStream, EnCodec and DAC, through semantic vs acoustic tokens and evaluation.</p>
+        <p class="keystone">The fork: discrete residual-VQ tokens or a continuous VAE latent.</p>
+        <div class="meta"><span>~20 sessions</span></div>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/tree/main/audio-codecs">Course on GitHub</a></div>
+      </article>
+      <article class="course" data-course="audio-codec-lms">
+        <span class="label">Course 2 · <span class="mono">audio-codec-lms</span></span>
+        <h3>Codec Language Models</h3>
+        <p>The discrete-token branch: generate audio by language-modeling codec tokens, from WaveNet and Jukebox through AudioLM, MusicLM and MusicGen to masked models (VampNet, MAGNeT) and VALL-E / MIDI-VALLE.</p>
+        <p class="keystone">The RVQ token grid: what a model predicts, and in what order.</p>
+        <div class="meta"><span>~25 sessions</span></div>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/tree/main/audio-codec-lms">Course on GitHub</a></div>
+      </article>
+      <article class="course" data-course="audio-diffusion-dit">
+        <span class="label">Course 3 · <span class="mono">audio-diffusion-dit</span></span>
+        <h3>Audio Diffusion and DiTs</h3>
+        <p>The continuous-latent branch: latent diffusion (AudioLDM, Tango), the diffusion transformer, Stable Audio and the U-Net-to-DiT swap, rectified-flow MM-DiT (FluxMusic), DiffRhythm and ACE-Step.</p>
+        <p class="keystone">The latent canvas: generation as denoising a continuous VAE latent.</p>
+        <div class="meta"><span>~25 sessions</span></div>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/tree/main/audio-diffusion-dit">Course on GitHub</a></div>
+      </article>
+    </div>
+    <div class="section-head" style="margin-top:40px">
+      <h3>Enrichments</h3>
+      <p>Parallel courses, not gates. Each deepens one piece of the picture.</p>
+    </div>
+    <div class="cards">
+      <article class="course" data-course="flow-matching">
+        <span class="label"><span class="mono">flow-matching</span></span>
+        <h3>Flow Matching</h3>
+        <p>The training objective behind modern audio DiTs: conditional flow matching, rectified flow and OT-CFM, all on a 2-D toy distribution. Before or alongside course 3.</p>
+        <div class="meta"><span>~25 sessions</span></div>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/tree/main/flow-matching">Course on GitHub</a></div>
+      </article>
+      <article class="course" data-course="disentanglement">
+        <span class="label"><span class="mono">disentanglement</span></span>
+        <h3>Disentanglement</h3>
+        <p>What a VAE latent encodes, and why one axis per factor is hard: total correlation, the impossibility result, and pitch and timbre in audio.</p>
+        <div class="meta"><span>~15–18 sessions</span></div>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/tree/main/disentanglement">Course on GitHub</a></div>
+      </article>
+      <article class="course" data-course="audio-ssl-representations">
+        <span class="label"><span class="mono">audio-ssl-representations</span></span>
+        <h3>Self-Supervised Audio Representations</h3>
+        <p>How audio representations are learned without labels (wav2vec 2.0, HuBERT, MERT), probing, and why an understanding-grade encoder is neither invertible nor disentangled.</p>
+        <div class="meta"><span>~18–22 sessions</span></div>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/tree/main/audio-ssl-representations">Course on GitHub</a></div>
+      </article>
+      <article class="course" data-course="ai-miracle-decade-plus">
+        <span class="label"><span class="mono">ai-miracle-decade-plus</span></span>
+        <h3>AI Miracle Decade+</h3>
+        <p>The landmark papers from 2006 to 2023 as the timeline under the whole track; runs alongside any course here.</p>
+        <div class="meta"><span>no time budget</span></div>
+        <div class="links"><a href="../../ai-miracle-decade-plus/">About the course</a></div>
+      </article>
+    </div>
+    <div class="section-head" style="margin-top:40px">
+      <h3>Capstone</h3>
+      <p>Where the track leads. Plunge-in friendly: no hard prerequisites, with recall primers for what it draws on.</p>
+    </div>
+    <div class="cards">
+      <article class="course" data-course="neural-audio-resynthesis">
+        <span class="label"><span class="mono">neural-audio-resynthesis</span></span>
+        <h3>Neural Audio Resynthesis</h3>
+        <p>Creating and editing audio with neural methods: an encode, steer, decode loop that combines a self-supervised conditioning latent, a disentangling bias and a rectified-flow DiT decoder, ending on the problem of evaluating without a reference.</p>
+        <p class="keystone">The latent is expressive but illegible; the research game is winning back legible control.</p>
+        <div class="meta"><span>~20–25 sessions</span></div>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/tree/main/neural-audio-resynthesis">Course on GitHub</a></div>
+      </article>
+      <article class="course">
+        <span class="label"><span class="planned">audio-neural-vocoders</span></span>
+        <span class="status">planned</span>
+        <h3>Neural Vocoders</h3>
+        <p>Waveform generation from spectral or latent conditioning: WaveNet and its fast and parallel successors, GAN and diffusion vocoders.</p>
+      </article>
+      <article class="course">
+        <span class="label"><span class="planned">audio-symbolic-music</span></span>
+        <span class="status">planned</span>
+        <h3>Symbolic Music</h3>
+        <p>Sequence models at the score and MIDI level: Music Transformer to anticipatory music transformers.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="papers">
+    <div class="section-head">
+      <span class="label">The papers</span>
+      <h2>Seven topic collections</h2>
+      <p>The courses teach from these collections in the Music 423 repo, each a directory of papers with an interlinked wiki.</p>
+    </div>
+    <ul class="collections">
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/ai-audio-codecs/README.md">Audio Codecs</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/ai-music-audio-gen/README.md">Music Audio Generation</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/diffusion/README.md">Diffusion</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/diffusion-vocoders/README.md">Diffusion Vocoders</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/wavenet/README.md">WaveNet</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/disentanglement/README.md">Disentanglement</a></li>
+      <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/ai-scores/README.md">Scores and MIDI</a></li>
+    </ul>
+  </section>
+
+  <section id="start">
+    <div class="section-head">
+      <span class="label">Get started</span>
+      <h2>One line to install every course</h2>
+      <p>Install <a href="https://claude.com/claude-code">Claude Code</a> (it runs in a terminal and in the Claude desktop app's Code tab, and needs a Claude account), then paste this into a terminal, once:</p>
+    </div>
+    <div class="cmd">
+      <pre id="install-cmd">claude plugin marketplace add https://github.com/josmithiii/Courses &amp;&amp; claude plugin install courses@josmithiii-courses</pre>
+      <button type="button" data-copy="install-cmd">Copy</button>
+    </div>
+    <p class="say">Then start a session in any folder and say <q>let's do today's audio-codecs lesson</q>, or name any course on this page.</p>
+    <p class="fine">The courses are free and open, and the full track plan is in the <a href="https://github.com/josmithiii/Courses/blob/main/curricula/ai-music-audio.md">AI Music &amp; Audio curriculum</a>. The tutor runs on your own Claude account, and your progress stays in a folder on your own computer.</p>
+  </section>
+
+  <footer>
+    <span>Julius O. Smith III · CCRMA, Stanford University</span>
+    <a href="../">Research tracks</a>
+    <a href="../../">All courses</a>
+    <a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/README.md">The paper collection</a>
+  </footer>
+</div>
+<script src="../../assets/landing.js"></script>
+</body>
+</html>
