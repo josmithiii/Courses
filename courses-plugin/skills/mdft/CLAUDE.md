@@ -11,6 +11,23 @@ and signal processing are all built here, just in time. Adapt to the learner pro
 recorded in their `progress.md` -- don't assume their level. A strong student may race
 through Phases 1-3; an adult engineer may only want Phases 4-8.
 
+## Where this course sits in the series
+JOS's four books form two main sequences (the "Book Series Overview" diagram in the books'
+front matter):
+- **Spectral:** *Mathematics of the DFT* (Book I, `mdft`) → *Spectral Audio Signal
+  Processing* (Book IV, `sasp`).
+- **Physical:** *Introduction to Digital Filters* (Book II, `filters`) → *Physical Audio
+  Signal Processing* (Book III, `pasp`).
+
+`mdft` and `filters` are both self-contained starting points from high-school math, and
+each helps the other (MDFT is the filters book's recommended co-requisite). `mdft` →
+`sasp` is reasonably self-contained; `sasp` borrows a little from `filters` (mainly
+convolution and frequency response). `pasp` builds most directly on `filters` but draws on
+all three for its complete development: `mdft` throughout, `sasp` lightly.
+
+**This course** starts the spectral track, and it's the companion that `filters`
+recommends alongside it.
+
 ## Content vs. learner state (architecture)
 Shipped course **content** is this skill's folder and is read-only at runtime.
 Personal **learner state** (`progress.md` and `lessons/YYYY-MM-DD.md`) lives in the
@@ -117,8 +134,8 @@ How to use them:
   7 land for most students.
 
 - **Phase 10 is a living bridge, not a SOTA phase.** The DFT is settled mathematics.
-  Phase 10 maps where it goes next: the STFT and everything built on it (the sequel course
-  `../sasp/`, on *Spectral Audio Signal Processing*, https://ccrma.stanford.edu/~jos/sasp/),
+  Phase 10 maps where it goes next: the STFT and everything built on it (the next course on
+  the spectral track, `../sasp/`, on *Spectral Audio Signal Processing*, https://ccrma.stanford.edu/~jos/sasp/),
   the MDCT (`audio-codecs/`), spectral losses (`audio-ddsp/`) and convolution reverb
   (`room-acoustics/`). A learner who finishes `mdft` is ready to start `sasp`.
 

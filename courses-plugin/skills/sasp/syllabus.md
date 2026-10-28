@@ -6,14 +6,18 @@
 course follows the book's chapter order (with a few topics regrouped), so the learner can
 read the matching page before or after the session.
 
-**Learner profile:** someone at the level of the `mdft` course's end state (the companion
-book *Mathematics of the DFT*, https://ccrma.stanford.edu/~jos/mdft/). That means complex
+**Learner profile:** someone at the level of the `mdft` course's end state (Book I,
+*Mathematics of the DFT*, https://ccrma.stanford.edu/~jos/mdft/). This course is the second
+half of the series' *spectral* track (`mdft` → `sasp`). That means complex
 numbers and Euler's identity, sinusoids, the DFT as projection onto orthogonal sinusoids,
 the Fourier theorems (shift, convolution, Parseval, zero padding), and a first numpy
 spectrum analysis. **No hard gate:** a learner can plunge in and backfill from `mdft`
-when a gap shows (the tutor names the exact `mdft` topic). Phases 3 and 10 also lean on
-filter basics (the z transform, poles and zeros); the `filters` course covers them, and
-the tutor can backfill from it the same way. From there, the course climbs
+when a gap shows (the tutor names the exact `mdft` topic). SASP also borrows a little
+from *Introduction to Digital Filters* (`filters`): mainly convolution and frequency
+response, used in FIR design (Phase 3), overlap-add (Phase 7) and filter banks (Phases
+8 and 10). `mdft` covers enough of both that `mdft` → `sasp` is reasonably
+self-contained, and the tutor backfills from `filters` when more is needed. From there,
+the course climbs
 as high as each of the book's topics reaches: integrals, random processes, linear
 programming, multirate systems, and finally the current research literature. Each new
 piece of mathematics is introduced just in time, as `mdft` did for complex numbers.

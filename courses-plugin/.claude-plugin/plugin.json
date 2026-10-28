@@ -2,7 +2,7 @@
   "name": "courses",
   "displayName": "JOS Courses",
   "description": "Self-paced, tutor-style courses: Claude teaches one concept at a time, checks understanding with small exercises, and keeps your progress in a folder you own.",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "author": {
     "name": "Julius O. Smith III",
     "url": "https://ccrma.stanford.edu/~jos/"

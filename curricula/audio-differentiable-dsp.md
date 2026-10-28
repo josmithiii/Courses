@@ -21,13 +21,14 @@ best entry for acousticians and instrument builders.
 
 ## Prerequisites
 
-- **Audio DSP** — JOS's online books, which are self-paced courses in their own right:
-  [*Mathematics of the DFT*](https://ccrma.stanford.edu/~jos/mdft/) →
-  [*Introduction to Digital Filters*](https://ccrma.stanford.edu/~jos/filters/) →
-  [*Spectral Audio Signal Processing*](https://ccrma.stanford.edu/~jos/sasp/) →
-  [*Physical Audio Signal Processing*](https://ccrma.stanford.edu/~jos/pasp/).
-  All four are also tutored courses here: [`../mdft/`](../mdft/) →
-  [`../filters/`](../filters/) → [`../sasp/`](../sasp/) → [`../pasp/`](../pasp/).
+- **Audio DSP** — JOS's online books, which are self-paced courses in their own right,
+  in two tracks. **Spectral:** [*Mathematics of the DFT*](https://ccrma.stanford.edu/~jos/mdft/)
+  → [*Spectral Audio Signal Processing*](https://ccrma.stanford.edu/~jos/sasp/).
+  **Physical:** [*Introduction to Digital Filters*](https://ccrma.stanford.edu/~jos/filters/)
+  → [*Physical Audio Signal Processing*](https://ccrma.stanford.edu/~jos/pasp/), which
+  draws on all three others. All four are also tutored courses here:
+  [`../mdft/`](../mdft/) → [`../sasp/`](../sasp/) and [`../filters/`](../filters/) →
+  [`../pasp/`](../pasp/).
   The first two are required background for course 1; *SASP* for course 1's spectral
   losses and course 2; *PASP* for course 3. Read as far as you need and return.
 - **Machine learning** — [`../ai-foundations/`](../ai-foundations/) through Phase 2

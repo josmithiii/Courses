@@ -6,8 +6,8 @@
 > data directory (see CLAUDE.md / the /lesson command for the resolved path).
 
 ## Learner profile
-- Who / level: _(mdft graduate / undergraduate / audio developer / musician-engineer)_
-- MDFT background: _(took the mdft course / equivalent elsewhere / gaps: …)_
+- Who / level: _(high-school student / undergraduate / audio developer / musician-engineer)_
+- MDFT (recommended companion): _(took it / taking it alongside / not yet)_. Complex numbers & e^(jθ): _(new / some / fluent)_
 - Calculus & circuits: _(none / some / solid)_. Derivatives? Polynomial roots? Matrices? Capacitors/inductors?
 - Coding: _(some Python / comfortable numpy+scipy / Octave)_. Tool: _(Colab / local .venv / Octave)_. Faust? _(no / curious / yes)_
 - Lean: _(hands-on build & listen / derive / both)_
@@ -23,7 +23,7 @@
 - **Lessons completed:** 0
 - **Capstone choice:** (not yet chosen — Phase 11.6 a/b/c)
 
-## MDFT backfill log
+## MDFT companion log
 _(mdft topics revisited when a gap showed, e.g. "mdft 6.5 convolution theorem, 2026-11-03")_
 - (none yet)
 

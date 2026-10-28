@@ -327,10 +327,12 @@ by-hand and coding exercises. They never replace them.
     both against `np.fft.fft`, then build a small spectrogram tool on top.
   - **(c) Explain it.** Write a two-page explanation of the DFT as projection for a
     classmate, with the N = 2 and N = 4 pins worked out in full.
-- **9.3** Where to go next: the companion books in the same series
-  (*Introduction to Digital Filters*, *Spectral Audio Signal Processing*, *Physical Audio
-  Signal Processing*, all free at https://ccrma.stanford.edu/~jos/), each a tutored course
-  here (`filters/`, `sasp/`, `pasp/`), and Phase 10.
+- **9.3** Where to go next. The series has two tracks, and each book is a tutored course
+  here (all free at https://ccrma.stanford.edu/~jos/). **Spectral:** this course →
+  *Spectral Audio Signal Processing* (`sasp/`), which builds directly on it. **Physical:**
+  *Introduction to Digital Filters* (`filters/`, self-contained, and an easy next step
+  after this course) → *Physical Audio Signal Processing* (`pasp/`), which draws on the
+  whole series. Plus Phase 10.
 
 ## Phase 10 — Where the DFT Goes Next (a living bridge)
 
@@ -342,7 +344,7 @@ by-hand and coding exercises. They never replace them.
 
 - **10.1** The **short-time Fourier transform (STFT)**: the spectrogram of 7.5 made into
   an invertible transform (overlap-add and filter-bank views), with window design as a
-  real engineering choice. → the sequel course **`sasp/`**, built on *Spectral Audio
+  real engineering choice. → the next course on the spectral track, **`sasp/`**, built on *Spectral Audio
   Signal Processing* (https://ccrma.stanford.edu/~jos/sasp/). It starts at this course's
   end state and climbs to the research frontier: windows, sinusoidal modeling, the phase
   vocoder, multirate filter banks, and modern spectral methods.

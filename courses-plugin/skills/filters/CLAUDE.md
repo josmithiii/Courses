@@ -2,16 +2,35 @@
 
 This is the `filters` course inside the public **Courses** repo (`..`). It's a self-paced
 daily tutoring course on JOS's book *Introduction to Digital Filters with Audio
-Applications*, free online at **https://ccrma.stanford.edu/~jos/filters/**. It's the second
-book in the series: it starts at `../mdft/`'s end state (complex numbers, sinusoids, the
-DFT and its convolution theorem) and builds the whole of digital filter theory, from
-y(n) = x(n) + x(n−1) to state-space filters and IIR design. It ends at the current research
-literature (Phase 12). There's no hard prerequisite gate: when a learner hits an `mdft`
-gap, name the exact `mdft` topic and backfill it briefly, then return. `../sasp/` is the
-natural next course. Adapt to the learner profile recorded in their `progress.md` --
-don't assume their level. A student fresh from `mdft` needs the z transform, partial
-fractions, Laplace and circuits built from scratch; an audio developer may want Phases
-7-9 and 12 (and the Faust track) right away.
+Applications*, free online at **https://ccrma.stanford.edu/~jos/filters/**. It's Book II of
+the series and the start of its physical track (`filters` → `../pasp/`). Like the book (a
+first course in DSP), it's self-contained from high-school algebra and trigonometry: it
+builds the whole of digital filter theory, from y(n) = x(n) + x(n−1) to state-space
+filters and IIR design, and ends at the current research literature (Phase 12).
+`../mdft/` is the recommended companion, not a prerequisite: when a learner wants more
+depth on complex numbers, sinusoids or the DFT, name the exact `mdft` topic and draw on
+it briefly, then return. Adapt to the learner profile recorded in their `progress.md` --
+don't assume their level. A student new to complex numbers needs them built in Phase 1
+(appendix A); a student fresh from `mdft` can move quickly to the z transform, partial
+fractions, Laplace and circuits; an audio developer may want Phases 7-9 and 12 (and the
+Faust track) right away.
+
+## Where this course sits in the series
+JOS's four books form two main sequences (the "Book Series Overview" diagram in the books'
+front matter):
+- **Spectral:** *Mathematics of the DFT* (Book I, `mdft`) → *Spectral Audio Signal
+  Processing* (Book IV, `sasp`).
+- **Physical:** *Introduction to Digital Filters* (Book II, `filters`) → *Physical Audio
+  Signal Processing* (Book III, `pasp`).
+
+`mdft` and `filters` are both self-contained starting points from high-school math, and
+each helps the other (MDFT is the filters book's recommended co-requisite). `mdft` →
+`sasp` is reasonably self-contained; `sasp` borrows a little from `filters` (mainly
+convolution and frequency response). `pasp` builds most directly on `filters` but draws on
+all three for its complete development: `mdft` throughout, `sasp` lightly.
+
+**This course** starts the physical track. `mdft` alongside it is helpful but not
+required.
 
 ## Content vs. learner state (architecture)
 Shipped course **content** is this skill's folder and is read-only at runtime.
@@ -109,7 +128,8 @@ How to use them:
   12. **Pole-zero cancellation in practice.** Canceling a pole with a zero rarely works
       under roundoff, and never try to cancel an *unstable* pole.
 
-- **New mathematics, built just in time.** The book needs more than `mdft`: the z
+- **New mathematics, built just in time.** If they're new: complex numbers and Euler's
+  identity (1.2, appendix A; `mdft` Phases 1-3 for depth). Then, for everyone: the z
   transform and region of convergence (5.1), polynomial roots and partial fractions
   (5.2-5.3), derivatives for group delay (6.2), the Laplace transform and capacitor/inductor
   circuit laws (11.1-11.2), and matrices and eigenvalues for state space (4.4, 11.4). Build

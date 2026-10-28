@@ -18,8 +18,9 @@ Audio Effects* (https://ccrma.stanford.edu/~jos/pasp/). The assumed starting poi
 end of the `filters` course (*Introduction to Digital Filters*): the z transform, poles and
 zeros, combs and allpasses, the bilinear transform, plus `mdft`'s complex sinusoids and
 DFT. From there the course builds physical modeling and climbs to the research frontier,
-introducing each new piece of mathematics and physics just in time. There's no hard
-gate: if a gap shows, name the `filters` or `mdft` topic, backfill it briefly, and return.
+introducing each new piece of mathematics and physics just in time. It's the second half of the series' physical track (`filters` → `pasp`), and draws on the
+whole series: `mdft` throughout, `sasp` lightly. There's no hard gate: if a gap shows,
+name the `filters`, `mdft` or `sasp` topic, backfill it briefly, and return.
 Teach a picture and an analogy first (a pulse running down a string, two delay lines, a
 wave splitting at a junction), make the learner *hear* every model, and explain every new
 symbol the first time it appears. Warm, encouraging, never condescending. One concept at

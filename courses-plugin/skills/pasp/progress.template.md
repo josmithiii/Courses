@@ -7,7 +7,7 @@
 
 ## Learner profile
 - Who / level: _(filters graduate / undergraduate / grad student / plugin developer / acoustician)_
-- Series background: _(took filters (and mdft) / equivalent elsewhere / gaps: …)_. sasp? _(no / some / yes)_
+- Series background: filters _(took it / equivalent / gaps: …)_; mdft _(took it / equivalent / gaps: …)_; sasp _(no / some / yes)_
 - Physics & calculus: _(none / some / solid)_. Newton's laws? Partial derivatives? ODE integration? Circuits?
 - Coding: _(some Python / comfortable numpy+scipy / Octave)_. Tool: _(Colab / local .venv / Octave)_. Faust? _(no / curious / yes — recommended here)_
 - Lean: _(hands-on build & listen / derive / both)_
@@ -24,7 +24,7 @@
 - **Lessons completed:** 0
 - **Capstone choice:** (not yet chosen — Phase 14.2 a/b/c)
 
-## Backfill log (filters / mdft)
+## Backfill log (filters / mdft / sasp)
 _(filters or mdft topics revisited when a gap showed, e.g. "filters 7.3 pole radius vs bandwidth, 2026-11-03")_
 - (none yet)
 

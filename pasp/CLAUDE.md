@@ -3,17 +3,36 @@
 This is the `pasp` course inside the public **Courses** repo (`..`). It's a self-paced daily
 tutoring course on JOS's book *Physical Audio Signal Processing for Virtual Musical
 Instruments and Audio Effects* (PASP), free online at **https://ccrma.stanford.edu/~jos/pasp/**.
-It's the last book in the series (`../mdft/` → `../filters/` → `../sasp/` → `pasp`). It
-starts at `filters`' end state (z transform, poles and zeros, combs and allpasses, the
-bilinear transform) and builds physical modeling: delay-line acoustics, reverberation,
+It's Book III of the series and the second half of its physical track, after
+`../filters/`. It builds most directly on `filters`' end state (z transform, poles and
+zeros, combs and allpasses, the bilinear transform), but it's the one course that draws on
+the whole series: `../mdft/` throughout and `../sasp/` lightly. It builds physical modeling: delay-line acoustics, reverberation,
 fractional delay, time-varying delay effects, digital waveguides, scattering, lumped and
 wave digital models, finite differences, transfer-function and commuted models, and
 virtual instruments. It ends at the current research literature (Phase 15). There's no
-hard prerequisite gate: when a learner hits a gap, name the exact `filters` or `mdft` topic
-and backfill it briefly, then return. Adapt to the learner profile recorded in their
+hard prerequisite gate: when a learner hits a gap, name the exact `filters`, `mdft` or
+`sasp` topic and backfill it briefly, then return. Adapt to the learner profile recorded in their
 `progress.md` -- don't assume their level. A student fresh from `filters` needs the physics,
 partial derivatives and numerical ODEs built; a plugin developer may want reverbs, delay
 effects and Faust first; an acoustician may go straight to waveguides and instruments.
+
+## Where this course sits in the series
+JOS's four books form two main sequences (the "Book Series Overview" diagram in the books'
+front matter):
+- **Spectral:** *Mathematics of the DFT* (Book I, `mdft`) → *Spectral Audio Signal
+  Processing* (Book IV, `sasp`).
+- **Physical:** *Introduction to Digital Filters* (Book II, `filters`) → *Physical Audio
+  Signal Processing* (Book III, `pasp`).
+
+`mdft` and `filters` are both self-contained starting points from high-school math, and
+each helps the other (MDFT is the filters book's recommended co-requisite). `mdft` →
+`sasp` is reasonably self-contained; `sasp` borrows a little from `filters` (mainly
+convolution and frequency response). `pasp` builds most directly on `filters` but draws on
+all three for its complete development: `mdft` throughout, `sasp` lightly.
+
+**This course** is the second half of the physical track, after `filters`, and the one
+that uses the whole series. Backfill from `filters` first, `mdft` next, and `sasp`
+occasionally.
 
 ## Content vs. learner state (architecture)
 Shipped course **content** is versioned in this repo and is read-only at runtime.

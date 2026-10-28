@@ -8,13 +8,15 @@ order, but brings the theory appendices (physics, waveguide theory, wave digital
 finite differences) in where they're needed. The learner can read the matching page before
 or after the session.
 
-**Learner profile:** someone at the level of the `filters` course's end state (the second
-book in the series, *Introduction to Digital Filters*, https://ccrma.stanford.edu/~jos/filters/),
-itself built on `mdft`. That means the z transform, poles and zeros, comb and allpass
-filters, the bilinear transform, a little state space, plus `mdft`'s complex sinusoids
-and DFT. `sasp` (spectral processing) helps in places but isn't needed. **No hard gate:** a
-learner can plunge in and backfill from `filters` or `mdft` when a gap shows (the tutor
-names the exact topic). From there the course builds what physical modeling needs, just in
+**Learner profile:** someone at the level of the `filters` course's end state (Book II,
+*Introduction to Digital Filters*, https://ccrma.stanford.edu/~jos/filters/). This course is
+the second half of the series' *physical* track (`filters` → `pasp`), and it builds most
+directly on `filters`: the z transform, poles and zeros, comb and allpass filters, the
+bilinear transform, a little state space. For its complete development PASP draws on the
+whole series, though: `mdft` throughout (complex sinusoids, the DFT, spectra), and `sasp`
+lightly (windowed-sinc interpolation, FFT-based analysis for loop-filter
+identification). **No hard gate:** a learner can plunge in and backfill from `filters`,
+`mdft` or `sasp` when a gap shows (the tutor names the exact topic). From there the course builds what physical modeling needs, just in
 time: Newtonian mechanics, the wave equation and partial derivatives, impedance and
 circuit analogies, numerical integration of ODEs and PDEs. It ends at the current
 research literature (Phase 15). ~1 hour per day. One concept at a time. Every concept is

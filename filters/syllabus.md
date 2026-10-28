@@ -7,14 +7,18 @@ names its book page(s) as `Page_Name`, and the full URL is
 chapter order and weaves the appendices in where they're needed, so the learner can read
 the matching page before or after the session.
 
-**Learner profile:** someone at the level of the `mdft` course's end state (the first book
-in the series, *Mathematics of the DFT*, https://ccrma.stanford.edu/~jos/mdft/). That means
-complex numbers and Euler's identity, sinusoids and phasors, the DFT and its theorems
-(especially convolution), and a little numpy. **No hard gate:** a learner can plunge in and
-backfill from `mdft` when a gap shows (the tutor names the exact `mdft` topic). From there
-the course builds the whole of digital filter theory, introducing new mathematics just in
-time: the z transform, partial fractions, the Laplace transform, circuits (capacitors and
-inductors), matrices and state space. It ends at the current research literature on
+**Learner profile:** a **student who is good at math**: high-school algebra and
+trigonometry. The book is a first course in digital signal processing and is
+self-contained from there. Chapter 1 analyzes the simplest lowpass filter with
+trigonometry alone, then brings in complex variables. It starts the series' *physical*
+track (this course → `pasp`). *Mathematics of the DFT* (`mdft`,
+https://ccrma.stanford.edu/~jos/mdft/) is the book's recommended companion, not a
+prerequisite. A learner who has taken it moves faster through Phases 1-2, and the tutor
+can point to `mdft` topics for a deeper treatment of complex numbers, sinusoids and the
+DFT. From there the course builds the whole of digital filter theory, introducing new
+mathematics just in time: complex numbers and Euler's identity (if new), the z transform,
+partial fractions, the Laplace transform, circuits (capacitors and inductors), matrices
+and state space. It ends at the current research literature on
 filters (Phase 12). ~1 hour per day. One concept at a time. Every concept is checked with
 a small exercise before moving on.
 
@@ -107,8 +111,11 @@ derivations and numpy experiments. They never replace them.
   `Finding_Frequency_Response`, `Complex_Trigonometric_Identities`)
 - **1.2** The easier way: feed it the complex sinusoid e^(jωnT) instead, factor it out,
   and the frequency response H(e^(jωT)) = 1 + e^(−jωT) drops out in one line. Why complex
-  sinusoids are the *eigenfunctions* of LTI filters. (book: `Easier_Way`, `Summary`,
-  `Sum_Sinusoids_Same_Frequency`, `Background_Fundamentals`)
+  sinusoids are the *eigenfunctions* of LTI filters. *Complex numbers just in time*, if
+  they're new: the complex plane, e^(jθ) = cos θ + j sin θ, and "multiplying multiplies
+  magnitudes and adds angles" (appendix A). Offer `mdft` Phases 1-3 for the full
+  development. (book: `Easier_Way`, `Summary`, `Sum_Sinusoids_Same_Frequency`,
+  `Background_Fundamentals`)
 - **1.3** Measure it numerically: sine-wave analysis in numpy (send sinusoids through
   `lfilter`, measure the output amplitude and phase), complex sine-wave analysis, then
   the practical method (`freqz`). Compare all three to 2cos(πfT). (book:
@@ -341,9 +348,9 @@ derivations and numpy experiments. They never replace them.
 - **12.5 Toward physical models** (extends 2, 8.2, 11.6b). Wave digital filters
   (circuit-structured digital filters with guaranteed passivity) and digital waveguides
   (the feedback comb grown into strings and tubes). This is the subject of the next book
-  in the series, *Physical Audio Signal Processing*
-  (https://ccrma.stanford.edu/~jos/pasp/), and of the `pasp/` course, which starts where
-  this one ends.
+  on the physical track, *Physical Audio Signal Processing*
+  (https://ccrma.stanford.edu/~jos/pasp/), and of the `pasp/` course, which builds most
+  directly on this one.
 
 ### Frontier sources
 - Zavalishin, V. *The Art of VA Filter Design.* Native Instruments, online book (revised
