@@ -129,6 +129,12 @@ the course folder and ask it to start a lesson; it reads the same `lesson.md`
 directly (there are no slash commands in Cowork). Fork and adapt for other
 environments.
 
+## Landing pages
+
+[`landing-pages/`](landing-pages/) holds public pages for sharing the courses, such as the
+[book-series page](landing-pages/book-series/index.html) for the four courses on JOS's
+music signal processing books. See [`landing-pages/README.md`](landing-pages/README.md).
+
 ## Curricula
 
 A **curriculum** is an ordered *sequence* of courses sharing a goal (a *syllabus* is one
