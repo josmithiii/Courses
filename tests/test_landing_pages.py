@@ -215,3 +215,11 @@ def test_research_track_cards_match_courses(page: Path) -> None:
             f"{planned} is marked planned but now exists: make its card live")
     curriculum = page.parent.name
     assert (REPO / "curricula" / f"{curriculum}.md").is_file()
+
+
+@pytest.mark.parametrize("page", PAGES, ids=lambda p: p.relative_to(SITE).as_posix())
+def test_page_opts_out_of_forced_dark_mode(page: Path) -> None:
+    """Pages theme themselves, so extensions like Dark Reader must not recolor them."""
+    text = page.read_text()
+    assert '<meta name="darkreader-lock">' in text
+    assert '<meta name="color-scheme" content="light dark">' in text
