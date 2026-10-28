@@ -33,7 +33,7 @@ REPO = Path(__file__).resolve().parent.parent
 PLUGIN_DIR_NAME = "courses-plugin"
 PLUGIN_NAME = "courses"
 PLUGIN_DISPLAY_NAME = "JOS Courses"  # what the desktop app lists and searches; the bare name drowns among connectors
-PLUGIN_VERSION = "0.1.2"
+PLUGIN_VERSION = "0.2.0"
 TEMPLATE_COURSE = "course-template"
 
 LESSON_STATE_HEADING = "## Content vs. learner state (important)"

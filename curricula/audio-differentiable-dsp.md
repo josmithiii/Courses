@@ -26,6 +26,8 @@ best entry for acousticians and instrument builders.
   [*Introduction to Digital Filters*](https://ccrma.stanford.edu/~jos/filters/) →
   [*Spectral Audio Signal Processing*](https://ccrma.stanford.edu/~jos/sasp/) →
   [*Physical Audio Signal Processing*](https://ccrma.stanford.edu/~jos/pasp/).
+  *MDFT* and *SASP* are also tutored courses here: [`../mdft/`](../mdft/) →
+  [`../sasp/`](../sasp/).
   The first two are required background for course 1; *SASP* for course 1's spectral
   losses and course 2; *PASP* for course 3. Read as far as you need and return.
 - **Machine learning** — [`../ai-foundations/`](../ai-foundations/) through Phase 2
