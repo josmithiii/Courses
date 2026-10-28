@@ -169,3 +169,14 @@ def test_ai_miracle_paper_count_matches_syllabus() -> None:
     assert page.count("<circle") == n, "timeline dots don't match the syllabus's paper stops"
     words = {40: "Forty", 41: "Forty-one", 39: "Thirty-nine"}
     assert f"{n} papers" in page or words.get(n, "?") in page
+
+
+@pytest.mark.parametrize("page", PAGES, ids=lambda p: p.relative_to(SITE).as_posix())
+def test_page_has_the_jos_theme_toggle(page: Path) -> None:
+    """Same toggle as ccrma.stanford.edu/~jos/ and the books: saved choice applied before the CSS loads."""
+    text = page.read_text()
+    head_script = text.find('localStorage.getItem("jos-theme")')
+    first_css = text.find('rel="stylesheet"')
+    assert 0 <= head_script < first_css, "jos-theme must be applied in <head> before any stylesheet"
+    assert '<button type="button" id="themeToggle" class="theme-toggle"' in text
+    assert 'src="' in text and "assets/landing.js" in text

@@ -3,6 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  // Apply the visitor's saved light/dark choice before first paint. Same key as the
+  // toggle on https://ccrma.stanford.edu/~jos/ and the books, so one choice holds site-wide.
+  (function () {
+    try {
+      var theme = localStorage.getItem("jos-theme");
+      if (theme === "light" || theme === "dark") document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {}
+  }());
+</script>
 <title>AI Foundations</title>
 <meta name="description" content="A free, self-paced beginner's course in how modern AI works, from one artificial neuron to Transformers, large language models and diffusion, with an AI tutor that teaches one idea at a time. No ML or Python background needed.">
 <meta property="og:type" content="website">
@@ -30,6 +40,7 @@
 </style>
 </head>
 <body class="track-ai">
+<button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle color theme"></button>
 <div class="wrap">
 
   <nav class="topbar"><a href="../">← All courses</a></nav>

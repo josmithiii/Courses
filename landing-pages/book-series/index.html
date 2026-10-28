@@ -3,6 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  // Apply the visitor's saved light/dark choice before first paint. Same key as the
+  // toggle on https://ccrma.stanford.edu/~jos/ and the books, so one choice holds site-wide.
+  (function () {
+    try {
+      var theme = localStorage.getItem("jos-theme");
+      if (theme === "light" || theme === "dark") document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {}
+  }());
+</script>
 <title>Music Signal Processing Series</title>
 <meta name="description" content="Free textbooks by Julius O. Smith III (CCRMA, Stanford) on music signal processing, each with a self-paced course and an AI tutor: Mathematics of the DFT, Introduction to Digital Filters, Spectral Audio Signal Processing, and Physical Audio Signal Processing.">
 <meta property="og:type" content="website">
@@ -49,6 +59,7 @@
 </style>
 </head>
 <body>
+<button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle color theme"></button>
 <div class="wrap">
 
   <nav class="topbar"><a href="../">← All courses</a></nav>

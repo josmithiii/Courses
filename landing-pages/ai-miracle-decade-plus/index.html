@@ -3,6 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  // Apply the visitor's saved light/dark choice before first paint. Same key as the
+  // toggle on https://ccrma.stanford.edu/~jos/ and the books, so one choice holds site-wide.
+  (function () {
+    try {
+      var theme = localStorage.getItem("jos-theme");
+      if (theme === "light" || theme === "dark") document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {}
+  }());
+</script>
 <title>AI Miracle Decade+</title>
 <meta name="description" content="A free, self-paced course reading the forty landmark AI papers from 2006 to 2023, DBN to GPT-4, in the order the field lived them, with an AI tutor that frames each paper, discusses it with you, and places it in the story.">
 <meta property="og:type" content="website">
@@ -29,6 +39,7 @@
 </style>
 </head>
 <body class="track-ai">
+<button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle color theme"></button>
 <div class="wrap">
 
   <nav class="topbar"><a href="../">← All courses</a></nav>
