@@ -52,6 +52,7 @@ def skip_without_source(book_id: str) -> None:
         ("2&gamma;&thinsp;cos(&theta;)", "2γ cos(θ)"),
         ("<b>bold</b> and <code>fft(x)</code>", "**bold** and `fft(x)`"),
         ("<strong>never</strong> cancel", "**never** cancel"),
+        ("<tt>delayline</tt>", "`delayline`"),
         ("<u,v> = 0", "<u,v> = 0"),  # plain-text angle brackets survive
     ],
 )

@@ -342,7 +342,8 @@ derivations and numpy experiments. They never replace them.
   (circuit-structured digital filters with guaranteed passivity) and digital waveguides
   (the feedback comb grown into strings and tubes). This is the subject of the next book
   in the series, *Physical Audio Signal Processing*
-  (https://ccrma.stanford.edu/~jos/pasp/).
+  (https://ccrma.stanford.edu/~jos/pasp/), and of the `pasp/` course, which starts where
+  this one ends.
 
 ### Frontier sources
 - Zavalishin, V. *The Art of VA Filter Design.* Native Instruments, online book (revised

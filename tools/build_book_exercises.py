@@ -70,6 +70,7 @@ BOOKS: dict[str, Book] = {
         Book("mdft", "Mathematics of the DFT"),
         Book("filters", "Introduction to Digital Filters with Audio Applications"),
         Book("sasp", "Spectral Audio Signal Processing"),
+        Book("pasp", "Physical Audio Signal Processing"),
     ]
 }
 
@@ -104,7 +105,7 @@ def _overline(match: re.Match[str]) -> str:
 def html_to_text(s: str) -> str:
     """Turn the exercises' inline HTML into plain Unicode with CS-style scripts.
 
-    <i> is dropped (it marks math variables), <b>/<strong>/<em>/<code> become Markdown,
+    <i> is dropped (it marks math variables), <b>/<strong>/<em>/<code>/<tt> become Markdown,
     <sup>/<sub> become ^x / ^(...) and _x / _(...), the overline span becomes a
     combining overline, and entities are unescaped. Anything else that looks like
     a tag is left alone only if it is plain text such as "<x,y>"; an unknown real
@@ -115,7 +116,7 @@ def html_to_text(s: str) -> str:
     s = re.sub(r"</?u>", "", s)
     s = re.sub(r"<(b|strong)>(.*?)</\1>", r"**\2**", s)
     s = re.sub(r"<em>(.*?)</em>", r"*\1*", s)
-    s = re.sub(r"<code>(.*?)</code>", r"`\1`", s)
+    s = re.sub(r"<(code|tt)>(.*?)</\1>", r"`\2`", s)
     # Innermost-first, so nested scripts render inside-out.
     for _ in range(3):
         s = re.sub(r"<sup>((?:(?!<su[bp]>).)*?)</sup>", lambda m: _script(m, "^"), s)

@@ -49,6 +49,7 @@ updates. If it isn't listed, run the one-liner - it then shows up in the app at 
 | `flow-matching` | "let's do today's flow-matching lesson" |
 | `mdft` | "let's do today's mdft lesson" |
 | `neural-audio-resynthesis` | "let's do today's neural-audio-resynthesis lesson" |
+| `pasp` | "let's do today's pasp lesson" |
 | `quantum-states` | "let's do today's quantum-states lesson" |
 | `room-acoustics` | "let's do today's room-acoustics lesson" |
 | `sasp` | "let's do today's sasp lesson" |
