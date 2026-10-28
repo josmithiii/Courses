@@ -131,9 +131,13 @@ environments.
 
 ## Landing pages
 
-[`landing-pages/`](landing-pages/) holds public pages for sharing the courses, such as the
-[book-series page](landing-pages/book-series/index.html) for the four courses on JOS's
-music signal processing books. See [`landing-pages/README.md`](landing-pages/README.md).
+[`landing-pages/`](landing-pages/) holds public pages for sharing the courses, published at
+<https://ccrma.stanford.edu/~jos/landing-pages/>: a hub presenting three parallel tracks
+(AI, spectral, physical), the [book-series page](landing-pages/book-series/index.html) for
+the four courses on JOS's music signal processing books, and pages for
+[AI Foundations](landing-pages/ai-foundations/index.html) and
+[AI Miracle Decade+](landing-pages/ai-miracle-decade-plus/index.html). See
+[`landing-pages/README.md`](landing-pages/README.md).
 
 ## Curricula
 

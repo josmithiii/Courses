@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Miracle Decade+</title>
+<meta name="description" content="A free, self-paced course reading the forty landmark AI papers from 2006 to 2023, DBN to GPT-4, in the order the field lived them, with an AI tutor that frames each paper, discusses it with you, and places it in the story.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Miracle Decade+">
+<meta property="og:description" content="Read the forty landmark AI papers from 2006 to 2023 with an AI tutor. Free and self-paced; side quests welcome.">
+<!-- Source: CoursesLLM repo, landing-pages/ai-miracle-decade-plus/index.html. Edit there, run
+     uvx pytest tests/, then landing-pages/publish. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/landing.css">
+<style>
+/* Page-specific: the paper timeline, the reading loop. */
+.timeline .dot { fill: var(--rule); stroke: var(--muted); stroke-width: 1; }
+.timeline .dot.hl { fill: var(--ai); stroke: var(--ai); }
+.timeline .hl-label { font-family: var(--mono); font-size: 10.5px; fill: var(--ink); }
+.loop { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px 28px; margin-top: 8px; padding: 0; list-style: none; counter-reset: step; }
+.loop li { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.loop .n { font-family: var(--display); font-size: 1.3rem; color: var(--ai); line-height: 1; }
+.loop strong { font-weight: 600; }
+.next { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 28px; }
+.next .course h3 { font-size: 1.15rem; }
+@media (max-width: 760px) { .loop, .next { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body class="track-ai">
+<div class="wrap">
+
+  <nav class="topbar"><a href="../">← All courses</a></nav>
+
+  <section class="hero">
+    <div class="stack">
+      <span class="label tinted">AI track · paper reading · free</span>
+      <h1>Forty papers that made modern AI.</h1>
+      <p class="lede">Read the landmark AI papers from 2006 to 2023, DBN to GPT-4, in roughly the order the field lived them. A tutor frames each paper before you read it, asks what surprised you afterward, and places it in the story.</p>
+      <p class="byline">For curious technical readers who want the actual papers, not summaries. Math is explained where it carries the argument. No PyTorch needed; runnable demos are optional.</p>
+    </div>
+    <figure class="figure timeline" aria-label="The forty papers by year">
+      <svg viewBox="0 0 320 196" role="img" aria-label="Forty landmark AI papers by year, 2006 to 2023, with the most in 2020 and 2022">
+      <text class="svg-title" x="8" y="18">40 papers by year</text>
+      <line class="svg-axis" x1="24" y1="158" x2="310" y2="158"/>
+      <circle class="dot hl" cx="34.0" cy="150" r="4.2"><title>DBN (2006)</title></circle>
+      <circle class="dot hl" cx="127.9" cy="150" r="4.2"><title>AlexNet (2012)</title></circle>
+      <circle class="dot" cx="143.5" cy="150" r="4.2"><title>VAE (2013)</title></circle>
+      <circle class="dot" cx="143.5" cy="138" r="4.2"><title>word2vec (2013)</title></circle>
+      <circle class="dot" cx="159.2" cy="150" r="4.2"><title>Adam (2014)</title></circle>
+      <circle class="dot" cx="159.2" cy="138" r="4.2"><title>Dropout (2014)</title></circle>
+      <circle class="dot" cx="159.2" cy="126" r="4.2"><title>GANs (2014)</title></circle>
+      <circle class="dot" cx="159.2" cy="114" r="4.2"><title>Seq2Seq (2014)</title></circle>
+      <circle class="dot" cx="174.8" cy="150" r="4.2"><title>Batch Normalization (2015)</title></circle>
+      <circle class="dot" cx="174.8" cy="138" r="4.2"><title>DQN (2015)</title></circle>
+      <circle class="dot" cx="174.8" cy="126" r="4.2"><title>ResNet (2015)</title></circle>
+      <circle class="dot" cx="174.8" cy="114" r="4.2"><title>U-Net (2015)</title></circle>
+      <circle class="dot" cx="190.5" cy="150" r="4.2"><title>AlphaGo (2016)</title></circle>
+      <circle class="dot" cx="190.5" cy="138" r="4.2"><title>WaveNet (2016)</title></circle>
+      <circle class="dot" cx="206.1" cy="150" r="4.2"><title>AlphaZero (2017)</title></circle>
+      <circle class="dot" cx="206.1" cy="138" r="4.2"><title>VQ-VAE (2017)</title></circle>
+      <circle class="dot hl" cx="206.1" cy="126" r="4.2"><title>Transformer (2017)</title></circle>
+      <circle class="dot" cx="221.8" cy="150" r="4.2"><title>BERT (2018)</title></circle>
+      <circle class="dot" cx="221.8" cy="138" r="4.2"><title>ELMo (2018)</title></circle>
+      <circle class="dot" cx="221.8" cy="126" r="4.2"><title>GPT-1 (2018)</title></circle>
+      <circle class="dot" cx="237.4" cy="150" r="4.2"><title>GPT-2 (2019)</title></circle>
+      <circle class="dot" cx="253.1" cy="150" r="4.2"><title>DDPM (2020)</title></circle>
+      <circle class="dot" cx="253.1" cy="138" r="4.2"><title>RAG (2020)</title></circle>
+      <circle class="dot" cx="253.1" cy="126" r="4.2"><title>Scaling Laws (2020)</title></circle>
+      <circle class="dot" cx="253.1" cy="114" r="4.2"><title>ViT (2020)</title></circle>
+      <circle class="dot hl" cx="253.1" cy="102" r="4.2"><title>GPT-3 (2020)</title></circle>
+      <circle class="dot" cx="268.7" cy="150" r="4.2"><title>AlphaFold 2 (2021)</title></circle>
+      <circle class="dot" cx="268.7" cy="138" r="4.2"><title>CLIP (2021)</title></circle>
+      <circle class="dot" cx="268.7" cy="126" r="4.2"><title>DALL-E (2021)</title></circle>
+      <circle class="dot" cx="268.7" cy="114" r="4.2"><title>LDM / Stable Diffusion (2021)</title></circle>
+      <circle class="dot" cx="284.4" cy="150" r="4.2"><title>Chinchilla (2022)</title></circle>
+      <circle class="dot" cx="284.4" cy="138" r="4.2"><title>CoT prompting (2022)</title></circle>
+      <circle class="dot" cx="284.4" cy="126" r="4.2"><title>Constitutional AI (2022)</title></circle>
+      <circle class="dot" cx="284.4" cy="114" r="4.2"><title>Imagen (2022)</title></circle>
+      <circle class="dot" cx="284.4" cy="102" r="4.2"><title>InstructGPT (2022)</title></circle>
+      <circle class="dot" cx="284.4" cy="90" r="4.2"><title>PaLM (2022)</title></circle>
+      <circle class="dot" cx="284.4" cy="78" r="4.2"><title>Whisper (2022)</title></circle>
+      <circle class="dot" cx="300.0" cy="150" r="4.2"><title>LLaMA (2023)</title></circle>
+      <circle class="dot" cx="300.0" cy="138" r="4.2"><title>Toolformer (2023)</title></circle>
+      <circle class="dot" cx="300.0" cy="126" r="4.2"><title>GPT-4 Technical Report (2023)</title></circle>
+      <text class="svg-label" x="34.0" y="174" text-anchor="middle">2006</text>
+      <text class="svg-label" x="96.6" y="174" text-anchor="middle">2010</text>
+      <text class="svg-label" x="159.2" y="174" text-anchor="middle">2014</text>
+      <text class="svg-label" x="221.8" y="174" text-anchor="middle">2018</text>
+      <text class="svg-label" x="284.4" y="174" text-anchor="middle">2022</text>
+      <text class="hl-label" x="30.0" y="140" text-anchor="start">DBN</text>
+      <text class="hl-label" x="127.9" y="140" text-anchor="middle">AlexNet</text>
+      <text class="hl-label" x="206.1" y="116" text-anchor="middle">Transformer</text>
+      <text class="hl-label" x="253.1" y="92" text-anchor="middle">GPT-3</text>
+      </svg>
+      <figcaption>The 2006 restart, the 2012 cash-out, and the flood of 2020 to 2022. Each dot is one stop on the route.</figcaption>
+    </figure>
+  </section>
+
+  <section id="route">
+    <div class="section-head">
+      <span class="label">The route</span>
+      <h2>Twelve phases, forty papers, no time limit</h2>
+      <p>Most phases end at a concept stop: an essay that ties their papers together along one of seven threads, such as the pretrain-and-fine-tune lineage and scaling and emergence. Stops are stops, not days. Spend an hour on one or three weeks.</p>
+    </div>
+    <ol class="phases">
+      <li><span class="n">0</span><span class="what"><strong>Orientation.</strong> The whole arc in one sitting, and how to read an AI paper without drowning.</span></li>
+      <li><span class="n">1</span><span class="what"><strong>The restart and the cash-out</strong> (2006-2012). DBN, AlexNet.</span></li>
+      <li><span class="n">2</span><span class="what"><strong>The machinery years</strong> (2013-2015). word2vec, VAE, GANs, Seq2Seq, Adam, batch norm, dropout, U-Net, ResNet.</span></li>
+      <li><span class="n">3</span><span class="what"><strong>Deep RL comes of age</strong> (2013-2017). DQN, AlphaGo, AlphaZero.</span></li>
+      <li><span class="n">4</span><span class="what"><strong>Sequences, audio, and the attention turn</strong> (2016-2017). WaveNet, the Transformer, VQ-VAE.</span></li>
+      <li><span class="n">5</span><span class="what"><strong>Pretrain and fine-tune</strong> (2018-2019). ELMo, GPT-1, BERT, GPT-2.</span></li>
+      <li><span class="n">6</span><span class="what"><strong>Scaling and emergence</strong> (2020). Scaling laws, GPT-3.</span></li>
+      <li><span class="n">7</span><span class="what"><strong>Diffusion, ViT, text-to-image</strong> (2020-2022). DDPM, ViT, DALL-E, CLIP, latent diffusion, Imagen.</span></li>
+      <li><span class="n">8</span><span class="what"><strong>The post-Chinchilla LLM era</strong> (2022). Chinchilla, PaLM, chain-of-thought, retrieval.</span></li>
+      <li><span class="n">9</span><span class="what"><strong>Alignment</strong> (2022). InstructGPT, Constitutional AI.</span></li>
+      <li><span class="n">10</span><span class="what"><strong>Capabilities and the frontier</strong> (2022-2023). Whisper, AlphaFold 2, Toolformer, LLaMA, GPT-4.</span></li>
+      <li><span class="n">11</span><span class="what"><strong>Synthesis.</strong> Write your own "what's dead, what's alive" note, then pick a post-2023 paper.</span></li>
+    </ol>
+    <p class="fine">Prefer the whole route on one screen? See the <a href="https://josmithiii.github.io/ai-miracle-decade-plus/">visual overview</a>, with every paper linked.</p>
+  </section>
+
+  <section id="stop">
+    <div class="section-head">
+      <span class="label">One stop</span>
+      <h2>How a paper is read</h2>
+    </div>
+    <ol class="loop">
+      <li><span class="n">1</span><strong>Frame.</strong><span>Why this paper, what came before it, and what problem it tried to solve.</span></li>
+      <li><span class="n">2</span><strong>Read.</strong><span>You read the paper or the key sections, on arXiv or at the publisher.</span></li>
+      <li><span class="n">3</span><strong>Discuss.</strong><span>One or two questions: what surprised you, and what is the claim everything rests on?</span></li>
+      <li><span class="n">4</span><strong>Place.</strong><span>The tutor puts the paper on its thread, connecting it to the papers before and after.</span></li>
+      <li><span class="n">5</span><strong>Optionally, do.</strong><span>A small exercise, a runnable demo, or a "what's dead, what's alive" verdict.</span></li>
+      <li><span class="n">6</span><strong>Log.</strong><span>Notes and open questions go to your progress file, kept on your own computer.</span></li>
+    </ol>
+    <p class="fine" style="margin-top:24px">Side quests are encouraged. When a paper hooks you, follow it: read the citing work, watch a lecture, run a model. The tutor logs the detour and brings you back to the route afterward, so no landmark gets skipped.</p>
+  </section>
+
+  <section id="next">
+    <div class="section-head">
+      <span class="label">Around this course</span>
+      <h2>Courses that go with it</h2>
+    </div>
+    <div class="next">
+      <article class="course">
+        <span class="label">Hands-on companion</span>
+        <h3>AI Foundations</h3>
+        <p>Build the ideas yourself in PyTorch, from one neuron to a small Transformer and diffusion. Take it before this course or alongside it.</p>
+        <div class="links"><a href="../ai-foundations/">About the course</a></div>
+      </article>
+      <article class="course">
+        <span class="label">Going deeper</span>
+        <h3>LLMs and sequence models</h3>
+        <p>The sequence of courses that continues from these papers into architectures and post-training.</p>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/blob/main/curricula/ai-llms-and-sequence-models.md">The LLM sequence</a></div>
+      </article>
+      <article class="course track-spec">
+        <span class="label">Signal processing</span>
+        <h3>The music signal processing series</h3>
+        <p>Four free textbooks, each with a tutor. Useful background for the audio papers on the route, such as WaveNet and Whisper.</p>
+        <div class="links"><a href="../book-series/">The book courses</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="start">
+    <div class="section-head">
+      <span class="label">Get started</span>
+      <h2>Three steps</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><h3>Get Claude</h3><p>Install <a href="https://claude.com/claude-code">Claude Code</a>. It runs in a terminal and in the Claude desktop app's Code tab, and needs a Claude account.</p></div>
+      <div class="step"><span class="n">2</span><h3>Add the courses</h3><p>Paste the line below into a terminal, once. It installs all the courses for both the terminal and the desktop app.</p></div>
+      <div class="step"><span class="n">3</span><h3>Ask for the next stop</h3><p>Start a session in any folder and ask for the next session. On the first one the tutor asks where to keep your progress.</p></div>
+    </div>
+    <div class="cmd">
+      <pre id="install-cmd">claude plugin marketplace add https://github.com/josmithiii/Courses &amp;&amp; claude plugin install courses@josmithiii-courses</pre>
+      <button type="button" data-copy="install-cmd">Copy</button>
+    </div>
+    <p class="say">Then say <q>let's do today's ai-miracle-decade-plus lesson</q>.</p>
+    <p class="fine">The course is free, and every paper is linked on arXiv or at its original publisher. The tutor runs on your own Claude account. The course itself is in the open <a href="https://github.com/josmithiii/Courses/tree/main/ai-miracle-decade-plus">Courses repository</a>; the concept essays live in JOS's <a href="https://cm-gitlab.stanford.edu/jos/music423-2023">music423-2023 collection</a>.</p>
+  </section>
+
+  <footer>
+    <span>Julius O. Smith III · CCRMA, Stanford University</span>
+    <a href="../">All courses</a>
+    <a href="https://github.com/josmithiii/Courses">The course collection</a>
+  </footer>
+</div>
+<script src="../assets/landing.js"></script>
+</body>
+</html>

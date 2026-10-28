@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Foundations</title>
+<meta name="description" content="A free, self-paced beginner's course in how modern AI works, from one artificial neuron to Transformers, large language models and diffusion, with an AI tutor that teaches one idea at a time. No ML or Python background needed.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Foundations">
+<meta property="og:description" content="From one artificial neuron to modern LLMs and diffusion: a free, self-paced course with an AI tutor. No ML or Python background needed.">
+<!-- Source: CoursesLLM repo, landing-pages/ai-foundations/index.html. Edit there, run
+     uvx pytest tests/, then landing-pages/publish. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/landing.css">
+<style>
+/* Page-specific: the one-neuron figure and the "where it leads" cards. */
+.neuron .wire { stroke: var(--muted); stroke-width: 1.6; fill: none; }
+.neuron .node { fill: var(--surface); stroke: var(--ai); stroke-width: 2.2; }
+.neuron .in { fill: var(--surface); stroke: var(--rule); stroke-width: 1.6; }
+.neuron .num { font-family: var(--mono); font-size: 12px; fill: var(--ink); }
+.neuron .w { font-family: var(--mono); font-size: 11px; fill: var(--ai); }
+.neuron .sum { font-family: var(--display); font-size: 15px; fill: var(--ink); }
+.neuron .out { font-family: var(--display); font-size: 17px; font-weight: 600; fill: var(--ai); }
+.calc { font-family: var(--mono); font-size: 0.9rem; text-align: center; color: var(--ink); }
+.next { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 28px; }
+.next .course h3 { font-size: 1.15rem; }
+@media (max-width: 760px) { .next { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body class="track-ai">
+<div class="wrap">
+
+  <nav class="topbar"><a href="../">← All courses</a></nav>
+
+  <section class="hero">
+    <div class="stack">
+      <span class="label tinted">AI track · start here · free</span>
+      <h1>From one neuron to a modern language model.</h1>
+      <p class="lede">A beginner's course in how today's AI actually works: neural networks, PyTorch, image models, Transformers, large language models and diffusion. An AI tutor teaches one idea at a time, checks it with a small exercise, and remembers where you left off.</p>
+      <p class="byline">New to machine learning, new to Python, math a bit rusty: all fine. Python and the math are taught as each idea needs them.</p>
+    </div>
+    <figure class="figure neuron" aria-label="One artificial neuron computed by hand">
+      <svg viewBox="0 0 320 190" role="img" aria-label="Inputs 2 and 1, weights 0.5 and minus 0.25, bias 0.1, sum 0.85, ReLU output 0.85">
+        <text class="svg-title" x="8" y="18">one artificial neuron</text>
+        <circle class="in" cx="40" cy="68" r="18"/><text class="num" x="40" y="72" text-anchor="middle">2</text>
+        <circle class="in" cx="40" cy="138" r="18"/><text class="num" x="40" y="142" text-anchor="middle">1</text>
+        <text class="svg-label" x="40" y="174" text-anchor="middle">inputs</text>
+        <path class="wire" d="M58,68 L160,100"/><path class="wire" d="M58,138 L160,108"/>
+        <text class="w" x="96" y="72">× 0.5</text>
+        <text class="w" x="94" y="140">× −0.25</text>
+        <circle class="node" cx="182" cy="104" r="26"/>
+        <text class="sum" x="182" y="110" text-anchor="middle">Σ + b</text>
+        <text class="svg-label" x="182" y="150" text-anchor="middle">b = 0.1</text>
+        <path class="wire" d="M208,104 L250,104"/>
+        <text class="svg-label" x="229" y="96" text-anchor="middle">ReLU</text>
+        <text class="out" x="262" y="110">0.85</text>
+      </svg>
+      <div class="calc">2·0.5 + 1·(−0.25) + 0.1 = 0.85 → max(0, 0.85) = 0.85</div>
+      <figcaption>Early in Phase 1 you compute one neuron by hand. By Phase 5 you know how a language model is built from billions of them, and you've trained small networks of your own.</figcaption>
+    </figure>
+  </section>
+
+  <section id="route">
+    <div class="section-head">
+      <span class="label">The route</span>
+      <h2>Eight phases, each ending in something you build</h2>
+      <p>One concept per lesson, about an hour a day. It's fine to spend several days on one topic; the course tracks where you really are.</p>
+    </div>
+    <ol class="phases">
+      <li><span class="n">0</span><span class="what"><strong>Orientation.</strong> What AI, machine learning and deep learning are. Python set up, with a two-lesson crash start.</span></li>
+      <li><span class="n">1</span><span class="what"><strong>Learning from data.</strong> The neuron, activation functions, the multilayer perceptron, loss, gradient descent, backpropagation, the training loop.</span></li>
+      <li><span class="n">2</span><span class="what"><strong>PyTorch for real.</strong> Tensors, autograd, your own training loop, overfitting and how to prevent it. Build: a handwritten-digit classifier.</span></li>
+      <li><span class="n">3</span><span class="what"><strong>Image models.</strong> Convolution, feature maps, pooling, transfer learning. Build: a small CNN.</span></li>
+      <li><span class="n">4</span><span class="what"><strong>Sequences and Transformers.</strong> Embeddings, attention, self-attention, the Transformer block. Build: a tiny character-level Transformer.</span></li>
+      <li><span class="n">5</span><span class="what"><strong>Large language models.</strong> Tokens, next-token prediction, pretraining and fine-tuning, RLHF, sampling. Build: run a small pretrained LLM.</span></li>
+      <li><span class="n">6</span><span class="what"><strong>Diffusion.</strong> VAEs and GANs in brief, then learning to undo noise, and text-to-image. Build: generate images with a small diffusion model.</span></li>
+      <li><span class="n">7</span><span class="what"><strong>Putting it together.</strong> How modern systems combine the pieces, a capstone project of your choice, and where to go next.</span></li>
+    </ol>
+  </section>
+
+  <section id="session">
+    <div class="session">
+      <div class="stack">
+        <span class="label">A session</span>
+        <h2>Picture first, then a small exercise</h2>
+        <p>Each session recaps the last idea and asks one recall question. Then it introduces one new idea with an analogy or a picture before any notation or code, and doesn't move on until a small exercise shows it has landed. You type and run the code yourself, and the tutor explains each line.</p>
+        <p>Your progress and a log of each session stay in a folder on your own computer.</p>
+      </div>
+      <div class="transcript" aria-label="Example exchange">
+        <div class="turn tutor"><span class="who">Tutor</span><p>Picture standing on a foggy hillside, trying to reach the valley floor. You can only feel the slope under your feet. What do you do?</p></div>
+        <div class="turn"><span class="who">You</span><p>Take a step downhill, feel again, repeat?</p></div>
+        <div class="turn tutor"><span class="who">Tutor</span><p>That's gradient descent. The hill is the loss, your position is the weights, and the step size is the learning rate. Quick check: what happens if your steps are huge?</p></div>
+        <span class="example-note">Example exchange, adapted from the course's Phase 1 plan.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="next">
+    <div class="section-head">
+      <span class="label">Where it leads</span>
+      <h2>Keep going in any direction</h2>
+      <p>This course is the on-ramp for the AI courses in the collection, and it runs alongside the signal processing courses rather than in front of them.</p>
+    </div>
+    <div class="next">
+      <article class="course">
+        <span class="label">Next on the AI track</span>
+        <h3>AI Miracle Decade+</h3>
+        <p>Read the forty landmark papers from 2006 to 2023 with a tutor. Works alongside this course or after it.</p>
+        <div class="links"><a href="../ai-miracle-decade-plus/">About the course</a></div>
+      </article>
+      <article class="course">
+        <span class="label">AI for music and audio</span>
+        <h3>Audio codecs, codec language models, diffusion</h3>
+        <p>How today's music and audio generators work, in a sequence of courses that starts from this one.</p>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/blob/main/curricula/ai-music-audio.md">The AI Music &amp; Audio sequence</a></div>
+      </article>
+      <article class="course track-spec">
+        <span class="label">Signal processing</span>
+        <h3>The music signal processing series</h3>
+        <p>Four free textbooks, each with a tutor, starting from high-school math. A good companion if you work with sound.</p>
+        <div class="links"><a href="../book-series/">The book courses</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="start">
+    <div class="section-head">
+      <span class="label">Get started</span>
+      <h2>Three steps</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><h3>Get Claude</h3><p>Install <a href="https://claude.com/claude-code">Claude Code</a>. It runs in a terminal and in the Claude desktop app's Code tab, and needs a Claude account.</p></div>
+      <div class="step"><span class="n">2</span><h3>Add the courses</h3><p>Paste the line below into a terminal, once. It installs all the courses for both the terminal and the desktop app.</p></div>
+      <div class="step"><span class="n">3</span><h3>Ask for a lesson</h3><p>Start a session in any folder and ask for today's lesson. On the first lesson the tutor asks where to keep your progress, and what you already know.</p></div>
+    </div>
+    <div class="cmd">
+      <pre id="install-cmd">claude plugin marketplace add https://github.com/josmithiii/Courses &amp;&amp; claude plugin install courses@josmithiii-courses</pre>
+      <button type="button" data-copy="install-cmd">Copy</button>
+    </div>
+    <p class="say">Then say <q>let's do today's ai-foundations lesson</q>.</p>
+    <p class="fine">The course is free. The tutor runs on your own Claude account. The course itself is in the open <a href="https://github.com/josmithiii/Courses/tree/main/ai-foundations">Courses repository</a>.</p>
+  </section>
+
+  <footer>
+    <span>Julius O. Smith III · CCRMA, Stanford University</span>
+    <a href="../">All courses</a>
+    <a href="https://github.com/josmithiii/Courses">The course collection</a>
+  </footer>
+</div>
+<script src="../assets/landing.js"></script>
+</body>
+</html>

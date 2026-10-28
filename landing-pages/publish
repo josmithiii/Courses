@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Publish landing-pages/ to CCRMA, where it is served as
+#   https://ccrma.stanford.edu/~jos/landing-pages/
+# Usage: landing-pages/publish [-n]     (-n: dry run, show what would change)
+# Runs the landing-page tests first and stops if they fail. Mirrors this directory
+# (with --delete) except the authoring files README.md and publish itself.
+set -euo pipefail
+here="$(cd "$(dirname "$0")" && pwd)"
+dest="${LANDING_PAGES_DEST:-jos@ccrma-gate.stanford.edu:/user/j/jos/Web/landing-pages/}"
+dry=()
+if [[ $# -gt 0 ]]; then
+  [[ "$1" == "-n" ]] || { echo "*** publish: unknown option '$1' (only -n)" >&2; exit 1; }
+  dry=(--dry-run)
+fi
+(cd "$here/.." && uvx pytest -q tests/test_landing_pages.py)
+rsync -av --delete "${dry[@]}" --chmod=D755,F644 \
+  --exclude README.md --exclude publish --exclude .DS_Store \
+  "$here/" "$dest"
+[[ ${#dry[@]} -eq 0 ]] && echo "Published: https://ccrma.stanford.edu/~jos/landing-pages/"
+exit 0

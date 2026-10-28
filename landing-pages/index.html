@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JOS Courses</title>
+<meta name="description" content="Free self-paced courses by Julius O. Smith III (CCRMA, Stanford), each with an AI tutor, in three tracks: AI, spectral audio signal processing, and physical audio signal processing.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JOS Courses">
+<meta property="og:description" content="Free self-paced courses with an AI tutor, in three tracks: AI, spectral audio signal processing, and physical audio signal processing.">
+<!-- Source: CoursesLLM repo, landing-pages/index.html. Edit there, run uvx pytest tests/,
+     then landing-pages/publish. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/landing.css">
+<style>
+/* Page-specific: three track columns, each a short sequence of courses. */
+.tracks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 8px; }
+.track { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.track > h2 { font-size: 1.4rem; }
+.track > p { font-size: 0.98rem; color: var(--muted); }
+.track .course h3 { font-size: 1.15rem; }
+.track .then { font-family: var(--mono); font-size: 0.8rem; color: var(--track); padding-left: 4px; }
+@media (max-width: 860px) { .tracks { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <section class="hero" style="grid-template-columns:1fr">
+    <div class="stack">
+      <span class="label">CCRMA · Stanford · free</span>
+      <h1>Three tracks, each with a personal tutor.</h1>
+      <p class="lede">Self-paced courses in AI and in music and audio signal processing. An AI tutor takes you through each course one idea at a time, checks every step with a small exercise, and remembers where you left off. Each track starts from scratch, so pick the one that pulls you and run others alongside it.</p>
+      <p class="byline">By <strong>Julius O. Smith III</strong>, CCRMA, Stanford University.</p>
+    </div>
+  </section>
+
+  <section id="tracks">
+    <div class="tracks">
+      <div class="track track-ai">
+        <span class="label tinted">AI track</span>
+        <h2>How modern AI works</h2>
+        <p>Start with no machine-learning or Python background.</p>
+        <article class="course">
+          <h3>AI Foundations</h3>
+          <p>From one artificial neuron to Transformers, LLMs and diffusion, built hands-on in PyTorch.</p>
+          <div class="links"><a href="ai-foundations/">About the course</a></div>
+        </article>
+        <span class="then">then, or alongside ↓</span>
+        <article class="course">
+          <h3>AI Miracle Decade+</h3>
+          <p>Read the forty landmark papers from 2006 to 2023, DBN to GPT-4, with a tutor.</p>
+          <div class="links"><a href="ai-miracle-decade-plus/">About the course</a></div>
+        </article>
+      </div>
+
+      <div class="track track-spec">
+        <span class="label tinted">Spectral track</span>
+        <h2>Sound as spectra</h2>
+        <p>Start from high-school algebra and trigonometry.</p>
+        <article class="course">
+          <h3>Mathematics of the DFT</h3>
+          <p>Complex numbers to the DFT as a change of coordinates, and practical spectrum analysis.</p>
+          <div class="links"><a href="book-series/#mdft">About the course</a></div>
+        </article>
+        <span class="then">then ↓</span>
+        <article class="course">
+          <h3>Spectral Audio Signal Processing</h3>
+          <p>Windows, the STFT, sinusoidal modeling, the phase vocoder and filter banks, up to current research.</p>
+          <div class="links"><a href="book-series/#sasp">About the course</a></div>
+        </article>
+      </div>
+
+      <div class="track track-phys">
+        <span class="label tinted">Physical track</span>
+        <h2>Sound from physics</h2>
+        <p>Start from high-school algebra and trigonometry.</p>
+        <article class="course">
+          <h3>Introduction to Digital Filters</h3>
+          <p>Difference equations to the z-plane picture, audio EQ filters and filter design.</p>
+          <div class="links"><a href="book-series/#filters">About the course</a></div>
+        </article>
+        <span class="then">then ↓</span>
+        <article class="course">
+          <h3>Physical Audio Signal Processing</h3>
+          <p>Reverbs, delay effects, digital waveguides and virtual instruments, up to current research.</p>
+          <div class="links"><a href="book-series/#pasp">About the course</a></div>
+        </article>
+      </div>
+    </div>
+    <p class="fine" style="margin-top:28px">The four signal processing courses follow JOS's free textbooks; see <a href="book-series/">the book series</a> for how they connect. More courses, including AI for music and audio, are in the <a href="https://github.com/josmithiii/Courses#courses">course collection</a>.</p>
+  </section>
+
+  <section id="start">
+    <div class="section-head">
+      <span class="label">Get started</span>
+      <h2>One line to install every course</h2>
+      <p>Install <a href="https://claude.com/claude-code">Claude Code</a> (it runs in a terminal and in the Claude desktop app's Code tab, and needs a Claude account), then paste this into a terminal, once:</p>
+    </div>
+    <div class="cmd">
+      <pre id="install-cmd">claude plugin marketplace add https://github.com/josmithiii/Courses &amp;&amp; claude plugin install courses@josmithiii-courses</pre>
+      <button type="button" data-copy="install-cmd">Copy</button>
+    </div>
+    <p class="say">Then start a session in any folder and say <q>let's do today's mdft lesson</q>, naming any course: <span class="mono">ai-foundations</span>, <span class="mono">ai-miracle-decade-plus</span>, <span class="mono">mdft</span>, <span class="mono">sasp</span>, <span class="mono">filters</span>, <span class="mono">pasp</span>.</p>
+    <p class="fine">The courses are free and open. The tutor runs on your own Claude account, and your progress stays in a folder on your own computer.</p>
+  </section>
+
+  <footer>
+    <span>Julius O. Smith III · CCRMA, Stanford University</span>
+    <a href="https://ccrma.stanford.edu/~jos/">The books</a>
+    <a href="https://github.com/josmithiii/Courses">The course collection</a>
+  </footer>
+</div>
+<script src="assets/landing.js"></script>
+</body>
+</html>

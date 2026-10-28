@@ -51,11 +51,12 @@ with a `.claude/commands/lesson.md` (except `course-template`).
   `tools/build_plugin.py` and served by the root `.claude-plugin/marketplace.json`. Never
   hand-edit it; after any course content edit run `tools/build_plugin.py --check` and
   rebuild if stale (`uvx pytest tests/` checks this too). See README "As a Claude plugin".
-- `landing-pages/` — public promotional pages (one self-contained `index.html` per
-  subdirectory, e.g. `book-series/` for the four book courses), hosted on CCRMA. Not course
-  content. `tests/test_landing_pages.py` checks them against the courses (exercise counts,
-  links, the install command), so update a page when its courses change. See
-  `landing-pages/README.md`.
+- `landing-pages/` — public promotional pages, published as one site to
+  `https://ccrma.stanford.edu/~jos/landing-pages/` by `landing-pages/publish` (a hub
+  `index.html` plus one `index.html` per subdirectory, e.g. `book-series/`, sharing
+  `assets/`). Not course content. `tests/test_landing_pages.py` checks them against the
+  courses (exercise counts, phase lists, links, course names, the install command), so
+  update a page when its courses change. See `landing-pages/README.md`.
 - `*.md` plan files at root (`AiMusicAudioPlan.md`, etc.) — authoring/design notes, not
   learner content.
 

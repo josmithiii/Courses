@@ -1,0 +1,131 @@
+/* Shared look for the course landing pages (landing-pages/<page>/index.html).
+   Pages add their own page-specific rules inline. Track colors: spectral = blue,
+   physical = green, AI = ochre. Components read --track / --track-soft, which a
+   .track-spec / .track-phys / .track-ai ancestor sets. */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+img, svg { max-width: 100%; }
+[hidden] { display: none !important; }
+
+:root {
+  --bg: #f6f8fa;
+  --surface: #ffffff;
+  --ink: #17212b;
+  --muted: #55626f;
+  --rule: #d5dde5;
+  --spec: #2d4fa3;
+  --spec-soft: #e6ecf8;
+  --phys: #1f7a5a;
+  --phys-soft: #e2f2eb;
+  --ai: #9a5a0b;
+  --ai-soft: #f6ecdc;
+  --code-bg: #eef2f6;
+  --track: var(--spec);
+  --track-soft: var(--spec-soft);
+  --display: "STIX Two Text", "STIX Two", Cambria, Georgia, serif;
+  --body: "Source Sans 3", "Source Sans Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #10161d; --surface: #17202a; --ink: #e4eaf0; --muted: #9aa8b5; --rule: #2b3846;
+    --spec: #8fa9ec; --spec-soft: #1c2840; --phys: #6cc9a2; --phys-soft: #16302a;
+    --ai: #e3ab5f; --ai-soft: #33281a; --code-bg: #1d2834;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #10161d; --surface: #17202a; --ink: #e4eaf0; --muted: #9aa8b5; --rule: #2b3846;
+  --spec: #8fa9ec; --spec-soft: #1c2840; --phys: #6cc9a2; --phys-soft: #16302a;
+  --ai: #e3ab5f; --ai-soft: #33281a; --code-bg: #1d2834;
+  color-scheme: dark;
+}
+.track-spec { --track: var(--spec); --track-soft: var(--spec-soft); }
+.track-phys { --track: var(--phys); --track-soft: var(--phys-soft); }
+.track-ai { --track: var(--ai); --track-soft: var(--ai-soft); }
+
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+.wrap { max-width: 1000px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+section { padding-block: 56px; border-top: 1px solid var(--rule); }
+section:first-of-type { border-top: 0; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; text-wrap: balance; margin: 0; line-height: 1.2; }
+h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); letter-spacing: -0.01em; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.3rem; }
+p { margin: 0; max-width: 65ch; }
+a { color: var(--track); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--track); outline-offset: 3px; border-radius: 3px; }
+.label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.label.tinted { color: var(--track); }
+.stack { display: flex; flex-direction: column; gap: 16px; }
+.section-head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+code, .mono { font-family: var(--mono); font-size: 0.92em; }
+
+/* top bar: back to all courses */
+.topbar { padding-block: 18px 0; font-size: 0.92rem; }
+.topbar a { color: var(--muted); text-decoration: none; }
+.topbar a:hover { color: var(--ink); text-decoration: underline; }
+
+/* hero: thesis on the left, a figure on the right */
+.hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; padding-block: 56px; }
+.hero .lede { font-size: 1.2rem; color: var(--muted); }
+.byline { font-size: 0.98rem; color: var(--muted); }
+.byline strong { color: var(--ink); font-weight: 600; }
+.figure { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 12px; min-width: 0; margin: 0; }
+.figure svg { width: 100%; height: auto; display: block; }
+.figure figcaption { font-size: 0.92rem; color: var(--muted); }
+.svg-axis { stroke: var(--rule); stroke-width: 1.5; }
+.svg-ink { fill: var(--ink); }
+.svg-muted { fill: var(--muted); }
+.svg-track { fill: var(--track); }
+.svg-track-stroke { stroke: var(--track); }
+.svg-label { fill: var(--muted); font-family: var(--mono); font-size: 11px; }
+.svg-title { fill: var(--ink); font-family: var(--display); font-style: italic; font-size: 15px; }
+
+/* course card */
+.course { background: var(--surface); border: 1px solid var(--rule); border-top: 4px solid var(--track); border-radius: 6px; padding: 22px 22px 20px; display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 16px; min-width: 0; }
+.course .meta { display: flex; flex-wrap: wrap; gap: 6px 14px; font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
+.course .keystone { font-family: var(--display); font-style: italic; font-size: 1.08rem; }
+.course .teaser { background: var(--track-soft); border-radius: 4px; padding: 12px 14px; font-size: 0.97rem; }
+.course .teaser .mono { white-space: nowrap; }
+.course .start-from { font-size: 0.95rem; color: var(--muted); }
+.course .links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 0.95rem; margin-top: 2px; }
+
+/* a list of phases / stops */
+.phases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 32px; margin-top: 8px; padding: 0; list-style: none; }
+.phases li { display: grid; grid-template-columns: 2.4em 1fr; gap: 8px; align-items: baseline; min-width: 0; }
+.phases .n { font-family: var(--mono); font-size: 0.85rem; color: var(--track); }
+.phases .what { font-size: 0.98rem; }
+.phases .what strong { font-weight: 600; }
+
+/* getting started */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 28px; }
+.step { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.step .n { font-family: var(--display); font-size: 1.6rem; color: var(--track); line-height: 1; }
+.cmd { margin-top: 24px; background: var(--code-bg); border-radius: 6px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; min-width: 0; }
+.cmd pre { margin: 0; flex: 1; min-width: 0; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.5; white-space: pre; }
+.cmd button { font-family: var(--body); font-size: 0.9rem; font-weight: 600; background: var(--ink); color: var(--bg); border: 0; border-radius: 4px; padding: 7px 14px; cursor: pointer; flex-shrink: 0; }
+.say { margin-top: 16px; font-size: 1.05rem; }
+.say q { font-family: var(--display); font-style: italic; quotes: "\201C" "\201D"; }
+.fine { margin-top: 14px; font-size: 0.92rem; color: var(--muted); }
+
+/* a session */
+.session { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; align-items: start; }
+.transcript { background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; padding: 20px 22px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.turn { display: grid; grid-template-columns: 72px 1fr; gap: 12px; font-size: 0.98rem; }
+.turn .who { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+.turn.tutor .who { color: var(--track); }
+.example-note { font-size: 0.85rem; color: var(--muted); font-style: italic; }
+
+/* about + footer */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+footer { border-top: 1px solid var(--rule); padding-block: 28px 40px; font-size: 0.92rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 24px; }
+footer a { color: var(--muted); }
+
+@media (max-width: 760px) {
+  .hero, .steps, .session, .two-col, .phases { grid-template-columns: 1fr; }
+  .hero { gap: 32px; padding-block: 40px; }
+  section { padding-block: 44px; }
+}
