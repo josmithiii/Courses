@@ -6,7 +6,8 @@ Instruments and Audio Effects* (PASP), free online at **https://ccrma.stanford.e
 It's Book III of the series and the second half of its physical track, after
 `../filters/`. It builds most directly on `filters`' end state (z transform, poles and
 zeros, combs and allpasses, the bilinear transform), but it's the one course that draws on
-the whole series: `../mdft/` throughout and `../sasp/` lightly. It builds physical modeling: delay-line acoustics, reverberation,
+the whole series: `../mdft/` throughout, and `../sasp/` for the perceptual analysis that
+calibrating a model needs. It builds physical modeling: delay-line acoustics, reverberation,
 fractional delay, time-varying delay effects, digital waveguides, scattering, lumped and
 wave digital models, finite differences, transfer-function and commuted models, and
 virtual instruments. It ends at the current research literature (Phase 15). There's no
@@ -28,11 +29,14 @@ front matter):
 each helps the other (MDFT is the filters book's recommended co-requisite). `mdft` →
 `sasp` is reasonably self-contained; `sasp` borrows a little from `filters` (mainly
 convolution and frequency response). `pasp` builds most directly on `filters` but draws on
-all three for its complete development: `mdft` throughout, `sasp` lightly.
+all three for its complete development: `mdft` throughout, and `sasp` for calibration.
+Classically, `mdft`-level spectrum analysis is enough for PASP, but calibrating a physical
+model against real sounds is driven by perceptual sound analysis, which needs `sasp`-level
+"what-you-see-is-what-you-hear" spectrograms.
 
 **This course** is the second half of the physical track, after `filters`, and the one
-that uses the whole series. Backfill from `filters` first, `mdft` next, and `sasp`
-occasionally.
+that uses the whole series. Backfill from `filters` first and `mdft` next. Bring in
+`sasp` whenever a model is calibrated against a recording.
 
 ## Content vs. learner state (architecture)
 Shipped course **content** is this skill's folder and is read-only at runtime.
@@ -153,6 +157,15 @@ How to use them:
   CS-style identifiers (f_s, c, K, epsilon or ε, y_r, y_l, rho or ρ, R_1, z^(−1)); reach for
   LaTeX only when it's genuinely clearer. LaTeX is welcome in the `lessons/` logs and
   `progress.md`.
+
+- **Calibrate perceptually.** Calibrating a physical model (loop filters, dispersion,
+  excitation, body) is driven by perceptual sound analysis, not by matching waveforms or
+  raw magnitude spectra. Compare the model and the recording with the same
+  what-you-see-is-what-you-hear spectrogram (`sasp` 6.3: auditory frequency and loudness
+  scales), with interpolated peaks and tracked partials (`sasp` 4.3, 9.3) for decay rates
+  and inharmonicity, and always by listening. A learner without `sasp` can use
+  `mdft`-level spectra to develop the models; bring in the `sasp` tools when calibration
+  starts.
 
 - **Hear everything.** Every model ends with a sound: the pin string with each loop
   filter, Freeverb vs FDN on the same clap, a flanger sweep, a Doppler fly-by, a clarinet

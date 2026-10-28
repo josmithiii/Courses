@@ -23,7 +23,10 @@ front matter):
 each helps the other (MDFT is the filters book's recommended co-requisite). `mdft` →
 `sasp` is reasonably self-contained; `sasp` borrows a little from `filters` (mainly
 convolution and frequency response). `pasp` builds most directly on `filters` but draws on
-all three for its complete development: `mdft` throughout, `sasp` lightly.
+all three for its complete development: `mdft` throughout, and `sasp` for calibration.
+Classically, `mdft`-level spectrum analysis is enough for PASP, but calibrating a physical
+model against real sounds is driven by perceptual sound analysis, which needs `sasp`-level
+"what-you-see-is-what-you-hear" spectrograms.
 
 **This course** starts the spectral track, and it's the companion that `filters`
 recommends alongside it.

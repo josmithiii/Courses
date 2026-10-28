@@ -14,8 +14,12 @@ the second half of the series' *physical* track (`filters` → `pasp`), and it b
 directly on `filters`: the z transform, poles and zeros, comb and allpass filters, the
 bilinear transform, a little state space. For its complete development PASP draws on the
 whole series, though: `mdft` throughout (complex sinusoids, the DFT, spectra), and `sasp`
-lightly (windowed-sinc interpolation, FFT-based analysis for loop-filter
-identification). **No hard gate:** a learner can plunge in and backfill from `filters`,
+for calibration. Classically, `mdft`-level spectrum analysis is enough to develop the
+models. But tuning a model to sound like a real instrument is driven by *perceptual*
+sound analysis, which needs `sasp`-level "what-you-see-is-what-you-hear" spectrograms
+(audio spectrograms on auditory frequency and loudness scales, good windows, peak
+interpolation, sinusoidal tracking). This shows up in loop-filter identification (6.6),
+commuted bodies (12.3) and the instruments (Phase 13). **No hard gate:** a learner can plunge in and backfill from `filters`,
 `mdft` or `sasp` when a gap shows (the tutor names the exact topic). From there the course builds what physical modeling needs, just in
 time: Newtonian mechanics, the wave equation and partial derivatives, impedance and
 circuit analogies, numerical integration of ODEs and PDEs. It ends at the current
@@ -243,7 +247,10 @@ derivations, simulations and listening tests. They never replace them.
   dispersive wave equation. (book: `Stiff_String`, `Stiff_String_Synthesis_Models`,
   `Dispersive_1D_Wave_Equation`)
 - **6.6** The externally excited string; loop-filter identification from a recording
-  (damping filter, dispersion filter, F0 estimation, EDR-based design). (book:
+  (damping filter, dispersion filter, F0 estimation, EDR-based design). Calibration is
+  judged perceptually: analyze the recording and the model with the same
+  what-you-see-is-what-you-hear spectrogram (`sasp` 6.3, with `sasp` 4.3 peak interpolation
+  and 9.3 partial tracking), and listen. (book:
   `Externally_Excited_String`, `Loop_Filter_Identification`, `General_Loop_Filter_Design`,
   `Damping_Filter_Design`, `Dispersion_Filter_Design`, `EDR_Based_Loop_Filter_Design`)
 - **6.7** String coupling effects (horizontal and vertical polarizations, coupled strings,
