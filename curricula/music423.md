@@ -1,6 +1,6 @@
 # Music 423 — AI for Music & Audio (meta-curriculum)
 
-**Status:** 🟡 Partial — Tracks A and C complete, Track B started.
+**Status:** 🟢 Complete — all three tracks have their core courses.
 
 This is the umbrella over the paper collection in JOS's
 [`music423-2023`](https://cm-gitlab.stanford.edu/jos/music423-2023) repo (Stanford
@@ -42,7 +42,7 @@ DSP-heavy track and for anyone who wants to know what an STFT actually is.
 | # | Track | Curriculum | Status | Interest served | Topic directories in `music423-2023` |
 |---|---|---|---|---|---|
 | A | **AI Music & Audio Generation** — codecs, codec-LMs, diffusion/DiT, resynthesis | [`ai-music-audio.md`](ai-music-audio.md) | 🟢 Complete | Diffusion, neural codecs, VAEs, DiTs, self-supervised audio, disentanglement — the "how do modern generators actually work" lineage. | `ai-audio-codecs/`, `ai-music-audio-gen/`, `diffusion/`, `diffusion-vocoders/`, `wavenet/`, `disentanglement/`, `images/` (VAE, GAN, U-Net, DiT backbones), `ai-scores/` (planned enrichment) |
-| B | **LLMs & Sequence Models** — attention → Transformers → LLMs → state-space models | [`ai-llms-and-sequence-models.md`](ai-llms-and-sequence-models.md) | 🟡 Partial | Language models, attention, long-context and Mamba-era architectures, RL and alignment, multimodal — the "general AI backbone" lineage. | `attention/`, `natural-language-processing/`, `mamba/`, `rwkv/`, `gated-recurrence/`, `hybrid/`, `reinforcement-learning/`, `multimodal/`, `images-ar/`, `double-descent/` |
+| B | **LLMs & Sequence Models** — attention → Transformers → LLMs → state-space models | [`ai-llms-and-sequence-models.md`](ai-llms-and-sequence-models.md) | 🟢 Complete | Language models, attention, long-context and Mamba-era architectures, RL and alignment, multimodal — the "general AI backbone" lineage. | `attention/`, `natural-language-processing/`, `mamba/`, `rwkv/`, `gated-recurrence/`, `hybrid/`, `reinforcement-learning/`, `multimodal/`, `images-ar/`, `double-descent/` |
 | C | **Differentiable & Physical Audio DSP** — DDSP, synth/effect matching, physics-informed | [`audio-differentiable-dsp.md`](audio-differentiable-dsp.md) | 🟢 Complete | Signal-processing people who want ML *inside* the DSP: differentiable filters/synths, inverting effects and synthesizers, modal and physical models with learned parts. Leans on JOS's books. | `ddsp/`, `synth-effect-matching/`, `modal-synthesis/`, `pinn/`, `DRC/`, `ai-misc/` (spectrogram inversion etc.) |
 
 **Cross-cutting companion (any track):**

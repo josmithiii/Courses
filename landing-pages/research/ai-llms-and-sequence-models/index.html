@@ -18,10 +18,10 @@
   }());
 </script>
 <title>LLMs and Sequence Models</title>
-<meta name="description" content="Research Track B of the Music 423 courses: attention, Transformers, LLMs, state-space models, RL and alignment, and multimodal models. One tutored course is live; the architecture and post-training courses are planned.">
+<meta name="description" content="Research Track B of the Music 423 courses: attention, Transformers, LLMs, state-space models and Mamba, RL and alignment, and multimodal models, built hands-on around one small language model trained from scratch. Free, self-paced, with an AI tutor.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LLMs and Sequence Models">
-<meta property="og:description" content="Research Track B of the Music 423 courses: attention, Transformers, LLMs, state-space models, RL and alignment, and multimodal models. One tutored course is live; the architecture and post-training courses are planned.">
+<meta property="og:description" content="Research Track B of the Music 423 courses: attention, Transformers, LLMs, state-space models and Mamba, RL and alignment, and multimodal models, built hands-on around one small language model trained from scratch. Free, self-paced, with an AI tutor.">
 <!-- Source: CoursesLLM repo, landing-pages/research/ai-llms-and-sequence-models/index.html. Edit there, run
      uvx pytest tests/, then landing-pages/publish. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +44,7 @@
 
   <section class="hero">
     <div class="stack">
-      <span class="label tinted">Research Track B · in progress</span>
+      <span class="label tinted">Research Track B · complete</span>
       <h1>From attention to the models after the Transformer.</h1>
       <p class="lede">The general AI backbone: the Transformer and its LLM descendants, the long-context and efficiency responses (linear attention, state-space models, Mamba, RWKV, hybrids), and the post-training that turns a language model into an assistant.</p>
       <p class="byline">For anyone who wants the backbone itself, or an audio researcher who wants to read the codec-LM and DiT papers of Track A as an insider.</p>
@@ -53,11 +53,12 @@
       <span class="label">One example, every course</span>
       <p class="what">One small language model, trained from scratch.</p>
       <dl>
-        <dt>Planned</dt><dd>Rebuilt with each architecture in turn: RNN, attention, Transformer, Mamba, hybrid.</dd>
-        <dt>Compared</dt><dd>Perplexity, usable context length and speed, side by side.</dd>
-        <dt>Then</dt><dd>Fine-tuned with preference data in the post-training course.</dd>
+        <dt>Corpus</dt><dd>Tiny Shakespeare: 1.1 million characters, 65 symbols, a bigram baseline at perplexity 12.</dd>
+        <dt>Rebuilt</dt><dd>Eight ways in Course 2: bigram, GRU, attention, Transformer, linear attention, S4, Mamba, hybrid.</dd>
+        <dt>Compared</dt><dd>Perplexity, recall and cost per generated token, side by side.</dd>
+        <dt>Then</dt><dd>Post-trained in Course 3 to write ten-syllable lines: SFT, PPO on a KL leash, DPO, and reward hacking caught in the act.</dd>
       </dl>
-      <figcaption>The worked example of the planned architecture course. The live course reads the history these models came from.</figcaption>
+      <figcaption>The worked example of Courses 2 and 3, small enough to train on a laptop CPU. Course 1 reads the history these models came from.</figcaption>
     </figure>
   </section>
 
@@ -72,8 +73,8 @@
   <section id="courses">
     <div class="section-head">
       <span class="label">The courses</span>
-      <h2>One live course, two planned</h2>
-      <p>Track B is partly built. Its first course is live. The architecture and post-training courses are scoped in the curriculum, and their papers are already in the collection.</p>
+      <h2>History, architecture, post-training</h2>
+      <p>Course 1 reads the landmark papers. Course 2 builds the architectures and measures what each one costs. Course 3 turns the resulting model into something that follows a goal.</p>
     </div>
     <div class="cards">
       <article class="course" data-course="ai-miracle-decade-plus">
@@ -83,17 +84,21 @@
         <div class="meta"><span>no time budget</span></div>
         <div class="links"><a href="../../ai-miracle-decade-plus/">About the course</a></div>
       </article>
-      <article class="course">
-        <span class="label">Course 2 · <span class="planned">ai-sequence-models</span></span>
-        <span class="status">planned</span>
+      <article class="course" data-course="ai-sequence-models">
+        <span class="label">Course 2 · <span class="mono">ai-sequence-models</span></span>
         <h3>Sequence Models</h3>
-        <p>The architecture course: word2vec and seq2seq, attention, the Transformer read closely, GPT-style LLMs, then linear attention, S4 and Mamba, RWKV, gated linear RNNs and Transformer-SSM hybrids.</p>
+        <p>The architecture course: word2vec and seq2seq, attention, the Transformer read closely, GPT-style LLMs, then linear attention and the delta rule, RWKV and gated linear RNNs, S4 and Mamba as state-space filters, Transformer-SSM hybrids, and a living frontier. The tiny Shakespeare model is rebuilt eight ways and measured.</p>
+        <p class="keystone">What a token can see of the past, and what that costs: a growing cache or a fixed state.</p>
+        <div class="meta"><span>~30–35 sessions</span></div>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/tree/main/ai-sequence-models">Course on GitHub</a></div>
       </article>
-      <article class="course">
-        <span class="label">Course 3 · <span class="planned">ai-post-training-and-rl</span></span>
-        <span class="status">planned</span>
+      <article class="course" data-course="ai-post-training-and-rl">
+        <span class="label">Course 3 · <span class="mono">ai-post-training-and-rl</span></span>
         <h3>Post-Training and RL</h3>
-        <p>From a pretrained model to an assistant: deep RL landmarks, RLHF, Constitutional AI and tool use, with scaling laws and double descent alongside.</p>
+        <p>From a pretrained model to an assistant: DQN, PPO and AlphaZero as the vocabulary, then SFT, reward models, RLHF, DPO, Constitutional AI, tool use and GRPO-style RL with verifiable rewards, with scaling laws and double descent alongside. You post-train your own Shakespeare model, watch it cheat, and stop it.</p>
+        <p class="keystone">Climb a reward on a KL leash; DPO is the closed form of the same optimum.</p>
+        <div class="meta"><span>~30–35 sessions</span></div>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/tree/main/ai-post-training-and-rl">Course on GitHub</a></div>
       </article>
     </div>
     <div class="section-head" style="margin-top:40px">
@@ -101,11 +106,13 @@
       <p>Parallel, not gates.</p>
     </div>
     <div class="cards">
-      <article class="course">
-        <span class="label"><span class="planned">ai-vision-and-multimodal</span></span>
-        <span class="status">planned</span>
+      <article class="course" data-course="ai-vision-and-multimodal">
+        <span class="label"><span class="mono">ai-vision-and-multimodal</span></span>
         <h3>Vision and Multimodal</h3>
-        <p>The vision branches of the same backbone: CNN backbones, VAEs and GANs, ViT and autoregressive image generation, unified text-and-image models.</p>
+        <p>The vision branches of the same backbone: CNNs, ResNets and U-Nets, VAEs and GANs, ViT, image tokenizers, raster, masked and next-scale generation, CLIP, DALL-E and unified text-and-image models. Hands-on on Fashion-MNIST, ending in a mini-DALL-E.</p>
+        <p class="keystone">Every system is a choice of tokenizer plus generation order.</p>
+        <div class="meta"><span>~22–26 sessions</span></div>
+        <div class="links"><a href="https://github.com/josmithiii/Courses/tree/main/ai-vision-and-multimodal">Course on GitHub</a></div>
       </article>
       <article class="course" data-course="audio-codec-lms">
         <span class="label"><span class="mono">audio-codec-lms</span></span>
@@ -121,7 +128,7 @@
     <div class="section-head">
       <span class="label">The papers</span>
       <h2>Ten topic collections</h2>
-      <p>The papers for the planned courses are already here, each directory with an interlinked wiki.</p>
+      <p>Each course teaches from these directories and links back into the PDFs, most with an interlinked wiki.</p>
     </div>
     <ul class="collections">
       <li><a href="https://cm-gitlab.stanford.edu/jos/music423-2023/-/blob/master/attention/README.md">Attention</a></li>
@@ -147,7 +154,7 @@
       <pre id="install-cmd">claude plugin marketplace add https://github.com/josmithiii/Courses &amp;&amp; claude plugin install courses@josmithiii-courses</pre>
       <button type="button" data-copy="install-cmd">Copy</button>
     </div>
-    <p class="say">Then start a session in any folder and say <q>let's do today's ai-miracle-decade-plus lesson</q>, or name any course on this page.</p>
+    <p class="say">Then start a session in any folder and say <q>let's do today's ai-sequence-models lesson</q>, or name any course on this page.</p>
     <p class="fine">The courses are free and open, and the full track plan is in the <a href="https://github.com/josmithiii/Courses/blob/main/curricula/ai-llms-and-sequence-models.md">LLMs &amp; Sequence Models curriculum</a>. The tutor runs on your own Claude account, and your progress stays in a folder on your own computer.</p>
   </section>
 

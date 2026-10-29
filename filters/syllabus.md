@@ -339,7 +339,7 @@ derivations and numpy experiments. They never replace them.
   (S4, the Linear Recurrent Unit) are stacks of linear state-space filters whose poles are
   learned and kept inside the unit circle by parameterization (the LRU's diagonal complex
   poles are 11.4's modal representation exactly). Mamba makes the state-space filter
-  *input-dependent*: a linear time-varying filter (11.5). → planned `ai-sequence-models`.
+  *input-dependent*: a linear time-varying filter (11.5). → `ai-sequence-models/` Phase 7 (state-space filters) and Phase 8 (Mamba).
   *(empirical: which architecture wins depends on task and scale.)*
 - **12.4 Grey-box and neural models of analog filter circuits** (extends 11.2, 11.4).
   State-space and recurrent networks trained to reproduce real analog filters and

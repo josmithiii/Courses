@@ -53,6 +53,10 @@ between courses 2 and 3** — the structure teaches the distinction.
   — the gap the resynthesis paradigm must close. The curriculum otherwise treats SSL only
   instrumentally (as the source of course 1/2's "semantic tokens"); this makes it a subject.
   Any time after the codecs course; pairs with `disentanglement/`.
+- [`../ai-vision-and-multimodal/`](../ai-vision-and-multimodal/) — *the image side of the same
+  backbone*, shared with Track B. U-Net, the VAE, VQ-VAE/VQGAN, MaskGIT and next-scale generation,
+  CLIP and the DiT are where codecs, codec-LMs and audio DiTs borrowed their ideas (a spectrogram is
+  an image). Its short Track A route is background for course 3.
 - [`../ai-miracle-decade-plus/`](../ai-miracle-decade-plus/) — a survey companion that
   can run in parallel; it already links the `music423-2023` meta-wiki.
 

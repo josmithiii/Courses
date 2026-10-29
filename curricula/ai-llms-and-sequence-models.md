@@ -1,7 +1,7 @@
 # LLMs & Sequence Models
 
-**Status:** 🟡 Partial — the on-ramp and the paper-history course are active; the
-architecture and post-training courses are planned. Track B of the
+**Status:** 🟢 Complete — the paper-history, architecture and post-training courses and the
+vision/multimodal enrichment are all active. Track B of the
 [Music 423 meta-curriculum](music423.md).
 
 ## Goal
@@ -28,12 +28,12 @@ to read the codec-LM and DiT papers in Track A as an insider.
 | # | Course | Status | Why here |
 |---|--------|--------|----------|
 | 1 | [`../ai-miracle-decade-plus/`](../ai-miracle-decade-plus/) | 🟢 Active | The timeline: 40 landmark papers DBN → GPT-4, with concept-page stops. Gives the *history* the rest of the track fills in. Can also run in parallel with course 2. |
-| 2 | `../ai-sequence-models/` | ⚪ Planned | The *architecture* course: word2vec and seq2seq → attention → the Transformer (read closely) → GPT-style LLMs → the efficiency response: linear attention, HiPPO/S4 → Mamba, RWKV, gated linear RNNs (HGRN2), and Transformer–SSM hybrids (Jamba, Zamba, Samba). Keystone = **what a token can attend to, and at what cost** — every architecture is a different answer. Pinned to one tiny language model trained from scratch on a small corpus, re-implemented with each mechanism. |
-| 3 | `../ai-post-training-and-rl/` | ⚪ Planned | From a pretrained LM to an assistant: deep RL landmarks (DQN → AlphaGo/AlphaZero) as the language of the field, then RLHF (InstructGPT), Constitutional AI, and tool use (Toolformer). Also the learning-theory sidebar: scaling laws and double descent — why bigger keeps working. |
+| 2 | [`../ai-sequence-models/`](../ai-sequence-models/) | 🟢 Active | The *architecture* course: word2vec and seq2seq → attention → the Transformer (read closely, KV cache measured) → GPT-style LLMs and cheaper exact attention → the efficiency response: linear attention and the delta rule, gated linear RNNs (GLA, HGRN2, RWKV), HiPPO/S4/S4D/LRU as state-space filters → Mamba and Mamba-2/SSD, and Transformer–SSM hybrids (Jamba, Zamba, Samba, Griffin); living frontier. Keystone = **what a token can see, and at what cost** ([`the-context-budget.md`](../ai-sequence-models/the-context-budget.md)) — every architecture is a different answer. The through-line model, rebuilt eight ways; ends by handing its checkpoint to course 3. |
+| 3 | [`../ai-post-training-and-rl/`](../ai-post-training-and-rl/) | 🟢 Active | From a pretrained LM to an assistant: deep RL landmarks (DQN, PPO, AlphaGo/AlphaZero) as the language of the field, then SFT, reward models, RLHF (InstructGPT), DPO and its family, Constitutional AI, and tool use (Toolformer); living frontier (RLVR/GRPO, process rewards, test-time compute). Also the learning-theory sidebar: scaling laws and double descent — why bigger keeps working. Keystone = **the reward and the leash** ([`the-reward-and-the-leash.md`](../ai-post-training-and-rl/the-reward-and-the-leash.md)). Post-trains the course-2 checkpoint (fallback model in its Phase 0). |
 
 ## Enrichment / co-requisites (parallel, not gates)
 
-- `../ai-vision-and-multimodal/` ⚪ Planned — the vision branches of the same backbone:
+- [`../ai-vision-and-multimodal/`](../ai-vision-and-multimodal/) 🟢 Active — the vision branches of the same backbone:
   CNN backbones (AlexNet, ResNet, U-Net), VAEs and GANs, ViT and autoregressive image
   generation, DALL-E and unified multimodal models. Half of it is *also* background for
   Track A's diffusion course, so it is listed in both.
@@ -43,10 +43,15 @@ to read the codec-LM and DiT papers in Track A as an insider.
 
 ## Through-line
 
-One **small language model trained from scratch** on a small text corpus, revisited with
-every architecture (RNN → attention → Transformer → Mamba → hybrid) so the learner *sees*
-what each mechanism buys in perplexity, context length, and speed. Post-training then
-fine-tunes that same model with preference data.
+One **small character-level language model trained from scratch** on *Tiny Shakespeare*
+([`assets/ai-llms-and-sequence-models/`](assets/ai-llms-and-sequence-models/README.md):
+1.1 M characters, 65-character vocabulary, 90/10 split; baselines uniform 65, unigram 28.4,
+bigram 12.0 perplexity). Course 2 rebuilds it with every architecture (bigram → GRU →
+attention → Transformer → linear attention → S4 → Mamba → hybrid) so the learner *sees*
+what each mechanism buys in perplexity, recall, and cost per token, and saves the winner
+as a checkpoint bundle. Course 3 post-trains that same model: SFT, a ten-syllable meter
+reward, best-of-n, PPO with a KL leash (and reward hacking without one), a learned reward
+model, and DPO. The vision enrichment has its own worked example (Fashion-MNIST).
 
 ## Source of truth
 

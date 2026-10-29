@@ -35,6 +35,9 @@ updates. If it isn't listed, run the one-liner - it then shows up in the app at 
 | `agents101` | "let's do today's agents101 lesson" |
 | `ai-foundations` | "let's do today's ai-foundations lesson" |
 | `ai-miracle-decade-plus` | "let's do today's ai-miracle-decade-plus lesson" |
+| `ai-post-training-and-rl` | "let's do today's ai-post-training-and-rl lesson" |
+| `ai-sequence-models` | "let's do today's ai-sequence-models lesson" |
+| `ai-vision-and-multimodal` | "let's do today's ai-vision-and-multimodal lesson" |
 | `audio-codec-lms` | "let's do today's audio-codec-lms lesson" |
 | `audio-codecs` | "let's do today's audio-codecs lesson" |
 | `audio-ddsp` | "let's do today's audio-ddsp lesson" |

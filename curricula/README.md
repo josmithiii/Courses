@@ -19,8 +19,8 @@ not a gate — each course still stands alone.
 |------------|--------|----------|
 | [`ai-music-audio.md`](ai-music-audio.md) | 🟢 Complete | `ai-foundations` → `audio-codecs` → `audio-codec-lms` → `audio-diffusion-dit` (enrichment: `flow-matching`, `disentanglement`) |
 | [`buddhist-philosophy.md`](buddhist-philosophy.md) | 🟡 Partial | `buddhism-early-philosophy` → `buddhism-mahayana-philosophy` |
-| [`music423.md`](music423.md) | 🟡 Partial | **Meta-curriculum** over the `music423-2023` paper collection: on-ramps (`ai-foundations`, JOS's DSP books) + three parallel tracks — A `ai-music-audio`, B `ai-llms-and-sequence-models`, C `audio-differentiable-dsp` — with `ai-miracle-decade-plus` as the cross-cutting companion |
-| [`ai-llms-and-sequence-models.md`](ai-llms-and-sequence-models.md) | 🟡 Partial | `ai-foundations` → `ai-miracle-decade-plus` → `ai-sequence-models` → `ai-post-training-and-rl` (enrichment: `ai-vision-and-multimodal`, `audio-codec-lms`) |
+| [`music423.md`](music423.md) | 🟢 Complete | **Meta-curriculum** over the `music423-2023` paper collection: on-ramps (`ai-foundations`, JOS's DSP books) + three parallel tracks — A `ai-music-audio`, B `ai-llms-and-sequence-models`, C `audio-differentiable-dsp` — with `ai-miracle-decade-plus` as the cross-cutting companion |
+| [`ai-llms-and-sequence-models.md`](ai-llms-and-sequence-models.md) | 🟢 Complete | `ai-foundations` → `ai-miracle-decade-plus` → `ai-sequence-models` → `ai-post-training-and-rl` (enrichment: `ai-vision-and-multimodal`, `audio-codec-lms`) |
 | [`audio-differentiable-dsp.md`](audio-differentiable-dsp.md) | 🟢 Complete | JOS's DSP books → `audio-ddsp` → `audio-synth-effect-matching` → `audio-physics-informed` (enrichment: `neural-audio-resynthesis`, `room-acoustics`) |
 
 ## What a `curricula/<name>.md` file declares
