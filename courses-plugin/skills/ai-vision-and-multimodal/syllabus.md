@@ -772,7 +772,7 @@ given, cite by title and authors and look it up before quoting it.
   Diffusion Transformers Is Easier Than You Think* (REPA), arXiv:2410.06940; Yao et al.
   (2025), *Reconstruction vs. Generation: Taming Optimization Dilemma in Latent Diffusion
   Models* (VA-VAE), arXiv:2501.01423; Zheng et al. (2025), *Diffusion Transformers
-  with Representation Autoencoders* (RAE) (look up the ID).
+  with Representation Autoencoders* (RAE), arXiv:2510.11690.
 - **12.2 — continuous and scale-wise AR.** Li et al. (2024), *MAR*, arXiv:2406.11838; Fan
   et al. (2024), *Fluid: Scaling Autoregressive Text-to-image Generative Models with
   Continuous Tokens*, arXiv:2410.13863; Ren et al. (2025), *xAR*, arXiv:2502.20388; Han et
@@ -783,15 +783,16 @@ given, cite by title and authors and look it up before quoting it.
   Scaling*, arXiv:2501.17811; Xie et al. (2024), *Show-o: One Single Transformer to Unify
   Multimodal Understanding and Generation*, arXiv:2408.12528; Wang et al. (2024), *Emu3:
   Next-Token Prediction is All You Need*, arXiv:2409.18869; Deng et al. (2025), *BAGEL*,
-  arXiv:2505.14683; Pan et al. (2025), *Transfer between Modalities with MetaQueries*
-  (look up the ID); Chen et al. (2025), *BLIP3-o: A Family of Fully Open Unified
-  Multimodal Models* (look up the ID); Tschannen et al. (2025), *SigLIP 2*,
+  arXiv:2505.14683; Pan et al. (2025), *Transfer between Modalities with MetaQueries*,
+  arXiv:2504.06256; Chen et al. (2025), *BLIP3-o: A Family of Fully Open Unified
+  Multimodal Models*, arXiv:2505.09568; Tschannen et al. (2025), *SigLIP 2*,
   arXiv:2502.14786.
 - **12.4 — world models.** Bruce et al. (2024), *Genie: Generative Interactive
   Environments*, arXiv:2402.15391; Chen et al. (2024), *Diffusion Forcing: Next-token
   Prediction Meets Full-Sequence Diffusion*, arXiv:2407.01392; NVIDIA (2025), *Cosmos World
   Foundation Model Platform for Physical AI*, arXiv:2501.03575; Assran et al. (2025),
-  *V-JEPA 2* (Meta; look up the ID); OpenAI (2024), *Video generation models as world
+  *V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning*
+  (Meta), arXiv:2506.09985; OpenAI (2024), *Video generation models as world
   simulators* (Sora technical report, no arXiv).
 - **12.5 — audio echoes.** Keep in sync with the Track A courses' own frontier lists
   (`flow-matching/` Phase 9; `audio-diffusion-dit` frontier notes) rather than

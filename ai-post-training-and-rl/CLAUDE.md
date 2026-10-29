@@ -95,21 +95,22 @@ over-optimization run and the double-descent table are in `through-line-lab.md` 
 This course is the *pedagogical* front-end of JOS's collection `music423-2023`; the
 collection stays canonical, the course stays pedagogical. Teach from and link into:
 
-- **`/w/music423-2023/reinforcement-learning/`** — DQN (2013 + "Nature 2015"), AlphaGo,
-  AlphaZero, InstructGPT PDFs; README only, no wiki. **Known issue:** the file
-  `DQN-Nature-2015.pdf` actually contains the 2013 workshop paper (*Playing Atari…*, seven
-  games, no target network). Teach the target network from the *Nature* 518 paper's
-  citation, and mention the mislabel if the learner opens the file.
+- **`/w/music423-2023/reinforcement-learning/`** — DQN (the 2013 workshop paper
+  `DQN-1312.5602.pdf` and the *Nature* 518 paper `DQN-Nature-2015.pdf`), AlphaGo,
+  AlphaZero, InstructGPT PDFs; README only, no wiki. The target network is in the
+  *Nature* paper only. (Before Oct 2026 `DQN-Nature-2015.pdf` held a mislabeled copy of
+  the 2013 paper; an older clone may still have it.)
 - **`/w/music423-2023/ai-2012-to-2023/wiki/`** — `rl-and-alignment-arc.md`,
   `scaling-and-emergence.md`, `pretrain-finetune-lineage.md`, `notes/instructgpt.md`,
   `notes/cot-prompting.md`; PDFs for Constitutional AI, Toolformer, Kaplan, Chinchilla,
   CoT. (Its `sources/` directory is empty; the landmark notes are in `notes/`.) **Three
-  corrections to carry** when teaching from it: (i) "PPO is at the heart of AlphaZero's
-  training" is wrong — AlphaZero distils MCTS visit counts and regresses values; AlphaGo's
-  RL policy used REINFORCE-style policy gradient; (ii) "DPO is now the dominant variant" —
-  true of cheap open fine-tuning, not of frontier on-policy RL; (iii) "MCTS did not carry"
-  — test-time compute (Phase 11.3) partly revised that, though mostly as long sampled
-  reasoning rather than tree search.
+  corrections**, made in `rl-and-alignment-arc.md` in Oct 2026 (an older copy may still
+  carry the errors) and worth keeping live when teaching from it: (i) "PPO is at the
+  heart of AlphaZero's training" is wrong — AlphaZero distils MCTS visit counts and
+  regresses values; AlphaGo's RL policy used REINFORCE-style policy gradient; (ii) "DPO
+  is now the dominant variant" — true of cheap open fine-tuning, not of frontier on-policy
+  RL; (iii) "MCTS did not carry" — test-time compute (Phase 11.3) partly revised that,
+  though mostly as long sampled reasoning rather than tree search.
 - **`/w/music423-2023/double-descent/wiki/`** — `double-descent.md`,
   `interpolation-threshold.md`, `bias-variance-tradeoff.md`, `overview.md`, `sources/`.
 - **`/w/music423-2023/synth-effect-matching/wiki/reinforcement-learning-sound-matching.md`**

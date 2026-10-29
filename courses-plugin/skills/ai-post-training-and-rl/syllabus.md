@@ -411,9 +411,9 @@ are cited by title, authors and year only.
   (2024), *Back to Basics: Revisiting REINFORCE-Style Optimization for Learning from Human
   Feedback in LLMs* (RLOO), arXiv:2402.14740; Yu et al. (2025), *DAPO: An Open-Source LLM
   Reinforcement Learning System at Scale*, arXiv:2503.14476; Liu et al. (2025),
-  *Understanding R1-Zero-Like Training: A Critical Perspective* (Dr. GRPO); Yue et al.
-  (2025), *Does Reinforcement Learning Really Incentivize Reasoning Capacity in LLMs
-  Beyond the Base Model?*
+  *Understanding R1-Zero-Like Training: A Critical Perspective* (Dr. GRPO),
+  arXiv:2503.20783; Yue et al. (2025), *Does Reinforcement Learning Really Incentivize
+  Reasoning Capacity in LLMs Beyond the Base Model?*, arXiv:2504.13837.
 - **11.2 — process vs outcome.** Uesato et al. (2022), *Solving Math Word Problems with
   Process- and Outcome-Based Feedback*, arXiv:2211.14275; Lightman et al. (2023), *Let's
   Verify Step by Step*, arXiv:2305.20050.
@@ -428,15 +428,16 @@ are cited by title, authors and year only.
   Acting in Language Models*, arXiv:2210.03629; Jimenez et al. (2023), *SWE-bench: Can
   Language Models Resolve Real-World GitHub Issues?*, arXiv:2310.06770; Jin et al. (2025),
   *Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement
-  Learning*; Feng et al. (2025), *ReTool: Reinforcement Learning for Strategic Tool Use in
-  LLMs*; Baker et al. (2025), *Monitoring Reasoning Models for Misbehavior and the Risks of
-  Promoting Obfuscation* (OpenAI).
+  Learning*, arXiv:2503.09516; Feng et al. (2025), *ReTool: Reinforcement Learning for
+  Strategic Tool Use in LLMs*, arXiv:2504.11536; Baker et al. (2025), *Monitoring
+  Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation* (OpenAI),
+  arXiv:2503.11926.
 - **11.5 — audio.** Wu et al. (2026), *DDSynth-RL: Audio Synthesizer Inversion via
   Discrete Diffusion with Reinforcement Learning*, ISMIR 2026, arXiv:2608.03032; Wu et al.
   (2026), *AutoSynth: Learning to Generate Editable Synthesizer Programs from Audio and
   Text*, arXiv:2610.10774; Shin & Lee (2025), *SynthRL: Cross-domain Synthesizer Sound
-  Matching via Reinforcement Learning*, IJCAI 2025; Gong et al. (2026), *ACE-Step 1.5*,
-  arXiv:2602.00744. (Summaries in the collection's
+  Matching via Reinforcement Learning*, IJCAI 2025 (no arXiv); Gong et al. (2026),
+  *ACE-Step 1.5*, arXiv:2602.00744. (Summaries in the collection's
   `synth-effect-matching/wiki/` and `ai-music-audio-gen/wiki/sources/ace-step.md`.)
 
 ---
@@ -483,18 +484,18 @@ collection stays canonical, the course stays pedagogical. Read / link these on J
 machine (`/w/music423-2023/`):
 
 - **[`reinforcement-learning/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/reinforcement-learning)**
-  — the RL papers (DQN 2013 and "2015", AlphaGo, AlphaZero, InstructGPT); a README, no
-  wiki. *Note:* the file `DQN-Nature-2015.pdf` there currently contains the 2013 workshop
-  paper (seven games, no target network); teach the target network from the *Nature*
-  citation below.
+  — the RL papers (DQN: the 2013 workshop paper `DQN-1312.5602.pdf` and the 2015 *Nature*
+  paper `DQN-Nature-2015.pdf`; AlphaGo, AlphaZero, InstructGPT); a README, no wiki. The
+  target network is in the *Nature* paper only.
 - **[`ai-2012-to-2023/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/ai-2012-to-2023/wiki)**
   — concept pages `rl-and-alignment-arc.md` (games → alignment), `scaling-and-emergence.md`
   (Kaplan → GPT-3 → Chinchilla → emergence debate), `pretrain-finetune-lineage.md` (the
   three-stage stack); landmark notes `notes/instructgpt.md`, `notes/cot-prompting.md`.
   The directory also holds the Constitutional AI, Toolformer, Kaplan, Chinchilla and CoT
-  PDFs. *Corrections to carry when teaching from it:* AlphaZero was not trained with PPO;
-  "DPO is now the dominant variant" is true of cheap open fine-tuning, not of frontier
-  on-policy RL; "MCTS did not carry" is partly revised by test-time compute.
+  PDFs. `rl-and-alignment-arc.md` was corrected in Oct 2026 on three points worth keeping
+  live: AlphaZero was not trained with PPO; DPO's wide adoption is in cheap open
+  fine-tuning, not frontier on-policy RL; "MCTS did not carry" is partly revised by
+  test-time compute. An older copy may still carry the original errors.
 - **[`double-descent/wiki/`](https://cm-gitlab.stanford.edu/jos/music423-2023/-/tree/master/double-descent/wiki)**
   — `overview.md`, `double-descent.md`, `interpolation-threshold.md`,
   `bias-variance-tradeoff.md`, and `sources/` (Zhang 2016/2021, Belkin, Nakkiran).
@@ -539,12 +540,12 @@ machine (`/w/music423-2023/`):
   Learning from Human Feedback*. arXiv:2204.05862.
 - **Bai et al. (2022)** — *Constitutional AI: Harmlessness from AI Feedback*.
   arXiv:2212.08073.
-- **Lee et al. (2023)** — *RLAIF: Scaling Reinforcement Learning from Human Feedback with
-  AI Feedback*. arXiv:2309.00267.
+- **Lee et al. (2023)** — *RLAIF vs. RLHF: Scaling Reinforcement Learning from Human
+  Feedback with AI Feedback*. arXiv:2309.00267.
 - **Gao, Schulman & Hilton (2022)** — *Scaling Laws for Reward Model Overoptimization*.
   arXiv:2210.10760.
 - **Korbak, Perez & Buckley (2022)** — *RL with KL Penalties is Better Viewed as Bayesian
-  Inference* (the tilt as a posterior).
+  Inference* (the tilt as a posterior). arXiv:2205.11275.
 - **Rafailov et al. (2023)** — *Direct Preference Optimization: Your Language Model is
   Secretly a Reward Model*. arXiv:2305.18290.
 - **Azar et al. (2023)** — *A General Theoretical Paradigm to Understand Learning from
@@ -552,8 +553,8 @@ machine (`/w/music423-2023/`):
 - **Ethayarajh et al. (2024)** — *KTO: Model Alignment as Prospect Theoretic
   Optimization*. arXiv:2402.01306.
 - **Hong et al. (2024)** — *ORPO: Monolithic Preference Optimization without Reference
-  Model*; **Meng et al. (2024)** — *SimPO: Simple Preference Optimization with a
-  Reference-Free Reward*.
+  Model*, arXiv:2403.07691; **Meng et al. (2024)** — *SimPO: Simple Preference
+  Optimization with a Reference-Free Reward*, arXiv:2405.14734.
 - **Schick et al. (2023)** — *Toolformer: Language Models Can Teach Themselves to Use
   Tools*. arXiv:2302.04761.
 - **Kaplan et al. (2020)** — *Scaling Laws for Neural Language Models*. arXiv:2001.08361.
