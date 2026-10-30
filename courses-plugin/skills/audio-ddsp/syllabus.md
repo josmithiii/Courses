@@ -23,7 +23,7 @@ loss** (or better), because sample-wise waveform error does not hear. Every pape
 takes on Phase 2.
 
 **The qubit (worked example):** the curriculum's shared **plucked-string note**
-(`../curricula/assets/audio-differentiable-dsp/note.wav`, mono 44.1 kHz, ~6 s; spec and
+(`assets/audio-differentiable-dsp/note.wav`, mono 44.1 kHz, ~6 s; spec and
 status in that directory's `README.md`). We carry *this one note* through every block —
 resynthesize it with a hand-built harmonic+noise model, fit that model by gradient
 descent, pass it through learned filters, reverbs and a grey-box compressor — and
@@ -52,7 +52,7 @@ the result.
   vs expressive-but-opaque codes).
 - **0.2** **Tools.** `torch`, `torchaudio`, `numpy`, `matplotlib` importable; load the
   through-line note (or generate the labelled placeholder with
-  `../curricula/assets/audio-differentiable-dsp/make_note.py` and *say* it is synthetic),
+  `assets/audio-differentiable-dsp/make_note.py` and *say* it is synthetic),
   print shape and sample rate, play it, plot waveform and spectrogram. Confirm audio
   playback works (`IPython.display.Audio` or write-and-play a WAV). **Fail fast:** if an
   import or the note is missing, surface the real error; never substitute silently.

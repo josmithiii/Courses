@@ -31,10 +31,9 @@ def load_corpus(path: Path = CORPUS) -> str:
     return raw.decode("ascii")
 ```
 
-If the file is absent (e.g. a plugin install, which ships no assets), download it *out
-loud* from the URL in `../curricula/assets/ai-llms-and-sequence-models/SOURCE.md`
-(`https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt`)
-and run the same check. A mismatch is a stop, never a substitution.
+The corpus ships with the course (in the repo, and bundled into the plugin), so a
+missing file or a mismatch is a stop, never a substitution: say so and let the learner
+fix the install.
 
 ```python
 import torch

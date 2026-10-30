@@ -29,7 +29,7 @@
 ## Environment status
 - [ ] `uv` project with a `.venv`; `torch`, `numpy`, `matplotlib` importable
 - [ ] `gymnasium` installed (CartPole for Phases 1–2)
-- [ ] The corpus resolves at `../curricula/assets/ai-llms-and-sequence-models/tinyshakespeare.txt` **and its SHA-256 matches**
+- [ ] The corpus resolves at `assets/ai-llms-and-sequence-models/tinyshakespeare.txt` **and its SHA-256 matches**
 - [ ] Starting model chosen and recorded: _(course-2 checkpoint — contract checked / fallback model trained, learner told)_
 - [ ] Plumbing works: `sample`, `completion_logps`, `exact_kl` (Phase 0.3)
 - [ ] `the-reward-and-the-leash.md` read (the keystone)

@@ -64,6 +64,38 @@ def test_room_acoustics_skill(tmp_path: Path) -> None:
     assert manifest["displayName"] == bp.PLUGIN_DISPLAY_NAME
 
 
+def test_curriculum_assets_are_bundled(tmp_path: Path) -> None:
+    """A plugin install has no repo beside it: referenced assets ship inside the skill."""
+    out = tmp_path / "plugin"
+    courses = ["audio-codec-lms", "audio-ddsp", "ai-sequence-models"]
+    bp.build(courses, out)
+    expected = {
+        "audio-codec-lms": "ai-music-audio/through-line.wav",
+        "audio-ddsp": "audio-differentiable-dsp/note.wav",
+        "ai-sequence-models": "ai-llms-and-sequence-models/tinyshakespeare.txt",
+    }
+    for course, rel in expected.items():
+        skill = out / "skills" / course
+        shipped = skill / "assets" / rel
+        assert shipped.read_bytes() == (REPO / "curricula/assets" / rel).read_bytes()
+        assert (shipped.parent / "SOURCE.md").is_file(), "license/provenance must travel"
+        for md in skill.rglob("*.md"):
+            assert bp.ASSET_PREFIX not in md.read_text(), f"{md} still points at the repo layout"
+        assert f"assets/{rel}" in (skill / "SKILL.md").read_text() + (skill / "CLAUDE.md").read_text()
+    # Unreferenced raw sources stay out of the plugin.
+    assert not list(out.rglob("SingleCoil3-*.wav"))
+
+
+def test_missing_asset_fails_loudly(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    fake = tmp_path / "repo"
+    (fake / "c/.claude/commands").mkdir(parents=True)
+    (fake / "c/.claude/commands/lesson.md").write_text("see ../curricula/assets/x/missing.wav\n")
+    (fake / "curricula/assets/x").mkdir(parents=True)
+    monkeypatch.setattr(bp, "REPO", fake)
+    with pytest.raises(SystemExit):
+        bp.bundled_assets("c")
+
+
 def test_marketplace_matches_plugin() -> None:
     market = json.loads((REPO / ".claude-plugin/marketplace.json").read_text())
     (entry,) = market["plugins"]

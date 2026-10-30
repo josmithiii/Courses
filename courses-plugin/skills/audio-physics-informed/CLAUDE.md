@@ -37,8 +37,8 @@ one question.
 ## The plucked note is the worked example ("qubit")
 Every course in this repo pins everything to one worked example. Here it is the
 **curriculum's shared single plucked-string note**, stored at
-`../curricula/assets/audio-differentiable-dsp/note.wav` (mono, 44.1 kHz, ~6 s; spec
-and provenance in `../curricula/assets/audio-differentiable-dsp/README.md`). Phase 0.3
+`assets/audio-differentiable-dsp/note.wav` (mono, 44.1 kHz, ~6 s; spec
+and provenance in `assets/audio-differentiable-dsp/README.md`). Phase 0.3
 measures its partials (`f_k`, `T60_k`, `a_k`, and the stiffness `B`) — those numbers are
 reused by every later phase. The note is then modeled **three ways** (modal bank, PINN,
 hybrid) and compared **by ear and by spectral error**. Resynthesize and **listen**

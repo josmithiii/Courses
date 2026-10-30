@@ -37,7 +37,7 @@ grid). Don't push forward on a shaky token foundation; nothing here parses witho
 
 ## The through-line clip is the worked example ("qubit")
 The curriculum's shared **~2-second solo-piano clip** at
-`../curricula/assets/ai-music-audio/through-line.wav` (mono, 24 kHz). Course 1
+`assets/ai-music-audio/through-line.wav` (mono, 24 kHz). Course 1
 *encoded* it; **here we *generate* from it** — carry its token grid through every
 paradigm: **continue** it (AR, Phase 5), **infill / vamp** it (masked, Phase 6), and
 **condition** a generation with text (Phase 4). The ear is this course's oracle the way

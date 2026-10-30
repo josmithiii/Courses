@@ -33,14 +33,14 @@ choice.
 ## The through-line clip is the worked example ("qubit")
 Every course in this repo pins everything to one worked example. Here it is the
 **curriculum's shared ~2-second solo-piano clip**, stored at
-`../curricula/assets/ai-music-audio/through-line.wav` (mono, 24 kHz). Carry *this one
+`assets/ai-music-audio/through-line.wav` (mono, 24 kHz). Carry *this one
 clip* through every representation — waveform → mel → continuous latent → VQ tokens →
 RVQ codebooks — and **reconstruct and listen at each stage**. The ear is this course's
 oracle the way the 2-D scatter plot is `flow-matching`'s: whenever a representation
 changes, decode back to audio and *listen*.
 
 > **Build-time note (clip not yet chosen).** As of authoring, the clip file may not
-> exist yet — see `../curricula/assets/ai-music-audio/README.md` for the spec and the
+> exist yet — see `assets/ai-music-audio/README.md` for the spec and the
 > selection steps (pick a public-domain / CC0 solo-piano phrase, trim to ~2 s, mono
 > 24 kHz, record provenance in `SOURCE.md`). If the file is missing at lesson time,
 > the tutor's first move with the learner is to **fail fast and say so**, then either

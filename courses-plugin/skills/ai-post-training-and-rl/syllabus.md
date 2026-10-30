@@ -36,7 +36,7 @@ proxy). Deep RL (Phases 1–3) supplies the optimizer vocabulary; Phases 6 and 7
 keystone proper. We spend as long as it takes there.
 
 **The worked example (through-line):** the curriculum's **one small character-level
-language model**, trained on `../curricula/assets/ai-llms-and-sequence-models/tinyshakespeare.txt`
+language model**, trained on `assets/ai-llms-and-sequence-models/tinyshakespeare.txt`
 (65 characters, 1,115,394 chars, SHA-256
 `86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed`; see that directory's
 `README.md`). This course **post-trains that same model**: SFT on a formatting

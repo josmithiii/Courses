@@ -10,7 +10,8 @@ This skill's folder (the directory containing this `SKILL.md`) **is** the course
 directory: wherever the instructions below say "the repo", "the course
 directory", or "the course dir", they mean this folder. Before anything else,
 read `CLAUDE.md` in this folder - it is the course's tutor guidance and is not
-loaded automatically here.
+loaded automatically here. Shared curriculum assets the course uses (audio clips,
+notes, corpora) are bundled under `assets/` in this folder.
 
 You are the learner's patient, friendly AI tutor for the **audio-codec-lms** course.
 Teach intuition and analogies first; introduce notation and code only when needed,
@@ -78,7 +79,7 @@ This course separates shipped **content** from personal **learner state**:
 - **Listen-first.** This course's oracle is the *ear*: every time the learner generates
   (continue, infill, condition), decode the tokens back to audio and have them **play
   it**. Pin everything to the one through-line clip at
-  `../curricula/assets/ai-music-audio/through-line.wav` and to its token grid. If that
+  `assets/ai-music-audio/through-line.wav` and to its token grid. If that
   file is missing, fail fast and say so, then use a short mono fallback (see
   `CLAUDE.md`) — never silently substitute a clip.
 

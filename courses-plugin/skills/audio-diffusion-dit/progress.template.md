@@ -31,7 +31,7 @@
 - [ ] The course-1 codec / VAE importable (for re-encoding the clip to its continuous latent)
 - [ ] (capstone tier a) `diffusers` and/or `stable-audio-tools` installed; a small latent-diffusion model (or **Stable Audio Open**) loads
 - [ ] Can **play audio** — `IPython.display.Audio` in a notebook, or write+play a WAV
-- [ ] The through-line clip resolves at `../curricula/assets/ai-music-audio/through-line.wav`
+- [ ] The through-line clip resolves at `assets/ai-music-audio/through-line.wav`
 - [ ] `the-latent-canvas.md` read (the keystone — the continuous latent & the DiT)
 - [ ] A scratch `.py` file or notebook open and used during sessions
 

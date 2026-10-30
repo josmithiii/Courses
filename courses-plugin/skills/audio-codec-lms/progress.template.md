@@ -29,7 +29,7 @@
 - [ ] The course-1 codec importable (EnCodec via `transformers`/`audiocraft`, or DAC) — for re-encoding the clip
 - [ ] (capstone tier a) `audiocraft` installed; smallest **MusicGen** loads
 - [ ] Can **play audio** — `IPython.display.Audio` in a notebook, or write+play a WAV
-- [ ] The through-line clip resolves at `../curricula/assets/ai-music-audio/through-line.wav`
+- [ ] The through-line clip resolves at `assets/ai-music-audio/through-line.wav`
 - [ ] `the-token-grid.md` read (the keystone — the RVQ grid & the multi-stream challenge)
 - [ ] A scratch `.py` file or notebook open and used during sessions
 

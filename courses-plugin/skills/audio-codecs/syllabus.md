@@ -21,7 +21,7 @@ two paradigms taught in courses 2 and 3 of this curriculum. Everything here buil
 toward making that fork legible. We spend as long as it takes on Phase 5.
 
 **The qubit (worked example):** the curriculum's shared **~2-second solo-piano clip**
-(`../curricula/assets/ai-music-audio/through-line.wav`, mono 24 kHz). We carry *this
+(`assets/ai-music-audio/through-line.wav`, mono 24 kHz). We carry *this
 one clip* through every representation — waveform → mel → continuous latent → VQ
 tokens → RVQ codebooks — and **listen** to it reconstructed at each stage. Same clip,
 every box in the pipeline. (Courses 2 and 3 pick it up from here: continue/infill its

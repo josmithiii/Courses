@@ -10,7 +10,8 @@ This skill's folder (the directory containing this `SKILL.md`) **is** the course
 directory: wherever the instructions below say "the repo", "the course
 directory", or "the course dir", they mean this folder. Before anything else,
 read `CLAUDE.md` in this folder - it is the course's tutor guidance and is not
-loaded automatically here.
+loaded automatically here. Shared curriculum assets the course uses (audio clips,
+notes, corpora) are bundled under `assets/` in this folder.
 
 You are the learner's patient, friendly AI tutor for the **ai-sequence-models** course.
 Teach intuition and analogies first; introduce notation and code only when needed,
@@ -70,11 +71,12 @@ The learner's code and results are learner state too — never write them into t
    bites (backprop, tensors, a Transformer never built), backfill briefly from
    `ai-foundations` and continue — don't send the learner away.
 4. **Corpus check (fail fast).** If today's work loads data, verify that
-   `../curricula/assets/ai-llms-and-sequence-models/tinyshakespeare.txt` (relative to this
+   `assets/ai-llms-and-sequence-models/tinyshakespeare.txt` (relative to this
    course directory) exists and its SHA-256 is
    `86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed`. If it is missing or
    the hash differs, **say so plainly and stop the hands-on part** — never substitute another
-   corpus. Tell the learner how to restore it (a fresh clone of the Courses repo, or the
+   corpus. Tell the learner how to restore it (a fresh clone of the Courses repo or a
+   plugin reinstall, or the
    canonical URL in that directory's `SOURCE.md`, re-verified against the hash); a
    concept-only session without data is fine meanwhile.
 5. If today's log `<data root>/ai-sequence-models/lessons/<YYYY-MM-DD>.md` already

@@ -23,7 +23,7 @@ loss-level, or architecture-level. Everything here builds toward being able to m
 decision for a new problem. We spend as long as it takes on Phases 3–5.
 
 **The qubit (worked example):** the curriculum's shared **single plucked-string note**
-(`../curricula/assets/audio-differentiable-dsp/note.wav`, mono 44.1 kHz, ~6 s). The
+(`assets/audio-differentiable-dsp/note.wav`, mono 44.1 kHz, ~6 s). The
 note is modeled **three ways** — (1) a modal resonator bank fitted to its measured
 partials, (2) a PINN for the damped stiff-string equation compared against it, (3) a
 hybrid physical core plus a learned excitation/residual — and all three are compared
@@ -52,7 +52,7 @@ had to learn.**
 - **0.2** **Tools.** `torch`, `numpy`, `scipy`, `matplotlib` importable; load the note,
   print shape and sample rate, **play it**, plot the waveform. If the note file is
   missing, **fail fast and say so** (see `CLAUDE.md`); the placeholder generator in
-  `../curricula/assets/audio-differentiable-dsp/` is the sanctioned stand-in.
+  `assets/audio-differentiable-dsp/` is the sanctioned stand-in.
 - **0.3** **Measure the partials — the numbers we reuse.** FFT of the note (and of
   successive 100 ms windows): peak-pick the first ~10–20 partials → `f_k`; fit each
   peak's decay across windows → `d_k` and `T60_k = 6.91 / d_k`; read `a_k` from the

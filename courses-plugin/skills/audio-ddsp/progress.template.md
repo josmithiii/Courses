@@ -30,7 +30,7 @@
 - [ ] `torch` + `torchaudio` importable
 - [ ] `numpy` + `matplotlib` importable (plots, FFT peak-picking)
 - [ ] Can **play audio** — `IPython.display.Audio` in a notebook, or write+play a WAV
-- [ ] The through-line note resolves at `../curricula/assets/audio-differentiable-dsp/note.wav`
+- [ ] The through-line note resolves at `assets/audio-differentiable-dsp/note.wav`
       — or the labelled placeholder was generated with `make_note.py` and the learner
       *knows* it is synthetic (see CLAUDE.md build-time note)
 - [ ] `the-differentiable-block.md` read (the keystone — the block and the loss)

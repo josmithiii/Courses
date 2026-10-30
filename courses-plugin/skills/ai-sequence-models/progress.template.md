@@ -27,7 +27,7 @@
 
 ## Environment status
 - [ ] uv environment `.venv` with `torch`, `numpy`, `matplotlib` importable; device noted (CPU / MPS / CUDA)
-- [ ] Corpus resolves at `../curricula/assets/ai-llms-and-sequence-models/tinyshakespeare.txt` **and its SHA-256 matches** `86c4e6aa…565ed`
+- [ ] Corpus resolves at `assets/ai-llms-and-sequence-models/tinyshakespeare.txt` **and its SHA-256 matches** `86c4e6aa…565ed`
 - [ ] The three exact baselines reproduced (4.174 / 3.347 / 2.482 nats)
 - [ ] `charlm.py` harness runs; the `forward` ≡ `step` agreement check passes for the bigram
 - [ ] `the-context-budget.md` read (the keystone — the ledger, the exchange rate, the misreadings)

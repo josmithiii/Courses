@@ -26,7 +26,7 @@ neural proxies, generative flows, reinforcement learning — is a different resp
 those three facts. We spend as long as it takes on Phases 1.4, 4 and 6.
 
 **The qubit (worked example):** the curriculum's shared **single plucked-string note**
-(`../curricula/assets/audio-differentiable-dsp/note.wav`, mono 44.1 kHz, ~6 s). Course 1
+(`assets/audio-differentiable-dsp/note.wav`, mono 44.1 kHz, ~6 s). Course 1
 resynthesized it; this course **recovers the parameters that reproduce it** — three times,
 at increasing difficulty: (1) a **two-knob toy synth** (exponential decay rate + lowpass
 cutoff on a plucked excitation — the same shape as the "decay rate and wah pedal angle"
@@ -62,7 +62,7 @@ the method map in `the-inverse-problem.md`.
   through-line note, print its shape and sample rate, play it, plot the waveform and a
   log-magnitude spectrogram. (Optional: `IPython.display.Audio` in a notebook so renders
   are audible inline.) If the note file is missing, **stop and say so** — produce it
-  with `../curricula/assets/audio-differentiable-dsp/make_note.py` or pick a short mono
+  with `assets/audio-differentiable-dsp/make_note.py` or pick a short mono
   plucked/struck note; never silently substitute.
 - **0.3** **Crash-start: what a synthesizer parameter is.** Continuous (cutoff in Hz,
   decay in s), discrete-ordinal (16 levels of a knob), categorical (saw / square /

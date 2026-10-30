@@ -60,7 +60,7 @@ Transformer 4.2, GPT-1/BERT/GPT-2 Phase 5, scaling laws Phase 6, Chinchilla 8.1,
 
 ## The worked example — one model, rebuilt eight ways
 The curriculum's shared corpus, **Tiny Shakespeare**, at
-`../curricula/assets/ai-llms-and-sequence-models/tinyshakespeare.txt` (relative to this
+`assets/ai-llms-and-sequence-models/tinyshakespeare.txt` (relative to this
 course directory): 1,115,394 characters, vocabulary 65, first 90% train (1,003,854) / last
 10% val (111,540), SHA-256
 `86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed`. The learner trains one
@@ -76,8 +76,8 @@ an expected number for our model as if it were a result.
 > **Fail fast, no substitutes.** Before any session that loads data, check the corpus file
 > exists and its SHA-256 matches. If not, **say so and stop** — never substitute another
 > corpus, a download of "something similar", or a truncated copy. Tell the learner how to
-> restore it (a fresh clone of the Courses repo, or the canonical URL in
-> `../curricula/assets/ai-llms-and-sequence-models/SOURCE.md`, re-verified against the
+> restore it (a fresh clone of the Courses repo or a plugin reinstall, or the canonical URL in
+> `assets/ai-llms-and-sequence-models/SOURCE.md`, re-verified against the
 > SHA-256), and resume only when the hash matches.
 
 **The harness (`charlm.py`)** is the course's instrument. Its `Mixer` interface has two

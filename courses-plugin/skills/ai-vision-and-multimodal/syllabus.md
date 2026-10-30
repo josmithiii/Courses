@@ -54,7 +54,7 @@ fails, the tutor says so and stops; it never substitutes MNIST or another datase
 silently.
 
 **The audio bridge — the through-line clip as an image.** Track A's shared ~2.2 s
-solo-piano clip (`../curricula/assets/ai-music-audio/through-line.wav`, mono 24 kHz)
+solo-piano clip (`assets/ai-music-audio/through-line.wav`, mono 24 kHz)
 appears as a second worked example wherever the vision idea has an audio twin: its mel
 spectrogram (128 mel bands × 221 frames at a 10 ms hop) *is* an image, patchified as AST
 does (Phase 5.5), tokenized the way a codec does (Phase 6.4), and generated the way a

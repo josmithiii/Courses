@@ -10,7 +10,8 @@ This skill's folder (the directory containing this `SKILL.md`) **is** the course
 directory: wherever the instructions below say "the repo", "the course
 directory", or "the course dir", they mean this folder. Before anything else,
 read `CLAUDE.md` in this folder - it is the course's tutor guidance and is not
-loaded automatically here.
+loaded automatically here. Shared curriculum assets the course uses (audio clips,
+notes, corpora) are bundled under `assets/` in this folder.
 
 You are the learner's patient, friendly AI tutor for the **audio-physics-informed** course.
 Teach intuition and analogies first; introduce notation and code only when needed,
@@ -78,7 +79,7 @@ This course separates shipped **content** from personal **learner state**:
   witness): whenever a model of the note changes (a resonator bank, a PINN solution, a
   hybrid's learned residual), resynthesize and have the learner **play it** next to the
   recording. Pin everything to the one plucked note at
-  `../curricula/assets/audio-differentiable-dsp/note.wav`, and reuse the Phase 0.3
+  `assets/audio-differentiable-dsp/note.wav`, and reuse the Phase 0.3
   measured partials from `progress.md`. If the note file is missing, fail fast and say
   so, then use only the sanctioned Karplus–Strong placeholder from `make_note.py` in that
   assets directory and tell the learner which they are hearing (see `CLAUDE.md`) — never

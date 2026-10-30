@@ -32,7 +32,7 @@ hybrid. The **recall-vs-memory trade-off** is the payoff. We spend as long as it
 Phases 4, 6, 8 and 9.
 
 **The worked example — one model, rebuilt eight ways.** The curriculum's shared corpus,
-**Tiny Shakespeare** (`../curricula/assets/ai-llms-and-sequence-models/tinyshakespeare.txt`:
+**Tiny Shakespeare** (`assets/ai-llms-and-sequence-models/tinyshakespeare.txt`:
 1,115,394 characters, vocabulary **65**, first 90% train / last 10% validation, SHA-256
 `86c4e6aa…565ed`; see that directory's `README.md`). The learner trains **one small
 character-level language model from scratch** and re-implements its sequence-mixing layer

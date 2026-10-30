@@ -35,7 +35,7 @@
 - [ ] `matplotlib` importable; can show or save a figure
 - [ ] Fashion-MNIST downloaded to `<data root>/ai-vision-and-multimodal/data/` (60,000 / 10,000, `[1, 28, 28]`) — fail fast if not
 - [ ] A scratch `work/` directory (scripts, checkpoints) under the data dir, or a notebook, used during sessions
-- [ ] (audio bridge) `torchaudio` or `librosa` importable; the through-line clip resolves at `../curricula/assets/ai-music-audio/through-line.wav`
+- [ ] (audio bridge) `torchaudio` or `librosa` importable; the through-line clip resolves at `assets/ai-music-audio/through-line.wav`
 - [ ] (audio bridge) Can play audio — `IPython.display.Audio` or write+play a WAV
 - [ ] `the-image-as-sequence.md` read (the keystone — tokenizer × order)
 - [ ] (capstone tier b/c) Colab or local GPU confirmed

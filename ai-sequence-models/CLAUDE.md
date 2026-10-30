@@ -88,7 +88,7 @@ an expected number for our model as if it were a result.
 > **Fail fast, no substitutes.** Before any session that loads data, check the corpus file
 > exists and its SHA-256 matches. If not, **say so and stop** — never substitute another
 > corpus, a download of "something similar", or a truncated copy. Tell the learner how to
-> restore it (a fresh clone of the Courses repo, or the canonical URL in
+> restore it (a fresh clone of the Courses repo or a plugin reinstall, or the canonical URL in
 > `../curricula/assets/ai-llms-and-sequence-models/SOURCE.md`, re-verified against the
 > SHA-256), and resume only when the hash matches.
 

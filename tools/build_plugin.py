@@ -16,6 +16,12 @@ the content is the skill's own folder (read-only, replaced on every plugin
 update), and the learner-state location must work in both Claude Code and the
 Claude desktop app's Cowork mode, where only the folder the learner selected
 survives the session.
+
+Shared curriculum assets are bundled too: every `../curricula/assets/<dir>/<file>`
+a course names is copied into the skill as `assets/<dir>/<file>` (with that
+directory's README.md and SOURCE.md, for provenance and license), and the
+references are rewritten to match. A plugin install has no repo beside it, so
+this is the only way a lesson can reach its through-line clip, note or corpus.
 """
 
 from __future__ import annotations
@@ -23,6 +29,7 @@ from __future__ import annotations
 import argparse
 import filecmp
 import json
+import re
 import shutil
 import sys
 import tempfile
@@ -33,8 +40,12 @@ REPO = Path(__file__).resolve().parent.parent
 PLUGIN_DIR_NAME = "courses-plugin"
 PLUGIN_NAME = "courses"
 PLUGIN_DISPLAY_NAME = "JOS Courses"  # what the desktop app lists and searches; the bare name drowns among connectors
-PLUGIN_VERSION = "0.4.2"
+PLUGIN_VERSION = "0.5.0"
 TEMPLATE_COURSE = "course-template"
+
+ASSET_PREFIX = "../curricula/assets/"
+ASSET_REF = re.compile(re.escape(ASSET_PREFIX) + r"([A-Za-z0-9_-]+)/([A-Za-z0-9_.-]*)")
+ASSET_ALWAYS = ("README.md", "SOURCE.md")  # provenance and license travel with any asset
 
 LESSON_STATE_HEADING = "## Content vs. learner state (important)"
 CONTEXT_STATE_HEADING = "## Content vs. learner state (architecture)"
@@ -143,7 +154,8 @@ This skill's folder (the directory containing this `SKILL.md`) **is** the course
 directory: wherever the instructions below say "the repo", "the course
 directory", or "the course dir", they mean this folder. Before anything else,
 read `CLAUDE.md` in this folder - it is the course's tutor guidance and is not
-loaded automatically here.
+loaded automatically here. Shared curriculum assets the course uses (audio clips,
+notes, corpora) are bundled under `assets/` in this folder.
 """
     return (
         "---\n"
@@ -151,8 +163,47 @@ loaded automatically here.
         f"description: {json.dumps(description, ensure_ascii=False)}\n"
         "---\n\n"
         f"{GENERATED_NOTE.format(course=course)}\n\n"
-        f"{preamble}\n{body}"
+        f"{preamble}\n{localize_assets(body)}"
     )
+
+
+def course_texts(course: str) -> list[Path]:
+    """Every Markdown file the course ships, lesson.md included."""
+    src = REPO / course
+    lesson = src / ".claude/commands/lesson.md"
+    return [lesson] + sorted(
+        p for p in src.rglob("*.md")
+        if not any(part.startswith(".") for part in p.relative_to(src).parts)
+    )
+
+
+def bundled_assets(course: str) -> list[Path]:
+    """Asset files (relative to curricula/assets/) the course references, plus each
+    referenced directory's README.md and SOURCE.md. A named file that is missing fails."""
+    root = REPO / "curricula/assets"
+    wanted: set[Path] = set()
+    for path in course_texts(course):
+        for d, name in ASSET_REF.findall(path.read_text()):
+            if not (root / d).is_dir():
+                die(f"{path}: references missing asset directory {ASSET_PREFIX}{d}/")
+            if name:
+                if not (root / d / name).is_file():
+                    die(f"{path}: references missing asset {ASSET_PREFIX}{d}/{name}")
+                wanted.add(Path(d) / name)
+            wanted |= {Path(d) / a for a in ASSET_ALWAYS if (root / d / a).is_file()}
+    return sorted(wanted)
+
+
+def bundle_assets(course: str, dest: Path) -> None:
+    for rel in bundled_assets(course):
+        out = dest / "assets" / rel
+        out.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(REPO / "curricula/assets" / rel, out)
+
+
+def localize_assets(text: str) -> str:
+    """Point repo-layout asset paths at the copies bundled in the skill."""
+    return text.replace(ASSET_PREFIX, "assets/")
 
 
 def copy_course_content(course: str, dest: Path) -> None:
@@ -171,7 +222,7 @@ def copy_course_content(course: str, dest: Path) -> None:
             text = replace_section(text, CONTEXT_STATE_HEADING, CONTEXT_STATE_SECTION, path)
         elif rel == Path("SKILL.md"):
             die(f"{path}: a course file named SKILL.md would collide with the generated skill")
-        out.write_text(text)
+        out.write_text(localize_assets(text))
 
 
 def plugin_json() -> str:
@@ -251,6 +302,7 @@ def build(courses: list[str], out: Path) -> None:
     for course in courses:
         dest = out / "skills" / course
         copy_course_content(course, dest)
+        bundle_assets(course, dest)
         (dest / "SKILL.md").write_text(skill_md(course))
 
 

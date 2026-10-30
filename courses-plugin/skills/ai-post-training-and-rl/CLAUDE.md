@@ -52,7 +52,7 @@ then hand off.
 
 ## The through-line model is the worked example
 The curriculum's one small character-level LM on Tiny Shakespeare
-(`../curricula/assets/ai-llms-and-sequence-models/tinyshakespeare.txt`, 65 characters,
+(`assets/ai-llms-and-sequence-models/tinyshakespeare.txt`, 65 characters,
 SHA-256 `86c4e6aa…565ed`, 90/10 split). This course **post-trains that same model**: SFT
 on the *two-line reply* convention (Phase 4), the **meter reward** (ten syllables a line,
 by a deliberately crude counter — `through-line-lab.md` §4) as the gold reward, best-of-n,
@@ -60,11 +60,9 @@ REINFORCE → PPO-lite with a KL leash and a `β` sweep, a learned reward model 
 over-optimization, DPO, GRPO. The **eye is this course's oracle**: whenever a reward curve
 moves, read the samples. A great-looking curve over degenerate samples *is* the lesson.
 
-> **Fail fast:** if the corpus is missing or its SHA-256 mismatches, say so and stop. If
-> it is absent because the course was installed as a plugin (assets aren't shipped), fetch
-> it out loud from the URL in `../curricula/assets/ai-llms-and-sequence-models/SOURCE.md`
-> (also in `through-line-lab.md` §1) and verify the hash; a mismatch is still a stop.
-> Never substitute another corpus.
+> **Fail fast:** if the corpus is missing or its SHA-256 mismatches, say so and stop. It
+> ships with the course (the plugin bundles it too), so a missing file means a broken
+> install. Never substitute another corpus.
 
 **Canonical numbers** (one seed, one laptop; the shape transfers, the third decimal
 doesn't — record the learner's own in `progress.md`): fallback val NLL **1.58**; corpus

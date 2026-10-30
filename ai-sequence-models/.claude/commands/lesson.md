@@ -52,7 +52,8 @@ The learner's code and results are learner state too — never write them into t
    course directory) exists and its SHA-256 is
    `86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed`. If it is missing or
    the hash differs, **say so plainly and stop the hands-on part** — never substitute another
-   corpus. Tell the learner how to restore it (a fresh clone of the Courses repo, or the
+   corpus. Tell the learner how to restore it (a fresh clone of the Courses repo or a
+   plugin reinstall, or the
    canonical URL in that directory's `SOURCE.md`, re-verified against the hash); a
    concept-only session without data is fine meanwhile.
 5. If today's log `<data root>/ai-sequence-models/lessons/<YYYY-MM-DD>.md` already

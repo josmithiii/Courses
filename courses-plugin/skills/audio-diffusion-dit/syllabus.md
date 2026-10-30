@@ -30,7 +30,7 @@ and **what** you denoise (**Phases 4–5**, the **continuous VAE latent**, and t
 **U-Net → DiT swap** that scaled it to full songs).
 
 **The qubit (worked example):** the curriculum's shared **~2-second solo-piano clip**
-(`../curricula/assets/ai-music-audio/through-line.wav`, mono 24 kHz). Course 1 *encoded*
+(`assets/ai-music-audio/through-line.wav`, mono 24 kHz). Course 1 *encoded*
 it; course 2 *predicted* from its token grid; **here we *denoise* it.** Carry its
 **continuous VAE latent** through every system: watch noise resolve into the clip's
 latent step-by-step, generate variations, and (warm-up) denoise `flow-matching`'s 2-D

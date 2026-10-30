@@ -34,7 +34,9 @@ files of progress — `progress.md` (what's mastered, what's next) and
 ### Option 1: the `courses` Claude plugin (no clone needed)
 
 Every course ships as a Skill in the **`courses` plugin**, installable straight from
-this GitHub repo.
+this GitHub repo. Each skill carries the shared worked-example files its course uses
+(the piano clip, the guitar note, the Tiny Shakespeare corpus), so lessons need nothing
+beyond the plugin.
 
 **Recommended: one line in a terminal.** Paste this into Terminal (it needs
 [Claude Code](https://claude.com/claude-code) installed). It installs the plugin for

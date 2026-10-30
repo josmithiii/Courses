@@ -25,7 +25,7 @@ parallel** decoding (VampNet/MAGNeT). Plus AudioLM's **semantic→acoustic** spl
 long-range coherence. We spend as long as it takes on Phases 3 and 5.
 
 **The qubit (worked example):** the curriculum's shared **~2-second solo-piano clip**
-(`../curricula/assets/ai-music-audio/through-line.wav`, mono 24 kHz). Course 1 *encoded*
+(`assets/ai-music-audio/through-line.wav`, mono 24 kHz). Course 1 *encoded*
 it; here we *generate* from it. Carry its token grid through every paradigm:
 **continue** it (autoregressive), **infill / vamp** it (masked), and **condition** a
 generation with text. Same clip, three generation modes.

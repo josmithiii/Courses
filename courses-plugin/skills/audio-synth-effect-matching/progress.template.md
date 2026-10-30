@@ -30,7 +30,7 @@
 - [ ] `torch` + `torchaudio` importable
 - [ ] `matplotlib` importable (loss-surface images, spectrograms, residuals)
 - [ ] Can **play audio** — `IPython.display.Audio` in a notebook, or write+play a WAV
-- [ ] The through-line note resolves at `../curricula/assets/audio-differentiable-dsp/note.wav`
+- [ ] The through-line note resolves at `assets/audio-differentiable-dsp/note.wav`
       (or was produced with `make_note.py` there, or a short mono plucked/struck note is in hand — see CLAUDE.md build-time note)
 - [ ] The two-knob toy synth (`decay`, `cutoff`) written and rendering (Phase 1.3)
 - [ ] (capstone tier b/c) Colab or local GPU confirmed; DiffMoog cloned if tier c

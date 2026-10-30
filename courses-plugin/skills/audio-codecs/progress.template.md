@@ -28,7 +28,7 @@
 - [ ] `torch` + `torchaudio` importable
 - [ ] `matplotlib` importable (for waveform / spectrogram plots)
 - [ ] Can **play audio** — `IPython.display.Audio` in a notebook, or write+play a WAV
-- [ ] The through-line clip resolves at `../curricula/assets/ai-music-audio/through-line.wav`
+- [ ] The through-line clip resolves at `assets/ai-music-audio/through-line.wav`
       (or a short mono fallback clip is in hand — see CLAUDE.md build-time note)
 - [ ] (capstone tier a) a pretrained codec installed — EnCodec (`transformers`/`audiocraft`) or DAC
 - [ ] `the-fork.md` read (the keystone — the discrete-token vs continuous-VAE fork)

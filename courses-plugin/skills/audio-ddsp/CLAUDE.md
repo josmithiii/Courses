@@ -34,7 +34,7 @@ papers instead of rows in one table: *which block, which loss, which pathology, 
 ## The through-line note is the worked example ("qubit")
 Every course in this repo pins everything to one worked example. Here it is the
 **curriculum's shared plucked-string note**, at
-`../curricula/assets/audio-differentiable-dsp/note.wav` (mono, 44.1 kHz, ~6 s, low E
+`assets/audio-differentiable-dsp/note.wav` (mono, 44.1 kHz, ~6 s, low E
 ≈ 82.4 Hz). Carry *this one note* through every block — hand-built harmonic+noise
 resynthesis, gradient-descent copy synthesis, learned filters, reverb, a grey-box
 compressor — and **resynthesize and listen at each stage**. The ear is this course's
@@ -42,7 +42,7 @@ oracle. The partial frequencies / amplitudes / decays measured in Phase 0.3 are 
 numbers we reuse*; record them in `progress.md`.
 
 > **If `note.wav` is missing.** It ships in the repo (a real recording — see
-> `../curricula/assets/audio-differentiable-dsp/README.md` and `SOURCE.md`; regenerate
+> `assets/audio-differentiable-dsp/README.md` and `SOURCE.md`; regenerate
 > with `condition_note.py`). A deterministic **synthetic placeholder** (Karplus–Strong,
 > E2, labelled `note-placeholder.wav`) can be generated with `python3 make_note.py` there.
 > If `note.wav` is missing at lesson time, the tutor's first move is to **fail fast and

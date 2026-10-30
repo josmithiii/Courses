@@ -69,8 +69,10 @@ This course separates shipped **content** (in the repo, read-only) from personal
 - **Fail fast on the corpus.** Before any run, check that
   `../curricula/assets/ai-llms-and-sequence-models/tinyshakespeare.txt` exists and its
   SHA-256 is `86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed`. If it
-  mismatches, say so and stop. If it is merely absent, fetch it out loud from the URL in
-  that directory's `SOURCE.md` and verify the hash. Never substitute another corpus.
+  is missing or the hash differs, say so plainly and stop the hands-on part — never
+  substitute another corpus. Tell the learner how to restore it (a fresh clone of the
+  Courses repo or a plugin reinstall, or the canonical URL in that directory's
+  `SOURCE.md`, re-verified against the hash).
 - Say which kind of claim you are making: a theorem (the tilted optimum, DPO's
   equivalence *under its assumptions*), an engineering choice (PPO's clip, `β`), or an
   empirical result (scaling exponents, anything in Phase 11).

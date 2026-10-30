@@ -90,9 +90,9 @@ consistent across lessons):
   text tokens. Chameleon: 1,024 codes per 512² image.)
 
 ## The audio bridge — the through-line clip as an image
-Track A's shared clip at `../curricula/assets/ai-music-audio/through-line.wav` (Chopin
+Track A's shared clip at `assets/ai-music-audio/through-line.wav` (Chopin
 B. 150 opening, CC0, mono 24 kHz, 2.200 s = 52,800 samples; provenance in
-`../curricula/assets/ai-music-audio/SOURCE.md`) is the second worked example wherever a
+`assets/ai-music-audio/SOURCE.md`) is the second worked example wherever a
 vision idea has an audio twin. Canonical numbers: a **128-band mel spectrogram at a
 10 ms hop** (hop 240, centered frames) has **221 frames**; non-overlapping 16 × 16
 patches → 8 × 13 = **104 tokens**; AST-style overlapping patches (stride 10) → 12 × 21 =
