@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 450" width="860" height="450" font-family="Helvetica, Arial, sans-serif">
+<rect width="860" height="450" rx="10" fill="#ffffff"/>
+<text x="24" y="36" font-size="21" font-weight="bold" fill="#23262b">Multi-layer perceptron</text>
+<rect x="773" y="18" width="67" height="26" rx="13" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="806.5" y="36" font-size="14" fill="#667080" text-anchor="middle">Graph</text>
+<line x1="200" y1="155" x2="380" y2="120" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="200" y1="155" x2="380" y2="190" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="200" y1="155" x2="380" y2="260" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="200" y1="155" x2="380" y2="330" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="200" y1="225" x2="380" y2="120" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="200" y1="225" x2="380" y2="190" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="200" y1="225" x2="380" y2="260" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="200" y1="225" x2="380" y2="330" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="200" y1="295" x2="380" y2="120" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="200" y1="295" x2="380" y2="190" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="200" y1="295" x2="380" y2="260" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="200" y1="295" x2="380" y2="330" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="380" y1="120" x2="560" y2="190" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="380" y1="120" x2="560" y2="260" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="380" y1="190" x2="560" y2="190" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="380" y1="190" x2="560" y2="260" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="380" y1="260" x2="560" y2="190" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="380" y1="260" x2="560" y2="260" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="380" y1="330" x2="560" y2="190" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="380" y1="330" x2="560" y2="260" stroke="#aab2bd" stroke-width="1.5"/>
+<line x1="200" y1="295" x2="380" y2="330" stroke="#d0701a" stroke-width="3.5"/>
+<text x="200" y="84" font-size="15" fill="#667080" text-anchor="middle" font-weight="normal">input</text>
+<circle cx="200" cy="155" r="20" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.8"/>
+<circle cx="200" cy="225" r="20" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.8"/>
+<circle cx="200" cy="295" r="20" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.8"/>
+<text x="380" y="84" font-size="15" fill="#667080" text-anchor="middle" font-weight="normal">hidden</text>
+<circle cx="380" cy="120" r="20" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.8"/>
+<circle cx="380" cy="190" r="20" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.8"/>
+<circle cx="380" cy="260" r="20" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.8"/>
+<circle cx="380" cy="330" r="20" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.8"/>
+<text x="560" y="84" font-size="15" fill="#667080" text-anchor="middle" font-weight="normal">output</text>
+<circle cx="560" cy="190" r="20" fill="#ecdff4" stroke="#7a4ca3" stroke-width="1.8"/>
+<circle cx="560" cy="260" r="20" fill="#ecdff4" stroke="#7a4ca3" stroke-width="1.8"/>
+<line x1="290" y1="312.5" x2="290" y2="372" stroke="#d0701a" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="290" y="390" font-size="15" fill="#d0701a" text-anchor="middle" font-weight="bold">one line = one weight</text>
+<line x1="580" y1="190" x2="612" y2="165" stroke="#7a4ca3" stroke-width="1.2" stroke-dasharray="3 3"/>
+<text x="616" y="160" font-size="15" fill="#7a4ca3" text-anchor="start" font-weight="bold">one circle = one number</text>
+<text x="24" y="436" font-size="14" fill="#667080">In this grammar a circle is one number and a line is one weight.</text>
+</svg>

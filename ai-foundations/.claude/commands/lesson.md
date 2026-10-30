@@ -13,8 +13,9 @@ learner profile recorded in their progress file (do not assume — read it).
 This course separates shipped **content** (in the repo, read-only) from personal
 **learner state** (private, outside the repo, lived-in and rewritten each session):
 
-- **Content (repo, do not write here):** `syllabus.md`, `progress.template.md`,
-  this command, `CLAUDE.md` — all in the course directory you launched from.
+- **Content (repo, do not write here):** `syllabus.md`, `the-diagram-atlas.md`,
+  `progress.template.md`, this command, `CLAUDE.md` — all in the course directory
+  you launched from.
 - **Learner state (read AND write here):** resolve the data root as
   `${COURSES_DATA_DIR:-$HOME/Documents/Courses-data}`, then this course's state
   lives in `<data root>/ai-foundations/`:
@@ -42,6 +43,10 @@ This course separates shipped **content** (in the repo, read-only) from personal
 
 ## During the session
 - Introduce ONE new concept: analogy/visual → plain explanation → minimal example.
+- **Diagrams are required, not optional:** search `the-diagram-atlas.md` for headings
+  with today's topic number, and for each one follow "How to use an entry" there
+  (ASCII sketch, real picture via image-search link, read it together, its trap, its
+  check). You cannot see the search results: ask what the learner sees.
 - Then give a tiny exercise (by hand, or 2–10 lines of code). Have them attempt it.
 - Check their answer. If wrong/unsure, re-explain a *different* way and retry.
   Only advance when it's genuinely solid.

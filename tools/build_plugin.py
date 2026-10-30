@@ -40,7 +40,7 @@ REPO = Path(__file__).resolve().parent.parent
 PLUGIN_DIR_NAME = "courses-plugin"
 PLUGIN_NAME = "courses"
 PLUGIN_DISPLAY_NAME = "JOS Courses"  # what the desktop app lists and searches; the bare name drowns among connectors
-PLUGIN_VERSION = "0.5.0"
+PLUGIN_VERSION = "0.5.1"
 TEMPLATE_COURSE = "course-template"
 
 ASSET_PREFIX = "../curricula/assets/"
@@ -207,16 +207,19 @@ def localize_assets(text: str) -> str:
 
 
 def copy_course_content(course: str, dest: Path) -> None:
-    """Copy the course's shipped Markdown content (hidden dirs like .claude/ excluded)."""
+    """Copy the course's shipped content, Markdown and SVG figures (hidden dirs like .claude/ excluded)."""
     src = REPO / course
     for path in sorted(src.rglob("*")):
         rel = path.relative_to(src)
         if any(part.startswith(".") for part in rel.parts) or path.is_dir():
             continue
-        if path.suffix != ".md":
-            die(f"{path}: non-Markdown course file - teach build_plugin.py how to ship it")
+        if path.suffix not in (".md", ".svg"):
+            die(f"{path}: unsupported course file type - teach build_plugin.py how to ship it")
         out = dest / rel
         out.parent.mkdir(parents=True, exist_ok=True)
+        if path.suffix == ".svg":
+            shutil.copyfile(path, out)
+            continue
         text = path.read_text()
         if rel == Path("CLAUDE.md"):
             text = replace_section(text, CONTEXT_STATE_HEADING, CONTEXT_STATE_SECTION, path)

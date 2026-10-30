@@ -8,6 +8,13 @@ with a small exercise before moving on.
 **Pace philosophy:** It is completely fine to spend multiple days on one lesson.
 The lesson numbers below are *topics*, not days. `progress.md` tracks the real position.
 
+**Diagrams:** every major architecture buzzword comes with the famous picture an image
+search would turn up: MLP, LeNet-5, ResNet, RNN and LSTM, attention, the Transformer, GPT,
+VAE, GAN, the diffusion chain, U-Net, Stable Diffusion, ViT and more. Learners are taught to
+read these, not only to recognize them. [`the-diagram-atlas.md`](the-diagram-atlas.md) lists
+each one by topic, with its search phrase, primary source, how to read it, the usual trap,
+and a check.
+
 ---
 
 ## Phase 0 — Orientation
@@ -74,15 +81,18 @@ The lesson numbers below are *topics*, not days. `progress.md` tracks the real p
 - **7.1** How modern systems combine these pieces (multimodal, agents — overview).
 - **7.2** Capstone: pick a small project and build it with guidance.
 - **7.3** Where to go next: papers, courses, communities, staying current.
+- **7.4** The diagram wall: name, classify and trace the course's famous diagrams, unprompted.
 
 ---
 
 ### Teaching method (applies every lesson)
 1. **Recap** the previous concept in 2–3 sentences; ask one quick recall question.
 2. **Introduce one new concept** with an analogy/visual before any notation or code.
-3. **Show**, then have the learner **do** a tiny exercise (by hand or a few lines of code).
-4. **Verify** understanding from their answer; if shaky, re-explain a different way —
+3. **Read the diagram:** if the topic has entries in `the-diagram-atlas.md`, show the famous
+   picture and trace through it with the learner.
+4. **Show**, then have the learner **do** a tiny exercise (by hand or a few lines of code).
+5. **Verify** understanding from their answer; if shaky, re-explain a different way —
    do not advance until it's solid.
-5. **Log** what was covered, the exercise, their answer, and a mastery note to
+6. **Log** what was covered, the exercise, their answer, and a mastery note to
    `progress.md` and the day's `lessons/` file.
-6. Keep each session ~1 hour. End with a one-sentence preview of next time.
+7. Keep each session ~1 hour. End with a one-sentence preview of next time.

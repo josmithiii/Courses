@@ -161,7 +161,7 @@ stands alone — declared in [`curricula/`](curricula/). See [`curricula/README.
 
 | Course | Status | What it covers |
 |--------|--------|----------------|
-| [`ai-foundations/`](ai-foundations/) | 🟢 Active | From the Multilayer Perceptron up to modern LLMs — backprop, PyTorch, CNNs, Transformers, LLMs, Diffusion. Intuition-first, beginner-friendly. |
+| [`ai-foundations/`](ai-foundations/) | 🟢 Active | From the Multilayer Perceptron up to modern LLMs — backprop, PyTorch, CNNs, Transformers, LLMs, Diffusion. Intuition-first, beginner-friendly. Every major architecture is read through its famous diagram ([`the-diagram-atlas.md`](ai-foundations/the-diagram-atlas.md)). |
 | [`agents101/`](agents101/) | 🟢 Active | Operator-level training on local AI agents: run, extend, coordinate, schedule, message, oversee, debug, containerize. Hermes-agent as case study. Hands-on; ~12 sessions. |
 | [`crypto-foundations/`](crypto-foundations/) | 🟢 Active | From "what's a public key?" to a hardened personal workflow: GPG, signing, SSH, TLS basics, password hashing, encrypted backups, 2FA, full-disk encryption. Intuition + commands; ~25 sessions. |
 | [`ai-miracle-decade-plus/`](ai-miracle-decade-plus/) | 🟢 Active | Self-paced traversal of 40 landmark AI papers (2006 → 2023) — DBN through GPT-4, with cross-cutting concept-page stops. No time budget; side quests first-class. Links to arXiv + the music423-2023 meta-wiki. |
