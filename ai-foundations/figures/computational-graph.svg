@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="1000" height="430" style="font-family:Helvetica, Arial, sans-serif">
+<rect width="1000" height="430" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">Computational graph and backpropagation</text>
+<rect x="897.5" y="16" width="82.5" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="938.75" y="41" font-size="21" fill="#667080" text-anchor="middle">Block</text>
+<circle cx="100" cy="122" r="32" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.8"/>
+<text x="100" y="130" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">w=2</text>
+<circle cx="100" cy="262" r="32" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.8"/>
+<text x="100" y="270" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">x=3</text>
+<rect x="235" y="158" width="130" height="64" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="300" y="197" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">multiply</text>
+<rect x="465" y="158" width="130" height="64" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="530" y="197" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">subtract 5</text>
+<rect x="695" y="158" width="130" height="64" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="760" y="197" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">square</text>
+<line x1="132" y1="122" x2="222.915" y2="163.821" stroke="#23262b" stroke-width="1.8"/>
+<polygon points="232,168 225.409,160.48 222.001,167.889" fill="#23262b"/>
+<line x1="132" y1="262" x2="223.128" y2="214.614" stroke="#23262b" stroke-width="1.8"/>
+<polygon points="232,210 222.018,210.595 225.78,217.83" fill="#23262b"/>
+<line x1="235" y1="182" x2="141.064" y2="138.224" stroke="#d0701a" stroke-width="2.2" stroke-dasharray="6 4"/>
+<polygon points="132,134 138.554,141.553 141.999,134.161" fill="#d0701a"/>
+<line x1="365" y1="176" x2="455" y2="176" stroke="#23262b" stroke-width="1.8"/>
+<polygon points="465,176 455.869,171.922 455.869,180.078" fill="#23262b"/>
+<text x="415" y="162" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">y = 6</text>
+<line x1="595" y1="176" x2="685" y2="176" stroke="#23262b" stroke-width="1.8"/>
+<polygon points="695,176 685.869,171.922 685.869,180.078" fill="#23262b"/>
+<text x="645" y="162" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">e = 1</text>
+<line x1="825" y1="176" x2="882" y2="176" stroke="#23262b" stroke-width="1.8"/>
+<polygon points="892,176 882.869,171.922 882.869,180.078" fill="#23262b"/>
+<text x="858.5" y="162" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">L = 1</text>
+<line x1="892" y1="204" x2="835" y2="204" stroke="#d0701a" stroke-width="2.2" stroke-dasharray="6 4"/>
+<polygon points="825,204 834.131,208.078 834.131,199.922" fill="#d0701a"/>
+<text x="858.5" y="260" font-size="21" fill="#d0701a" text-anchor="middle" font-weight="bold">start: 1</text>
+<line x1="695" y1="204" x2="605" y2="204" stroke="#d0701a" stroke-width="2.2" stroke-dasharray="6 4"/>
+<polygon points="595,204 604.131,208.078 604.131,199.922" fill="#d0701a"/>
+<text x="645" y="260" font-size="21" fill="#d0701a" text-anchor="middle" font-weight="bold">dL/de = 2</text>
+<line x1="465" y1="204" x2="375" y2="204" stroke="#d0701a" stroke-width="2.2" stroke-dasharray="6 4"/>
+<polygon points="365,204 374.131,208.078 374.131,199.922" fill="#d0701a"/>
+<text x="415" y="260" font-size="21" fill="#d0701a" text-anchor="middle" font-weight="bold">dL/dy = 2</text>
+<circle cx="922" cy="190" r="28" fill="#ecdff4" stroke="#7a4ca3" stroke-width="1.8"/>
+<text x="922" y="198" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">L</text>
+<text x="186" y="118" font-size="21" fill="#d0701a" text-anchor="start" font-weight="bold">dL/dw = 6</text>
+<text x="24" y="387" font-size="21" fill="#667080">Black arrows carry values forward; orange arrows carry gradients back.</text>
+<text x="24" y="414" font-size="21" fill="#667080">Computed for L = (w*x - t)^2. The backward pass is the same graph in reverse.</text>
+</svg>

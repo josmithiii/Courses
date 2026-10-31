@@ -24,6 +24,8 @@ Every topic in the course, in order, with the famous diagrams beside the topics 
 
 ### 1.3 Artificial neuron (perceptron)
 
+![Artificial neuron (perceptron)](figures/neuron.svg)
+
 - Image search: [artificial neuron perceptron diagram](https://www.google.com/search?tbm=isch&q=artificial+neuron+perceptron+diagram)
 
 - **Grammar:** Graph
@@ -44,6 +46,8 @@ x3 --w3--/
 **1.4** Activation functions: why we need a "bend" (ReLU, sigmoid) — intuition.
 
 ### 1.4 Activation function curves
+
+![Activation function curves](figures/activation-functions.svg)
 
 - Image search: [activation functions ReLU sigmoid tanh plot](https://www.google.com/search?tbm=isch&q=activation+functions+ReLU+sigmoid+tanh+plot)
 
@@ -95,6 +99,8 @@ input   hidden   output
 
 ### 1.7 Loss landscape and gradient descent
 
+![Loss landscape and gradient descent](figures/loss-landscape.svg)
+
 - Image search: [gradient descent loss landscape contour plot](https://www.google.com/search?tbm=isch&q=gradient+descent+loss+landscape+contour+plot)
 - [Li et al., Fig. 1, PDF page 1](https://arxiv.org/pdf/1712.09913#page=1)
 
@@ -110,6 +116,8 @@ input   hidden   output
 **1.8** Backpropagation: how blame flows backward to each weight (intuition + tiny worked example).
 
 ### 1.8 Computational graph and backpropagation
+
+![Computational graph and backpropagation](figures/computational-graph.svg)
 
 - Image search: [computational graph backpropagation diagram](https://www.google.com/search?tbm=isch&q=computational+graph+backpropagation+diagram)
 
@@ -149,6 +157,8 @@ x --/
 
 ### 2.6 Learning curves and overfitting
 
+![Learning curves and overfitting](figures/learning-curves.svg)
+
 - Image search: [training validation loss curves overfitting](https://www.google.com/search?tbm=isch&q=training+validation+loss+curves+overfitting)
 
 - **Grammar:** Plot
@@ -171,6 +181,8 @@ loss
 **2.7** Regularization, dropout, early stopping — keeping models honest.
 
 ### 2.7 Dropout
+
+![Dropout](figures/dropout.svg)
 
 - Image search: [dropout neural network diagram](https://www.google.com/search?tbm=isch&q=dropout+neural+network+diagram)
 - [Srivastava et al., Fig. 1, PDF page 2](https://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf#page=2)

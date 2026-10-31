@@ -79,6 +79,12 @@ WEB_FIGURES: dict[str, list[tuple[str, str]]] = {
 
 # Atlas title prefix -> our own generated figure (tools/build_figures.py), shown first.
 COURSE_FIGURES: dict[str, list[str]] = {
+    "Artificial neuron": ["neuron"],
+    "Activation function": ["activation-functions"],
+    "Loss landscape": ["loss-landscape"],
+    "Computational graph": ["computational-graph"],
+    "Learning curves": ["learning-curves"],
+    "Dropout": ["dropout"],
     "Multi-layer perceptron": ["mlp"],
     "LeNet-5": ["lenet-5"],
     "Positional encoding": ["positional-encoding"],

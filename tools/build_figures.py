@@ -128,6 +128,27 @@ class Fig:
                  f' preserveAspectRatio="none" href="{png_data_uri(rows)}"/>')
         self.add(f'<rect x="{x:g}" y="{y:g}" width="{w:g}" height="{h:g}" fill="none" stroke="{EDGE}"/>')
 
+    def polyline(self, points: list[Point], color: str, width: float = 2.4, dash: str = "") -> None:
+        dashed = f' stroke-dasharray="{dash}"' if dash else ""
+        corners = " ".join(f"{x:.1f},{y:.1f}" for x, y in points)
+        self.add(f'<polyline points="{corners}" fill="none" stroke="{color}" stroke-width="{width:g}"'
+                 f' stroke-linejoin="round"{dashed}/>')
+
+    def polygon(self, points: list[Point], fill: str, stroke: str = EDGE, width: float = 1.0) -> None:
+        corners = " ".join(f"{x:.1f},{y:.1f}" for x, y in points)
+        self.add(f'<polygon points="{corners}" fill="{fill}" stroke="{stroke}" stroke-width="{width:g}"/>')
+
+    def outline(self, x: float, y: float, w: float, h: float, color: str = EDGE, width: float = 1.5,
+                dash: str = "6 5", rx: float = 10) -> None:
+        dashed = f' stroke-dasharray="{dash}"' if dash else ""
+        self.add(f'<rect x="{x:g}" y="{y:g}" width="{w:g}" height="{h:g}" rx="{rx:g}" fill="none"'
+                 f' stroke="{color}" stroke-width="{width:g}"{dashed}/>')
+
+    def rotated(self, x: float, y: float, s: str, color: str = INK) -> None:
+        """Text reading upward, centered on (x, y)."""
+        self.add(f'<text transform="translate({x:g} {y:g}) rotate(-90)" font-size="{TEXT}" fill="{color}"'
+                 f' text-anchor="middle">{escape(s)}</text>')
+
     def svg(self) -> str:
         pill = text_width(self.grammar, TEXT) + 30
         if 24 + text_width(self.title, TITLE, True) > self.width - pill - 32:
@@ -149,6 +170,194 @@ class Fig:
         # naming its default font, which outranks an attribute but not an inline style.
         return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {self.width} {self.height}"'
                 f' width="{self.width}" height="{self.height}" style="font-family:{FONT}">\n{body}\n</svg>\n')
+
+
+def neuron() -> str:
+    fig = Fig(960, 420, "Artificial neuron", "Graph", [
+        "The usual single circle hides two steps: a weighted sum, then a bend.",
+    ])
+    cy, sum_x, r = 215.0, 440.0, 62.0
+    for i, y in enumerate((125.0, 215.0, 305.0), 1):
+        fig.line((136, y), (sum_x - r * 0.92, cy + (y - cy) * 0.25), LEARNED[0], 2.0)
+        fig.circle(110, y, 26, DATA)
+        fig.text(108, y + 7, "x", sub=str(i), size=24)
+        fig.text(262, cy + (y - cy) * 0.62 - 12, "w", LEARNED[0], sub=str(i), size=24)
+    fig.outline(358, 120, 382, 190)
+    fig.text(549, 106, "one neuron: two steps", MUTED)
+    fig.circle(sum_x, cy, r, LEARNED)
+    fig.text(sum_x, cy + 7, "sum + b")
+    fig.arrow([(sum_x + r + 2, cy), (574, cy)])
+    fig.box(650, cy, "activation", FIXED, w=150, h=56)
+    fig.arrow([(727, cy), (802, cy)])
+    fig.circle(830, cy, 26, OUTPUT)
+    fig.text(830, cy + 8, "y", size=24)
+    return fig.svg()
+
+
+def activation_functions() -> str:
+    fig = Fig(980, 450, "Activation functions", "Plot", [
+        "Across: the neuron's weighted sum. Up: its output. The bend is the point.",
+    ])
+    panels: list[tuple[float, str, Callable[[float], float], float, float]] = [
+        (60.0, "sigmoid", lambda s: 1 / (1 + math.exp(-s)), -0.25, 1.25),
+        (375.0, "tanh", math.tanh, -1.25, 1.25),
+        (690.0, "ReLU", lambda s: max(0.0, s), -1.0, 5.0),
+    ]
+    top, w, h = 104.0, 250.0, 240.0
+    for x0, name, f, low, high in panels:
+        def px(s: float) -> float:
+            return x0 + (s + 5) / 10 * w
+
+        def py(v: float) -> float:
+            return top + (high - v) / (high - low) * h
+
+        fig.outline(x0, top, w, h, EDGE, 1.2, "", 0)
+        fig.line((x0, py(0)), (x0 + w, py(0)), EDGE, 1.2)
+        fig.line((px(0), top), (px(0), top + h), EDGE, 1.2)
+        fig.polyline([(px(s / 10), py(f(s / 10))) for s in range(-50, 51)], LEARNED[0], 3.0)
+        fig.text(x0 + w / 2, top - 14, name, weight="bold")
+        for s in (-5, 0, 5):
+            fig.text(px(s), top + h + 28, str(s), MUTED)
+        fig.text(x0 - 8, py(1) + 7, "1", MUTED, "end")
+    return fig.svg()
+
+
+def loss_landscape() -> str:
+    fig = Fig(900, 550, "Loss landscape and gradient descent", "Plot", [
+        "Axes are weights, not inputs. Contours mark equal loss; darkest is lowest.",
+        "Both paths are computed gradient descent on a real quadratic loss.",
+    ])
+    a, b = 1.0, 12.0
+    x, y, w, h = 80.0, 76.0, 540.0, 360.0
+
+    def loss(w1: float, w2: float) -> float:
+        return 0.5 * (a * w1 * w1 + b * w2 * w2)
+
+    def px(w1: float) -> float:
+        return x + (w1 + 3) / 6 * w
+
+    def py(w2: float) -> float:
+        return y + (2 - w2) / 4 * h
+
+    def color(value: float) -> tuple[int, int, int]:
+        band = min(1.0, int(math.sqrt(value) * 3) / 12)
+        return tuple(round(c + (255 - c) * band) for c in (112, 165, 200))  # type: ignore[return-value]
+
+    columns, lines = 270, 180
+    fig.image(x, y, w, h, [[color(loss(-3 + 6 * (i + 0.5) / columns, 2 - 4 * (j + 0.5) / lines))
+                            for i in range(columns)] for j in range(lines)])
+
+    def descend(rate: float) -> list[Point]:
+        w1, w2 = -2.7, 1.1
+        path = [(px(w1), py(w2))]
+        for _ in range(60):
+            w1, w2 = w1 - rate * a * w1, w2 - rate * b * w2
+            path.append((px(w1), py(w2)))
+        return path
+
+    fig.polyline(descend(0.155), LEARNED[0], 2.6)
+    fig.polyline(descend(0.03), INK, 3.0)
+    fig.circle(px(-2.7), py(1.1), 7, (INK, "#ffffff"))
+    fig.text(x + w / 2, y + h + 30, "weight 1")
+    fig.rotated(44, y + h / 2, "weight 2")
+    fig.text(636, 200, "rate 0.03:", INK, "start", "bold")
+    fig.text(636, 228, "smooth descent", INK, "start")
+    fig.text(636, 290, "rate 0.155:", LEARNED[0], "start", "bold")
+    fig.text(636, 318, "zig-zags across", LEARNED[0], "start")
+    fig.text(636, 346, "the valley", LEARNED[0], "start")
+    return fig.svg()
+
+
+def computational_graph() -> str:
+    w, x, t = 2.0, 3.0, 5.0
+    y, e = w * x, w * x - t
+    loss, dl_de = e * e, 2 * e
+    dl_dy, dl_dw = dl_de, dl_de * x
+    fig = Fig(1000, 430, "Computational graph and backpropagation", "Block", [
+        "Black arrows carry values forward; orange arrows carry gradients back.",
+        "Computed for L = (w*x - t)^2. The backward pass is the same graph in reverse.",
+    ])
+    row, fwd, back = 190.0, 176.0, 204.0
+    fig.circle(100, 122, 32, DATA)
+    fig.text(100, 130, f"w={w:g}")
+    fig.circle(100, 262, 32, DATA)
+    fig.text(100, 270, f"x={x:g}")
+    centers = (300.0, 530.0, 760.0)
+    for cx, label in zip(centers, ("multiply", f"subtract {t:g}", "square")):
+        fig.box(cx, row, label, FIXED, w=130, h=64)
+    fig.arrow([(132, 122), (232, fwd - 8)], INK)
+    fig.arrow([(132, 262), (232, row + 20)], INK)
+    fig.arrow([(235, fwd + 6), (132, 134)], LEARNED[0], 2.2, "6 4")
+    forward = [(365.0, 465.0, f"y = {y:g}"), (595.0, 695.0, f"e = {e:g}"), (825.0, 892.0, f"L = {loss:g}")]
+    for a, b, label in forward:
+        fig.arrow([(a, fwd), (b, fwd)], INK)
+        fig.text((a + b) / 2, fwd - 14, label)
+    backward = [(892.0, 825.0, "start: 1"), (695.0, 595.0, f"dL/de = {dl_de:g}"), (465.0, 365.0, f"dL/dy = {dl_dy:g}")]
+    for a, b, label in backward:
+        fig.arrow([(a, back), (b, back)], LEARNED[0], 2.2, "6 4")
+        fig.text((a + b) / 2, back + 56, label, LEARNED[0], weight="bold")
+    fig.circle(922, row, 28, OUTPUT)
+    fig.text(922, row + 8, "L")
+    fig.text(186, 118, f"dL/dw = {dl_dw:g}", LEARNED[0], "start", "bold")
+    return fig.svg()
+
+
+def learning_curves() -> str:
+    fig = Fig(860, 450, "Learning curves and overfitting", "Plot", [
+        "Illustrative curves, not a real run. The widening gap is the symptom.",
+    ])
+    x0, y0, w, h = 90.0, 70.0, 700.0, 280.0
+
+    def train(s: float) -> float:
+        return 0.06 + 0.85 * math.exp(-4 * s)
+
+    def val(s: float) -> float:
+        return 0.2 + 0.75 * math.exp(-5 * s) + 0.5 * s * s
+
+    def point(s: float, v: float) -> Point:
+        return (x0 + s * w, y0 + (1 - v) * h)
+
+    times = [i / 100 for i in range(101)]
+    best = min(times, key=val)
+    fig.line((x0, y0), (x0, y0 + h), MUTED, 1.5)
+    fig.line((x0, y0 + h), (x0 + w, y0 + h), MUTED, 1.5)
+    fig.line(point(best, 1.0), point(best, 0.0), FIXED[0], 1.5, "4 4")
+    fig.polyline([point(s, train(s)) for s in times], DATA[0], 3.2)
+    fig.polyline([point(s, val(s)) for s in times], LEARNED[0], 3.2)
+    fig.text(point(best, 0)[0] + 8, y0 + 22, "early stopping here", FIXED[0], "start")
+    fig.text(x0 + w, point(1, val(1))[1] - 12, "validation", LEARNED[0], "end", "bold")
+    fig.text(x0 + w, point(1, train(1))[1] - 12, "training", DATA[0], "end", "bold")
+    fig.text(x0 + w / 2, y0 + h + 30, "epochs")
+    fig.rotated(52, y0 + h / 2, "loss")
+    return fig.svg()
+
+
+def dropout() -> str:
+    fig = Fig(980, 460, "Dropout", "Graph", [
+        "Crossed-out units are off for this batch only. At test time all are on.",
+    ])
+    sizes = (3, 4, 4, 2)
+
+    def network(x0: float, title: str, off: set[tuple[int, int]]) -> None:
+        nodes = [[(x0 + c * 130, 245 + (r - (n - 1) / 2) * 72) for r in range(n)] for c, n in enumerate(sizes)]
+        for c in range(len(sizes) - 1):
+            for r0, a in enumerate(nodes[c]):
+                for r1, b in enumerate(nodes[c + 1]):
+                    if (c, r0) not in off and (c + 1, r1) not in off:
+                        fig.line(a, b)
+        kinds = (DATA, LEARNED, LEARNED, OUTPUT)
+        for c, column in enumerate(nodes):
+            for r, (x, y) in enumerate(column):
+                dead = (c, r) in off
+                fig.circle(x, y, 19, (EDGE, "#f4f5f7") if dead else kinds[c])
+                if dead:
+                    fig.line((x - 13, y - 13), (x + 13, y + 13), FIXED[0], 2.2)
+                    fig.line((x - 13, y + 13), (x + 13, y - 13), FIXED[0], 2.2)
+        fig.text(x0 + 195, 92, title, weight="bold")
+
+    network(84, "full network", set())
+    network(536, "thinned for one batch", {(0, 1), (1, 1), (1, 3), (2, 0), (2, 2)})
+    return fig.svg()
 
 
 def mlp() -> str:
@@ -397,7 +606,13 @@ def positional_encoding() -> str:
 
 
 FIGURES: dict[str, Callable[[], str]] = {
+    "neuron": neuron,
+    "activation-functions": activation_functions,
     "mlp": mlp,
+    "loss-landscape": loss_landscape,
+    "computational-graph": computational_graph,
+    "learning-curves": learning_curves,
+    "dropout": dropout,
     "lenet-5": lenet,
     "positional-encoding": positional_encoding,
     "transformer": transformer,
