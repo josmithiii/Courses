@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" style="font-family:Helvetica, Arial, sans-serif">
+<rect width="1000" height="560" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">Latent diffusion (Stable Diffusion)</text>
+<rect x="897.5" y="16" width="82.5" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="938.75" y="41" font-size="21" fill="#667080" text-anchor="middle">Block</text>
+<rect x="24" y="84" width="172" height="370" rx="10" fill="none" stroke="#5b6b80" stroke-width="1.8" stroke-dasharray="6 5"/>
+<rect x="210" y="84" width="564" height="370" rx="10" fill="none" stroke="#1f8a7d" stroke-width="1.8" stroke-dasharray="6 5"/>
+<rect x="788" y="84" width="188" height="370" rx="10" fill="none" stroke="#d0701a" stroke-width="1.8" stroke-dasharray="6 5"/>
+<text x="110" y="116" font-size="21" fill="#5b6b80" text-anchor="middle" font-weight="bold">Pixel space</text>
+<text x="492" y="116" font-size="21" fill="#1f8a7d" text-anchor="middle" font-weight="bold">Latent space</text>
+<text x="882" y="116" font-size="21" fill="#d0701a" text-anchor="middle" font-weight="bold">Conditioning</text>
+<rect x="40" y="157" width="56" height="46" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="68" y="187" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal"></text>
+<text x="68" y="187" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">x</text>
+<rect x="124" y="157" width="56" height="46" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="152" y="187" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal"></text>
+<text x="152" y="187" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">E</text>
+<rect x="124" y="322" width="56" height="46" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="152" y="352" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal"></text>
+<text x="152" y="352" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">D</text>
+<rect x="40" y="322" width="56" height="46" rx="5" fill="#ecdff4" stroke="#7a4ca3" stroke-width="1.5"/>
+<text x="68" y="352" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal"></text>
+<text x="68" y="352" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">x'</text>
+<line x1="96" y1="180" x2="114" y2="180" stroke="#667080" stroke-width="1.8"/>
+<polygon points="124,180 114.869,175.922 114.869,184.078" fill="#667080"/>
+<line x1="180" y1="180" x2="222" y2="180" stroke="#667080" stroke-width="1.8"/>
+<polygon points="232,180 222.869,175.922 222.869,184.078" fill="#667080"/>
+<rect x="232" y="157" width="56" height="46" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="260" y="187" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal"></text>
+<text x="260" y="187" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">z</text>
+<line x1="288" y1="180" x2="330" y2="180" stroke="#667080" stroke-width="1.8"/>
+<polygon points="340,180 330.869,175.922 330.869,184.078" fill="#667080"/>
+<rect x="340" y="157" width="300" height="46" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="490" y="187" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Diffusion Process</text>
+<line x1="640" y1="180" x2="682" y2="180" stroke="#667080" stroke-width="1.8"/>
+<polygon points="692,180 682.869,175.922 682.869,184.078" fill="#667080"/>
+<rect x="692" y="157" width="56" height="46" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="720" y="187" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal"></text>
+<text x="720" y="187" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">z<tspan dy="4" font-size="21">T</tspan></text>
+<line x1="720" y1="203" x2="720" y2="262" stroke="#667080" stroke-width="1.8"/>
+<line x1="720" y1="262" x2="670" y2="262" stroke="#667080" stroke-width="1.8"/>
+<polygon points="660,262 669.131,266.078 669.131,257.922" fill="#667080"/>
+<rect x="330" y="249" width="330" height="136" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="495" y="324" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal"></text>
+<text x="495" y="283" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Denoising U-Net</text>
+<rect x="390" y="324" width="210" height="46" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="495" y="354" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">cross-attention</text>
+<rect x="232" y="322" width="56" height="46" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="260" y="352" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal"></text>
+<text x="260" y="352" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">z<tspan dy="4" font-size="21">0</tspan></text>
+<line x1="330" y1="345" x2="298" y2="345" stroke="#667080" stroke-width="1.8"/>
+<polygon points="288,345 297.131,349.078 297.131,340.922" fill="#667080"/>
+<line x1="232" y1="345" x2="190" y2="345" stroke="#667080" stroke-width="1.8"/>
+<polygon points="180,345 189.131,349.078 189.131,340.922" fill="#667080"/>
+<line x1="124" y1="345" x2="106" y2="345" stroke="#667080" stroke-width="1.8"/>
+<polygon points="96,345 105.131,349.078 105.131,340.922" fill="#667080"/>
+<rect x="802" y="157" width="160" height="46" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="882" y="187" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">text prompt</text>
+<line x1="882" y1="203" x2="882" y2="242" stroke="#667080" stroke-width="1.8"/>
+<polygon points="882,252 886.078,242.869 877.922,242.869" fill="#667080"/>
+<rect x="802" y="252" width="160" height="46" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="882" y="282" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">text encoder</text>
+<line x1="882" y1="298" x2="882" y2="347" stroke="#d0701a" stroke-width="2.2"/>
+<line x1="882" y1="347" x2="610" y2="347" stroke="#d0701a" stroke-width="2.2"/>
+<polygon points="600,347 609.131,351.078 609.131,342.922" fill="#d0701a"/>
+<text x="495" y="438" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">repeated T times</text>
+<text x="24" y="517" font-size="21" fill="#667080">Diffusion runs in the compressed latent, never on pixels.</text>
+<text x="24" y="544" font-size="21" fill="#667080">E and D are the VAE. Text enters through cross-attention.</text>
+</svg>

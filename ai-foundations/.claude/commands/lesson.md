@@ -45,8 +45,8 @@ This course separates shipped **content** (in the repo, read-only) from personal
 - Introduce ONE new concept: analogy/visual → plain explanation → minimal example.
 - **Diagrams are required, not optional:** search `the-diagram-atlas.md` for headings
   with today's topic number, and for each one follow "How to use an entry" there
-  (ASCII sketch, real picture via image-search link, read it together, its trap, its
-  check). You cannot see the search results: ask what the learner sees.
+  (course figure, famous picture via image-search link, read it together, its trap,
+  its check). You cannot see the search results: ask what the learner sees.
 - Then give a tiny exercise (by hand, or 2–10 lines of code). Have them attempt it.
 - Check their answer. If wrong/unsure, re-explain a *different* way and retry.
   Only advance when it's genuinely solid.

@@ -15,7 +15,7 @@ COURSE = REPO / "ai-foundations"
 ATLAS = (COURSE / "the-diagram-atlas.md").read_text()
 SYLLABUS = (COURSE / "syllabus.md").read_text()
 
-FIELDS = ("Grammar", "Search", "Source", "Read it", "Trap", "Check")
+FIELDS = ("Grammar", "Figure", "Search", "Source", "Read it", "Trap", "Check")
 GRAMMARS = {"Graph", "Block", "Slab", "Probabilistic", "Plot"}
 
 REQUIRED_BUZZWORDS = (
@@ -179,6 +179,35 @@ def test_gallery_ships_in_the_plugin() -> None:
 
 def test_no_orphan_figures() -> None:
     assert sorted(p.stem for p in (COURSE / "figures").glob("*.svg")) == FIGURE_NAMES
+
+
+def figure_name(body: str) -> str:
+    match = re.search(r"\(figures/([\w-]+)\.svg\)", field(body, "Figure"))
+    assert match, "Figure field names no file"
+    return match.group(1)
+
+
+def test_every_figure_belongs_to_exactly_one_entry() -> None:
+    assert sorted(figure_name(body) for _, _, body in entries()) == FIGURE_NAMES
+
+
+@pytest.mark.parametrize(("topic", "title", "body"), entries(), ids=lambda v: v[:30])
+def test_figure_grammar_matches_its_entry(topic: str, title: str, body: str) -> None:
+    svg = (COURSE / f"figures/{figure_name(body)}.svg").read_text()
+    assert f">{field(body, 'Grammar')}</text>" in svg
+
+
+def test_tutor_is_told_to_show_the_figure() -> None:
+    assert "Show the course figure" in ATLAS
+    assert "course figure" in (COURSE / ".claude/commands/lesson.md").read_text()
+
+
+def test_convolution_output_matches_the_atlas_check() -> None:
+    assert ">-2</text>" in bf.convolution()
+
+
+def test_backprop_figure_matches_the_atlas_check() -> None:
+    assert "dL/dw = 6" in bf.computational_graph()
 
 
 def test_diverging_colormap_endpoints() -> None:

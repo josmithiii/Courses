@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 710" width="960" height="710" style="font-family:Helvetica, Arial, sans-serif">
+<rect width="960" height="710" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">Vision Transformer (ViT)</text>
+<rect x="857.5" y="16" width="82.5" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="898.75" y="41" font-size="21" fill="#667080" text-anchor="middle">Block</text>
+<image x="36" y="474" width="34" height="34" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAPklEQVR42mP4TyJgGNIaGCCABKVEamBAA6Spxq+BASsgXjW+UMJjLgNJqrFoIOhmAhoIxDRh1ejuw+8YMAAAAWE35bYL1KAAAAAASUVORK5CYII="/>
+<rect x="36" y="474" width="34" height="34" fill="none" stroke="#aab2bd"/>
+<image x="74" y="474" width="34" height="34" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAK0lEQVR42mP4TyJgoEgDAw5AjJpBBwg7l6jwIV4p9eJhqGogOViJjAq4MgBntwIb3Yl5ZAAAAABJRU5ErkJggg=="/>
+<rect x="74" y="474" width="34" height="34" fill="none" stroke="#aab2bd"/>
+<image x="112" y="474" width="34" height="34" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAPklEQVR42s3RMRIAIAwCQf7/aS3snOBBJ/2GSaJVRh+CkxrkTFdqgEZj+Eq50aOL/5AY4U78aQBzrzd+jAEbTms35ab6tZIAAAAASUVORK5CYII="/>
+<rect x="112" y="474" width="34" height="34" fill="none" stroke="#aab2bd"/>
+<image x="36" y="512" width="34" height="34" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAO0lEQVR42mP4DwMMqOA/KsAiQZGG/xiAZA0IBcS4B0XbQGj4jxdQQ8Mg8TTx3iCsAU2ccOJjIFIClyUAsWfYNn/gIuUAAAAASUVORK5CYII="/>
+<rect x="36" y="512" width="34" height="34" fill="none" stroke="#aab2bd"/>
+<image x="74" y="512" width="34" height="34" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAIElEQVR42mNggIH/eAEDJhg8Gv6TCEY1jBgNJKUOoGIA4uGvbTkF5rgAAAAASUVORK5CYII="/>
+<rect x="74" y="512" width="34" height="34" fill="none" stroke="#aab2bd"/>
+<image x="112" y="512" width="34" height="34" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAPUlEQVR42mNggIH/qIABFWARp1QDmh50wf/YAHYN/3EDrK4aWA1YvUFVDYPQ0zgjDqsEgaRBUAK7ODGpFQARatg2mhASmAAAAABJRU5ErkJggg=="/>
+<rect x="112" y="512" width="34" height="34" fill="none" stroke="#aab2bd"/>
+<image x="36" y="550" width="34" height="34" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAP0lEQVR42sXQOxIAIAgDUe5/6dj6WQmMhdsyrwihqVjj0xMomRyA0ZExohLDIDFXgIY3GCNXG+xG5drAf+kTGDsWJff+A1bHAAAAAElFTkSuQmCC"/>
+<rect x="36" y="550" width="34" height="34" fill="none" stroke="#aab2bd"/>
+<image x="74" y="550" width="34" height="34" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAANklEQVR42mNgAIP/RAAGTECCUqw6GagDSDIJpJhIhyKU/ScRkK6BonigTbDSHhDjLcqClVQNAOEYWrRY3H8WAAAAAElFTkSuQmCC"/>
+<rect x="74" y="550" width="34" height="34" fill="none" stroke="#aab2bd"/>
+<image x="112" y="550" width="34" height="34" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAQUlEQVR42tXRMQ4AIAxC0d7/0rhotA0hMMra96dWneFZ9fFTFph6X4UmQaRb4OgbmJpKpXkAuUzPAMYCSv7wabAAzLEl9xdk4OcAAAAASUVORK5CYII="/>
+<rect x="112" y="550" width="34" height="34" fill="none" stroke="#aab2bd"/>
+<text x="90" y="610" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">image</text>
+<line x1="158" y1="532" x2="204" y2="532" stroke="#667080" stroke-width="1.8"/>
+<polygon points="214,532 204.869,527.922 204.869,536.078" fill="#667080"/>
+<rect x="232" y="418" width="640" height="44" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="552" y="447" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Linear Projection of Flattened Patches</text>
+<image x="244" y="504" width="56" height="56" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAPklEQVR42mP4TyJgGNIaGCCABKVEamBAA6Spxq+BASsgXjW+UMJjLgNJqrFoIOhmAhoIxDRh1ejuw+8YMAAAAWE35bYL1KAAAAAASUVORK5CYII="/>
+<rect x="244" y="504" width="56" height="56" fill="none" stroke="#aab2bd"/>
+<line x1="272" y1="502" x2="272" y2="474" stroke="#667080" stroke-width="1.8"/>
+<polygon points="272,464 267.922,473.131 276.078,473.131" fill="#667080"/>
+<line x1="272" y1="418" x2="272" y2="406" stroke="#667080" stroke-width="1.8"/>
+<polygon points="272,396 267.922,405.131 276.078,405.131" fill="#667080"/>
+<rect x="248" y="350" width="48" height="44" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="272" y="379" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">1</text>
+<line x1="272" y1="350" x2="272" y2="310" stroke="#667080" stroke-width="1.8"/>
+<polygon points="272,300 267.922,309.131 276.078,309.131" fill="#667080"/>
+<image x="314" y="504" width="56" height="56" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAK0lEQVR42mP4TyJgoEgDAw5AjJpBBwg7l6jwIV4p9eJhqGogOViJjAq4MgBntwIb3Yl5ZAAAAABJRU5ErkJggg=="/>
+<rect x="314" y="504" width="56" height="56" fill="none" stroke="#aab2bd"/>
+<line x1="342" y1="502" x2="342" y2="474" stroke="#667080" stroke-width="1.8"/>
+<polygon points="342,464 337.922,473.131 346.078,473.131" fill="#667080"/>
+<line x1="342" y1="418" x2="342" y2="406" stroke="#667080" stroke-width="1.8"/>
+<polygon points="342,396 337.922,405.131 346.078,405.131" fill="#667080"/>
+<rect x="318" y="350" width="48" height="44" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="342" y="379" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">2</text>
+<line x1="342" y1="350" x2="342" y2="310" stroke="#667080" stroke-width="1.8"/>
+<polygon points="342,300 337.922,309.131 346.078,309.131" fill="#667080"/>
+<image x="384" y="504" width="56" height="56" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAPklEQVR42s3RMRIAIAwCQf7/aS3snOBBJ/2GSaJVRh+CkxrkTFdqgEZj+Eq50aOL/5AY4U78aQBzrzd+jAEbTms35ab6tZIAAAAASUVORK5CYII="/>
+<rect x="384" y="504" width="56" height="56" fill="none" stroke="#aab2bd"/>
+<line x1="412" y1="502" x2="412" y2="474" stroke="#667080" stroke-width="1.8"/>
+<polygon points="412,464 407.922,473.131 416.078,473.131" fill="#667080"/>
+<line x1="412" y1="418" x2="412" y2="406" stroke="#667080" stroke-width="1.8"/>
+<polygon points="412,396 407.922,405.131 416.078,405.131" fill="#667080"/>
+<rect x="388" y="350" width="48" height="44" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="412" y="379" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">3</text>
+<line x1="412" y1="350" x2="412" y2="310" stroke="#667080" stroke-width="1.8"/>
+<polygon points="412,300 407.922,309.131 416.078,309.131" fill="#667080"/>
+<image x="454" y="504" width="56" height="56" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAO0lEQVR42mP4DwMMqOA/KsAiQZGG/xiAZA0IBcS4B0XbQGj4jxdQQ8Mg8TTx3iCsAU2ccOJjIFIClyUAsWfYNn/gIuUAAAAASUVORK5CYII="/>
+<rect x="454" y="504" width="56" height="56" fill="none" stroke="#aab2bd"/>
+<line x1="482" y1="502" x2="482" y2="474" stroke="#667080" stroke-width="1.8"/>
+<polygon points="482,464 477.922,473.131 486.078,473.131" fill="#667080"/>
+<line x1="482" y1="418" x2="482" y2="406" stroke="#667080" stroke-width="1.8"/>
+<polygon points="482,396 477.922,405.131 486.078,405.131" fill="#667080"/>
+<rect x="458" y="350" width="48" height="44" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="482" y="379" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">4</text>
+<line x1="482" y1="350" x2="482" y2="310" stroke="#667080" stroke-width="1.8"/>
+<polygon points="482,300 477.922,309.131 486.078,309.131" fill="#667080"/>
+<image x="524" y="504" width="56" height="56" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAIElEQVR42mNggIH/eAEDJhg8Gv6TCEY1jBgNJKUOoGIA4uGvbTkF5rgAAAAASUVORK5CYII="/>
+<rect x="524" y="504" width="56" height="56" fill="none" stroke="#aab2bd"/>
+<line x1="552" y1="502" x2="552" y2="474" stroke="#667080" stroke-width="1.8"/>
+<polygon points="552,464 547.922,473.131 556.078,473.131" fill="#667080"/>
+<line x1="552" y1="418" x2="552" y2="406" stroke="#667080" stroke-width="1.8"/>
+<polygon points="552,396 547.922,405.131 556.078,405.131" fill="#667080"/>
+<rect x="528" y="350" width="48" height="44" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="552" y="379" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">5</text>
+<line x1="552" y1="350" x2="552" y2="310" stroke="#667080" stroke-width="1.8"/>
+<polygon points="552,300 547.922,309.131 556.078,309.131" fill="#667080"/>
+<image x="594" y="504" width="56" height="56" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAPUlEQVR42mNggIH/qIABFWARp1QDmh50wf/YAHYN/3EDrK4aWA1YvUFVDYPQ0zgjDqsEgaRBUAK7ODGpFQARatg2mhASmAAAAABJRU5ErkJggg=="/>
+<rect x="594" y="504" width="56" height="56" fill="none" stroke="#aab2bd"/>
+<line x1="622" y1="502" x2="622" y2="474" stroke="#667080" stroke-width="1.8"/>
+<polygon points="622,464 617.922,473.131 626.078,473.131" fill="#667080"/>
+<line x1="622" y1="418" x2="622" y2="406" stroke="#667080" stroke-width="1.8"/>
+<polygon points="622,396 617.922,405.131 626.078,405.131" fill="#667080"/>
+<rect x="598" y="350" width="48" height="44" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="622" y="379" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">6</text>
+<line x1="622" y1="350" x2="622" y2="310" stroke="#667080" stroke-width="1.8"/>
+<polygon points="622,300 617.922,309.131 626.078,309.131" fill="#667080"/>
+<image x="664" y="504" width="56" height="56" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAP0lEQVR42sXQOxIAIAgDUe5/6dj6WQmMhdsyrwihqVjj0xMomRyA0ZExohLDIDFXgIY3GCNXG+xG5drAf+kTGDsWJff+A1bHAAAAAElFTkSuQmCC"/>
+<rect x="664" y="504" width="56" height="56" fill="none" stroke="#aab2bd"/>
+<line x1="692" y1="502" x2="692" y2="474" stroke="#667080" stroke-width="1.8"/>
+<polygon points="692,464 687.922,473.131 696.078,473.131" fill="#667080"/>
+<line x1="692" y1="418" x2="692" y2="406" stroke="#667080" stroke-width="1.8"/>
+<polygon points="692,396 687.922,405.131 696.078,405.131" fill="#667080"/>
+<rect x="668" y="350" width="48" height="44" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="692" y="379" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">7</text>
+<line x1="692" y1="350" x2="692" y2="310" stroke="#667080" stroke-width="1.8"/>
+<polygon points="692,300 687.922,309.131 696.078,309.131" fill="#667080"/>
+<image x="734" y="504" width="56" height="56" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAANklEQVR42mNgAIP/RAAGTECCUqw6GagDSDIJpJhIhyKU/ScRkK6BonigTbDSHhDjLcqClVQNAOEYWrRY3H8WAAAAAElFTkSuQmCC"/>
+<rect x="734" y="504" width="56" height="56" fill="none" stroke="#aab2bd"/>
+<line x1="762" y1="502" x2="762" y2="474" stroke="#667080" stroke-width="1.8"/>
+<polygon points="762,464 757.922,473.131 766.078,473.131" fill="#667080"/>
+<line x1="762" y1="418" x2="762" y2="406" stroke="#667080" stroke-width="1.8"/>
+<polygon points="762,396 757.922,405.131 766.078,405.131" fill="#667080"/>
+<rect x="738" y="350" width="48" height="44" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="762" y="379" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">8</text>
+<line x1="762" y1="350" x2="762" y2="310" stroke="#667080" stroke-width="1.8"/>
+<polygon points="762,300 757.922,309.131 766.078,309.131" fill="#667080"/>
+<image x="804" y="504" width="56" height="56" style="image-rendering:pixelated" preserveAspectRatio="none" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAQUlEQVR42tXRMQ4AIAxC0d7/0rhotA0hMMra96dWneFZ9fFTFph6X4UmQaRb4OgbmJpKpXkAuUzPAMYCSv7wabAAzLEl9xdk4OcAAAAASUVORK5CYII="/>
+<rect x="804" y="504" width="56" height="56" fill="none" stroke="#aab2bd"/>
+<line x1="832" y1="502" x2="832" y2="474" stroke="#667080" stroke-width="1.8"/>
+<polygon points="832,464 827.922,473.131 836.078,473.131" fill="#667080"/>
+<line x1="832" y1="418" x2="832" y2="406" stroke="#667080" stroke-width="1.8"/>
+<polygon points="832,396 827.922,405.131 836.078,405.131" fill="#667080"/>
+<rect x="808" y="350" width="48" height="44" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="832" y="379" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">9</text>
+<line x1="832" y1="350" x2="832" y2="310" stroke="#667080" stroke-width="1.8"/>
+<polygon points="832,300 827.922,309.131 836.078,309.131" fill="#667080"/>
+<rect x="178" y="350" width="48" height="44" rx="5" fill="#ecdff4" stroke="#7a4ca3" stroke-width="1.5"/>
+<text x="202" y="379" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">0*</text>
+<line x1="202" y1="350" x2="202" y2="310" stroke="#667080" stroke-width="1.8"/>
+<polygon points="202,300 197.922,309.131 206.078,309.131" fill="#667080"/>
+<rect x="152" y="225" width="730" height="74" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="517" y="269" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Transformer Encoder</text>
+<line x1="202" y1="225" x2="202" y2="178" stroke="#667080" stroke-width="1.8"/>
+<polygon points="202,168 197.922,177.131 206.078,177.131" fill="#667080"/>
+<rect x="117" y="124" width="170" height="44" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="202" y="153" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">MLP Head</text>
+<line x1="289" y1="146" x2="352" y2="146" stroke="#667080" stroke-width="1.8"/>
+<polygon points="362,146 352.869,141.922 352.869,150.078" fill="#667080"/>
+<text x="372" y="153" font-size="21" fill="#7a4ca3" text-anchor="start" font-weight="bold">class</text>
+<text x="24" y="667" font-size="21" fill="#667080">The image becomes a sequence of patches, read like words by a Transformer.</text>
+<text x="24" y="694" font-size="21" fill="#667080">Token 0* is not a patch: it is the learned summary used to classify.</text>
+</svg>

@@ -77,37 +77,6 @@ WEB_FIGURES: dict[str, list[tuple[str, str]]] = {
 }
 
 
-# Atlas title prefix -> our own generated figure (tools/build_figures.py), shown first.
-COURSE_FIGURES: dict[str, list[str]] = {
-    "Artificial neuron": ["neuron"],
-    "Activation function": ["activation-functions"],
-    "Loss landscape": ["loss-landscape"],
-    "Computational graph": ["computational-graph"],
-    "Learning curves": ["learning-curves"],
-    "Dropout": ["dropout"],
-    "An image as": ["rgb-channels"],
-    "Convolution": ["convolution"],
-    "Stride": ["stride-padding-pooling"],
-    "Receptive field": ["receptive-field"],
-    "AlexNet": ["alexnet-vgg"],
-    "Inception": ["inception"],
-    "ResNet": ["resnet-block"],
-    "Word embedding": ["word-embeddings"],
-    "RNN, folded": ["rnn"],
-    "LSTM cell": ["lstm"],
-    "Seq2seq": ["seq2seq"],
-    "Attention as": ["attention-heatmap"],
-    "Scaled dot-product": ["scaled-dot-product"],
-    "Multi-head": ["multi-head-attention"],
-    "Normalization": ["normalization"],
-    "Multi-layer perceptron": ["mlp"],
-    "LeNet-5": ["lenet-5"],
-    "Positional encoding": ["positional-encoding"],
-    "The Transformer": ["transformer"],
-    "The diffusion chain": ["diffusion-chain"],
-}
-
-
 def die(msg: str) -> NoReturn:
     print(f"*** build_visual_tour: {msg}", file=sys.stderr)
     sys.exit(1)
@@ -151,8 +120,11 @@ def see_lines(title: str, body: str) -> list[str]:
 
 
 def entry_md(topic: str, title: str, body: str) -> str:
-    annotation = re.sub(r"^- \*\*Search:\*\* .+\n", "", body, flags=re.M)
-    ours = [f"![{title}](figures/{name}.svg)" for name in matching(COURSE_FIGURES, title)]
+    annotation = re.sub(r"^- \*\*(Search|Figure):\*\* .+\n", "", body, flags=re.M)
+    figure = re.search(r"^- \*\*Figure:\*\* .*\((figures/[\w-]+\.svg)\)$", body, re.M)
+    if not figure or not (COURSE / figure.group(1)).is_file():
+        die(f"atlas entry '{title}' needs a Figure field naming a file - run tools/build_figures.py")
+    ours = [f"![{title}]({figure.group(1)})"]
     images = [f"![{label}]({url})" for url, label in matching(WEB_FIGURES, title)]
     parts = [f"### {topic} {title}", *ours, "\n".join(see_lines(title, body)), *images, annotation]
     return "\n\n".join(parts)
@@ -164,11 +136,7 @@ def render() -> str:
     known = {topic for _, topics in phases for topic, _ in topics}
     if set(entries) - known:
         die(f"atlas topics not in the syllabus: {sorted(set(entries) - known)}")
-    for names in COURSE_FIGURES.values():
-        for name in names:
-            if not (COURSE / f"figures/{name}.svg").is_file():
-                die(f"missing figures/{name}.svg - run tools/build_figures.py")
-    for table in (PAPER_FIGURES, WEB_FIGURES, COURSE_FIGURES):
+    for table in (PAPER_FIGURES, WEB_FIGURES):
         titles = [title for items in entries.values() for title, _ in items]
         for key in table:
             if not any(t.startswith(key) for t in titles):

@@ -568,6 +568,8 @@ x->[A]-> y   =   [A] --> [A] --> [A] -->
 
 ### 5.2 Decoder-only stack and the causal mask (GPT)
 
+![Decoder-only stack and the causal mask (GPT)](figures/gpt-stack.svg)
+
 - Image search: [GPT decoder only architecture causal attention mask diagram](https://www.google.com/search?tbm=isch&q=GPT+decoder+only+architecture+causal+attention+mask+diagram)
 - [Vaswani et al., Fig. 1, right tower, PDF page 3](https://arxiv.org/pdf/1706.03762#page=3)
 
@@ -595,6 +597,8 @@ pos 4  x x x x
 
 ### 5.4 The RLHF pipeline
 
+![The RLHF pipeline](figures/rlhf-pipeline.svg)
+
 - Image search: [RLHF pipeline diagram supervised fine-tuning reward model PPO](https://www.google.com/search?tbm=isch&q=RLHF+pipeline+diagram+supervised+fine-tuning+reward+model+PPO)
 - [Ouyang et al., Fig. 2, PDF page 3](https://arxiv.org/pdf/2203.02155#page=3)
 
@@ -615,6 +619,8 @@ pos 4  x x x x
 
 ### 6.1 Autoencoder
 
+![Autoencoder](figures/autoencoder.svg)
+
 - Image search: [autoencoder bottleneck diagram](https://www.google.com/search?tbm=isch&q=autoencoder+bottleneck+diagram)
 
 - **Grammar:** Slab
@@ -631,6 +637,8 @@ input -> [#####] -> [###] -> [#] -> [###] -> [#####] -> reconstruction
 
 ### 6.1 Variational autoencoder (VAE)
 
+![Variational autoencoder (VAE)](figures/vae.svg)
+
 - Image search: [variational autoencoder diagram mean variance sampling](https://www.google.com/search?tbm=isch&q=variational+autoencoder+diagram+mean+variance+sampling)
 - [Kingma & Welling, Fig. 1, PDF page 2](https://arxiv.org/pdf/1312.6114#page=2)
 
@@ -644,6 +652,8 @@ input -> [#####] -> [###] -> [#] -> [###] -> [#####] -> reconstruction
   than a single point.)
 
 ### 6.1 Generative adversarial network (GAN)
+
+![Generative adversarial network (GAN)](figures/gan.svg)
 
 - Image search: [GAN generator discriminator diagram](https://www.google.com/search?tbm=isch&q=GAN+generator+discriminator+diagram)
 - [Goodfellow et al., Fig. 1, PDF page 3](https://arxiv.org/pdf/1406.2661#page=3)
@@ -690,6 +700,8 @@ noise                                         image
 
 ### 6.3 U-Net
 
+![U-Net](figures/u-net.svg)
+
 - Image search: [U-Net architecture diagram](https://www.google.com/search?tbm=isch&q=U-Net+architecture+diagram)
 - [Ronneberger et al., Fig. 1, PDF page 2](https://arxiv.org/pdf/1505.04597#page=2)
 
@@ -714,6 +726,8 @@ noise                                         image
 
 ### 6.4 Latent diffusion (Stable Diffusion)
 
+![Latent diffusion (Stable Diffusion)](figures/latent-diffusion.svg)
+
 - Image search: [latent diffusion stable diffusion architecture diagram](https://www.google.com/search?tbm=isch&q=latent+diffusion+stable+diffusion+architecture+diagram)
 - [Rombach et al., Fig. 3, PDF page 4](https://arxiv.org/pdf/2112.10752#page=4)
 
@@ -734,6 +748,8 @@ noise                                         image
 
 ### 7.1 Vision Transformer (ViT)
 
+![Vision Transformer (ViT)](figures/vit.svg)
+
 - Image search: [Vision Transformer ViT architecture diagram](https://www.google.com/search?tbm=isch&q=Vision+Transformer+ViT+architecture+diagram)
 - [Dosovitskiy et al., Fig. 1, PDF page 3](https://arxiv.org/pdf/2010.11929#page=3)
 
@@ -747,6 +763,8 @@ noise                                         image
 
 ### 7.1 CLIP
 
+![CLIP](figures/clip.svg)
+
 - Image search: [CLIP contrastive image text encoder diagram](https://www.google.com/search?tbm=isch&q=CLIP+contrastive+image+text+encoder+diagram)
 - [Radford et al., Fig. 1, PDF page 2](https://arxiv.org/pdf/2103.00020#page=2)
 
@@ -758,6 +776,8 @@ noise                                         image
 - **Check:** In a batch of 4 pairs, how many cells should score low? (12.)
 
 ### 7.1 Agent loop
+
+![Agent loop](figures/agent-loop.svg)
 
 - Image search: [autonomous AI agent loop LLM tools diagram](https://www.google.com/search?tbm=isch&q=autonomous+AI+agent+loop+LLM+tools+diagram)
 

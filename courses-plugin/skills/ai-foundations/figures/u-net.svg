@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 690" width="1000" height="690" style="font-family:Helvetica, Arial, sans-serif">
+<rect width="1000" height="690" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">U-Net</text>
+<rect x="908" y="16" width="72" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="944" y="41" font-size="21" fill="#667080" text-anchor="middle">Slab</text>
+<rect x="120" y="105" width="10" height="130" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="870" y="105" width="10" height="130" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="160" y="105" width="10" height="130" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="830" y="105" width="10" height="130" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<line x1="133" y1="170" x2="147" y2="170" stroke="#667080" stroke-width="1.4"/>
+<polygon points="157,170 147.869,165.922 147.869,174.078" fill="#667080"/>
+<line x1="843" y1="170" x2="857" y2="170" stroke="#667080" stroke-width="1.4"/>
+<polygon points="867,170 857.869,165.922 857.869,174.078" fill="#667080"/>
+<text x="145" y="97" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">64</text>
+<text x="855" y="97" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">64</text>
+<line x1="174" y1="170" x2="816" y2="170" stroke="#1f8a7d" stroke-width="2.4"/>
+<polygon points="826,170 816.869,165.922 816.869,174.078" fill="#1f8a7d"/>
+<rect x="160" y="270" width="14" height="80" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="826" y="270" width="14" height="80" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="204" y="270" width="14" height="80" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="782" y="270" width="14" height="80" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<line x1="177" y1="310" x2="191" y2="310" stroke="#667080" stroke-width="1.4"/>
+<polygon points="201,310 191.869,305.922 191.869,314.078" fill="#667080"/>
+<line x1="799" y1="310" x2="813" y2="310" stroke="#667080" stroke-width="1.4"/>
+<polygon points="823,310 813.869,305.922 813.869,314.078" fill="#667080"/>
+<text x="189" y="262" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">128</text>
+<text x="811" y="262" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">128</text>
+<line x1="222" y1="310" x2="768" y2="310" stroke="#1f8a7d" stroke-width="2.4"/>
+<polygon points="778,310 768.869,305.922 768.869,314.078" fill="#1f8a7d"/>
+<line x1="167" y1="238" x2="167" y2="257" stroke="#5b6b80" stroke-width="2.2"/>
+<polygon points="167,267 171.078,257.869 162.922,257.869" fill="#5b6b80"/>
+<line x1="833" y1="267" x2="833" y2="248" stroke="#d0701a" stroke-width="2.2"/>
+<polygon points="833,238 828.922,247.131 837.078,247.131" fill="#d0701a"/>
+<rect x="204" y="394" width="20" height="48" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="776" y="394" width="20" height="48" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="254" y="394" width="20" height="48" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="726" y="394" width="20" height="48" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<line x1="227" y1="418" x2="241" y2="418" stroke="#667080" stroke-width="1.4"/>
+<polygon points="251,418 241.869,413.922 241.869,422.078" fill="#667080"/>
+<line x1="749" y1="418" x2="763" y2="418" stroke="#667080" stroke-width="1.4"/>
+<polygon points="773,418 763.869,413.922 763.869,422.078" fill="#667080"/>
+<text x="239" y="386" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">256</text>
+<text x="761" y="386" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">256</text>
+<line x1="278" y1="418" x2="712" y2="418" stroke="#1f8a7d" stroke-width="2.4"/>
+<polygon points="722,418 712.869,413.922 712.869,422.078" fill="#1f8a7d"/>
+<line x1="214" y1="353" x2="214" y2="381" stroke="#5b6b80" stroke-width="2.2"/>
+<polygon points="214,391 218.078,381.869 209.922,381.869" fill="#5b6b80"/>
+<line x1="786" y1="391" x2="786" y2="363" stroke="#d0701a" stroke-width="2.2"/>
+<polygon points="786,353 781.922,362.131 790.078,362.131" fill="#d0701a"/>
+<rect x="254" y="485" width="28" height="30" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="718" y="485" width="28" height="30" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="312" y="485" width="28" height="30" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="660" y="485" width="28" height="30" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<line x1="285" y1="500" x2="299" y2="500" stroke="#667080" stroke-width="1.4"/>
+<polygon points="309,500 299.869,495.922 299.869,504.078" fill="#667080"/>
+<line x1="691" y1="500" x2="705" y2="500" stroke="#667080" stroke-width="1.4"/>
+<polygon points="715,500 705.869,495.922 705.869,504.078" fill="#667080"/>
+<text x="297" y="477" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">512</text>
+<text x="703" y="477" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">512</text>
+<line x1="344" y1="500" x2="646" y2="500" stroke="#1f8a7d" stroke-width="2.4"/>
+<polygon points="656,500 646.869,495.922 646.869,504.078" fill="#1f8a7d"/>
+<line x1="268" y1="445" x2="268" y2="472" stroke="#5b6b80" stroke-width="2.2"/>
+<polygon points="268,482 272.078,472.869 263.922,472.869" fill="#5b6b80"/>
+<line x1="732" y1="482" x2="732" y2="455" stroke="#d0701a" stroke-width="2.2"/>
+<polygon points="732,445 727.922,454.131 736.078,454.131" fill="#d0701a"/>
+<rect x="400" y="575" width="60" height="18" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="540" y="575" width="60" height="18" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<line x1="464" y1="584" x2="526" y2="584" stroke="#667080" stroke-width="1.4"/>
+<polygon points="536,584 526.869,579.922 526.869,588.078" fill="#667080"/>
+<text x="500" y="566" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">1024</text>
+<line x1="326" y1="518" x2="326" y2="584" stroke="#5b6b80" stroke-width="2.2"/>
+<line x1="326" y1="584" x2="386" y2="584" stroke="#5b6b80" stroke-width="2.2"/>
+<polygon points="396,584 386.869,579.922 386.869,588.078" fill="#5b6b80"/>
+<line x1="604" y1="584" x2="674" y2="584" stroke="#d0701a" stroke-width="2.2"/>
+<line x1="674" y1="584" x2="674" y2="528" stroke="#d0701a" stroke-width="2.2"/>
+<polygon points="674,518 669.922,527.131 678.078,527.131" fill="#d0701a"/>
+<rect x="92" y="105" width="4" height="130" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<line x1="99" y1="170" x2="107" y2="170" stroke="#667080" stroke-width="1.4"/>
+<polygon points="117,170 107.869,165.922 107.869,174.078" fill="#667080"/>
+<text x="94" y="95" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">1</text>
+<text transform="translate(66 170) rotate(-90)" font-size="21" fill="#23262b" text-anchor="middle">572 x 572</text>
+<rect x="904" y="115" width="4" height="110" fill="#ecdff4" stroke="#7a4ca3" stroke-width="1"/>
+<line x1="883" y1="170" x2="891" y2="170" stroke="#667080" stroke-width="1.4"/>
+<polygon points="901,170 891.869,165.922 891.869,174.078" fill="#667080"/>
+<text x="906" y="105" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">2</text>
+<text transform="translate(936 170) rotate(-90)" font-size="21" fill="#23262b" text-anchor="middle">388 x 388</text>
+<text x="500" y="160" font-size="21" fill="#1f8a7d" text-anchor="middle" font-weight="bold">copy and crop</text>
+<text x="24" y="647" font-size="21" fill="#667080">Bars are tensors: height is image size, width and labels are channels.</text>
+<text x="24" y="674" font-size="21" fill="#667080">Down is max pool, up is up-conv. Across: copy, crop, concatenate.</text>
+</svg>

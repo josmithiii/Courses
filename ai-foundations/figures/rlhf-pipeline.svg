@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 570" width="1000" height="570" style="font-family:Helvetica, Arial, sans-serif">
+<rect width="1000" height="570" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">The RLHF pipeline</text>
+<rect x="897.5" y="16" width="82.5" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="938.75" y="41" font-size="21" fill="#667080" text-anchor="middle">Block</text>
+<text x="175" y="92" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">Step 1</text>
+<text x="175" y="122" font-size="21" fill="#23262b" text-anchor="middle" font-weight="bold">Supervised fine-tuning</text>
+<rect x="40" y="157" width="270" height="46" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="175" y="187" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">sample a prompt</text>
+<rect x="40" y="237" width="270" height="46" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="175" y="267" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">labeler writes answer</text>
+<rect x="40" y="317" width="270" height="46" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="175" y="347" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">fine-tune SFT model</text>
+<line x1="175" y1="203" x2="175" y2="227" stroke="#667080" stroke-width="1.8"/>
+<polygon points="175,237 179.078,227.869 170.922,227.869" fill="#667080"/>
+<line x1="175" y1="283" x2="175" y2="307" stroke="#667080" stroke-width="1.8"/>
+<polygon points="175,317 179.078,307.869 170.922,307.869" fill="#667080"/>
+<text x="500" y="92" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">Step 2</text>
+<text x="500" y="122" font-size="21" fill="#23262b" text-anchor="middle" font-weight="bold">Reward model training</text>
+<rect x="365" y="157" width="270" height="46" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="500" y="187" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">sample a prompt</text>
+<rect x="365" y="237" width="270" height="46" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="500" y="267" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">model answers A-D</text>
+<rect x="365" y="317" width="270" height="46" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="500" y="347" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">labeler ranks them</text>
+<rect x="365" y="397" width="270" height="46" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="500" y="427" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">train reward model</text>
+<line x1="500" y1="203" x2="500" y2="227" stroke="#667080" stroke-width="1.8"/>
+<polygon points="500,237 504.078,227.869 495.922,227.869" fill="#667080"/>
+<line x1="500" y1="283" x2="500" y2="307" stroke="#667080" stroke-width="1.8"/>
+<polygon points="500,317 504.078,307.869 495.922,307.869" fill="#667080"/>
+<line x1="500" y1="363" x2="500" y2="387" stroke="#667080" stroke-width="1.8"/>
+<polygon points="500,397 504.078,387.869 495.922,387.869" fill="#667080"/>
+<text x="825" y="92" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">Step 3</text>
+<text x="825" y="122" font-size="21" fill="#23262b" text-anchor="middle" font-weight="bold">Reinforcement learning</text>
+<rect x="690" y="157" width="270" height="46" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="825" y="187" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">sample a prompt</text>
+<rect x="690" y="237" width="270" height="46" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="825" y="267" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">policy writes output</text>
+<rect x="690" y="317" width="270" height="46" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="825" y="347" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">reward model scores</text>
+<rect x="690" y="397" width="270" height="46" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="825" y="427" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">update policy (PPO)</text>
+<line x1="825" y1="203" x2="825" y2="227" stroke="#667080" stroke-width="1.8"/>
+<polygon points="825,237 829.078,227.869 820.922,227.869" fill="#667080"/>
+<line x1="825" y1="283" x2="825" y2="307" stroke="#667080" stroke-width="1.8"/>
+<polygon points="825,317 829.078,307.869 820.922,307.869" fill="#667080"/>
+<line x1="825" y1="363" x2="825" y2="387" stroke="#667080" stroke-width="1.8"/>
+<polygon points="825,397 829.078,387.869 820.922,387.869" fill="#667080"/>
+<line x1="310" y1="340" x2="337" y2="340" stroke="#1f8a7d" stroke-width="2.2"/>
+<line x1="337" y1="340" x2="337" y2="260" stroke="#1f8a7d" stroke-width="2.2"/>
+<line x1="337" y1="260" x2="355" y2="260" stroke="#1f8a7d" stroke-width="2.2"/>
+<polygon points="365,260 355.869,255.922 355.869,264.078" fill="#1f8a7d"/>
+<line x1="635" y1="420" x2="662" y2="420" stroke="#1f8a7d" stroke-width="2.2"/>
+<line x1="662" y1="420" x2="662" y2="340" stroke="#1f8a7d" stroke-width="2.2"/>
+<line x1="662" y1="340" x2="680" y2="340" stroke="#1f8a7d" stroke-width="2.2"/>
+<polygon points="690,340 680.869,335.922 680.869,344.078" fill="#1f8a7d"/>
+<line x1="960" y1="420" x2="980" y2="420" stroke="#d0701a" stroke-width="2.2"/>
+<line x1="980" y1="420" x2="980" y2="260" stroke="#d0701a" stroke-width="2.2"/>
+<line x1="980" y1="260" x2="970" y2="260" stroke="#d0701a" stroke-width="2.2"/>
+<polygon points="960,260 969.131,264.078 969.131,255.922" fill="#d0701a"/>
+<text x="24" y="527" font-size="21" fill="#667080">A training pipeline, not a network: boxes are stages. Orange trains a model.</text>
+<text x="24" y="554" font-size="21" fill="#667080">Side arrows: SFT model outputs feed Step 2; the reward model feeds Step 3.</text>
+</svg>

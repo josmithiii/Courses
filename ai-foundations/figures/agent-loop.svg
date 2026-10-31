@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="900" height="480" style="font-family:Helvetica, Arial, sans-serif">
+<rect width="900" height="480" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">Agent loop</text>
+<rect x="797.5" y="16" width="82.5" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="838.75" y="41" font-size="21" fill="#667080" text-anchor="middle">Block</text>
+<rect x="35" y="168" width="130" height="64" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="100" y="207" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Human</text>
+<line x1="167" y1="188" x2="256" y2="188" stroke="#667080" stroke-width="1.8"/>
+<polygon points="266,188 256.869,183.922 256.869,192.078" fill="#667080"/>
+<text x="216" y="176" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">task</text>
+<line x1="266" y1="212" x2="177" y2="212" stroke="#7a4ca3" stroke-width="1.8"/>
+<polygon points="167,212 176.131,216.078 176.131,207.922" fill="#7a4ca3"/>
+<text x="216" y="244" font-size="21" fill="#7a4ca3" text-anchor="middle" font-weight="normal">reply</text>
+<rect x="270" y="145" width="220" height="110" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="380" y="207" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">LLM</text>
+<line x1="492" y1="170" x2="616" y2="170" stroke="#d0701a" stroke-width="2.4"/>
+<polygon points="626,170 616.869,165.922 616.869,174.078" fill="#d0701a"/>
+<text x="558" y="158" font-size="21" fill="#d0701a" text-anchor="middle" font-weight="bold">action</text>
+<rect x="630" y="145" width="220" height="110" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="740" y="207" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Tools or world</text>
+<line x1="628" y1="230" x2="504" y2="230" stroke="#1f8a7d" stroke-width="2.4" stroke-dasharray="6 4"/>
+<polygon points="494,230 503.131,234.078 503.131,225.922" fill="#1f8a7d"/>
+<text x="558" y="262" font-size="21" fill="#1f8a7d" text-anchor="middle" font-weight="bold">result</text>
+<line x1="380" y1="257" x2="380" y2="320" stroke="#7a4ca3" stroke-width="2"/>
+<polygon points="380,330 384.078,320.869 375.922,320.869" fill="#7a4ca3"/>
+<text x="380" y="362" font-size="21" fill="#7a4ca3" text-anchor="middle" font-weight="bold">stop when done</text>
+<text x="24" y="437" font-size="21" fill="#667080">A system around a model: nothing inside the LLM box has changed.</text>
+<text x="24" y="464" font-size="21" fill="#667080">The LLM picks each action and, usually, when to stop.</text>
+</svg>

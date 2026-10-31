@@ -12,19 +12,24 @@ it. A topic may have several entries, and most topics have none.
 
 The analogy still comes first. Then, for each entry headed with today's topic number:
 
-1. **Draw** the ASCII sketch in chat and name its grammar (below).
-2. **Show the real picture.** Give the learner a clickable image search built from the entry's
-   **Search** phrase, `https://www.google.com/search?tbm=isch&q=<phrase, spaces as +>`, plus
-   the **Source** link when there is one. You cannot see what the search returns, so ask what
-   they see and never describe it as if you could. If they have no browser to hand, use the
-   sketch alone and note in the log that the real picture is still owed.
+1. **Show the course figure.** Point the learner to the entry's **Figure** file, which they
+   open in a browser or image viewer, and name its grammar (below). Every figure is also in
+   `figures/gallery.html`, which has a size slider. Draw the ASCII sketch in chat when the
+   entry has one, or when they can't open files.
+2. **Show the famous picture.** Give the learner a clickable image search built from the
+   entry's **Search** phrase, `https://www.google.com/search?tbm=isch&q=<phrase, spaces as +>`,
+   plus the **Source** link when there is one. This is the version they will meet elsewhere.
+   You cannot see what the search returns, so ask what they see and never describe it as if
+   you could. If they have no browser to hand, note in the log that it is still owed.
 3. **Read it together** using **Read it**, tracing one input all the way through.
 4. **Pre-empt the Trap.** Image searches mix styles, and many pictures are redrawn loosely, so
    expect variations. Spotting how two versions differ is a good exercise. When they disagree,
    the Source wins.
 5. **Do the Check**, and log the result in the Mastery log like any other exercise.
 
-Sources are linked, never copied: the figures belong to their authors.
+The **Figure** files are this course's own, in one visual language: teal is data, orange has
+trained weights, gray is a fixed operation, purple is model output. Figures from other authors
+are linked, never copied.
 
 ## The five grammars
 
@@ -46,6 +51,7 @@ millions of numbers. That difference is the single most useful thing in this fil
 
 ### 1.3 Artificial neuron (perceptron)
 - **Grammar:** Graph
+- **Figure:** [`figures/neuron.svg`](figures/neuron.svg)
 - **Search:** artificial neuron perceptron diagram
 - **Source:** No single origin; the picture is folklore.
 - **Read it:** Inputs on the left, each multiplied by its weight; a sum (plus bias); a squashing
@@ -63,6 +69,7 @@ x3 --w3--/
 
 ### 1.4 Activation function curves
 - **Grammar:** Plot
+- **Figure:** [`figures/activation-functions.svg`](figures/activation-functions.svg)
 - **Search:** activation functions ReLU sigmoid tanh plot
 - **Source:** No single origin; these are plots of formulas.
 - **Read it:** The horizontal axis is the neuron's weighted sum; the vertical axis is its output.
@@ -79,6 +86,7 @@ sigmoid:      ______        ReLU:           /
 
 ### 1.5 Multi-layer perceptron (MLP, fully connected network)
 - **Grammar:** Graph
+- **Figure:** [`figures/mlp.svg`](figures/mlp.svg)
 - **Search:** multilayer perceptron fully connected network diagram
 - **Source:** Interactive: [TensorFlow Playground](https://playground.tensorflow.org/).
 - **Read it:** Columns are layers. Every circle connects to every circle in the next column.
@@ -101,6 +109,7 @@ input   hidden   output
 
 ### 1.7 Loss landscape and gradient descent
 - **Grammar:** Plot
+- **Figure:** [`figures/loss-landscape.svg`](figures/loss-landscape.svg)
 - **Search:** gradient descent loss landscape contour plot
 - **Source:** Li et al., [Visualizing the Loss Landscape of Neural Nets](https://arxiv.org/abs/1712.09913) (2018), Fig. 1.
 - **Read it:** Horizontal position is a choice of weights; height is the loss there. The contour
@@ -112,6 +121,7 @@ input   hidden   output
 
 ### 1.8 Computational graph and backpropagation
 - **Grammar:** Block
+- **Figure:** [`figures/computational-graph.svg`](figures/computational-graph.svg)
 - **Search:** computational graph backpropagation diagram
 - **Source:** Olah, [Calculus on Computational Graphs: Backpropagation](https://colah.github.io/posts/2015-08-Backprop/) (2015).
 - **Read it:** Forward arrows carry values. Backward arrows carry each output's sensitivity to
@@ -132,6 +142,7 @@ x --/
 
 ### 2.6 Learning curves and overfitting
 - **Grammar:** Plot
+- **Figure:** [`figures/learning-curves.svg`](figures/learning-curves.svg)
 - **Search:** training validation loss curves overfitting
 - **Source:** No single origin; every learner should produce their own in 2.8.
 - **Read it:** Epochs across, loss up. Training loss keeps falling; validation loss falls, then
@@ -151,6 +162,7 @@ loss
 
 ### 2.7 Dropout
 - **Grammar:** Graph
+- **Figure:** [`figures/dropout.svg`](figures/dropout.svg)
 - **Search:** dropout neural network diagram
 - **Source:** Srivastava et al., [Dropout](https://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf) (2014), Fig. 1.
 - **Read it:** The same network twice, the second with some units crossed out.
@@ -163,6 +175,7 @@ loss
 
 ### 3.1 An image as a tensor of channels
 - **Grammar:** Slab
+- **Figure:** [`figures/rgb-channels.svg`](figures/rgb-channels.svg)
 - **Search:** RGB image channels tensor diagram
 - **Source:** No single origin.
 - **Read it:** Three grids stacked: red, green, blue. Together they form a 3-D block of numbers.
@@ -172,6 +185,7 @@ loss
 
 ### 3.2 Convolution: a filter sliding over a grid
 - **Grammar:** Slab
+- **Figure:** [`figures/convolution.svg`](figures/convolution.svg)
 - **Search:** convolution kernel sliding over image diagram
 - **Source:** Dumoulin & Visin, [A guide to convolution arithmetic](https://arxiv.org/abs/1603.07285) (2016), Fig. 1.1, with [animations](https://github.com/vdumoulin/conv_arithmetic). Interactive: [CNN Explainer](https://poloclub.github.io/cnn-explainer/).
 - **Read it:** A small window of weights slides over the input. At each stop, multiply overlapping
@@ -190,6 +204,7 @@ input            kernel        output
 
 ### 3.3 Stride, padding and pooling
 - **Grammar:** Slab
+- **Figure:** [`figures/stride-padding-pooling.svg`](figures/stride-padding-pooling.svg)
 - **Search:** CNN stride padding pooling diagram
 - **Source:** Dumoulin & Visin (2016), Fig. 1.5 (average pooling), Fig. 1.6 (max pooling), and Ch. 2.
 - **Read it:** Stride is how far the window hops. Padding is the border added first. Pooling is
@@ -201,6 +216,7 @@ input            kernel        output
 
 ### 3.4 LeNet-5 and the CNN pipeline
 - **Grammar:** Slab
+- **Figure:** [`figures/lenet-5.svg`](figures/lenet-5.svg)
 - **Search:** LeNet-5 architecture diagram
 - **Source:** LeCun et al., [Gradient-based learning applied to document recognition](http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf) (1998), Fig. 2.
 - **Read it:** Left to right: images get smaller and deeper, then flatten into plain vectors.
@@ -216,6 +232,7 @@ input            kernel        output
 
 ### 3.5 Receptive field
 - **Grammar:** Slab
+- **Figure:** [`figures/receptive-field.svg`](figures/receptive-field.svg)
 - **Search:** receptive field CNN layers diagram
 - **Source:** Zeiler & Fergus, [Visualizing and Understanding Convolutional Networks](https://arxiv.org/abs/1311.2901) (2014), Fig. 2, for what each depth responds to.
 - **Read it:** Pick one cell in a deep layer and trace back the cone of input pixels that can
@@ -226,6 +243,7 @@ input            kernel        output
 
 ### 3.6 AlexNet and VGG
 - **Grammar:** Slab
+- **Figure:** [`figures/alexnet-vgg.svg`](figures/alexnet-vgg.svg)
 - **Search:** AlexNet architecture diagram, VGG16 architecture diagram
 - **Source:** Krizhevsky et al., [ImageNet Classification with Deep CNNs](https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf) (2012), Fig. 2; Simonyan & Zisserman, [Very Deep Convolutional Networks](https://arxiv.org/abs/1409.1556) (2015), Table 1.
 - **Read it:** The LeNet recipe, made much deeper and wider. VGG repeats plain 3x3 blocks.
@@ -236,6 +254,7 @@ input            kernel        output
 
 ### 3.6 Inception module
 - **Grammar:** Block
+- **Figure:** [`figures/inception.svg`](figures/inception.svg)
 - **Search:** Inception module GoogLeNet diagram
 - **Source:** Szegedy et al., [Going deeper with convolutions](https://arxiv.org/abs/1409.4842) (2015), Fig. 2 (module), Fig. 3 (full network).
 - **Read it:** Several filter sizes run side by side on the same input, and their outputs are
@@ -245,6 +264,7 @@ input            kernel        output
 
 ### 3.6 ResNet and the residual block
 - **Grammar:** Block
+- **Figure:** [`figures/resnet-block.svg`](figures/resnet-block.svg)
 - **Search:** ResNet residual block skip connection diagram
 - **Source:** He et al., [Deep Residual Learning](https://arxiv.org/abs/1512.03385) (2016), Fig. 2 (block), Fig. 3 (network); Li et al. (2018), Fig. 1, for the landscape with and without skips.
 - **Read it:** Input splits in two: one path through layers, one straight across. The two are added.
@@ -263,6 +283,7 @@ x ---+--> [ layer ] -> [ layer ] --(+)--> F(x) + x
 
 ### 4.1 Word embedding space
 - **Grammar:** Plot
+- **Figure:** [`figures/word-embeddings.svg`](figures/word-embeddings.svg)
 - **Search:** word embedding vector space king queen diagram
 - **Source:** Mikolov et al., [Efficient Estimation of Word Representations](https://arxiv.org/abs/1301.3781) (2013), Fig. 1, shows the separate CBOW and skip-gram block pictures.
 - **Read it:** Each word is a point. Nearby points mean similar usage, and some directions carry
@@ -273,6 +294,7 @@ x ---+--> [ layer ] -> [ layer ] --(+)--> F(x) + x
 
 ### 4.2 RNN, folded and unrolled
 - **Grammar:** Block
+- **Figure:** [`figures/rnn.svg`](figures/rnn.svg)
 - **Search:** RNN unrolled diagram
 - **Source:** Olah, [Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/) (2015).
 - **Read it:** The loop on the left and the chain on the right are the same network, drawn two ways.
@@ -290,6 +312,7 @@ x->[A]-> y   =   [A] --> [A] --> [A] -->
 
 ### 4.2 LSTM cell
 - **Grammar:** Block
+- **Figure:** [`figures/lstm.svg`](figures/lstm.svg)
 - **Search:** LSTM cell diagram
 - **Source:** Olah (2015).
 - **Read it:** The line along the top is the cell state, a conveyor belt of memory. Gates below
@@ -300,6 +323,7 @@ x->[A]-> y   =   [A] --> [A] --> [A] -->
 
 ### 4.3 Seq2seq (encoder-decoder)
 - **Grammar:** Block
+- **Figure:** [`figures/seq2seq.svg`](figures/seq2seq.svg)
 - **Search:** seq2seq encoder decoder RNN diagram
 - **Source:** Cho et al., [Learning Phrase Representations using RNN Encoder-Decoder](https://arxiv.org/abs/1406.1078) (2014), Fig. 1.
 - **Read it:** An encoder reads the input into one summary vector, which a decoder expands into
@@ -310,6 +334,7 @@ x->[A]-> y   =   [A] --> [A] --> [A] -->
 
 ### 4.3 Attention as a heatmap
 - **Grammar:** Plot
+- **Figure:** [`figures/attention-heatmap.svg`](figures/attention-heatmap.svg)
 - **Search:** attention alignment heatmap translation
 - **Source:** Bahdanau et al., [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473) (2015), Fig. 3; Fig. 1 is the matching block diagram.
 - **Read it:** Source words across, output words down. A bright cell means that output word looked
@@ -320,6 +345,7 @@ x->[A]-> y   =   [A] --> [A] --> [A] -->
 
 ### 4.4 Scaled dot-product attention
 - **Grammar:** Block
+- **Figure:** [`figures/scaled-dot-product.svg`](figures/scaled-dot-product.svg)
 - **Search:** scaled dot-product attention query key value diagram
 - **Source:** Vaswani et al., [Attention Is All You Need](https://arxiv.org/abs/1706.03762) (2017), Fig. 2 (left). Explained: Alammar, [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/).
 - **Read it:** **Bottom to top.** Queries meet keys to give scores, softmax turns scores into
@@ -343,6 +369,7 @@ x->[A]-> y   =   [A] --> [A] --> [A] -->
 
 ### 4.4 Multi-head attention
 - **Grammar:** Block
+- **Figure:** [`figures/multi-head-attention.svg`](figures/multi-head-attention.svg)
 - **Search:** multi-head attention diagram
 - **Source:** Vaswani et al. (2017), Fig. 2 (right).
 - **Read it:** Several small attention units run in parallel on projected inputs. Their outputs
@@ -352,6 +379,7 @@ x->[A]-> y   =   [A] --> [A] --> [A] -->
 
 ### 4.5 Positional encoding
 - **Grammar:** Plot
+- **Figure:** [`figures/positional-encoding.svg`](figures/positional-encoding.svg)
 - **Search:** positional encoding heatmap transformer
 - **Source:** Vaswani et al. (2017), Section 3.5, for the formula; Alammar's post above for the picture.
 - **Read it:** One row per position and one column per embedding dimension. Each column is a sine
@@ -362,6 +390,7 @@ x->[A]-> y   =   [A] --> [A] --> [A] -->
 
 ### 4.5 Normalization: batch vs layer
 - **Grammar:** Slab
+- **Figure:** [`figures/normalization.svg`](figures/normalization.svg)
 - **Search:** batch norm layer norm group norm cube diagram
 - **Source:** Wu & He, [Group Normalization](https://arxiv.org/abs/1803.08494) (2018), Fig. 2.
 - **Read it:** Each cube is a tensor with axes for batch, channels and spatial position. The
@@ -372,6 +401,7 @@ x->[A]-> y   =   [A] --> [A] --> [A] -->
 
 ### 4.6 The Transformer
 - **Grammar:** Block
+- **Figure:** [`figures/transformer.svg`](figures/transformer.svg)
 - **Search:** transformer architecture diagram attention is all you need
 - **Source:** Vaswani et al. (2017), Fig. 1. Explained: Alammar's post above.
 - **Read it:** **Bottom to top.** Left tower is the encoder, right tower the decoder, "Nx" means
@@ -399,6 +429,7 @@ x->[A]-> y   =   [A] --> [A] --> [A] -->
 
 ### 5.2 Decoder-only stack and the causal mask (GPT)
 - **Grammar:** Block
+- **Figure:** [`figures/gpt-stack.svg`](figures/gpt-stack.svg)
 - **Search:** GPT decoder only architecture causal attention mask diagram
 - **Source:** Alammar, [The Illustrated GPT-2](https://jalammar.github.io/illustrated-gpt2/); Vaswani et al. (2017), Fig. 1, right tower.
 - **Read it:** The Transformer's right tower without its cross-attention. The triangular grid shows
@@ -417,6 +448,7 @@ pos 4  x x x x
 
 ### 5.4 The RLHF pipeline
 - **Grammar:** Block
+- **Figure:** [`figures/rlhf-pipeline.svg`](figures/rlhf-pipeline.svg)
 - **Search:** RLHF pipeline diagram supervised fine-tuning reward model PPO
 - **Source:** Ouyang et al., [Training language models to follow instructions](https://arxiv.org/abs/2203.02155) (2022), Fig. 2.
 - **Read it:** Three stages in order: supervised fine-tuning, reward model training, then
@@ -428,6 +460,7 @@ pos 4  x x x x
 
 ### 6.1 Autoencoder
 - **Grammar:** Slab
+- **Figure:** [`figures/autoencoder.svg`](figures/autoencoder.svg)
 - **Search:** autoencoder bottleneck diagram
 - **Source:** No single origin.
 - **Read it:** Input narrows to a small code, then widens back to a reconstruction.
@@ -442,6 +475,7 @@ input -> [#####] -> [###] -> [#] -> [###] -> [#####] -> reconstruction
 
 ### 6.1 Variational autoencoder (VAE)
 - **Grammar:** Probabilistic
+- **Figure:** [`figures/vae.svg`](figures/vae.svg)
 - **Search:** variational autoencoder diagram mean variance sampling
 - **Source:** Kingma & Welling, [Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114) (2013), Fig. 1.
 - **Read it:** The usual picture: the encoder outputs a mean and a spread, a code is sampled from
@@ -453,6 +487,7 @@ input -> [#####] -> [###] -> [#] -> [###] -> [#####] -> reconstruction
 
 ### 6.1 Generative adversarial network (GAN)
 - **Grammar:** Block
+- **Figure:** [`figures/gan.svg`](figures/gan.svg)
 - **Search:** GAN generator discriminator diagram
 - **Source:** Goodfellow et al., [Generative Adversarial Nets](https://arxiv.org/abs/1406.2661) (2014), Fig. 1.
 - **Read it:** Noise feeds a generator to make a fake. A discriminator judges fakes and real
@@ -469,6 +504,7 @@ noise -> [ Generator ] -> fake --\
 
 ### 6.2 The diffusion chain
 - **Grammar:** Probabilistic
+- **Figure:** [`figures/diffusion-chain.svg`](figures/diffusion-chain.svg)
 - **Search:** denoising diffusion forward reverse process diagram
 - **Source:** Ho et al., [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239) (2020), Fig. 2.
 - **Read it:** A chain of images from pure noise to a clean picture. One direction adds noise on
@@ -486,6 +522,7 @@ noise                                         image
 
 ### 6.3 U-Net
 - **Grammar:** Slab
+- **Figure:** [`figures/u-net.svg`](figures/u-net.svg)
 - **Search:** U-Net architecture diagram
 - **Source:** Ronneberger et al., [U-Net](https://arxiv.org/abs/1505.04597) (2015), Fig. 1.
 - **Read it:** Down the left side, images shrink and channels grow (64 up to 1024). Up the right
@@ -505,6 +542,7 @@ noise                                         image
 
 ### 6.4 Latent diffusion (Stable Diffusion)
 - **Grammar:** Block
+- **Figure:** [`figures/latent-diffusion.svg`](figures/latent-diffusion.svg)
 - **Search:** latent diffusion stable diffusion architecture diagram
 - **Source:** Rombach et al., [High-Resolution Image Synthesis with Latent Diffusion Models](https://arxiv.org/abs/2112.10752) (2022), Fig. 3. Explained: Alammar, [The Illustrated Stable Diffusion](https://jalammar.github.io/illustrated-stable-diffusion/).
 - **Read it:** Three regions: pixel space (a VAE encoder and decoder at the edges), latent space
@@ -518,6 +556,7 @@ noise                                         image
 
 ### 7.1 Vision Transformer (ViT)
 - **Grammar:** Block
+- **Figure:** [`figures/vit.svg`](figures/vit.svg)
 - **Search:** Vision Transformer ViT architecture diagram
 - **Source:** Dosovitskiy et al., [An Image is Worth 16x16 Words](https://arxiv.org/abs/2010.11929) (2021), Fig. 1.
 - **Read it:** An image is cut into patches, each flattened and embedded like a word, and a standard
@@ -528,6 +567,7 @@ noise                                         image
 
 ### 7.1 CLIP
 - **Grammar:** Block
+- **Figure:** [`figures/clip.svg`](figures/clip.svg)
 - **Search:** CLIP contrastive image text encoder diagram
 - **Source:** Radford et al., [Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020) (2021), Fig. 1.
 - **Read it:** An image encoder and a text encoder feed a grid of similarity scores. Training
@@ -537,6 +577,7 @@ noise                                         image
 
 ### 7.1 Agent loop
 - **Grammar:** Block
+- **Figure:** [`figures/agent-loop.svg`](figures/agent-loop.svg)
 - **Search:** autonomous AI agent loop LLM tools diagram
 - **Source:** Anthropic, [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) (2024), the autonomous agent figure.
 - **Read it:** An LLM chooses an action, a tool or environment responds, the result returns to the

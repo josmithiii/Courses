@@ -834,6 +834,324 @@ def normalization() -> str:
     return fig.svg()
 
 
+def gpt_stack() -> str:
+    fig = Fig(980, 690, "GPT: decoder stack and causal mask", "Block", [
+        "The Transformer's right tower without cross-attention. Read bottom to top.",
+        "Each mask row shows what that position may see: itself and earlier tokens.",
+    ])
+    cx, h, left = 250.0, 21.0, 104.0
+    fig.text(cx, 590, "tokens", DATA[0], weight="bold")
+    fig.arrow([(cx, 568), (cx, 525 + h)])
+    fig.box(cx, 525, "Embedding + position", LEARNED)
+    fig.outline(90, 222, 320, 264)
+    fig.arrow([(cx, 525 - h), (cx, 435 + h)])
+    fig.box(cx, 435, "Masked Attention", LEARNED)
+    fig.arrow([(cx, 478), (left, 478), (left, 372), (125, 372)], MUTED, 1.4)
+    fig.arrow([(cx, 435 - h), (cx, 372 + h)])
+    fig.box(cx, 372, "Add & Norm", FIXED)
+    fig.arrow([(cx, 372 - h), (cx, 312 + h)])
+    fig.box(cx, 312, "Feed Forward", LEARNED)
+    fig.arrow([(cx, 342), (left, 342), (left, 250), (125, 250)], MUTED, 1.4)
+    fig.arrow([(cx, 312 - h), (cx, 250 + h)])
+    fig.box(cx, 250, "Add & Norm", FIXED)
+    fig.text(82, 360, "N x", MUTED, "end")
+    fig.arrow([(cx, 250 - h), (cx, 165 + h)])
+    fig.box(cx, 165, "Linear + Softmax", LEARNED)
+    fig.arrow([(cx, 165 - h), (cx, 100 + h)])
+    fig.box(cx, 100, "Next-token probabilities", OUTPUT, w=270)
+
+    tokens = ("the", "cat", "sat", "on", "mat")
+    x0, y0, cell = 530.0, 170.0, 64.0
+    fig.text(x0 + 2.5 * cell, y0 - 46, "causal mask", weight="bold")
+    for r, word in enumerate(tokens):
+        fig.text(x0 + (r + 0.5) * cell, y0 - 12, word, MUTED)
+        fig.text(x0 - 12, y0 + (r + 0.5) * cell + 7, word, MUTED, "end")
+        for c in range(len(tokens)):
+            fig.plane(x0 + c * cell, y0 + r * cell, cell, cell, DATA if c <= r else ("#c6cdd6", "#f4f5f7"))
+            if c > r:
+                fig.text(x0 + (c + 0.5) * cell, y0 + (r + 0.5) * cell + 7, "x", "#c0c6cf")
+    return fig.svg()
+
+
+def rlhf_pipeline() -> str:
+    fig = Fig(1000, 570, "The RLHF pipeline", "Block", [
+        "A training pipeline, not a network: boxes are stages. Orange trains a model.",
+        "Side arrows: SFT model outputs feed Step 2; the reward model feeds Step 3.",
+    ])
+    w, h, rows = 270.0, 46.0, (180.0, 260.0, 340.0, 420.0)
+    steps: list[tuple[float, str, str, list[tuple[str, tuple[str, str]]]]] = [
+        (175.0, "Step 1", "Supervised fine-tuning",
+         [("sample a prompt", DATA), ("labeler writes answer", DATA), ("fine-tune SFT model", LEARNED)]),
+        (500.0, "Step 2", "Reward model training",
+         [("sample a prompt", DATA), ("model answers A-D", DATA), ("labeler ranks them", DATA),
+          ("train reward model", LEARNED)]),
+        (825.0, "Step 3", "Reinforcement learning",
+         [("sample a prompt", DATA), ("policy writes output", LEARNED), ("reward model scores", FIXED),
+          ("update policy (PPO)", LEARNED)]),
+    ]
+    for cx, step, name, boxes in steps:
+        fig.text(cx, 92, step, MUTED)
+        fig.text(cx, 122, name, weight="bold")
+        for y, (label, kind) in zip(rows, boxes):
+            fig.box(cx, y, label, kind, w, h)
+        for a, b in zip(rows[: len(boxes) - 1], rows[1:]):
+            fig.arrow([(cx, a + h / 2), (cx, b - h / 2)])
+    fig.arrow([(310, 340), (337, 340), (337, 260), (365, 260)], DATA[0], 2.2)
+    fig.arrow([(635, 420), (662, 420), (662, 340), (690, 340)], DATA[0], 2.2)
+    fig.arrow([(960, 420), (980, 420), (980, 260), (960, 260)], LEARNED[0], 2.2)
+    return fig.svg()
+
+
+def autoencoder() -> str:
+    fig = Fig(900, 460, "Autoencoder", "Slab", [
+        "The middle is the point: it must keep only what matters.",
+        "Bar heights are vector sizes, not a physical shape.",
+    ])
+    cy, width = 225.0, 34.0
+    bars = [(140.0, 240.0), (250.0, 160.0), (360.0, 90.0), (450.0, 40.0), (540.0, 90.0), (650.0, 160.0), (760.0, 240.0)]
+    tops = [(x, cy - h / 2) for x, h in bars]
+    bottoms = [(x, cy + h / 2) for x, h in reversed(bars)]
+    fig.polygon(tops + bottoms, LEARNED[1], LEARNED[1])
+    for x, h in bars:
+        fig.plane(x - width / 2, cy - h / 2, width, h, DATA)
+    fig.text(140, cy - 132, "input", DATA[0], weight="bold")
+    fig.text(760, cy - 132, "reconstruction", OUTPUT[0], weight="bold")
+    fig.text(450, cy - 34, "code", weight="bold")
+    fig.text(295, cy + 140, "encoder", LEARNED[0], weight="bold")
+    fig.text(605, cy + 140, "decoder", LEARNED[0], weight="bold")
+    return fig.svg()
+
+
+def trapezoid(fig: Fig, left: float, right: float, cy: float, wide_left: bool, label: str) -> None:
+    """An encoder or decoder drawn narrowing toward its code."""
+    tall, short = 150.0, 70.0
+    a, b = (tall, short) if wide_left else (short, tall)
+    fig.polygon([(left, cy - a / 2), (right, cy - b / 2), (right, cy + b / 2), (left, cy + a / 2)],
+                LEARNED[1], LEARNED[0], 1.5)
+    fig.text((left + right) / 2, cy + 7, label)
+
+
+def vae() -> str:
+    fig = Fig(980, 450, "Variational autoencoder", "Probabilistic", [
+        "The encoder outputs a distribution; the circle is a sample drawn from it.",
+        "A popular picture, not the paper's: its Fig. 1 is a small probabilistic graph.",
+    ])
+    cy = 225.0
+    fig.plane(44, cy - 100, 26, 200, DATA)
+    fig.text(57, cy - 112, "input", DATA[0], "middle", "bold")
+    fig.arrow([(74, cy), (104, cy)])
+    trapezoid(fig, 108, 268, cy, True, "encoder")
+    fig.box(380, cy - 62, "mean", DATA, w=120, h=46)
+    fig.box(380, cy + 62, "spread", DATA, w=120, h=46)
+    fig.arrow([(268, cy - 24), (318, cy - 56)])
+    fig.arrow([(268, cy + 24), (318, cy + 56)])
+    fig.arrow([(442, cy - 56), (500, cy - 18)])
+    fig.arrow([(442, cy + 56), (500, cy + 18)])
+    fig.circle(535, cy, 36, DATA, 3.0)
+    fig.text(535, cy + 8, "z", size=24)
+    fig.text(535, cy - 54, "sample", weight="bold")
+    fig.arrow([(573, cy), (612, cy)])
+    trapezoid(fig, 616, 776, cy, False, "decoder")
+    fig.arrow([(778, cy), (810, cy)])
+    fig.plane(814, cy - 100, 26, 200, OUTPUT)
+    fig.text(827, cy - 112, "reconstruction", OUTPUT[0], "middle", "bold")
+    return fig.svg()
+
+
+def gan() -> str:
+    fig = Fig(980, 470, "Generative adversarial network", "Block", [
+        "Only the discriminator ever sees real data.",
+        "A popular picture, not the paper's: its Fig. 1 plots one-dimensional distributions.",
+    ])
+    fig.text(84, 158, "noise", DATA[0], weight="bold")
+    fig.arrow([(116, 151), (182, 151)])
+    fig.box(280, 151, "Generator", LEARNED, w=190, h=64)
+    fig.arrow([(377, 151), (444, 151)])
+    fig.text(490, 158, "fake", DATA[0], weight="bold")
+    fig.text(490, 308, "real data", DATA[0], weight="bold")
+    fig.arrow([(526, 151), (592, 196)])
+    fig.arrow([(544, 298), (592, 254)])
+    fig.box(705, 225, "Discriminator", LEARNED, w=216, h=74)
+    fig.arrow([(705, 264), (705, 332)])
+    fig.text(705, 360, "real or fake?", OUTPUT[0], weight="bold")
+    fig.arrow([(632, 353), (280, 353), (280, 185)], LEARNED[0], 2.2, "6 4")
+    fig.text(452, 343, "the verdict trains both", LEARNED[0], weight="bold")
+    return fig.svg()
+
+
+def u_net() -> str:
+    fig = Fig(1000, 690, "U-Net", "Slab", [
+        "Bars are tensors: height is image size, width and labels are channels.",
+        "Down is max pool, up is up-conv. Across: copy, crop, concatenate.",
+    ])
+    levels = [(64, 10.0, 130.0, 170.0), (128, 14.0, 80.0, 310.0), (256, 20.0, 48.0, 418.0), (512, 28.0, 30.0, 500.0)]
+    spacing, x = 30.0, 120.0
+
+    def mirror(v: float) -> float:
+        return 1000 - v
+
+    previous: float | None = None
+    last = 0.0
+    for channels, width, height, cy in levels:
+        second = x + width + spacing
+        for bar in (x, second):
+            fig.plane(bar, cy - height / 2, width, height, DATA)
+            fig.plane(mirror(bar) - width, cy - height / 2, width, height, DATA)
+        fig.arrow([(x + width + 3, cy), (second - 3, cy)], MUTED, 1.4)
+        fig.arrow([(mirror(second) + 3, cy), (mirror(x) - width - 3, cy)], MUTED, 1.4)
+        fig.text(x + width + spacing / 2, cy - height / 2 - 8, str(channels), MUTED)
+        fig.text(mirror(x + width + spacing / 2), cy - height / 2 - 8, str(channels), MUTED)
+        fig.arrow([(second + width + 4, cy), (mirror(second) - width - 4, cy)], DATA[0], 2.4)
+        if previous is not None:
+            fig.arrow([(x + width / 2, previous), (x + width / 2, cy - height / 2 - 3)], FIXED[0], 2.2)
+            fig.arrow([(mirror(x + width / 2), cy - height / 2 - 3), (mirror(x + width / 2), previous)], LEARNED[0], 2.2)
+        previous = cy + height / 2 + 3
+        last = second + width / 2
+        x = second
+    bottom = 584.0
+    fig.plane(400, bottom - 9, 60, 18, DATA)
+    fig.plane(540, bottom - 9, 60, 18, DATA)
+    fig.arrow([(464, bottom), (536, bottom)], MUTED, 1.4)
+    fig.text(500, bottom - 18, "1024", MUTED)
+    fig.arrow([(last, previous), (last, bottom), (396, bottom)], FIXED[0], 2.2)
+    fig.arrow([(604, bottom), (mirror(last), bottom), (mirror(last), previous)], LEARNED[0], 2.2)
+    fig.plane(92, 105, 4, 130, DATA)
+    fig.arrow([(99, 170), (117, 170)], MUTED, 1.4)
+    fig.text(94, 95, "1", MUTED)
+    fig.rotated(66, 170, "572 x 572")
+    fig.plane(904, 115, 4, 110, OUTPUT)
+    fig.arrow([(883, 170), (901, 170)], MUTED, 1.4)
+    fig.text(906, 105, "2", MUTED)
+    fig.rotated(936, 170, "388 x 388")
+    fig.text(500, 160, "copy and crop", DATA[0], weight="bold")
+    return fig.svg()
+
+
+def latent_diffusion() -> str:
+    fig = Fig(1000, 560, "Latent diffusion (Stable Diffusion)", "Block", [
+        "Diffusion runs in the compressed latent, never on pixels.",
+        "E and D are the VAE. Text enters through cross-attention.",
+    ])
+    top, low = 180.0, 345.0
+    fig.outline(24, 84, 172, 370, FIXED[0], 1.8, "6 5")
+    fig.outline(210, 84, 564, 370, DATA[0], 1.8, "6 5")
+    fig.outline(788, 84, 188, 370, LEARNED[0], 1.8, "6 5")
+    fig.text(110, 116, "Pixel space", FIXED[0], weight="bold")
+    fig.text(492, 116, "Latent space", DATA[0], weight="bold")
+    fig.text(882, 116, "Conditioning", LEARNED[0], weight="bold")
+
+    def tag(x: float, y: float, base: str, sub: str = "", kind: tuple[str, str] = DATA) -> None:
+        fig.box(x, y, "", kind, w=56, h=46)
+        fig.text(x, y + 7, base, sub=sub)
+
+    tag(68, top, "x")
+    tag(152, top, "E", kind=LEARNED)
+    tag(152, low, "D", kind=LEARNED)
+    tag(68, low, "x'", kind=OUTPUT)
+    fig.arrow([(96, top), (124, top)])
+    fig.arrow([(180, top), (232, top)])
+    tag(260, top, "z")
+    fig.arrow([(288, top), (340, top)])
+    fig.box(490, top, "Diffusion Process", FIXED, w=300, h=46)
+    fig.arrow([(640, top), (692, top)])
+    tag(720, top, "z", "T")
+    fig.arrow([(720, top + 23), (720, 262), (660, 262)])
+    fig.box(495, low - 28, "", LEARNED, w=330, h=136)
+    fig.text(495, low - 62, "Denoising U-Net")
+    fig.box(495, low + 2, "cross-attention", FIXED, w=210, h=46)
+    tag(260, low, "z", "0")
+    fig.arrow([(330, low), (288, low)])
+    fig.arrow([(232, low), (180, low)])
+    fig.arrow([(124, low), (96, low)])
+    fig.box(882, 180, "text prompt", DATA, w=160, h=46)
+    fig.arrow([(882, 203), (882, 252)])
+    fig.box(882, 275, "text encoder", LEARNED, w=160, h=46)
+    fig.arrow([(882, 298), (882, low + 2), (600, low + 2)], LEARNED[0], 2.2)
+    fig.text(495, 438, "repeated T times", MUTED)
+    return fig.svg()
+
+
+def vit() -> str:
+    fig = Fig(960, 710, "Vision Transformer (ViT)", "Block", [
+        "The image becomes a sequence of patches, read like words by a Transformer.",
+        "Token 0* is not a patch: it is the learned summary used to classify.",
+    ])
+    picture = smiley(48)
+    tiles = [[noised([row[c * 16:c * 16 + 16] for row in picture[r * 16:r * 16 + 16]], 0, random.Random(0))
+              for c in range(3)] for r in range(3)]
+    for r in range(3):
+        for c in range(3):
+            fig.image(36 + c * 38, 474 + r * 38, 34, 34, tiles[r][c])
+    fig.text(90, 610, "image", MUTED)
+    fig.arrow([(158, 532), (214, 532)])
+    x0, step, size = 244.0, 70.0, 56.0
+    fig.box(x0 + 4 * step + size / 2, 440, "Linear Projection of Flattened Patches", LEARNED, w=640, h=44)
+    for i in range(9):
+        x = x0 + i * step
+        fig.image(x, 504, size, size, tiles[i // 3][i % 3])
+        fig.arrow([(x + size / 2, 502), (x + size / 2, 464)])
+        cx = x + size / 2
+        fig.arrow([(cx, 418), (cx, 396)])
+        fig.box(cx, 372, str(i + 1), DATA, w=48, h=44)
+        fig.arrow([(cx, 350), (cx, 300)])
+    fig.box(x0 - step + size / 2, 372, "0*", OUTPUT, w=48, h=44)
+    fig.arrow([(x0 - step + size / 2, 350), (x0 - step + size / 2, 300)])
+    fig.box(x0 + 3.5 * step + size / 2, 262, "Transformer Encoder", LEARNED, w=730, h=74)
+    head = x0 - step + size / 2
+    fig.arrow([(head, 225), (head, 168)])
+    fig.box(head, 146, "MLP Head", LEARNED, w=170, h=44)
+    fig.arrow([(head + 87, 146), (head + 160, 146)])
+    fig.text(head + 170, 153, "class", OUTPUT[0], "start", "bold")
+    return fig.svg()
+
+
+def clip() -> str:
+    fig = Fig(960, 640, "CLIP", "Block", [
+        "Training pushes the diagonal, the true pairs, up and all other cells down.",
+        "The grid is one batch's similarity table, not an attention map.",
+    ])
+    x0, y0, cell = 520.0, 196.0, 86.0
+    fig.box(120, 138, "a smiling face", DATA, w=190, h=52)
+    fig.arrow([(216, 138), (258, 138)])
+    fig.box(340, 138, "Text Encoder", LEARNED, w=160, h=64)
+    fig.arrow([(421, 138), (514, 138)])
+    fig.image(66, 306, 110, 110, noised(smiley(32), 0, random.Random(0)))
+    fig.arrow([(180, 361), (258, 361)])
+    fig.box(340, 361, "Image Encoder", LEARNED, w=160, h=64)
+    fig.arrow([(421, 361), (444, 361)])
+    for k in range(4):
+        fig.plane(x0 + k * cell, 112, cell, 52, DATA)
+        fig.text(x0 + (k + 0.5) * cell - 2, 145, "T", sub=str(k + 1))
+        fig.plane(448, y0 + k * cell, 52, cell, DATA)
+        fig.text(472, y0 + (k + 0.5) * cell + 7, "I", sub=str(k + 1))
+        for j in range(4):
+            fig.plane(x0 + j * cell, y0 + k * cell, cell, cell, LEARNED if j == k else ("#c6cdd6", "#f8f9fa"))
+            fig.text(x0 + (j + 0.5) * cell, y0 + (k + 0.5) * cell + 7, f"I{k + 1}·T{j + 1}",
+                     INK if j == k else MUTED)
+    return fig.svg()
+
+
+def agent_loop() -> str:
+    fig = Fig(900, 480, "Agent loop", "Block", [
+        "A system around a model: nothing inside the LLM box has changed.",
+        "The LLM picks each action and, usually, when to stop.",
+    ])
+    fig.box(100, 200, "Human", DATA, w=130, h=64)
+    fig.arrow([(167, 188), (266, 188)])
+    fig.text(216, 176, "task", MUTED)
+    fig.arrow([(266, 212), (167, 212)], OUTPUT[0], 1.8)
+    fig.text(216, 244, "reply", OUTPUT[0])
+    fig.box(380, 200, "LLM", LEARNED, w=220, h=110)
+    fig.arrow([(492, 170), (626, 170)], LEARNED[0], 2.4)
+    fig.text(558, 158, "action", LEARNED[0], weight="bold")
+    fig.box(740, 200, "Tools or world", FIXED, w=220, h=110)
+    fig.arrow([(628, 230), (494, 230)], DATA[0], 2.4, "6 4")
+    fig.text(558, 262, "result", DATA[0], weight="bold")
+    fig.arrow([(380, 257), (380, 330)], OUTPUT[0], 2.0)
+    fig.text(380, 362, "stop when done", OUTPUT[0], weight="bold")
+    return fig.svg()
+
+
 def mlp() -> str:
     fig = Fig(960, 480, "Multi-layer perceptron", "Graph", [
         "In this grammar a circle is one number and a line is one weight.",
@@ -1105,7 +1423,17 @@ FIGURES: dict[str, Callable[[], str]] = {
     "positional-encoding": positional_encoding,
     "normalization": normalization,
     "transformer": transformer,
+    "gpt-stack": gpt_stack,
+    "rlhf-pipeline": rlhf_pipeline,
+    "autoencoder": autoencoder,
+    "vae": vae,
+    "gan": gan,
     "diffusion-chain": diffusion,
+    "u-net": u_net,
+    "latent-diffusion": latent_diffusion,
+    "vit": vit,
+    "clip": clip,
+    "agent-loop": agent_loop,
 }
 
 

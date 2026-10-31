@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 690" width="980" height="690" style="font-family:Helvetica, Arial, sans-serif">
+<rect width="980" height="690" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">GPT: decoder stack and causal mask</text>
+<rect x="877.5" y="16" width="82.5" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="918.75" y="41" font-size="21" fill="#667080" text-anchor="middle">Block</text>
+<text x="250" y="590" font-size="21" fill="#1f8a7d" text-anchor="middle" font-weight="bold">tokens</text>
+<line x1="250" y1="568" x2="250" y2="556" stroke="#667080" stroke-width="1.8"/>
+<polygon points="250,546 245.922,555.131 254.078,555.131" fill="#667080"/>
+<rect x="125" y="504" width="250" height="42" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="250" y="532" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Embedding + position</text>
+<rect x="90" y="222" width="320" height="264" rx="10" fill="none" stroke="#aab2bd" stroke-width="1.5" stroke-dasharray="6 5"/>
+<line x1="250" y1="504" x2="250" y2="466" stroke="#667080" stroke-width="1.8"/>
+<polygon points="250,456 245.922,465.131 254.078,465.131" fill="#667080"/>
+<rect x="125" y="414" width="250" height="42" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="250" y="442" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Masked Attention</text>
+<line x1="250" y1="478" x2="104" y2="478" stroke="#667080" stroke-width="1.4"/>
+<line x1="104" y1="478" x2="104" y2="372" stroke="#667080" stroke-width="1.4"/>
+<line x1="104" y1="372" x2="115" y2="372" stroke="#667080" stroke-width="1.4"/>
+<polygon points="125,372 115.869,367.922 115.869,376.078" fill="#667080"/>
+<line x1="250" y1="414" x2="250" y2="403" stroke="#667080" stroke-width="1.8"/>
+<polygon points="250,393 245.922,402.131 254.078,402.131" fill="#667080"/>
+<rect x="125" y="351" width="250" height="42" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="250" y="379" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Add &amp; Norm</text>
+<line x1="250" y1="351" x2="250" y2="343" stroke="#667080" stroke-width="1.8"/>
+<polygon points="250,333 245.922,342.131 254.078,342.131" fill="#667080"/>
+<rect x="125" y="291" width="250" height="42" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="250" y="319" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Feed Forward</text>
+<line x1="250" y1="342" x2="104" y2="342" stroke="#667080" stroke-width="1.4"/>
+<line x1="104" y1="342" x2="104" y2="250" stroke="#667080" stroke-width="1.4"/>
+<line x1="104" y1="250" x2="115" y2="250" stroke="#667080" stroke-width="1.4"/>
+<polygon points="125,250 115.869,245.922 115.869,254.078" fill="#667080"/>
+<line x1="250" y1="291" x2="250" y2="281" stroke="#667080" stroke-width="1.8"/>
+<polygon points="250,271 245.922,280.131 254.078,280.131" fill="#667080"/>
+<rect x="125" y="229" width="250" height="42" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="250" y="257" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Add &amp; Norm</text>
+<text x="82" y="360" font-size="21" fill="#667080" text-anchor="end" font-weight="normal">N x</text>
+<line x1="250" y1="229" x2="250" y2="196" stroke="#667080" stroke-width="1.8"/>
+<polygon points="250,186 245.922,195.131 254.078,195.131" fill="#667080"/>
+<rect x="125" y="144" width="250" height="42" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="250" y="172" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Linear + Softmax</text>
+<line x1="250" y1="144" x2="250" y2="131" stroke="#667080" stroke-width="1.8"/>
+<polygon points="250,121 245.922,130.131 254.078,130.131" fill="#667080"/>
+<rect x="115" y="79" width="270" height="42" rx="5" fill="#ecdff4" stroke="#7a4ca3" stroke-width="1.5"/>
+<text x="250" y="107" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Next-token probabilities</text>
+<text x="690" y="124" font-size="21" fill="#23262b" text-anchor="middle" font-weight="bold">causal mask</text>
+<text x="562" y="158" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">the</text>
+<text x="518" y="209" font-size="21" fill="#667080" text-anchor="end" font-weight="normal">the</text>
+<rect x="530" y="170" width="64" height="64" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="594" y="170" width="64" height="64" fill="#f4f5f7" stroke="#c6cdd6" stroke-width="1"/>
+<text x="626" y="209" font-size="21" fill="#c0c6cf" text-anchor="middle" font-weight="normal">x</text>
+<rect x="658" y="170" width="64" height="64" fill="#f4f5f7" stroke="#c6cdd6" stroke-width="1"/>
+<text x="690" y="209" font-size="21" fill="#c0c6cf" text-anchor="middle" font-weight="normal">x</text>
+<rect x="722" y="170" width="64" height="64" fill="#f4f5f7" stroke="#c6cdd6" stroke-width="1"/>
+<text x="754" y="209" font-size="21" fill="#c0c6cf" text-anchor="middle" font-weight="normal">x</text>
+<rect x="786" y="170" width="64" height="64" fill="#f4f5f7" stroke="#c6cdd6" stroke-width="1"/>
+<text x="818" y="209" font-size="21" fill="#c0c6cf" text-anchor="middle" font-weight="normal">x</text>
+<text x="626" y="158" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">cat</text>
+<text x="518" y="273" font-size="21" fill="#667080" text-anchor="end" font-weight="normal">cat</text>
+<rect x="530" y="234" width="64" height="64" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="594" y="234" width="64" height="64" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="658" y="234" width="64" height="64" fill="#f4f5f7" stroke="#c6cdd6" stroke-width="1"/>
+<text x="690" y="273" font-size="21" fill="#c0c6cf" text-anchor="middle" font-weight="normal">x</text>
+<rect x="722" y="234" width="64" height="64" fill="#f4f5f7" stroke="#c6cdd6" stroke-width="1"/>
+<text x="754" y="273" font-size="21" fill="#c0c6cf" text-anchor="middle" font-weight="normal">x</text>
+<rect x="786" y="234" width="64" height="64" fill="#f4f5f7" stroke="#c6cdd6" stroke-width="1"/>
+<text x="818" y="273" font-size="21" fill="#c0c6cf" text-anchor="middle" font-weight="normal">x</text>
+<text x="690" y="158" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">sat</text>
+<text x="518" y="337" font-size="21" fill="#667080" text-anchor="end" font-weight="normal">sat</text>
+<rect x="530" y="298" width="64" height="64" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="594" y="298" width="64" height="64" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="658" y="298" width="64" height="64" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="722" y="298" width="64" height="64" fill="#f4f5f7" stroke="#c6cdd6" stroke-width="1"/>
+<text x="754" y="337" font-size="21" fill="#c0c6cf" text-anchor="middle" font-weight="normal">x</text>
+<rect x="786" y="298" width="64" height="64" fill="#f4f5f7" stroke="#c6cdd6" stroke-width="1"/>
+<text x="818" y="337" font-size="21" fill="#c0c6cf" text-anchor="middle" font-weight="normal">x</text>
+<text x="754" y="158" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">on</text>
+<text x="518" y="401" font-size="21" fill="#667080" text-anchor="end" font-weight="normal">on</text>
+<rect x="530" y="362" width="64" height="64" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="594" y="362" width="64" height="64" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="658" y="362" width="64" height="64" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="722" y="362" width="64" height="64" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="786" y="362" width="64" height="64" fill="#f4f5f7" stroke="#c6cdd6" stroke-width="1"/>
+<text x="818" y="401" font-size="21" fill="#c0c6cf" text-anchor="middle" font-weight="normal">x</text>
+<text x="818" y="158" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">mat</text>
+<text x="518" y="465" font-size="21" fill="#667080" text-anchor="end" font-weight="normal">mat</text>
+<rect x="530" y="426" width="64" height="64" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="594" y="426" width="64" height="64" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="658" y="426" width="64" height="64" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="722" y="426" width="64" height="64" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="786" y="426" width="64" height="64" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="24" y="647" font-size="21" fill="#667080">The Transformer's right tower without cross-attention. Read bottom to top.</text>
+<text x="24" y="674" font-size="21" fill="#667080">Each mask row shows what that position may see: itself and earlier tokens.</text>
+</svg>
