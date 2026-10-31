@@ -1,113 +1,113 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 800" width="760" height="800" font-family="Helvetica, Arial, sans-serif">
-<rect width="760" height="800" rx="10" fill="#ffffff"/>
-<text x="24" y="36" font-size="21" font-weight="bold" fill="#23262b">The Transformer</text>
-<rect x="673" y="18" width="67" height="26" rx="13" fill="#f1f3f6" stroke="#aab2bd"/>
-<text x="706.5" y="36" font-size="14" fill="#667080" text-anchor="middle">Block</text>
-<rect x="112" y="378" width="223" height="210" rx="10" fill="none" stroke="#aab2bd" stroke-width="1.5" stroke-dasharray="6 5"/>
-<rect x="420" y="278" width="228" height="330" rx="10" fill="none" stroke="#aab2bd" stroke-width="1.5" stroke-dasharray="6 5"/>
-<text x="235" y="738" font-size="14" fill="#1f8a7d" text-anchor="middle" font-weight="bold">Inputs</text>
-<line x1="235" y1="725" x2="235" y2="708" stroke="#667080" stroke-width="1.8"/>
-<polygon points="235,699 231.33,707.218 238.67,707.218" fill="#667080"/>
-<rect x="150" y="665" width="170" height="34" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
-<text x="235" y="687" font-size="14" fill="#23262b" text-anchor="middle" font-weight="normal">Input Embedding</text>
-<line x1="235" y1="665" x2="235" y2="661" stroke="#667080" stroke-width="1.8"/>
-<polygon points="235,652 231.33,660.218 238.67,660.218" fill="#667080"/>
-<circle cx="235" cy="638" r="13" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.8"/>
-<text x="235" y="643" font-size="17" fill="#23262b" text-anchor="middle" font-weight="normal">+</text>
-<text x="520" y="738" font-size="14" fill="#1f8a7d" text-anchor="middle" font-weight="bold">Outputs (shifted right)</text>
-<line x1="520" y1="725" x2="520" y2="708" stroke="#667080" stroke-width="1.8"/>
-<polygon points="520,699 516.33,707.218 523.67,707.218" fill="#667080"/>
-<rect x="435" y="665" width="170" height="34" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
-<text x="520" y="687" font-size="14" fill="#23262b" text-anchor="middle" font-weight="normal">Output Embedding</text>
-<line x1="520" y1="665" x2="520" y2="661" stroke="#667080" stroke-width="1.8"/>
-<polygon points="520,652 516.33,660.218 523.67,660.218" fill="#667080"/>
-<circle cx="520" cy="638" r="13" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.8"/>
-<text x="520" y="643" font-size="17" fill="#23262b" text-anchor="middle" font-weight="normal">+</text>
-<text x="213" y="642" font-size="13" fill="#5b6b80" text-anchor="end" font-weight="normal">positional encoding</text>
-<text x="542" y="642" font-size="13" fill="#5b6b80" text-anchor="start" font-weight="normal">positional encoding</text>
-<line x1="235" y1="625" x2="235" y2="586" stroke="#667080" stroke-width="1.8"/>
-<polygon points="235,577 231.33,585.218 238.67,585.218" fill="#667080"/>
-<rect x="150" y="543" width="170" height="34" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
-<text x="235" y="565" font-size="14" fill="#23262b" text-anchor="middle" font-weight="normal">Multi-Head Attention</text>
-<line x1="235" y1="601" x2="128" y2="601" stroke="#667080" stroke-width="1.4"/>
-<line x1="128" y1="601" x2="128" y2="515" stroke="#667080" stroke-width="1.4"/>
-<line x1="128" y1="515" x2="141" y2="515" stroke="#667080" stroke-width="1.4"/>
-<polygon points="150,515 141.782,511.33 141.782,518.67" fill="#667080"/>
-<line x1="235" y1="543" x2="235" y2="541" stroke="#667080" stroke-width="1.8"/>
-<polygon points="235,532 231.33,540.218 238.67,540.218" fill="#667080"/>
-<rect x="150" y="498" width="170" height="34" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
-<text x="235" y="520" font-size="14" fill="#23262b" text-anchor="middle" font-weight="normal">Add &amp; Norm</text>
-<line x1="235" y1="498" x2="235" y2="476" stroke="#667080" stroke-width="1.8"/>
-<polygon points="235,467 231.33,475.218 238.67,475.218" fill="#667080"/>
-<rect x="150" y="433" width="170" height="34" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
-<text x="235" y="455" font-size="14" fill="#23262b" text-anchor="middle" font-weight="normal">Feed Forward</text>
-<line x1="235" y1="482" x2="128" y2="482" stroke="#667080" stroke-width="1.4"/>
-<line x1="128" y1="482" x2="128" y2="405" stroke="#667080" stroke-width="1.4"/>
-<line x1="128" y1="405" x2="141" y2="405" stroke="#667080" stroke-width="1.4"/>
-<polygon points="150,405 141.782,401.33 141.782,408.67" fill="#667080"/>
-<line x1="235" y1="433" x2="235" y2="431" stroke="#667080" stroke-width="1.8"/>
-<polygon points="235,422 231.33,430.218 238.67,430.218" fill="#667080"/>
-<rect x="150" y="388" width="170" height="34" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
-<text x="235" y="410" font-size="14" fill="#23262b" text-anchor="middle" font-weight="normal">Add &amp; Norm</text>
-<line x1="520" y1="625" x2="520" y2="601" stroke="#667080" stroke-width="1.8"/>
-<polygon points="520,592 516.33,600.218 523.67,600.218" fill="#667080"/>
-<rect x="435" y="558" width="170" height="34" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
-<text x="520" y="580" font-size="14" fill="#23262b" text-anchor="middle" font-weight="normal">Masked Multi-Head Attn</text>
-<line x1="520" y1="600" x2="630" y2="600" stroke="#667080" stroke-width="1.4"/>
-<line x1="630" y1="600" x2="630" y2="530" stroke="#667080" stroke-width="1.4"/>
-<line x1="630" y1="530" x2="614" y2="530" stroke="#667080" stroke-width="1.4"/>
-<polygon points="605,530 613.218,533.67 613.218,526.33" fill="#667080"/>
-<line x1="520" y1="558" x2="520" y2="556" stroke="#667080" stroke-width="1.8"/>
-<polygon points="520,547 516.33,555.218 523.67,555.218" fill="#667080"/>
-<rect x="435" y="513" width="170" height="34" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
-<text x="520" y="535" font-size="14" fill="#23262b" text-anchor="middle" font-weight="normal">Add &amp; Norm</text>
-<line x1="520" y1="513" x2="520" y2="486" stroke="#667080" stroke-width="1.8"/>
-<polygon points="520,477 516.33,485.218 523.67,485.218" fill="#667080"/>
-<text x="510" y="499" font-size="13" fill="#667080" text-anchor="end" font-weight="normal">Q</text>
-<rect x="435" y="443" width="170" height="34" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
-<text x="520" y="465" font-size="14" fill="#23262b" text-anchor="middle" font-weight="normal">Multi-Head Attention</text>
-<line x1="520" y1="492" x2="630" y2="492" stroke="#667080" stroke-width="1.4"/>
-<line x1="630" y1="492" x2="630" y2="415" stroke="#667080" stroke-width="1.4"/>
-<line x1="630" y1="415" x2="614" y2="415" stroke="#667080" stroke-width="1.4"/>
-<polygon points="605,415 613.218,418.67 613.218,411.33" fill="#667080"/>
-<line x1="520" y1="443" x2="520" y2="441" stroke="#667080" stroke-width="1.8"/>
-<polygon points="520,432 516.33,440.218 523.67,440.218" fill="#667080"/>
-<rect x="435" y="398" width="170" height="34" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
-<text x="520" y="420" font-size="14" fill="#23262b" text-anchor="middle" font-weight="normal">Add &amp; Norm</text>
-<line x1="520" y1="398" x2="520" y2="376" stroke="#667080" stroke-width="1.8"/>
-<polygon points="520,367 516.33,375.218 523.67,375.218" fill="#667080"/>
-<rect x="435" y="333" width="170" height="34" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
-<text x="520" y="355" font-size="14" fill="#23262b" text-anchor="middle" font-weight="normal">Feed Forward</text>
-<line x1="520" y1="382" x2="630" y2="382" stroke="#667080" stroke-width="1.4"/>
-<line x1="630" y1="382" x2="630" y2="305" stroke="#667080" stroke-width="1.4"/>
-<line x1="630" y1="305" x2="614" y2="305" stroke="#667080" stroke-width="1.4"/>
-<polygon points="605,305 613.218,308.67 613.218,301.33" fill="#667080"/>
-<line x1="520" y1="333" x2="520" y2="331" stroke="#667080" stroke-width="1.8"/>
-<polygon points="520,322 516.33,330.218 523.67,330.218" fill="#667080"/>
-<rect x="435" y="288" width="170" height="34" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
-<text x="520" y="310" font-size="14" fill="#23262b" text-anchor="middle" font-weight="normal">Add &amp; Norm</text>
-<line x1="235" y1="388" x2="235" y2="350" stroke="#1f8a7d" stroke-width="2.2"/>
-<line x1="235" y1="350" x2="385" y2="350" stroke="#1f8a7d" stroke-width="2.2"/>
-<line x1="385" y1="350" x2="385" y2="460" stroke="#1f8a7d" stroke-width="2.2"/>
-<line x1="385" y1="460" x2="426" y2="460" stroke="#1f8a7d" stroke-width="2.2"/>
-<polygon points="435,460 426.782,456.33 426.782,463.67" fill="#1f8a7d"/>
-<text x="392" y="452" font-size="13" fill="#1f8a7d" text-anchor="start" font-weight="normal">K, V</text>
-<text x="235" y="338" font-size="16" fill="#23262b" text-anchor="middle" font-weight="bold">Encoder</text>
-<text x="100" y="490" font-size="15" fill="#667080" text-anchor="end" font-weight="normal">N x</text>
-<text x="660" y="300" font-size="16" fill="#23262b" text-anchor="start" font-weight="bold">Decoder</text>
-<text x="660" y="450" font-size="15" fill="#667080" text-anchor="start" font-weight="normal">N x</text>
-<line x1="520" y1="288" x2="520" y2="261" stroke="#667080" stroke-width="1.8"/>
-<polygon points="520,252 516.33,260.218 523.67,260.218" fill="#667080"/>
-<rect x="435" y="218" width="170" height="34" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
-<text x="520" y="240" font-size="14" fill="#23262b" text-anchor="middle" font-weight="normal">Linear</text>
-<line x1="520" y1="218" x2="520" y2="211" stroke="#667080" stroke-width="1.8"/>
-<polygon points="520,202 516.33,210.218 523.67,210.218" fill="#667080"/>
-<rect x="435" y="168" width="170" height="34" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
-<text x="520" y="190" font-size="14" fill="#23262b" text-anchor="middle" font-weight="normal">Softmax</text>
-<line x1="520" y1="168" x2="520" y2="157" stroke="#667080" stroke-width="1.8"/>
-<polygon points="520,148 516.33,156.218 523.67,156.218" fill="#667080"/>
-<rect x="435" y="113" width="170" height="34" rx="5" fill="#ecdff4" stroke="#7a4ca3" stroke-width="1.5"/>
-<text x="520" y="135" font-size="14" fill="#23262b" text-anchor="middle" font-weight="normal">Output Probabilities</text>
-<text x="24" y="767" font-size="14" fill="#667080">In this grammar a box is an operation and an arrow carries a whole tensor.</text>
-<text x="24" y="786" font-size="14" fill="#667080">Read bottom to top. Orange has trained weights; gray does not.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 930 975" width="930" height="975" font-family="Helvetica, Arial, sans-serif">
+<rect width="930" height="975" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">The Transformer</text>
+<rect x="827.5" y="16" width="82.5" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="868.75" y="41" font-size="21" fill="#667080" text-anchor="middle">Block</text>
+<rect x="138" y="405" width="307" height="317" rx="10" fill="none" stroke="#aab2bd" stroke-width="1.5" stroke-dasharray="6 5"/>
+<rect x="542" y="275" width="313" height="467" rx="10" fill="none" stroke="#aab2bd" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="300" y="898" font-size="21" fill="#1f8a7d" text-anchor="middle" font-weight="bold">Inputs</text>
+<line x1="300" y1="876" x2="300" y2="863" stroke="#667080" stroke-width="1.8"/>
+<polygon points="300,853 295.922,862.131 304.078,862.131" fill="#667080"/>
+<rect x="175" y="809" width="250" height="42" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="300" y="837" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Input Embedding</text>
+<line x1="300" y1="809" x2="300" y2="786" stroke="#667080" stroke-width="1.8"/>
+<polygon points="300,776 295.922,785.131 304.078,785.131" fill="#667080"/>
+<circle cx="300" cy="760" r="15" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.8"/>
+<text x="300" y="767" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">+</text>
+<text x="690" y="898" font-size="21" fill="#1f8a7d" text-anchor="middle" font-weight="bold">Outputs (shifted right)</text>
+<line x1="690" y1="876" x2="690" y2="863" stroke="#667080" stroke-width="1.8"/>
+<polygon points="690,853 685.922,862.131 694.078,862.131" fill="#667080"/>
+<rect x="565" y="809" width="250" height="42" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="690" y="837" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Output Embedding</text>
+<line x1="690" y1="809" x2="690" y2="786" stroke="#667080" stroke-width="1.8"/>
+<polygon points="690,776 685.922,785.131 694.078,785.131" fill="#667080"/>
+<circle cx="690" cy="760" r="15" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.8"/>
+<text x="690" y="767" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">+</text>
+<text x="276" y="767" font-size="21" fill="#5b6b80" text-anchor="end" font-weight="normal">positional encoding</text>
+<text x="714" y="767" font-size="21" fill="#5b6b80" text-anchor="start" font-weight="normal">positional encoding</text>
+<line x1="300" y1="745" x2="300" y2="691" stroke="#667080" stroke-width="1.8"/>
+<polygon points="300,681 295.922,690.131 304.078,690.131" fill="#667080"/>
+<rect x="175" y="639" width="250" height="42" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="300" y="667" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Multi-Head Attention</text>
+<line x1="300" y1="702" x2="155" y2="702" stroke="#667080" stroke-width="1.4"/>
+<line x1="155" y1="702" x2="155" y2="590" stroke="#667080" stroke-width="1.4"/>
+<line x1="155" y1="590" x2="165" y2="590" stroke="#667080" stroke-width="1.4"/>
+<polygon points="175,590 165.869,585.922 165.869,594.078" fill="#667080"/>
+<line x1="300" y1="639" x2="300" y2="621" stroke="#667080" stroke-width="1.8"/>
+<polygon points="300,611 295.922,620.131 304.078,620.131" fill="#667080"/>
+<rect x="175" y="569" width="250" height="42" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="300" y="597" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Add &amp; Norm</text>
+<line x1="300" y1="569" x2="300" y2="541" stroke="#667080" stroke-width="1.8"/>
+<polygon points="300,531 295.922,540.131 304.078,540.131" fill="#667080"/>
+<rect x="175" y="489" width="250" height="42" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="300" y="517" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Feed Forward</text>
+<line x1="300" y1="550" x2="155" y2="550" stroke="#667080" stroke-width="1.4"/>
+<line x1="155" y1="550" x2="155" y2="440" stroke="#667080" stroke-width="1.4"/>
+<line x1="155" y1="440" x2="165" y2="440" stroke="#667080" stroke-width="1.4"/>
+<polygon points="175,440 165.869,435.922 165.869,444.078" fill="#667080"/>
+<line x1="300" y1="489" x2="300" y2="471" stroke="#667080" stroke-width="1.8"/>
+<polygon points="300,461 295.922,470.131 304.078,470.131" fill="#667080"/>
+<rect x="175" y="419" width="250" height="42" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="300" y="447" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Add &amp; Norm</text>
+<line x1="690" y1="745" x2="690" y2="716" stroke="#667080" stroke-width="1.8"/>
+<polygon points="690,706 685.922,715.131 694.078,715.131" fill="#667080"/>
+<rect x="565" y="664" width="250" height="42" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="690" y="692" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Masked Multi-Head Attn</text>
+<line x1="690" y1="726" x2="837" y2="726" stroke="#667080" stroke-width="1.4"/>
+<line x1="837" y1="726" x2="837" y2="615" stroke="#667080" stroke-width="1.4"/>
+<line x1="837" y1="615" x2="825" y2="615" stroke="#667080" stroke-width="1.4"/>
+<polygon points="815,615 824.131,619.078 824.131,610.922" fill="#667080"/>
+<line x1="690" y1="664" x2="690" y2="646" stroke="#667080" stroke-width="1.8"/>
+<polygon points="690,636 685.922,645.131 694.078,645.131" fill="#667080"/>
+<rect x="565" y="594" width="250" height="42" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="690" y="622" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Add &amp; Norm</text>
+<line x1="690" y1="594" x2="690" y2="566" stroke="#667080" stroke-width="1.8"/>
+<polygon points="690,556 685.922,565.131 694.078,565.131" fill="#667080"/>
+<text x="680" y="585" font-size="21" fill="#667080" text-anchor="end" font-weight="normal">Q</text>
+<rect x="565" y="514" width="250" height="42" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="690" y="542" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Multi-Head Attention</text>
+<line x1="690" y1="575" x2="837" y2="575" stroke="#667080" stroke-width="1.4"/>
+<line x1="837" y1="575" x2="837" y2="465" stroke="#667080" stroke-width="1.4"/>
+<line x1="837" y1="465" x2="825" y2="465" stroke="#667080" stroke-width="1.4"/>
+<polygon points="815,465 824.131,469.078 824.131,460.922" fill="#667080"/>
+<line x1="690" y1="514" x2="690" y2="496" stroke="#667080" stroke-width="1.8"/>
+<polygon points="690,486 685.922,495.131 694.078,495.131" fill="#667080"/>
+<rect x="565" y="444" width="250" height="42" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="690" y="472" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Add &amp; Norm</text>
+<line x1="690" y1="444" x2="690" y2="416" stroke="#667080" stroke-width="1.8"/>
+<polygon points="690,406 685.922,415.131 694.078,415.131" fill="#667080"/>
+<rect x="565" y="364" width="250" height="42" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="690" y="392" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Feed Forward</text>
+<line x1="690" y1="425" x2="837" y2="425" stroke="#667080" stroke-width="1.4"/>
+<line x1="837" y1="425" x2="837" y2="315" stroke="#667080" stroke-width="1.4"/>
+<line x1="837" y1="315" x2="825" y2="315" stroke="#667080" stroke-width="1.4"/>
+<polygon points="815,315 824.131,319.078 824.131,310.922" fill="#667080"/>
+<line x1="690" y1="364" x2="690" y2="346" stroke="#667080" stroke-width="1.8"/>
+<polygon points="690,336 685.922,345.131 694.078,345.131" fill="#667080"/>
+<rect x="565" y="294" width="250" height="42" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="690" y="322" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Add &amp; Norm</text>
+<line x1="300" y1="419" x2="300" y2="370" stroke="#1f8a7d" stroke-width="2.2"/>
+<line x1="300" y1="370" x2="470" y2="370" stroke="#1f8a7d" stroke-width="2.2"/>
+<line x1="470" y1="370" x2="470" y2="535" stroke="#1f8a7d" stroke-width="2.2"/>
+<line x1="470" y1="535" x2="555" y2="535" stroke="#1f8a7d" stroke-width="2.2"/>
+<polygon points="565,535 555.869,530.922 555.869,539.078" fill="#1f8a7d"/>
+<text x="478" y="526" font-size="21" fill="#1f8a7d" text-anchor="start" font-weight="normal">K, V</text>
+<text x="300" y="356" font-size="21" fill="#23262b" text-anchor="middle" font-weight="bold">Encoder</text>
+<text x="125" y="570" font-size="21" fill="#667080" text-anchor="end" font-weight="normal">N x</text>
+<text x="826" y="263" font-size="21" fill="#23262b" text-anchor="start" font-weight="bold">Decoder</text>
+<text x="868" y="515" font-size="21" fill="#667080" text-anchor="start" font-weight="normal">N x</text>
+<line x1="690" y1="294" x2="690" y2="266" stroke="#667080" stroke-width="1.8"/>
+<polygon points="690,256 685.922,265.131 694.078,265.131" fill="#667080"/>
+<rect x="565" y="214" width="250" height="42" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="690" y="242" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Linear</text>
+<line x1="690" y1="214" x2="690" y2="196" stroke="#667080" stroke-width="1.8"/>
+<polygon points="690,186 685.922,195.131 694.078,195.131" fill="#667080"/>
+<rect x="565" y="144" width="250" height="42" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="690" y="172" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Softmax</text>
+<line x1="690" y1="144" x2="690" y2="126" stroke="#667080" stroke-width="1.8"/>
+<polygon points="690,116 685.922,125.131 694.078,125.131" fill="#667080"/>
+<rect x="565" y="74" width="250" height="42" rx="5" fill="#ecdff4" stroke="#7a4ca3" stroke-width="1.5"/>
+<text x="690" y="102" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Output Probabilities</text>
+<text x="24" y="932" font-size="21" fill="#667080">In this grammar a box is an operation and an arrow carries a whole tensor.</text>
+<text x="24" y="959" font-size="21" fill="#667080">Read bottom to top. Orange has trained weights; gray does not.</text>
 </svg>

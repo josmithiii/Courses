@@ -10,7 +10,8 @@ exercise before moving on. New to ML, new to Python, rusty math — all fine.
 
 **Diagrams:** every major architecture comes with the famous picture you'd find in an
 image search, and you learn to read it. See [`the-diagram-atlas.md`](the-diagram-atlas.md),
-or browse every topic and figure in order in [`visual-tour.md`](visual-tour.md).
+or browse every topic and figure in order in [`visual-tour.md`](visual-tour.md). Open
+`figures/gallery.html` in a browser to view the course's own figures at any size.
 
 **Prerequisites:** none. This is the entry point the AI Music & Audio thread builds on.
 

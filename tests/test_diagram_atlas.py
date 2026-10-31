@@ -140,6 +140,36 @@ def test_figure_appears_in_the_tour_and_plugin(name: str) -> None:
     assert (REPO / f"courses-plugin/skills/ai-foundations/figures/{name}.svg").is_file()
 
 
+@pytest.mark.parametrize("name", FIGURE_NAMES)
+def test_figure_text_meets_the_minimum_size(name: str) -> None:
+    sizes = [int(s) for s in re.findall(r'font-size="(\d+)"', (COURSE / f"figures/{name}.svg").read_text())]
+    assert sizes and min(sizes) >= bf.TEXT == 21
+    assert max(sizes) == bf.TITLE
+
+
+def test_text_below_the_minimum_fails_the_build() -> None:
+    fig = bf.Fig(400, 200, "t", "Plot", [])
+    with pytest.raises(SystemExit):
+        fig.text(200, 100, "too small", size=bf.TEXT - 1)
+
+
+def test_text_off_the_canvas_fails_the_build() -> None:
+    fig = bf.Fig(400, 200, "t", "Plot", [])
+    with pytest.raises(SystemExit):
+        fig.text(390, 100, "much too long for this spot", anchor="start")
+
+
+def test_gallery_is_fresh_and_lists_every_figure() -> None:
+    page = (COURSE / "figures/gallery.html").read_text()
+    assert page == bf.gallery({f"{n}.svg": bf.FIGURES[n]() for n in bf.FIGURES})
+    assert all(f'src="{name}.svg"' in page for name in FIGURE_NAMES)
+    assert 'type="range"' in page
+
+
+def test_gallery_ships_in_the_plugin() -> None:
+    assert (REPO / "courses-plugin/skills/ai-foundations/figures/gallery.html").is_file()
+
+
 def test_no_orphan_figures() -> None:
     assert sorted(p.stem for p in (COURSE / "figures").glob("*.svg")) == FIGURE_NAMES
 

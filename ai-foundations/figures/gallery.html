@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Foundations Figures</title>
+<style>
+:root { --scale:1; color-scheme:light dark; }
+body { margin:0; padding:16px 24px; background:#e9e7e1; color:#23262b; font:17px -apple-system, Helvetica, sans-serif; }
+header { position:sticky; top:0; background:#e9e7e1; padding:10px 0; display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+header strong { margin-right:auto; }
+input { width:min(280px, 60vw); }
+figure { margin:22px 0; overflow-x:auto; }
+img { display:block; width:calc(var(--w) * var(--scale) * 1px); }
+figcaption { margin-top:6px; color:#667080; font-size:15px; }
+</style></head><body>
+<header><strong>AI Foundations figures</strong>
+<label for="size">Size</label><input id="size" type="range" min="50" max="300" step="10" value="100">
+<output id="value" for="size">100%</output></header>
+<figure><a href="mlp.svg"><img src="mlp.svg" alt="mlp.svg" style="--w:960"></a><figcaption>mlp.svg</figcaption></figure><figure><a href="lenet-5.svg"><img src="lenet-5.svg" alt="lenet-5.svg" style="--w:1000"></a><figcaption>lenet-5.svg</figcaption></figure><figure><a href="positional-encoding.svg"><img src="positional-encoding.svg" alt="positional-encoding.svg" style="--w:880"></a><figcaption>positional-encoding.svg</figcaption></figure><figure><a href="transformer.svg"><img src="transformer.svg" alt="transformer.svg" style="--w:930"></a><figcaption>transformer.svg</figcaption></figure><figure><a href="diffusion-chain.svg"><img src="diffusion-chain.svg" alt="diffusion-chain.svg" style="--w:960"></a><figcaption>diffusion-chain.svg</figcaption></figure>
+<script>
+const size = document.getElementById("size"), value = document.getElementById("value");
+function apply(percent) {
+  size.value = percent;
+  value.textContent = percent + "%";
+  document.documentElement.style.setProperty("--scale", percent / 100);
+}
+try { const saved = localStorage.getItem("figure-scale"); if (saved) apply(saved); } catch (e) {}
+size.addEventListener("input", () => {
+  apply(size.value);
+  try { localStorage.setItem("figure-scale", size.value); } catch (e) {}
+});
+</script>
+</body></html>

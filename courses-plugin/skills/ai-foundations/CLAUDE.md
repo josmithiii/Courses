@@ -39,4 +39,6 @@ to the tables in that script.
 visual language: teal is data, orange has trained weights, gray is a fixed operation,
 purple is model output. Compute a figure from its formula where that's possible, and
 check every drawn figure against the paper's. They teach alongside the famous originals
-rather than replacing them, since those are what learners will meet elsewhere.
+rather than replacing them, since those are what learners will meet elsewhere. No text
+goes below size 21; the build fails if it does, or if text leaves its canvas or box.
+Learners can open `figures/gallery.html` in a browser to see them all with a size slider.
