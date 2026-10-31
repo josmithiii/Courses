@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import importlib.util
+import math
 import re
 from pathlib import Path
 from types import ModuleType
@@ -19,7 +20,7 @@ FIELDS = ("Grammar", "Figure", "Search", "Source", "Read it", "Trap", "Check")
 GRAMMARS = {"Graph", "Block", "Slab", "Probabilistic", "Plot"}
 
 REQUIRED_BUZZWORDS = (
-    "perceptron", "MLP", "LeNet-5", "AlexNet", "VGG", "Inception", "ResNet", "U-Net",
+    "perceptron", "MLP", "Universal approximation", "LeNet-5", "AlexNet", "VGG", "Inception", "ResNet", "U-Net",
     "RNN", "LSTM", "Seq2seq", "Attention", "Multi-head", "Transformer", "GPT",
     "Autoencoder", "VAE", "GAN", "diffusion", "Stable Diffusion", "ViT", "CLIP", "Agent",
 )
@@ -207,6 +208,18 @@ def test_figures_preference_is_asked_once_and_recorded() -> None:
     assert "**Figures** preference" in (COURSE / ".claude/commands/lesson.md").read_text()
     assert "**Figures** preference" in (COURSE / "CLAUDE.md").read_text()
     assert "- Figures: _(unset" in (COURSE / "progress.template.md").read_text()
+
+
+def test_bump_matches_the_atlas_check() -> None:
+    assert bf.bump(0.5, 0.4, 0.6, 0.8, 100) == pytest.approx(0.8, abs=1e-3)
+    assert bf.bump(0.7, 0.4, 0.6, 0.8, 100) == pytest.approx(0.0, abs=1e-3)
+
+
+def test_more_bumps_fit_a_curve_better() -> None:
+    def worst_error(n: int) -> float:
+        return max(abs(bf.bump_fit(math.sin, i / 200, n, 300) - math.sin(i / 200)) for i in range(201))
+
+    assert worst_error(20) < worst_error(5) / 2
 
 
 def test_convolution_output_matches_the_atlas_check() -> None:

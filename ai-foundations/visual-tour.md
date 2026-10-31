@@ -93,11 +93,40 @@ input   hidden   output
 (each column is fully connected to the next)
 ```
 
-**1.6** Loss: measuring how wrong a prediction is (MSE; cross-entropy intuition).
+**1.6** Universal approximation: a visual proof that one hidden layer can trace any continuous curve (steep sigmoid → step → bump → lookup table), what the theorem promises, what it doesn't, and why we still go deep.
 
-**1.7** Gradient descent: rolling downhill to reduce loss. Learning rate intuition.
+### 1.6 Universal approximation (steps, bumps and curves)
 
-### 1.7 Loss landscape and gradient descent
+![Universal approximation (steps, bumps and curves)](figures/universal-approximation.svg)
+
+- Image search: [universal approximation theorem neural network bump functions](https://www.google.com/search?tbm=isch&q=universal+approximation+theorem+neural+network+bump+functions)
+
+- **Grammar:** Plot
+- **Source:** Nielsen, [A visual proof that neural nets can compute any function](http://neuralnetworksanddeeplearning.com/chap4.html),
+  Ch. 4 of *Neural Networks and Deep Learning* (2015), whose sliders are worth playing with. The
+  theorems are Cybenko (1989) and Hornik, Stinchcombe & White (1989).
+- **Read it:** Left: raising the weight w steepens a sigmoid into a step at x = -b/w. Middle: a
+  step up and a step down, joined by output weights +h and -h, make a bump of height h. Right:
+  bumps side by side trace a target curve, and more neurons give narrower bumps and a closer fit.
+- **Trap:** The theorem says a network exists, not that training will find it or that it is
+  small. It also promises approximation, not an exact match, and only for continuous functions on
+  a bounded range. "One hidden layer is enough" does not mean one hidden layer is a good design.
+- **Check:** With w = 100, design a bump of height 0.8 from x = 0.4 to x = 0.6. What are the two
+  biases and the two output weights? (b = -40 and -60; +0.8 and -0.8.) What comes out at x = 0.5
+  and at x = 0.7? (About 0.8 and about 0.) How many hidden neurons do 5 bumps take? (10.)
+
+```
+step up       +  step down     =  bump
+      ______                        ___
+     |           ______|           |   |
+_____|                 |______  ___|   |___
+```
+
+**1.7** Loss: measuring how wrong a prediction is (MSE; cross-entropy intuition).
+
+**1.8** Gradient descent: rolling downhill to reduce loss. Learning rate intuition.
+
+### 1.8 Loss landscape and gradient descent
 
 ![Loss landscape and gradient descent](figures/loss-landscape.svg)
 
@@ -113,9 +142,9 @@ input   hidden   output
 - **Check:** On a contour plot, sketch the path for a learning rate that is too large. (It
   zig-zags across the valley or leaves it altogether.)
 
-**1.8** Backpropagation: how blame flows backward to each weight (intuition + tiny worked example).
+**1.9** Backpropagation: how blame flows backward to each weight (intuition + tiny worked example).
 
-### 1.8 Computational graph and backpropagation
+### 1.9 Computational graph and backpropagation
 
 ![Computational graph and backpropagation](figures/computational-graph.svg)
 
@@ -139,7 +168,7 @@ x --/
      <--------- dL/dw --------------       backward: gradients
 ```
 
-**1.9** The training loop: epochs, batches, iterations — the whole picture.
+**1.10** The training loop: epochs, batches, iterations — the whole picture.
 
 ## Phase 2 — PyTorch For Real
 

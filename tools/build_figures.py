@@ -222,6 +222,66 @@ def activation_functions() -> str:
     return fig.svg()
 
 
+def sigmoid(z: float) -> float:
+    return 1 / (1 + math.exp(-z))
+
+
+def bump(x: float, left: float, right: float, height: float, w: float) -> float:
+    """Two hidden sigmoids of weight w, with bias -w*left and -w*right, joined by output weights +-height."""
+    return height * (sigmoid(w * (x - left)) - sigmoid(w * (x - right)))
+
+
+def bump_fit(target: Callable[[float], float], x: float, n: int, w: float) -> float:
+    """n side-by-side bumps covering [0, 1], each as tall as the target at its center.
+
+    The outer edges sit outside [0, 1], so the fit doesn't fall away at the ends of the range.
+    """
+    edges = [-1.0, *(i / n for i in range(1, n)), 2.0]
+    return sum(bump(x, edges[i], edges[i + 1], target((i + 0.5) / n), w) for i in range(n))
+
+
+def universal_approximation() -> str:
+    fig = Fig(980, 450, "Universal approximation", "Plot", [
+        "Steepen a sigmoid into a step; two steps make a bump; bumps trace a curve.",
+    ])
+    top, w, h = 104.0, 250.0, 240.0
+    xs = [i / 600 for i in range(601)]
+
+    def target(x: float) -> float:
+        return 0.5 + 0.35 * math.sin(2 * math.pi * x)
+
+    def panel(x0: float, title: str, ticks: list[float], low: float, high: float) -> Callable[[float, float], Point]:
+        def point(x: float, v: float) -> Point:
+            return x0 + x * w, top + (high - v) / (high - low) * h
+
+        fig.outline(x0, top, w, h, EDGE, 1.2, "", 0)
+        fig.line(point(0, 0), point(1, 0), EDGE, 1.2)
+        fig.text(x0 + w / 2, top - 14, title, weight="bold")
+        for tick in ticks:
+            fig.text(point(tick, 0)[0], top + h + 28, f"{tick:g}", MUTED)
+        return point
+
+    step = panel(60.0, "steep sigmoid = step", [0.0, 0.5, 1.0], -0.1, 1.1)
+    fig.polyline([step(x, sigmoid(10 * (x - 0.5))) for x in xs], FIXED[0], 2.4, "6 5")
+    fig.polyline([step(x, sigmoid(300 * (x - 0.5))) for x in xs], LEARNED[0], 3.0)
+    fig.text(*step(0.6, 0.3), "w = 10", FIXED[0], "start")
+    fig.text(*step(0.6, 0.12), "w = 300", LEARNED[0], "start")
+
+    pair = panel(375.0, "two steps = bump", [0.4, 0.6], -1.15, 1.15)
+    fig.polyline([pair(x, 0.8 * sigmoid(300 * (x - 0.4))) for x in xs], LEARNED[0], 2.4, "6 5")
+    fig.polyline([pair(x, -0.8 * sigmoid(300 * (x - 0.6))) for x in xs], LEARNED[0], 2.4, "6 5")
+    fig.polyline([pair(x, bump(x, 0.4, 0.6, 0.8, 300)) for x in xs], OUTPUT[0], 3.2)
+    fig.text(*pair(0.8, 0.88), "+h", LEARNED[0])
+    fig.text(*pair(0.8, -0.72), "-h", LEARNED[0])
+
+    curve = panel(690.0, "many bumps = curve", [0.0, 1.0], -0.1, 1.1)
+    fig.polyline([curve(x, target(x)) for x in xs], DATA[0], 3.2)
+    fig.polyline([curve(x, bump_fit(target, x, 10, 300)) for x in xs], OUTPUT[0], 2.4)
+    fig.text(*curve(0.58, 0.95), "target", DATA[0], "start")
+    fig.text(*curve(0.58, 0.8), "10 bumps", OUTPUT[0], "start")
+    return fig.svg()
+
+
 def loss_landscape() -> str:
     fig = Fig(900, 550, "Loss landscape and gradient descent", "Plot", [
         "Axes are weights, not inputs. Contours mark equal loss; darkest is lowest.",
@@ -1401,6 +1461,7 @@ FIGURES: dict[str, Callable[[], str]] = {
     "neuron": neuron,
     "activation-functions": activation_functions,
     "mlp": mlp,
+    "universal-approximation": universal_approximation,
     "loss-landscape": loss_landscape,
     "computational-graph": computational_graph,
     "learning-curves": learning_curves,

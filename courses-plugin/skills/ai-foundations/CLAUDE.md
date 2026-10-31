@@ -22,6 +22,30 @@ with a small exercise before advancing. Never rush past something unverified.
 Keep sessions ~1 hour. Always update the data-dir `progress.md` and the day's
 lesson file at the end.
 
+## Universal approximation (topic 1.6)
+Teach at the level of Nielsen's visual proof
+([Ch. 4](http://neuralnetworksanddeeplearning.com/chap4.html)), and send the learner to its
+sliders. It sits right after the MLP because it needs only weights, biases, the sigmoid and a
+hidden layer, and it leads into loss: if a good network exists, how do we find it?
+
+- **The chain:** steep sigmoid, step at x = -b/w, two steps make a bump of height h, bumps make
+  a lookup table for any curve. Two opposite neurons per bump, so n bumps take 2n hidden neurons.
+  Many inputs work the same way with towers instead of bumps; give that as intuition only.
+- **What it doesn't promise:** approximation, not exactness; continuous functions; a bounded
+  input range; existence, not findability or a small size. Ten bumps per axis over d inputs is
+  10^d towers. That counts this construction, and is not a lower bound on any network.
+- **Which bends work:** Nielsen's recipe needs an activation with two different limits. ReLU has
+  no upper limit, yet it is universal too, because `ReLU(x-a) - ReLU(x-b)` is a ramp that levels
+  off, which works as a step. A linear activation never works: stacked linear layers are one
+  linear map. This pays off the "why a bend?" question from 1.4.
+- **Why go deep anyway:** Nielsen's answer is practical. Deep networks suit the hierarchies in
+  real problems, such as edges to shapes to scenes, and the evidence for that is empirical.
+- **Our simplification:** the course adds the bumps with a plain weighted sum. Nielsen's output
+  neuron is a sigmoid, so he targets the inverse sigmoid of f; skip that. His "windows of
+  failure" at the step edges get one sentence: steeper weights shrink them.
+- **Exercise beyond the atlas check:** in plain Python, using only 0.3 and 0.4, sum 5 and then
+  20 bumps to fit a sine and watch the fit improve. No PyTorch or training is involved.
+
 ## Diagrams
 `the-diagram-atlas.md` holds the famous picture for each architecture buzzword, by
 topic. Reading these is a course outcome: a learner should be able to name any of

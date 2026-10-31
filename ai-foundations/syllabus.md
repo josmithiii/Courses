@@ -30,10 +30,13 @@ and a check.
 - **1.3** The artificial neuron: weighted sum + bias. Hand-compute one by hand.
 - **1.4** Activation functions: why we need a "bend" (ReLU, sigmoid) — intuition.
 - **1.5** A layer of neurons; stacking layers → the **Multi-Layer Perceptron (MLP)**.
-- **1.6** Loss: measuring how wrong a prediction is (MSE; cross-entropy intuition).
-- **1.7** Gradient descent: rolling downhill to reduce loss. Learning rate intuition.
-- **1.8** Backpropagation: how blame flows backward to each weight (intuition + tiny worked example).
-- **1.9** The training loop: epochs, batches, iterations — the whole picture.
+- **1.6** Universal approximation: a visual proof that one hidden layer can trace any
+  continuous curve (steep sigmoid → step → bump → lookup table), what the theorem promises,
+  what it doesn't, and why we still go deep.
+- **1.7** Loss: measuring how wrong a prediction is (MSE; cross-entropy intuition).
+- **1.8** Gradient descent: rolling downhill to reduce loss. Learning rate intuition.
+- **1.9** Backpropagation: how blame flows backward to each weight (intuition + tiny worked example).
+- **1.10** The training loop: epochs, batches, iterations — the whole picture.
 
 ## Phase 2 — PyTorch For Real
 - **2.1** Tensors: creating, shapes, indexing, math on them.
