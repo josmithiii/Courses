@@ -418,10 +418,10 @@ def convolution() -> str:
     number_grid(fig, 50, top, cell, image, lambda r, c: LEARNED[1] if r < 2 and c < 2 else DATA[1])
     fig.outline(50, top, 2 * cell, 2 * cell, LEARNED[0], 3.5, "", 0)
     fig.text(50 + 2 * cell, top - 12, "input", weight="bold")
-    fig.text(316, middle + 8, "*", size=30)
+    fig.text(316, middle + 8, "*", size=TITLE)
     number_grid(fig, 350, middle - cell, cell, kernel, lambda r, c: LEARNED[1])
     fig.text(350 + cell, middle - cell - 12, "kernel", weight="bold")
-    fig.text(504, middle + 8, "=", size=30)
+    fig.text(504, middle + 8, "=", size=TITLE)
     number_grid(fig, 546, middle - 1.5 * cell, cell, output, lambda r, c: LEARNED[1] if r == c == 0 else OUTPUT[1])
     fig.outline(546, middle - 1.5 * cell, cell, cell, LEARNED[0], 3.5, "", 0)
     fig.text(546 + 1.5 * cell, middle - 1.5 * cell - 12, "output", weight="bold")
@@ -585,6 +585,252 @@ def resnet_block() -> str:
     fig.arrow([(cx + 6, 112), (right, 112), (right, 414), (cx + 18, 414)], DATA[0], 2.4)
     fig.text(right + 12, 256, "x", DATA[0], "start", "bold")
     fig.text(right + 12, 284, "(identity)", DATA[0], "start")
+    return fig.svg()
+
+
+def word_embeddings() -> str:
+    fig = Fig(860, 470, "Word embedding space", "Plot", [
+        "Illustrative 2-D sketch of a space with hundreds of dimensions.",
+        "Nearby means similar use, and some directions carry meaning.",
+    ])
+    fig.outline(40, 70, 780, 320, EDGE, 1.2, "", 0)
+    spots = {"man": (160.0, 320.0), "woman": (160.0, 150.0), "king": (470.0, 320.0), "queen": (470.0, 150.0)}
+    for a, b in (("man", "king"), ("woman", "queen")):
+        fig.arrow([(spots[a][0] + 14, spots[a][1]), (spots[b][0] - 14, spots[b][1])], FIXED[0], 1.6, "6 4")
+    for a, b in (("man", "woman"), ("king", "queen")):
+        fig.arrow([(spots[a][0], spots[a][1] - 14), (spots[b][0], spots[b][1] + 14)], LEARNED[0], 2.6)
+    for word, (x, y) in spots.items():
+        fig.circle(x, y, 9, DATA)
+        fig.text(x + 18, y + 30 if word in ("man", "king") else y - 12, word, anchor="start")
+    for word, x, y in (("apple", 640.0, 300.0), ("pear", 700.0, 240.0), ("plum", 620.0, 200.0)):
+        fig.circle(x, y, 9, OUTPUT)
+        fig.text(x + 18, y + 7, word, anchor="start")
+    fig.text(150, 244, "same", LEARNED[0], "end")
+    fig.text(150, 270, "direction", LEARNED[0], "end")
+    return fig.svg()
+
+
+def rnn() -> str:
+    fig = Fig(980, 440, "RNN, folded and unrolled", "Block", [
+        "The chain on the right is the loop on the left, drawn over time.",
+        "Every box is the same box with the same weights. They are not layers.",
+    ])
+    y, half_w, half_h = 225.0, 46.0, 36.0
+    x = 130.0
+    fig.box(x, y, "A", LEARNED, w=2 * half_w, h=2 * half_h)
+    fig.arrow([(x, y + half_h + 50), (x, y + half_h + 2)])
+    fig.arrow([(x, y - half_h - 2), (x, y - half_h - 50)])
+    fig.text(x, y + half_h + 80, "x", sub="t", size=24)
+    fig.text(x, y - half_h - 62, "y", sub="t", size=24)
+    fig.arrow([(x + half_w, y + 16), (x + half_w + 44, y + 16), (x + half_w + 44, y - 16), (x + half_w + 2, y - 16)])
+    fig.text(x + half_w + 54, y + 7, "h", MUTED, "start")
+    fig.text(286, y + 9, "=", size=TITLE)
+    for i in range(4):
+        cx = 380 + i * 150.0
+        fig.box(cx, y, "A", LEARNED, w=2 * half_w, h=2 * half_h)
+        fig.arrow([(cx, y + half_h + 50), (cx, y + half_h + 2)])
+        fig.arrow([(cx, y - half_h - 2), (cx, y - half_h - 50)])
+        fig.text(cx, y + half_h + 80, "x", sub=str(i + 1), size=24)
+        fig.text(cx, y - half_h - 62, "y", sub=str(i + 1), size=24)
+        if i < 3:
+            fig.arrow([(cx + half_w + 2, y), (cx + 150 - half_w - 2, y)])
+            fig.text(cx + 75, y - 12, "h", MUTED)
+    return fig.svg()
+
+
+def lstm() -> str:
+    fig = Fig(980, 510, "LSTM cell", "Block", [
+        "The top line carries memory. Three gates decide what to forget, add and output.",
+    ])
+    top, bottom, r = 130.0, 400.0, 16.0
+
+    def op(x: float, y: float, symbol: str) -> None:
+        fig.circle(x, y, r, FIXED)
+        fig.text(x, y + 7, symbol)
+
+    fig.arrow([(70, top), (900, top)], DATA[0], 4.0)
+    fig.text(24, top - 16, "c", DATA[0], "start", sub="t-1", size=24)
+    fig.text(950, top - 16, "c", DATA[0], "end", sub="t", size=24)
+    fig.text(640, top - 16, "cell state: memory", DATA[0], weight="bold")
+    fig.line((70, bottom), (680, bottom), MUTED, 2.0)
+    fig.text(24, bottom + 36, "h(t-1) and x(t)", MUTED, "start")
+
+    fig.arrow([(220, bottom), (220, 324)])
+    fig.box(220, 300, "sigmoid", LEARNED, w=110, h=44)
+    fig.arrow([(220, 278), (220, top + r)])
+    op(220, top, "x")
+
+    fig.arrow([(400, bottom), (400, 324)])
+    fig.box(400, 300, "sigmoid", LEARNED, w=110, h=44)
+    fig.arrow([(530, bottom), (530, 324)])
+    fig.box(530, 300, "tanh", LEARNED, w=110, h=44)
+    fig.arrow([(400, 278), (400, 215), (465 - r, 215)])
+    fig.arrow([(530, 278), (530, 215), (465 + r, 215)])
+    op(465, 215, "x")
+    fig.arrow([(465, 215 - r), (465, top + r)])
+    op(465, top, "+")
+
+    fig.arrow([(680, bottom), (680, 324)])
+    fig.box(680, 300, "sigmoid", LEARNED, w=110, h=44)
+    fig.arrow([(680, 278), (680, 240), (790 - r, 240)])
+    fig.arrow([(790, top), (790, 160)])
+    fig.box(790, 182, "tanh", FIXED, w=90, h=44)
+    fig.arrow([(790, 204), (790, 240 - r)])
+    op(790, 240, "x")
+    fig.arrow([(790, 240 + r), (790, bottom), (900, bottom)])
+    fig.text(950, bottom + 8, "h", INK, "end", sub="t", size=24)
+
+    fig.text(240, bottom + 36, "forget", LEARNED[0], "start", "bold")
+    fig.text(465, bottom + 36, "input", LEARNED[0], weight="bold")
+    fig.text(680, bottom + 36, "output", LEARNED[0], weight="bold")
+    return fig.svg()
+
+
+def seq2seq() -> str:
+    fig = Fig(1000, 430, "Seq2seq (encoder-decoder)", "Block", [
+        "Everything must squeeze through one fixed-size vector. Attention fixes this.",
+    ])
+    y = 220.0
+    encoder = (110.0, 240.0, 370.0)
+    decoder = (640.0, 770.0, 900.0)
+    for x, word in zip(encoder, ("the", "cat", "sat")):
+        fig.box(x, y, "RNN", LEARNED, w=96, h=60)
+        fig.arrow([(x, y + 80), (x, y + 32)])
+        fig.text(x, y + 106, word, DATA[0], weight="bold")
+    for a, b in zip(encoder, encoder[1:]):
+        fig.arrow([(a + 49, y), (b - 49, y)])
+    fig.arrow([(encoder[-1] + 49, y), (505 - 36, y)])
+    fig.circle(505, y, 34, DATA, 3.0)
+    fig.text(505, y + 8, "c", size=24)
+    fig.text(505, y - 56, "fixed-size summary", DATA[0], weight="bold")
+    fig.arrow([(505 + 36, y), (decoder[0] - 49, y)])
+    for a, b in zip(decoder, decoder[1:]):
+        fig.arrow([(a + 49, y), (b - 49, y)])
+    for x, word in zip(decoder, ("le", "chat", "assis")):
+        fig.box(x, y, "RNN", LEARNED, w=96, h=60)
+        fig.arrow([(x, y - 32), (x, y - 80)])
+        fig.text(x, y - 92, word, OUTPUT[0], weight="bold")
+    fig.text(encoder[1], y - 92, "encoder", MUTED)
+    fig.text(decoder[1], y + 106, "decoder", MUTED)
+    return fig.svg()
+
+
+def attention_heatmap() -> str:
+    fig = Fig(880, 520, "Attention as a heatmap", "Plot", [
+        "Illustrative weights, patterned on Bahdanau et al., Fig. 3. Rows sum to 1.",
+        "Off-diagonal patches appear where the two languages order words differently.",
+    ])
+    source = ("the", "European", "Economic", "Area")
+    target = ("la", "zone", "économique", "européenne")
+    weights = [[0.90, 0.04, 0.03, 0.03], [0.05, 0.10, 0.15, 0.70],
+               [0.02, 0.18, 0.75, 0.05], [0.03, 0.80, 0.12, 0.05]]
+    if any(abs(sum(row) - 1) > 1e-9 for row in weights):
+        die("attention_heatmap: a row of weights doesn't sum to 1")
+    x0, y0, w, h = 230.0, 112.0, 130.0, 72.0
+    orange = (208, 112, 26)
+    for r, row in enumerate(weights):
+        fig.text(x0 - 12, y0 + (r + 0.5) * h + 7, target[r], anchor="end")
+        for c, value in enumerate(row):
+            fill = "#" + "".join(f"{round(255 + (v - 255) * value):02x}" for v in orange)
+            fig.plane(x0 + c * w, y0 + r * h, w, h, (EDGE, fill))
+            fig.text(x0 + (c + 0.5) * w, y0 + (r + 0.5) * h + 7, f"{value:.2f}", "#ffffff" if value > 0.6 else MUTED)
+    for c, word in enumerate(source):
+        fig.text(x0 + (c + 0.5) * w, y0 - 12, word)
+    return fig.svg()
+
+
+def stacked_box(fig: Fig, cx: float, cy: float, label: str, kind: tuple[str, str], w: float, h: float = 46) -> None:
+    """A box with shadow copies behind it: parallel copies, not depth."""
+    for offset in (16, 8):
+        fig.plane(cx - w / 2 + offset, cy - h / 2 - offset, w, h, kind)
+    fig.box(cx, cy, label, kind, w, h)
+
+
+def scaled_dot_product() -> str:
+    fig = Fig(720, 680, "Scaled dot-product attention", "Block", [
+        "No trained weights here: they sit in the Q, K, V projections.",
+        "Read bottom to top.",
+    ])
+    cx, qx, kx, vx = 260.0, 190.0, 330.0, 500.0
+    h = 21.0
+    fig.text(qx, 588, "Q", DATA[0], weight="bold", size=24)
+    fig.text(kx, 588, "K", DATA[0], weight="bold", size=24)
+    fig.text(vx, 588, "V", DATA[0], weight="bold", size=24)
+    fig.arrow([(qx, 562), (qx, 492 + h)])
+    fig.arrow([(kx, 562), (kx, 492 + h)])
+    fig.box(cx, 492, "MatMul", FIXED)
+    fig.arrow([(cx, 492 - h), (cx, 412 + h)])
+    fig.box(cx, 412, "Scale", FIXED)
+    fig.arrow([(cx, 412 - h), (cx, 332 + h)])
+    fig.box(cx, 332, "Mask (optional)", FIXED)
+    fig.arrow([(cx, 332 - h), (cx, 252 + h)])
+    fig.box(cx, 252, "SoftMax", FIXED)
+    fig.arrow([(cx, 252 - h), (cx, 162 + h)])
+    fig.box(360, 162, "MatMul", FIXED, w=340)
+    fig.arrow([(vx, 562), (vx, 162 + h)])
+    fig.arrow([(360, 162 - h), (360, 88)])
+    fig.text(376, 112, "output", OUTPUT[0], "start", "bold")
+    return fig.svg()
+
+
+def multi_head_attention() -> str:
+    fig = Fig(820, 670, "Multi-head attention", "Block", [
+        "Stacked boxes are h parallel copies, not depth. Read bottom to top.",
+    ])
+    inputs = (("V", 230.0), ("K", 400.0), ("Q", 570.0))
+    cx = 400.0
+    for name, x in inputs:
+        fig.text(x, 604, name, DATA[0], weight="bold", size=24)
+        fig.arrow([(x, 578), (x, 513)])
+        stacked_box(fig, x, 490, "Linear", LEARNED, 130)
+        fig.arrow([(x, 452), (x, 381)])
+    stacked_box(fig, cx, 350, "Scaled Dot-Product Attention", FIXED, 480, 60)
+    fig.text(cx + 280, 336, "h heads", MUTED, "start")
+    fig.arrow([(cx, 304), (cx, 262)])
+    fig.box(cx, 240, "Concat", FIXED, w=220, h=44)
+    fig.arrow([(cx, 218), (cx, 174)])
+    fig.box(cx, 152, "Linear", LEARNED, w=220, h=44)
+    fig.arrow([(cx, 130), (cx, 76)])
+    return fig.svg()
+
+
+def normalization() -> str:
+    fig = Fig(1000, 400, "Normalization: which cells go together", "Slab", [
+        "Shaded cells are normalized together. N: batch. C: channels. H, W: space.",
+    ])
+    n_cells, c_cells, hw_cells = 5, 5, 5
+    cell, dx, dy = 22.0, 13.0, -10.0
+    methods: list[tuple[str, Callable[[int, int], bool]]] = [
+        ("Batch Norm", lambda n, c: c == 0),
+        ("Layer Norm", lambda n, c: n == 0),
+        ("Instance Norm", lambda n, c: n == 0 and c == 0),
+        ("Group Norm", lambda n, c: n == 0 and c < 2),
+    ]
+    for k, (name, shaded) in enumerate(methods):
+        x, y = 56 + k * 240.0, 178.0
+
+        def fill(n: int, c: int) -> str:
+            return LEARNED[1] if shaded(n, c) else DATA[1]
+
+        stroke = DATA[0]
+        for n in range(n_cells):
+            for h in range(hw_cells):
+                left, top = x + n * cell, y + h * cell
+                fig.polygon([(left, top), (left + cell, top), (left + cell, top + cell), (left, top + cell)], fill(n, 0), stroke)
+            for c in range(c_cells):
+                a = (x + n * cell + c * dx, y + c * dy)
+                b = (a[0] + cell, a[1])
+                fig.polygon([a, b, (b[0] + dx, b[1] + dy), (a[0] + dx, a[1] + dy)], fill(n, c), stroke)
+        right = x + n_cells * cell
+        for c in range(c_cells):
+            for h in range(hw_cells):
+                a = (right + c * dx, y + c * dy + h * cell)
+                b = (a[0] + dx, a[1] + dy)
+                fig.polygon([a, b, (b[0], b[1] + cell), (a[0], a[1] + cell)], fill(n_cells - 1, c), stroke)
+        fig.text(x + 88, 100, name, weight="bold")
+    fig.text(56 + 2.5 * cell, 312, "N", MUTED)
+    fig.rotated(36, 178 + 2.5 * cell, "H, W", MUTED)
+    fig.text(56 + 5 * cell + 5 * dx + 8, 130, "C", MUTED, "start")
     return fig.svg()
 
 
@@ -849,7 +1095,15 @@ FIGURES: dict[str, Callable[[], str]] = {
     "alexnet-vgg": alexnet_vgg,
     "inception": inception,
     "resnet-block": resnet_block,
+    "word-embeddings": word_embeddings,
+    "rnn": rnn,
+    "lstm": lstm,
+    "seq2seq": seq2seq,
+    "attention-heatmap": attention_heatmap,
+    "scaled-dot-product": scaled_dot_product,
+    "multi-head-attention": multi_head_attention,
     "positional-encoding": positional_encoding,
+    "normalization": normalization,
     "transformer": transformer,
     "diffusion-chain": diffusion,
 }

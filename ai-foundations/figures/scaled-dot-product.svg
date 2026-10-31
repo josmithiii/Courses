@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 680" width="720" height="680" style="font-family:Helvetica, Arial, sans-serif">
+<rect width="720" height="680" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">Scaled dot-product attention</text>
+<rect x="617.5" y="16" width="82.5" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="658.75" y="41" font-size="21" fill="#667080" text-anchor="middle">Block</text>
+<text x="190" y="588" font-size="24" fill="#1f8a7d" text-anchor="middle" font-weight="bold">Q</text>
+<text x="330" y="588" font-size="24" fill="#1f8a7d" text-anchor="middle" font-weight="bold">K</text>
+<text x="500" y="588" font-size="24" fill="#1f8a7d" text-anchor="middle" font-weight="bold">V</text>
+<line x1="190" y1="562" x2="190" y2="523" stroke="#667080" stroke-width="1.8"/>
+<polygon points="190,513 185.922,522.131 194.078,522.131" fill="#667080"/>
+<line x1="330" y1="562" x2="330" y2="523" stroke="#667080" stroke-width="1.8"/>
+<polygon points="330,513 325.922,522.131 334.078,522.131" fill="#667080"/>
+<rect x="135" y="471" width="250" height="42" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="260" y="499" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">MatMul</text>
+<line x1="260" y1="471" x2="260" y2="443" stroke="#667080" stroke-width="1.8"/>
+<polygon points="260,433 255.922,442.131 264.078,442.131" fill="#667080"/>
+<rect x="135" y="391" width="250" height="42" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="260" y="419" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Scale</text>
+<line x1="260" y1="391" x2="260" y2="363" stroke="#667080" stroke-width="1.8"/>
+<polygon points="260,353 255.922,362.131 264.078,362.131" fill="#667080"/>
+<rect x="135" y="311" width="250" height="42" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="260" y="339" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Mask (optional)</text>
+<line x1="260" y1="311" x2="260" y2="283" stroke="#667080" stroke-width="1.8"/>
+<polygon points="260,273 255.922,282.131 264.078,282.131" fill="#667080"/>
+<rect x="135" y="231" width="250" height="42" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="260" y="259" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">SoftMax</text>
+<line x1="260" y1="231" x2="260" y2="193" stroke="#667080" stroke-width="1.8"/>
+<polygon points="260,183 255.922,192.131 264.078,192.131" fill="#667080"/>
+<rect x="190" y="141" width="340" height="42" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="360" y="169" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">MatMul</text>
+<line x1="500" y1="562" x2="500" y2="193" stroke="#667080" stroke-width="1.8"/>
+<polygon points="500,183 495.922,192.131 504.078,192.131" fill="#667080"/>
+<line x1="360" y1="141" x2="360" y2="98" stroke="#667080" stroke-width="1.8"/>
+<polygon points="360,88 355.922,97.1309 364.078,97.1309" fill="#667080"/>
+<text x="376" y="112" font-size="21" fill="#7a4ca3" text-anchor="start" font-weight="bold">output</text>
+<text x="24" y="637" font-size="21" fill="#667080">No trained weights here: they sit in the Q, K, V projections.</text>
+<text x="24" y="664" font-size="21" fill="#667080">Read bottom to top.</text>
+</svg>

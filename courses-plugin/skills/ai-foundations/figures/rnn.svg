@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 440" width="980" height="440" style="font-family:Helvetica, Arial, sans-serif">
+<rect width="980" height="440" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">RNN, folded and unrolled</text>
+<rect x="877.5" y="16" width="82.5" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="918.75" y="41" font-size="21" fill="#667080" text-anchor="middle">Block</text>
+<rect x="84" y="189" width="92" height="72" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="130" y="232" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">A</text>
+<line x1="130" y1="311" x2="130" y2="273" stroke="#667080" stroke-width="1.8"/>
+<polygon points="130,263 125.922,272.131 134.078,272.131" fill="#667080"/>
+<line x1="130" y1="187" x2="130" y2="149" stroke="#667080" stroke-width="1.8"/>
+<polygon points="130,139 125.922,148.131 134.078,148.131" fill="#667080"/>
+<text x="130" y="341" font-size="24" fill="#23262b" text-anchor="middle" font-weight="normal">x<tspan dy="4" font-size="21">t</tspan></text>
+<text x="130" y="127" font-size="24" fill="#23262b" text-anchor="middle" font-weight="normal">y<tspan dy="4" font-size="21">t</tspan></text>
+<line x1="176" y1="241" x2="220" y2="241" stroke="#667080" stroke-width="1.8"/>
+<line x1="220" y1="241" x2="220" y2="209" stroke="#667080" stroke-width="1.8"/>
+<line x1="220" y1="209" x2="188" y2="209" stroke="#667080" stroke-width="1.8"/>
+<polygon points="178,209 187.131,213.078 187.131,204.922" fill="#667080"/>
+<text x="230" y="232" font-size="21" fill="#667080" text-anchor="start" font-weight="normal">h</text>
+<text x="286" y="234" font-size="26" fill="#23262b" text-anchor="middle" font-weight="normal">=</text>
+<rect x="334" y="189" width="92" height="72" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="380" y="232" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">A</text>
+<line x1="380" y1="311" x2="380" y2="273" stroke="#667080" stroke-width="1.8"/>
+<polygon points="380,263 375.922,272.131 384.078,272.131" fill="#667080"/>
+<line x1="380" y1="187" x2="380" y2="149" stroke="#667080" stroke-width="1.8"/>
+<polygon points="380,139 375.922,148.131 384.078,148.131" fill="#667080"/>
+<text x="380" y="341" font-size="24" fill="#23262b" text-anchor="middle" font-weight="normal">x<tspan dy="4" font-size="21">1</tspan></text>
+<text x="380" y="127" font-size="24" fill="#23262b" text-anchor="middle" font-weight="normal">y<tspan dy="4" font-size="21">1</tspan></text>
+<line x1="428" y1="225" x2="472" y2="225" stroke="#667080" stroke-width="1.8"/>
+<polygon points="482,225 472.869,220.922 472.869,229.078" fill="#667080"/>
+<text x="455" y="213" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">h</text>
+<rect x="484" y="189" width="92" height="72" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="530" y="232" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">A</text>
+<line x1="530" y1="311" x2="530" y2="273" stroke="#667080" stroke-width="1.8"/>
+<polygon points="530,263 525.922,272.131 534.078,272.131" fill="#667080"/>
+<line x1="530" y1="187" x2="530" y2="149" stroke="#667080" stroke-width="1.8"/>
+<polygon points="530,139 525.922,148.131 534.078,148.131" fill="#667080"/>
+<text x="530" y="341" font-size="24" fill="#23262b" text-anchor="middle" font-weight="normal">x<tspan dy="4" font-size="21">2</tspan></text>
+<text x="530" y="127" font-size="24" fill="#23262b" text-anchor="middle" font-weight="normal">y<tspan dy="4" font-size="21">2</tspan></text>
+<line x1="578" y1="225" x2="622" y2="225" stroke="#667080" stroke-width="1.8"/>
+<polygon points="632,225 622.869,220.922 622.869,229.078" fill="#667080"/>
+<text x="605" y="213" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">h</text>
+<rect x="634" y="189" width="92" height="72" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="680" y="232" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">A</text>
+<line x1="680" y1="311" x2="680" y2="273" stroke="#667080" stroke-width="1.8"/>
+<polygon points="680,263 675.922,272.131 684.078,272.131" fill="#667080"/>
+<line x1="680" y1="187" x2="680" y2="149" stroke="#667080" stroke-width="1.8"/>
+<polygon points="680,139 675.922,148.131 684.078,148.131" fill="#667080"/>
+<text x="680" y="341" font-size="24" fill="#23262b" text-anchor="middle" font-weight="normal">x<tspan dy="4" font-size="21">3</tspan></text>
+<text x="680" y="127" font-size="24" fill="#23262b" text-anchor="middle" font-weight="normal">y<tspan dy="4" font-size="21">3</tspan></text>
+<line x1="728" y1="225" x2="772" y2="225" stroke="#667080" stroke-width="1.8"/>
+<polygon points="782,225 772.869,220.922 772.869,229.078" fill="#667080"/>
+<text x="755" y="213" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">h</text>
+<rect x="784" y="189" width="92" height="72" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="830" y="232" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">A</text>
+<line x1="830" y1="311" x2="830" y2="273" stroke="#667080" stroke-width="1.8"/>
+<polygon points="830,263 825.922,272.131 834.078,272.131" fill="#667080"/>
+<line x1="830" y1="187" x2="830" y2="149" stroke="#667080" stroke-width="1.8"/>
+<polygon points="830,139 825.922,148.131 834.078,148.131" fill="#667080"/>
+<text x="830" y="341" font-size="24" fill="#23262b" text-anchor="middle" font-weight="normal">x<tspan dy="4" font-size="21">4</tspan></text>
+<text x="830" y="127" font-size="24" fill="#23262b" text-anchor="middle" font-weight="normal">y<tspan dy="4" font-size="21">4</tspan></text>
+<text x="24" y="397" font-size="21" fill="#667080">The chain on the right is the loop on the left, drawn over time.</text>
+<text x="24" y="424" font-size="21" fill="#667080">Every box is the same box with the same weights. They are not layers.</text>
+</svg>

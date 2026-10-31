@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 470" width="860" height="470" style="font-family:Helvetica, Arial, sans-serif">
+<rect width="860" height="470" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">Word embedding space</text>
+<rect x="768" y="16" width="72" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="804" y="41" font-size="21" fill="#667080" text-anchor="middle">Plot</text>
+<rect x="40" y="70" width="780" height="320" rx="0" fill="none" stroke="#aab2bd" stroke-width="1.2"/>
+<line x1="174" y1="320" x2="446" y2="320" stroke="#5b6b80" stroke-width="1.6" stroke-dasharray="6 4"/>
+<polygon points="456,320 446.869,315.922 446.869,324.078" fill="#5b6b80"/>
+<line x1="174" y1="150" x2="446" y2="150" stroke="#5b6b80" stroke-width="1.6" stroke-dasharray="6 4"/>
+<polygon points="456,150 446.869,145.922 446.869,154.078" fill="#5b6b80"/>
+<line x1="160" y1="306" x2="160" y2="174" stroke="#d0701a" stroke-width="2.6"/>
+<polygon points="160,164 155.922,173.131 164.078,173.131" fill="#d0701a"/>
+<line x1="470" y1="306" x2="470" y2="174" stroke="#d0701a" stroke-width="2.6"/>
+<polygon points="470,164 465.922,173.131 474.078,173.131" fill="#d0701a"/>
+<circle cx="160" cy="320" r="9" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.8"/>
+<text x="178" y="350" font-size="21" fill="#23262b" text-anchor="start" font-weight="normal">man</text>
+<circle cx="160" cy="150" r="9" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.8"/>
+<text x="178" y="138" font-size="21" fill="#23262b" text-anchor="start" font-weight="normal">woman</text>
+<circle cx="470" cy="320" r="9" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.8"/>
+<text x="488" y="350" font-size="21" fill="#23262b" text-anchor="start" font-weight="normal">king</text>
+<circle cx="470" cy="150" r="9" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.8"/>
+<text x="488" y="138" font-size="21" fill="#23262b" text-anchor="start" font-weight="normal">queen</text>
+<circle cx="640" cy="300" r="9" fill="#ecdff4" stroke="#7a4ca3" stroke-width="1.8"/>
+<text x="658" y="307" font-size="21" fill="#23262b" text-anchor="start" font-weight="normal">apple</text>
+<circle cx="700" cy="240" r="9" fill="#ecdff4" stroke="#7a4ca3" stroke-width="1.8"/>
+<text x="718" y="247" font-size="21" fill="#23262b" text-anchor="start" font-weight="normal">pear</text>
+<circle cx="620" cy="200" r="9" fill="#ecdff4" stroke="#7a4ca3" stroke-width="1.8"/>
+<text x="638" y="207" font-size="21" fill="#23262b" text-anchor="start" font-weight="normal">plum</text>
+<text x="150" y="244" font-size="21" fill="#d0701a" text-anchor="end" font-weight="normal">same</text>
+<text x="150" y="270" font-size="21" fill="#d0701a" text-anchor="end" font-weight="normal">direction</text>
+<text x="24" y="427" font-size="21" fill="#667080">Illustrative 2-D sketch of a space with hundreds of dimensions.</text>
+<text x="24" y="454" font-size="21" fill="#667080">Nearby means similar use, and some directions carry meaning.</text>
+</svg>

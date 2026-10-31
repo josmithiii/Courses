@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" width="880" height="520" style="font-family:Helvetica, Arial, sans-serif">
+<rect width="880" height="520" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">Attention as a heatmap</text>
+<rect x="788" y="16" width="72" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="824" y="41" font-size="21" fill="#667080" text-anchor="middle">Plot</text>
+<text x="218" y="155" font-size="21" fill="#23262b" text-anchor="end" font-weight="normal">la</text>
+<rect x="230" y="112" width="130" height="72" fill="#d57e31" stroke="#aab2bd" stroke-width="1"/>
+<text x="295" y="155" font-size="21" fill="#ffffff" text-anchor="middle" font-weight="normal">0.90</text>
+<rect x="360" y="112" width="130" height="72" fill="#fdf9f6" stroke="#aab2bd" stroke-width="1"/>
+<text x="425" y="155" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">0.04</text>
+<rect x="490" y="112" width="130" height="72" fill="#fefbf8" stroke="#aab2bd" stroke-width="1"/>
+<text x="555" y="155" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">0.03</text>
+<rect x="620" y="112" width="130" height="72" fill="#fefbf8" stroke="#aab2bd" stroke-width="1"/>
+<text x="685" y="155" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">0.03</text>
+<text x="218" y="227" font-size="21" fill="#23262b" text-anchor="end" font-weight="normal">zone</text>
+<rect x="230" y="184" width="130" height="72" fill="#fdf8f4" stroke="#aab2bd" stroke-width="1"/>
+<text x="295" y="227" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">0.05</text>
+<rect x="360" y="184" width="130" height="72" fill="#faf1e8" stroke="#aab2bd" stroke-width="1"/>
+<text x="425" y="227" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">0.10</text>
+<rect x="490" y="184" width="130" height="72" fill="#f8eadd" stroke="#aab2bd" stroke-width="1"/>
+<text x="555" y="227" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">0.15</text>
+<rect x="620" y="184" width="130" height="72" fill="#de9b5f" stroke="#aab2bd" stroke-width="1"/>
+<text x="685" y="227" font-size="21" fill="#ffffff" text-anchor="middle" font-weight="normal">0.70</text>
+<text x="218" y="299" font-size="21" fill="#23262b" text-anchor="end" font-weight="normal">économique</text>
+<rect x="230" y="256" width="130" height="72" fill="#fefcfa" stroke="#aab2bd" stroke-width="1"/>
+<text x="295" y="299" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">0.02</text>
+<rect x="360" y="256" width="130" height="72" fill="#f7e5d6" stroke="#aab2bd" stroke-width="1"/>
+<text x="425" y="299" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">0.18</text>
+<rect x="490" y="256" width="130" height="72" fill="#dc9453" stroke="#aab2bd" stroke-width="1"/>
+<text x="555" y="299" font-size="21" fill="#ffffff" text-anchor="middle" font-weight="normal">0.75</text>
+<rect x="620" y="256" width="130" height="72" fill="#fdf8f4" stroke="#aab2bd" stroke-width="1"/>
+<text x="685" y="299" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">0.05</text>
+<text x="218" y="371" font-size="21" fill="#23262b" text-anchor="end" font-weight="normal">européenne</text>
+<rect x="230" y="328" width="130" height="72" fill="#fefbf8" stroke="#aab2bd" stroke-width="1"/>
+<text x="295" y="371" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">0.03</text>
+<rect x="360" y="328" width="130" height="72" fill="#d98d48" stroke="#aab2bd" stroke-width="1"/>
+<text x="425" y="371" font-size="21" fill="#ffffff" text-anchor="middle" font-weight="normal">0.80</text>
+<rect x="490" y="328" width="130" height="72" fill="#f9eee4" stroke="#aab2bd" stroke-width="1"/>
+<text x="555" y="371" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">0.12</text>
+<rect x="620" y="328" width="130" height="72" fill="#fdf8f4" stroke="#aab2bd" stroke-width="1"/>
+<text x="685" y="371" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">0.05</text>
+<text x="295" y="100" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">the</text>
+<text x="425" y="100" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">European</text>
+<text x="555" y="100" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Economic</text>
+<text x="685" y="100" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Area</text>
+<text x="24" y="477" font-size="21" fill="#667080">Illustrative weights, patterned on Bahdanau et al., Fig. 3. Rows sum to 1.</text>
+<text x="24" y="504" font-size="21" fill="#667080">Off-diagonal patches appear where the two languages order words differently.</text>
+</svg>

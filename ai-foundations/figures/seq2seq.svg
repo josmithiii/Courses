@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" width="1000" height="430" style="font-family:Helvetica, Arial, sans-serif">
+<rect width="1000" height="430" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">Seq2seq (encoder-decoder)</text>
+<rect x="897.5" y="16" width="82.5" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="938.75" y="41" font-size="21" fill="#667080" text-anchor="middle">Block</text>
+<rect x="62" y="190" width="96" height="60" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="110" y="227" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">RNN</text>
+<line x1="110" y1="300" x2="110" y2="262" stroke="#667080" stroke-width="1.8"/>
+<polygon points="110,252 105.922,261.131 114.078,261.131" fill="#667080"/>
+<text x="110" y="326" font-size="21" fill="#1f8a7d" text-anchor="middle" font-weight="bold">the</text>
+<rect x="192" y="190" width="96" height="60" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="240" y="227" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">RNN</text>
+<line x1="240" y1="300" x2="240" y2="262" stroke="#667080" stroke-width="1.8"/>
+<polygon points="240,252 235.922,261.131 244.078,261.131" fill="#667080"/>
+<text x="240" y="326" font-size="21" fill="#1f8a7d" text-anchor="middle" font-weight="bold">cat</text>
+<rect x="322" y="190" width="96" height="60" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="370" y="227" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">RNN</text>
+<line x1="370" y1="300" x2="370" y2="262" stroke="#667080" stroke-width="1.8"/>
+<polygon points="370,252 365.922,261.131 374.078,261.131" fill="#667080"/>
+<text x="370" y="326" font-size="21" fill="#1f8a7d" text-anchor="middle" font-weight="bold">sat</text>
+<line x1="159" y1="220" x2="181" y2="220" stroke="#667080" stroke-width="1.8"/>
+<polygon points="191,220 181.869,215.922 181.869,224.078" fill="#667080"/>
+<line x1="289" y1="220" x2="311" y2="220" stroke="#667080" stroke-width="1.8"/>
+<polygon points="321,220 311.869,215.922 311.869,224.078" fill="#667080"/>
+<line x1="419" y1="220" x2="459" y2="220" stroke="#667080" stroke-width="1.8"/>
+<polygon points="469,220 459.869,215.922 459.869,224.078" fill="#667080"/>
+<circle cx="505" cy="220" r="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="3"/>
+<text x="505" y="228" font-size="24" fill="#23262b" text-anchor="middle" font-weight="normal">c</text>
+<text x="505" y="164" font-size="21" fill="#1f8a7d" text-anchor="middle" font-weight="bold">fixed-size summary</text>
+<line x1="541" y1="220" x2="581" y2="220" stroke="#667080" stroke-width="1.8"/>
+<polygon points="591,220 581.869,215.922 581.869,224.078" fill="#667080"/>
+<line x1="689" y1="220" x2="711" y2="220" stroke="#667080" stroke-width="1.8"/>
+<polygon points="721,220 711.869,215.922 711.869,224.078" fill="#667080"/>
+<line x1="819" y1="220" x2="841" y2="220" stroke="#667080" stroke-width="1.8"/>
+<polygon points="851,220 841.869,215.922 841.869,224.078" fill="#667080"/>
+<rect x="592" y="190" width="96" height="60" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="640" y="227" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">RNN</text>
+<line x1="640" y1="188" x2="640" y2="150" stroke="#667080" stroke-width="1.8"/>
+<polygon points="640,140 635.922,149.131 644.078,149.131" fill="#667080"/>
+<text x="640" y="128" font-size="21" fill="#7a4ca3" text-anchor="middle" font-weight="bold">le</text>
+<rect x="722" y="190" width="96" height="60" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="770" y="227" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">RNN</text>
+<line x1="770" y1="188" x2="770" y2="150" stroke="#667080" stroke-width="1.8"/>
+<polygon points="770,140 765.922,149.131 774.078,149.131" fill="#667080"/>
+<text x="770" y="128" font-size="21" fill="#7a4ca3" text-anchor="middle" font-weight="bold">chat</text>
+<rect x="852" y="190" width="96" height="60" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="900" y="227" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">RNN</text>
+<line x1="900" y1="188" x2="900" y2="150" stroke="#667080" stroke-width="1.8"/>
+<polygon points="900,140 895.922,149.131 904.078,149.131" fill="#667080"/>
+<text x="900" y="128" font-size="21" fill="#7a4ca3" text-anchor="middle" font-weight="bold">assis</text>
+<text x="240" y="128" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">encoder</text>
+<text x="770" y="326" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">decoder</text>
+<text x="24" y="414" font-size="21" fill="#667080">Everything must squeeze through one fixed-size vector. Attention fixes this.</text>
+</svg>

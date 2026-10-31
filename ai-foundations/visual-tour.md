@@ -362,6 +362,8 @@ x ---+--> [ layer ] -> [ layer ] --(+)--> F(x) + x
 
 ### 4.1 Word embedding space
 
+![Word embedding space](figures/word-embeddings.svg)
+
 - Image search: [word embedding vector space king queen diagram](https://www.google.com/search?tbm=isch&q=word+embedding+vector+space+king+queen+diagram)
 - [Mikolov et al., Fig. 1, PDF page 5](https://arxiv.org/pdf/1301.3781#page=5)
 
@@ -376,6 +378,8 @@ x ---+--> [ layer ] -> [ layer ] --(+)--> F(x) + x
 **4.2** RNNs/LSTMs — the older way to handle sequences (brief, historical, intuition only).
 
 ### 4.2 RNN, folded and unrolled
+
+![RNN, folded and unrolled](figures/rnn.svg)
 
 - Image search: [RNN unrolled diagram](https://www.google.com/search?tbm=isch&q=RNN+unrolled+diagram)
 
@@ -398,6 +402,8 @@ x->[A]-> y   =   [A] --> [A] --> [A] -->
 
 ### 4.2 LSTM cell
 
+![LSTM cell](figures/lstm.svg)
+
 - Image search: [LSTM cell diagram](https://www.google.com/search?tbm=isch&q=LSTM+cell+diagram)
 
 ![Olah: the LSTM chain](https://colah.github.io/posts/2015-08-Understanding-LSTMs/img/LSTM3-chain.png)
@@ -414,6 +420,8 @@ x->[A]-> y   =   [A] --> [A] --> [A] -->
 
 ### 4.3 Seq2seq (encoder-decoder)
 
+![Seq2seq (encoder-decoder)](figures/seq2seq.svg)
+
 - Image search: [seq2seq encoder decoder RNN diagram](https://www.google.com/search?tbm=isch&q=seq2seq+encoder+decoder+RNN+diagram)
 - [Cho et al., Fig. 1, PDF page 2](https://arxiv.org/pdf/1406.1078#page=2)
 
@@ -426,6 +434,8 @@ x->[A]-> y   =   [A] --> [A] --> [A] -->
 - **Check:** Why would a 50-word sentence suffer more than a 5-word one? (Same-sized summary.)
 
 ### 4.3 Attention as a heatmap
+
+![Attention as a heatmap](figures/attention-heatmap.svg)
 
 - Image search: [attention alignment heatmap translation](https://www.google.com/search?tbm=isch&q=attention+alignment+heatmap+translation)
 - [Bahdanau et al., Fig. 3, PDF page 6](https://arxiv.org/pdf/1409.0473#page=6)
@@ -442,6 +452,8 @@ x->[A]-> y   =   [A] --> [A] --> [A] -->
 **4.4** Self-attention and multi-head attention.
 
 ### 4.4 Scaled dot-product attention
+
+![Scaled dot-product attention](figures/scaled-dot-product.svg)
 
 - Image search: [scaled dot-product attention query key value diagram](https://www.google.com/search?tbm=isch&q=scaled+dot-product+attention+query+key+value+diagram)
 - [Vaswani et al., Fig. 2 (left), PDF page 4](https://arxiv.org/pdf/1706.03762#page=4)
@@ -468,6 +480,8 @@ x->[A]-> y   =   [A] --> [A] --> [A] -->
 ```
 
 ### 4.4 Multi-head attention
+
+![Multi-head attention](figures/multi-head-attention.svg)
 
 - Image search: [multi-head attention diagram](https://www.google.com/search?tbm=isch&q=multi-head+attention+diagram)
 - [Vaswani et al., Fig. 2 (right), PDF page 4](https://arxiv.org/pdf/1706.03762#page=4)
@@ -498,6 +512,8 @@ x->[A]-> y   =   [A] --> [A] --> [A] -->
 - **Check:** Why is attention alone unable to tell word order? (It treats its inputs as a set.)
 
 ### 4.5 Normalization: batch vs layer
+
+![Normalization: batch vs layer](figures/normalization.svg)
 
 - Image search: [batch norm layer norm group norm cube diagram](https://www.google.com/search?tbm=isch&q=batch+norm+layer+norm+group+norm+cube+diagram)
 - [Wu & He, Fig. 2, PDF page 3](https://arxiv.org/pdf/1803.08494#page=3)
