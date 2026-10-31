@@ -360,6 +360,234 @@ def dropout() -> str:
     return fig.svg()
 
 
+def number_grid(fig: Fig, x: float, y: float, cell: float, values: list[list[int]],
+                fill: Callable[[int, int], str] = lambda r, c: DATA[1]) -> None:
+    """A table of numbers, one square cell per entry."""
+    for r, row in enumerate(values):
+        for c, value in enumerate(row):
+            fig.plane(x + c * cell, y + r * cell, cell, cell, (DATA[0], fill(r, c)))
+            fig.text(x + (c + 0.5) * cell, y + (r + 0.5) * cell + 7, str(value))
+
+
+def blank_grid(fig: Fig, x: float, y: float, cell: float, rows: int, columns: int,
+               kind: tuple[str, str] = DATA) -> None:
+    for r in range(rows):
+        for c in range(columns):
+            fig.plane(x + c * cell, y + r * cell, cell, cell, kind)
+
+
+def rgb_channels() -> str:
+    fig = Fig(800, 390, "An image as a tensor", "Slab", [
+        "Pictures usually show height x width x channels.",
+        "PyTorch stores channels x height x width.",
+    ])
+    size = 16
+
+    def pixel(r: int, c: int) -> tuple[int, int, int]:
+        if math.hypot(r - 5, c - 10) < 3.4:
+            return (250, 205, 70)
+        if r > 10:
+            return (60 + 6 * c, 150, 80)
+        return (120, 170 + 3 * r, 235)
+
+    rows = [[pixel(r, c) for c in range(size)] for r in range(size)]
+    y, tile = 130.0, 150.0
+    fig.image(40, y, tile, tile, rows)
+    fig.text(40 + tile / 2, y - 14, "image", weight="bold")
+    fig.arrow([(200, y + tile / 2), (236, y + tile / 2)])
+    names = ("red", "green", "blue")
+    for k, name in enumerate(names):
+        x = 246 + k * 180 - k * 8
+        mono = [[tuple(px[k] if i == k else 0 for i in range(3)) for px in row] for row in rows]
+        fig.image(x, y, tile, tile, mono)
+        fig.text(x + tile / 2, y - 14, name, weight="bold")
+    return fig.svg()
+
+
+def convolution() -> str:
+    image = [[3, 1, 0, 2], [2, 5, 1, 1], [0, 4, 2, 3], [1, 0, 3, 1]]
+    kernel = [[1, 0], [0, -1]]
+    output = [[sum(image[r + i][c + j] * kernel[i][j] for i in range(2) for j in range(2))
+               for c in range(3)] for r in range(3)]
+    fig = Fig(900, 410, "Convolution", "Slab", [
+        "Slide the kernel: at each stop, multiply overlapping numbers and add.",
+        "3*1 + 1*0 + 2*0 + 5*(-1) = -2 at the top left. The kernel is not flipped.",
+    ])
+    cell, top = 58.0, 88.0
+    middle = top + 2 * cell
+    number_grid(fig, 50, top, cell, image, lambda r, c: LEARNED[1] if r < 2 and c < 2 else DATA[1])
+    fig.outline(50, top, 2 * cell, 2 * cell, LEARNED[0], 3.5, "", 0)
+    fig.text(50 + 2 * cell, top - 12, "input", weight="bold")
+    fig.text(316, middle + 8, "*", size=30)
+    number_grid(fig, 350, middle - cell, cell, kernel, lambda r, c: LEARNED[1])
+    fig.text(350 + cell, middle - cell - 12, "kernel", weight="bold")
+    fig.text(504, middle + 8, "=", size=30)
+    number_grid(fig, 546, middle - 1.5 * cell, cell, output, lambda r, c: LEARNED[1] if r == c == 0 else OUTPUT[1])
+    fig.outline(546, middle - 1.5 * cell, cell, cell, LEARNED[0], 3.5, "", 0)
+    fig.text(546 + 1.5 * cell, middle - 1.5 * cell - 12, "output", weight="bold")
+    return fig.svg()
+
+
+def stride_padding_pooling() -> str:
+    fig = Fig(1000, 430, "Stride, padding and pooling", "Slab", [
+        "Stride and padding set the output size. Pooling has no weights at all.",
+    ])
+    top, cell = 132.0, 34.0
+    blank_grid(fig, 60, top, cell, 5, 5)
+    fig.outline(60, top, 3 * cell, 3 * cell, LEARNED[0], 3.5, "", 0)
+    fig.outline(60 + 2 * cell, top, 3 * cell, 3 * cell, FIXED[0], 3.5, "7 4", 0)
+    fig.text(60 + 2.5 * cell, top - 16, "stride 2", weight="bold")
+    fig.text(60 + 2.5 * cell, top + 5 * cell + 34, "window hops 2 cells", MUTED)
+    small = 28.0
+    x2 = 340.0
+    blank_grid(fig, x2, top - small, small, 7, 7, ("#c6cdd6", "#f4f5f7"))
+    blank_grid(fig, x2 + small, top, small, 5, 5)
+    fig.outline(x2, top - small, 3 * small, 3 * small, LEARNED[0], 3.5, "", 0)
+    fig.text(x2 + 3.5 * small, top - small - 14, "padding 1", weight="bold")
+    fig.text(x2 + 3.5 * small, top + 6 * small + 34, "a border is added", MUTED)
+    values = [[1, 3, 2, 1], [4, 6, 1, 0], [0, 2, 5, 7], [1, 1, 3, 2]]
+    pooled = [[max(values[r + i][c + j] for i in range(2) for j in range(2)) for c in (0, 2)] for r in (0, 2)]
+
+    def shade(r: int, c: int) -> str:
+        return LEARNED[1] if r == c else FIXED[1]
+
+    size = 42.0
+    x3 = 640.0
+    number_grid(fig, x3, top, size, values, lambda r, c: shade(r // 2, c // 2))
+    fig.arrow([(x3 + 4 * size + 8, top + 2 * size), (x3 + 4 * size + 46, top + 2 * size)])
+    number_grid(fig, x3 + 4 * size + 54, top + size, size, pooled, shade)
+    fig.text(x3 + 150, top - 16, "max pool 2x2", weight="bold")
+    fig.text(x3 + 150, top + 5 * 34 + 34, "keeps each maximum", MUTED)
+    return fig.svg()
+
+
+def receptive_field() -> str:
+    fig = Fig(860, 430, "Receptive field", "Slab", [
+        "Each 3x3 layer widens the view by 2, so three stacked layers see 7.",
+        "One row of each layer is shown.",
+    ])
+    cell, height, x0 = 52.0, 34.0, 200.0
+    rows = [(92.0, "layer 3", 1), (162.0, "layer 2", 3), (232.0, "layer 1", 5), (302.0, "input", 7)]
+    for (y, _, seen), (y1, _, below) in zip(rows, rows[1:]):
+        for side in (-1, 1):
+            fig.line((x0 + (4.5 + side * seen / 2) * cell, y + height),
+                     (x0 + (4.5 + side * below / 2) * cell, y1), LEARNED[0], 1.6, "5 4")
+    for y, label, seen in rows:
+        for c in range(9):
+            on = abs(c - 4) <= seen // 2
+            fig.plane(x0 + c * cell, y, cell, height, LEARNED if on else DATA)
+        fig.text(x0 - 14, y + 24, label, anchor="end")
+        fig.text(x0 + 9 * cell + 14, y + 24, f"{seen} cell{'s' if seen > 1 else ''}", LEARNED[0], "start")
+    return fig.svg()
+
+
+def alexnet_vgg() -> str:
+    fig = Fig(1000, 640, "AlexNet and VGG-16", "Slab", [
+        "Top numbers are image size; bottom numbers are channels or units.",
+        "AlexNet's two lanes are its two GPUs. VGG just repeats plain 3x3 conv layers.",
+    ])
+    cy, x0, step, width = 190.0, 110.0, 96.0, 52.0
+    alex: list[tuple[str, str, float, tuple[str, str]]] = [
+        ("224", "3", 130, DATA), ("55", "96", 106, DATA), ("27", "256", 86, DATA), ("13", "384", 66, DATA),
+        ("13", "384", 66, DATA), ("13", "256", 66, DATA), ("", "4096", 130, LEARNED), ("", "4096", 130, LEARNED),
+        ("", "1000", 52, OUTPUT),
+    ]
+    fig.text(24, 84, "AlexNet (2012)", anchor="start", weight="bold")
+    for i, (top, bottom, height, kind) in enumerate(alex):
+        x = x0 + i * step
+        if i in (0, len(alex) - 1):
+            fig.plane(x, cy - height / 2, width, height, kind)
+        else:
+            fig.plane(x, cy - height / 2, width, height / 2 - 3, kind)
+            fig.plane(x, cy + 3, width, height / 2 - 3, kind)
+        if top:
+            fig.text(x + width / 2, cy - height / 2 - 10, top)
+        fig.text(x + width / 2, cy + 90, bottom, MUTED)
+        if i < len(alex) - 1:
+            fig.arrow([(x + width + 4, cy), (x + step - 4, cy)], MUTED, 1.4)
+    fig.text(24, cy - 16, "GPU 1", MUTED, "start")
+    fig.text(24, cy + 30, "GPU 2", MUTED, "start")
+
+    cy, x = 440.0, 60.0
+    fig.text(24, 330, "VGG-16 (2015)", anchor="start", weight="bold")
+    groups: list[tuple[str, str, int, float]] = [
+        ("224", "64 x2", 2, 130), ("112", "128 x2", 2, 110), ("56", "256 x3", 3, 90),
+        ("28", "512 x3", 3, 70), ("14", "512 x3", 3, 52),
+    ]
+    for size, label, layers, height in groups:
+        span = layers * 14 + (layers - 1) * 5
+        for k in range(layers):
+            fig.plane(x + k * 19, cy - height / 2, 14, height, DATA)
+        fig.text(x + span / 2, cy - height / 2 - 10, size)
+        fig.text(x + span / 2, cy + 92, label, MUTED)
+        x += span
+        fig.arrow([(x + 6, cy), (x + 66, cy)], MUTED, 1.4)
+        x += 74
+    for label, height, kind in (("4096", 130.0, LEARNED), ("4096", 130.0, LEARNED), ("1000", 52.0, OUTPUT)):
+        fig.plane(x, cy - height / 2, 18, height, kind)
+        fig.text(x + 9, cy + 92, label, MUTED)
+        x += 18
+        if label != "1000" or height != 52.0:
+            fig.arrow([(x + 6, cy), (x + 50, cy)], MUTED, 1.4)
+        x += 58
+    return fig.svg()
+
+
+def inception() -> str:
+    fig = Fig(980, 540, "Inception module", "Block", [
+        "Several filter sizes run side by side, then concatenate. Read bottom to top.",
+    ])
+    columns = (140.0, 370.0, 600.0, 830.0)
+    w, h = 190.0, 46.0
+    prev, low, high, top, source, sink = 440.0, 335.0, 230.0, 110.0, 400.0, 170.0
+    fig.box(485, prev, "Previous layer", DATA, w=250, h=h)
+    fig.box(485, top, "Filter concatenation", DATA, w=250, h=h)
+    fig.line((485, prev - h / 2), (485, source), MUTED, 1.8)
+    fig.line((columns[0], source), (columns[-1], source), MUTED, 1.8)
+    fig.line((columns[0], sink), (columns[-1], sink), MUTED, 1.8)
+    fig.arrow([(485, sink), (485, top + h / 2)])
+    fig.arrow([(columns[0], source), (columns[0], high + h / 2)])
+    fig.box(columns[0], high, "1x1 conv", LEARNED, w, h)
+    for x, lower, upper, kind in ((columns[1], "1x1 conv", "3x3 conv", LEARNED),
+                                  (columns[2], "1x1 conv", "5x5 conv", LEARNED),
+                                  (columns[3], "3x3 max pool", "1x1 conv", FIXED)):
+        fig.arrow([(x, source), (x, low + h / 2)])
+        fig.box(x, low, lower, kind, w, h)
+        fig.arrow([(x, low - h / 2), (x, high + h / 2)])
+        fig.box(x, high, upper, LEARNED, w, h)
+    for x in columns:
+        fig.line((x, high - h / 2), (x, sink), MUTED, 1.8)
+    return fig.svg()
+
+
+def resnet_block() -> str:
+    fig = Fig(760, 660, "ResNet residual block", "Block", [
+        "The layers learn a correction F(x); the input is added back.",
+        "Read top to bottom.",
+    ])
+    cx, right = 300.0, 540.0
+    fig.text(cx, 76, "x", DATA[0], weight="bold", size=24)
+    fig.circle(cx, 112, 6, FIXED)
+    fig.arrow([(cx, 118), (cx, 150)])
+    fig.box(cx, 172, "weight layer", LEARNED)
+    fig.arrow([(cx, 193), (cx, 224)])
+    fig.box(cx, 246, "relu", FIXED)
+    fig.arrow([(cx, 267), (cx, 298)])
+    fig.box(cx, 320, "weight layer", LEARNED)
+    fig.arrow([(cx, 341), (cx, 396)])
+    fig.circle(cx, 414, 18, FIXED)
+    fig.text(cx, 421, "+")
+    fig.arrow([(cx, 432), (cx, 466)])
+    fig.box(cx, 488, "relu", FIXED)
+    fig.arrow([(cx, 509), (cx, 544)])
+    fig.text(cx, 570, "F(x) + x", OUTPUT[0], weight="bold")
+    fig.text(cx - 140, 250, "F(x)", LEARNED[0], "end", "bold")
+    fig.arrow([(cx + 6, 112), (right, 112), (right, 414), (cx + 18, 414)], DATA[0], 2.4)
+    fig.text(right + 12, 256, "x", DATA[0], "start", "bold")
+    fig.text(right + 12, 284, "(identity)", DATA[0], "start")
+    return fig.svg()
+
+
 def mlp() -> str:
     fig = Fig(960, 480, "Multi-layer perceptron", "Graph", [
         "In this grammar a circle is one number and a line is one weight.",
@@ -613,7 +841,14 @@ FIGURES: dict[str, Callable[[], str]] = {
     "computational-graph": computational_graph,
     "learning-curves": learning_curves,
     "dropout": dropout,
+    "rgb-channels": rgb_channels,
+    "convolution": convolution,
+    "stride-padding-pooling": stride_padding_pooling,
     "lenet-5": lenet,
+    "receptive-field": receptive_field,
+    "alexnet-vgg": alexnet_vgg,
+    "inception": inception,
+    "resnet-block": resnet_block,
     "positional-encoding": positional_encoding,
     "transformer": transformer,
     "diffusion-chain": diffusion,

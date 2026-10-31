@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 540" width="980" height="540" style="font-family:Helvetica, Arial, sans-serif">
+<rect width="980" height="540" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">Inception module</text>
+<rect x="877.5" y="16" width="82.5" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="918.75" y="41" font-size="21" fill="#667080" text-anchor="middle">Block</text>
+<rect x="360" y="417" width="250" height="46" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="485" y="447" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Previous layer</text>
+<rect x="360" y="87" width="250" height="46" rx="5" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1.5"/>
+<text x="485" y="117" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">Filter concatenation</text>
+<line x1="485" y1="417" x2="485" y2="400" stroke="#667080" stroke-width="1.8"/>
+<line x1="140" y1="400" x2="830" y2="400" stroke="#667080" stroke-width="1.8"/>
+<line x1="140" y1="170" x2="830" y2="170" stroke="#667080" stroke-width="1.8"/>
+<line x1="485" y1="170" x2="485" y2="143" stroke="#667080" stroke-width="1.8"/>
+<polygon points="485,133 480.922,142.131 489.078,142.131" fill="#667080"/>
+<line x1="140" y1="400" x2="140" y2="263" stroke="#667080" stroke-width="1.8"/>
+<polygon points="140,253 135.922,262.131 144.078,262.131" fill="#667080"/>
+<rect x="45" y="207" width="190" height="46" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="140" y="237" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">1x1 conv</text>
+<line x1="370" y1="400" x2="370" y2="368" stroke="#667080" stroke-width="1.8"/>
+<polygon points="370,358 365.922,367.131 374.078,367.131" fill="#667080"/>
+<rect x="275" y="312" width="190" height="46" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="370" y="342" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">1x1 conv</text>
+<line x1="370" y1="312" x2="370" y2="263" stroke="#667080" stroke-width="1.8"/>
+<polygon points="370,253 365.922,262.131 374.078,262.131" fill="#667080"/>
+<rect x="275" y="207" width="190" height="46" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="370" y="237" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">3x3 conv</text>
+<line x1="600" y1="400" x2="600" y2="368" stroke="#667080" stroke-width="1.8"/>
+<polygon points="600,358 595.922,367.131 604.078,367.131" fill="#667080"/>
+<rect x="505" y="312" width="190" height="46" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="600" y="342" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">1x1 conv</text>
+<line x1="600" y1="312" x2="600" y2="263" stroke="#667080" stroke-width="1.8"/>
+<polygon points="600,253 595.922,262.131 604.078,262.131" fill="#667080"/>
+<rect x="505" y="207" width="190" height="46" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="600" y="237" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">5x5 conv</text>
+<line x1="830" y1="400" x2="830" y2="368" stroke="#667080" stroke-width="1.8"/>
+<polygon points="830,358 825.922,367.131 834.078,367.131" fill="#667080"/>
+<rect x="735" y="312" width="190" height="46" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="830" y="342" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">3x3 max pool</text>
+<line x1="830" y1="312" x2="830" y2="263" stroke="#667080" stroke-width="1.8"/>
+<polygon points="830,253 825.922,262.131 834.078,262.131" fill="#667080"/>
+<rect x="735" y="207" width="190" height="46" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="830" y="237" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">1x1 conv</text>
+<line x1="140" y1="207" x2="140" y2="170" stroke="#667080" stroke-width="1.8"/>
+<line x1="370" y1="207" x2="370" y2="170" stroke="#667080" stroke-width="1.8"/>
+<line x1="600" y1="207" x2="600" y2="170" stroke="#667080" stroke-width="1.8"/>
+<line x1="830" y1="207" x2="830" y2="170" stroke="#667080" stroke-width="1.8"/>
+<text x="24" y="524" font-size="21" fill="#667080">Several filter sizes run side by side, then concatenate. Read bottom to top.</text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 660" width="760" height="660" style="font-family:Helvetica, Arial, sans-serif">
+<rect width="760" height="660" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">ResNet residual block</text>
+<rect x="657.5" y="16" width="82.5" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="698.75" y="41" font-size="21" fill="#667080" text-anchor="middle">Block</text>
+<text x="300" y="76" font-size="24" fill="#1f8a7d" text-anchor="middle" font-weight="bold">x</text>
+<circle cx="300" cy="112" r="6" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.8"/>
+<line x1="300" y1="118" x2="300" y2="140" stroke="#667080" stroke-width="1.8"/>
+<polygon points="300,150 304.078,140.869 295.922,140.869" fill="#667080"/>
+<rect x="175" y="151" width="250" height="42" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="300" y="179" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">weight layer</text>
+<line x1="300" y1="193" x2="300" y2="214" stroke="#667080" stroke-width="1.8"/>
+<polygon points="300,224 304.078,214.869 295.922,214.869" fill="#667080"/>
+<rect x="175" y="225" width="250" height="42" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="300" y="253" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">relu</text>
+<line x1="300" y1="267" x2="300" y2="288" stroke="#667080" stroke-width="1.8"/>
+<polygon points="300,298 304.078,288.869 295.922,288.869" fill="#667080"/>
+<rect x="175" y="299" width="250" height="42" rx="5" fill="#fbe7d3" stroke="#d0701a" stroke-width="1.5"/>
+<text x="300" y="327" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">weight layer</text>
+<line x1="300" y1="341" x2="300" y2="386" stroke="#667080" stroke-width="1.8"/>
+<polygon points="300,396 304.078,386.869 295.922,386.869" fill="#667080"/>
+<circle cx="300" cy="414" r="18" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.8"/>
+<text x="300" y="421" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">+</text>
+<line x1="300" y1="432" x2="300" y2="456" stroke="#667080" stroke-width="1.8"/>
+<polygon points="300,466 304.078,456.869 295.922,456.869" fill="#667080"/>
+<rect x="175" y="467" width="250" height="42" rx="5" fill="#e8edf2" stroke="#5b6b80" stroke-width="1.5"/>
+<text x="300" y="495" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">relu</text>
+<line x1="300" y1="509" x2="300" y2="534" stroke="#667080" stroke-width="1.8"/>
+<polygon points="300,544 304.078,534.869 295.922,534.869" fill="#667080"/>
+<text x="300" y="570" font-size="21" fill="#7a4ca3" text-anchor="middle" font-weight="bold">F(x) + x</text>
+<text x="160" y="250" font-size="21" fill="#d0701a" text-anchor="end" font-weight="bold">F(x)</text>
+<line x1="306" y1="112" x2="540" y2="112" stroke="#1f8a7d" stroke-width="2.4"/>
+<line x1="540" y1="112" x2="540" y2="414" stroke="#1f8a7d" stroke-width="2.4"/>
+<line x1="540" y1="414" x2="328" y2="414" stroke="#1f8a7d" stroke-width="2.4"/>
+<polygon points="318,414 327.131,418.078 327.131,409.922" fill="#1f8a7d"/>
+<text x="552" y="256" font-size="21" fill="#1f8a7d" text-anchor="start" font-weight="bold">x</text>
+<text x="552" y="284" font-size="21" fill="#1f8a7d" text-anchor="start" font-weight="normal">(identity)</text>
+<text x="24" y="617" font-size="21" fill="#667080">The layers learn a correction F(x); the input is added back.</text>
+<text x="24" y="644" font-size="21" fill="#667080">Read top to bottom.</text>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 430" width="860" height="430" style="font-family:Helvetica, Arial, sans-serif">
+<rect width="860" height="430" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">Receptive field</text>
+<rect x="768" y="16" width="72" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="804" y="41" font-size="21" fill="#667080" text-anchor="middle">Slab</text>
+<line x1="408" y1="126" x2="356" y2="162" stroke="#d0701a" stroke-width="1.6" stroke-dasharray="5 4"/>
+<line x1="460" y1="126" x2="512" y2="162" stroke="#d0701a" stroke-width="1.6" stroke-dasharray="5 4"/>
+<line x1="356" y1="196" x2="304" y2="232" stroke="#d0701a" stroke-width="1.6" stroke-dasharray="5 4"/>
+<line x1="512" y1="196" x2="564" y2="232" stroke="#d0701a" stroke-width="1.6" stroke-dasharray="5 4"/>
+<line x1="304" y1="266" x2="252" y2="302" stroke="#d0701a" stroke-width="1.6" stroke-dasharray="5 4"/>
+<line x1="564" y1="266" x2="616" y2="302" stroke="#d0701a" stroke-width="1.6" stroke-dasharray="5 4"/>
+<rect x="200" y="92" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="252" y="92" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="304" y="92" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="356" y="92" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="408" y="92" width="52" height="34" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="460" y="92" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="512" y="92" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="564" y="92" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="616" y="92" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="186" y="116" font-size="21" fill="#23262b" text-anchor="end" font-weight="normal">layer 3</text>
+<text x="682" y="116" font-size="21" fill="#d0701a" text-anchor="start" font-weight="normal">1 cell</text>
+<rect x="200" y="162" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="252" y="162" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="304" y="162" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="356" y="162" width="52" height="34" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="408" y="162" width="52" height="34" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="460" y="162" width="52" height="34" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="512" y="162" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="564" y="162" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="616" y="162" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="186" y="186" font-size="21" fill="#23262b" text-anchor="end" font-weight="normal">layer 2</text>
+<text x="682" y="186" font-size="21" fill="#d0701a" text-anchor="start" font-weight="normal">3 cells</text>
+<rect x="200" y="232" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="252" y="232" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="304" y="232" width="52" height="34" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="356" y="232" width="52" height="34" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="408" y="232" width="52" height="34" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="460" y="232" width="52" height="34" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="512" y="232" width="52" height="34" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="564" y="232" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="616" y="232" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="186" y="256" font-size="21" fill="#23262b" text-anchor="end" font-weight="normal">layer 1</text>
+<text x="682" y="256" font-size="21" fill="#d0701a" text-anchor="start" font-weight="normal">5 cells</text>
+<rect x="200" y="302" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="252" y="302" width="52" height="34" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="304" y="302" width="52" height="34" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="356" y="302" width="52" height="34" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="408" y="302" width="52" height="34" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="460" y="302" width="52" height="34" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="512" y="302" width="52" height="34" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="564" y="302" width="52" height="34" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="616" y="302" width="52" height="34" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="186" y="326" font-size="21" fill="#23262b" text-anchor="end" font-weight="normal">input</text>
+<text x="682" y="326" font-size="21" fill="#d0701a" text-anchor="start" font-weight="normal">7 cells</text>
+<text x="24" y="387" font-size="21" fill="#667080">Each 3x3 layer widens the view by 2, so three stacked layers see 7.</text>
+<text x="24" y="414" font-size="21" fill="#667080">One row of each layer is shown.</text>
+</svg>

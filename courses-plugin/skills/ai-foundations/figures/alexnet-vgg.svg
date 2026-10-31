@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640" style="font-family:Helvetica, Arial, sans-serif">
+<rect width="1000" height="640" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">AlexNet and VGG-16</text>
+<rect x="908" y="16" width="72" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="944" y="41" font-size="21" fill="#667080" text-anchor="middle">Slab</text>
+<text x="24" y="84" font-size="21" fill="#23262b" text-anchor="start" font-weight="bold">AlexNet (2012)</text>
+<rect x="110" y="125" width="52" height="130" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="136" y="115" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">224</text>
+<text x="136" y="280" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">3</text>
+<line x1="166" y1="190" x2="192" y2="190" stroke="#667080" stroke-width="1.4"/>
+<polygon points="202,190 192.869,185.922 192.869,194.078" fill="#667080"/>
+<rect x="206" y="137" width="52" height="50" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="206" y="193" width="52" height="50" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="232" y="127" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">55</text>
+<text x="232" y="280" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">96</text>
+<line x1="262" y1="190" x2="288" y2="190" stroke="#667080" stroke-width="1.4"/>
+<polygon points="298,190 288.869,185.922 288.869,194.078" fill="#667080"/>
+<rect x="302" y="147" width="52" height="40" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="302" y="193" width="52" height="40" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="328" y="137" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">27</text>
+<text x="328" y="280" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">256</text>
+<line x1="358" y1="190" x2="384" y2="190" stroke="#667080" stroke-width="1.4"/>
+<polygon points="394,190 384.869,185.922 384.869,194.078" fill="#667080"/>
+<rect x="398" y="157" width="52" height="30" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="398" y="193" width="52" height="30" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="424" y="147" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">13</text>
+<text x="424" y="280" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">384</text>
+<line x1="454" y1="190" x2="480" y2="190" stroke="#667080" stroke-width="1.4"/>
+<polygon points="490,190 480.869,185.922 480.869,194.078" fill="#667080"/>
+<rect x="494" y="157" width="52" height="30" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="494" y="193" width="52" height="30" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="520" y="147" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">13</text>
+<text x="520" y="280" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">384</text>
+<line x1="550" y1="190" x2="576" y2="190" stroke="#667080" stroke-width="1.4"/>
+<polygon points="586,190 576.869,185.922 576.869,194.078" fill="#667080"/>
+<rect x="590" y="157" width="52" height="30" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="590" y="193" width="52" height="30" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="616" y="147" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">13</text>
+<text x="616" y="280" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">256</text>
+<line x1="646" y1="190" x2="672" y2="190" stroke="#667080" stroke-width="1.4"/>
+<polygon points="682,190 672.869,185.922 672.869,194.078" fill="#667080"/>
+<rect x="686" y="125" width="52" height="62" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="686" y="193" width="52" height="62" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<text x="712" y="280" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">4096</text>
+<line x1="742" y1="190" x2="768" y2="190" stroke="#667080" stroke-width="1.4"/>
+<polygon points="778,190 768.869,185.922 768.869,194.078" fill="#667080"/>
+<rect x="782" y="125" width="52" height="62" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<rect x="782" y="193" width="52" height="62" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<text x="808" y="280" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">4096</text>
+<line x1="838" y1="190" x2="864" y2="190" stroke="#667080" stroke-width="1.4"/>
+<polygon points="874,190 864.869,185.922 864.869,194.078" fill="#667080"/>
+<rect x="878" y="164" width="52" height="52" fill="#ecdff4" stroke="#7a4ca3" stroke-width="1"/>
+<text x="904" y="280" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">1000</text>
+<text x="24" y="174" font-size="21" fill="#667080" text-anchor="start" font-weight="normal">GPU 1</text>
+<text x="24" y="220" font-size="21" fill="#667080" text-anchor="start" font-weight="normal">GPU 2</text>
+<text x="24" y="330" font-size="21" fill="#23262b" text-anchor="start" font-weight="bold">VGG-16 (2015)</text>
+<rect x="60" y="375" width="14" height="130" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="79" y="375" width="14" height="130" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="76.5" y="365" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">224</text>
+<text x="76.5" y="532" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">64 x2</text>
+<line x1="99" y1="440" x2="149" y2="440" stroke="#667080" stroke-width="1.4"/>
+<polygon points="159,440 149.869,435.922 149.869,444.078" fill="#667080"/>
+<rect x="167" y="385" width="14" height="110" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="186" y="385" width="14" height="110" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="183.5" y="375" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">112</text>
+<text x="183.5" y="532" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">128 x2</text>
+<line x1="206" y1="440" x2="256" y2="440" stroke="#667080" stroke-width="1.4"/>
+<polygon points="266,440 256.869,435.922 256.869,444.078" fill="#667080"/>
+<rect x="274" y="395" width="14" height="90" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="293" y="395" width="14" height="90" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="312" y="395" width="14" height="90" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="300" y="385" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">56</text>
+<text x="300" y="532" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">256 x3</text>
+<line x1="332" y1="440" x2="382" y2="440" stroke="#667080" stroke-width="1.4"/>
+<polygon points="392,440 382.869,435.922 382.869,444.078" fill="#667080"/>
+<rect x="400" y="405" width="14" height="70" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="419" y="405" width="14" height="70" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="438" y="405" width="14" height="70" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="426" y="395" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">28</text>
+<text x="426" y="532" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">512 x3</text>
+<line x1="458" y1="440" x2="508" y2="440" stroke="#667080" stroke-width="1.4"/>
+<polygon points="518,440 508.869,435.922 508.869,444.078" fill="#667080"/>
+<rect x="526" y="414" width="14" height="52" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="545" y="414" width="14" height="52" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<rect x="564" y="414" width="14" height="52" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="552" y="404" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">14</text>
+<text x="552" y="532" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">512 x3</text>
+<line x1="584" y1="440" x2="634" y2="440" stroke="#667080" stroke-width="1.4"/>
+<polygon points="644,440 634.869,435.922 634.869,444.078" fill="#667080"/>
+<rect x="652" y="375" width="18" height="130" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<text x="661" y="532" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">4096</text>
+<line x1="676" y1="440" x2="710" y2="440" stroke="#667080" stroke-width="1.4"/>
+<polygon points="720,440 710.869,435.922 710.869,444.078" fill="#667080"/>
+<rect x="728" y="375" width="18" height="130" fill="#fbe7d3" stroke="#d0701a" stroke-width="1"/>
+<text x="737" y="532" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">4096</text>
+<line x1="752" y1="440" x2="786" y2="440" stroke="#667080" stroke-width="1.4"/>
+<polygon points="796,440 786.869,435.922 786.869,444.078" fill="#667080"/>
+<rect x="804" y="414" width="18" height="52" fill="#ecdff4" stroke="#7a4ca3" stroke-width="1"/>
+<text x="813" y="532" font-size="21" fill="#667080" text-anchor="middle" font-weight="normal">1000</text>
+<text x="24" y="597" font-size="21" fill="#667080">Top numbers are image size; bottom numbers are channels or units.</text>
+<text x="24" y="624" font-size="21" fill="#667080">AlexNet's two lanes are its two GPUs. VGG just repeats plain 3x3 conv layers.</text>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 410" width="900" height="410" style="font-family:Helvetica, Arial, sans-serif">
+<rect width="900" height="410" rx="10" fill="#ffffff"/>
+<text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">Convolution</text>
+<rect x="808" y="16" width="72" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>
+<text x="844" y="41" font-size="21" fill="#667080" text-anchor="middle">Slab</text>
+<rect x="50" y="88" width="58" height="58" fill="#fbe7d3" stroke="#1f8a7d" stroke-width="1"/>
+<text x="79" y="124" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">3</text>
+<rect x="108" y="88" width="58" height="58" fill="#fbe7d3" stroke="#1f8a7d" stroke-width="1"/>
+<text x="137" y="124" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">1</text>
+<rect x="166" y="88" width="58" height="58" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="195" y="124" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">0</text>
+<rect x="224" y="88" width="58" height="58" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="253" y="124" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">2</text>
+<rect x="50" y="146" width="58" height="58" fill="#fbe7d3" stroke="#1f8a7d" stroke-width="1"/>
+<text x="79" y="182" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">2</text>
+<rect x="108" y="146" width="58" height="58" fill="#fbe7d3" stroke="#1f8a7d" stroke-width="1"/>
+<text x="137" y="182" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">5</text>
+<rect x="166" y="146" width="58" height="58" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="195" y="182" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">1</text>
+<rect x="224" y="146" width="58" height="58" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="253" y="182" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">1</text>
+<rect x="50" y="204" width="58" height="58" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="79" y="240" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">0</text>
+<rect x="108" y="204" width="58" height="58" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="137" y="240" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">4</text>
+<rect x="166" y="204" width="58" height="58" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="195" y="240" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">2</text>
+<rect x="224" y="204" width="58" height="58" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="253" y="240" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">3</text>
+<rect x="50" y="262" width="58" height="58" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="79" y="298" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">1</text>
+<rect x="108" y="262" width="58" height="58" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="137" y="298" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">0</text>
+<rect x="166" y="262" width="58" height="58" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="195" y="298" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">3</text>
+<rect x="224" y="262" width="58" height="58" fill="#d6f0ec" stroke="#1f8a7d" stroke-width="1"/>
+<text x="253" y="298" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">1</text>
+<rect x="50" y="88" width="116" height="116" rx="0" fill="none" stroke="#d0701a" stroke-width="3.5"/>
+<text x="166" y="76" font-size="21" fill="#23262b" text-anchor="middle" font-weight="bold">input</text>
+<text x="316" y="212" font-size="30" fill="#23262b" text-anchor="middle" font-weight="normal">*</text>
+<rect x="350" y="146" width="58" height="58" fill="#fbe7d3" stroke="#1f8a7d" stroke-width="1"/>
+<text x="379" y="182" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">1</text>
+<rect x="408" y="146" width="58" height="58" fill="#fbe7d3" stroke="#1f8a7d" stroke-width="1"/>
+<text x="437" y="182" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">0</text>
+<rect x="350" y="204" width="58" height="58" fill="#fbe7d3" stroke="#1f8a7d" stroke-width="1"/>
+<text x="379" y="240" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">0</text>
+<rect x="408" y="204" width="58" height="58" fill="#fbe7d3" stroke="#1f8a7d" stroke-width="1"/>
+<text x="437" y="240" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">-1</text>
+<text x="408" y="134" font-size="21" fill="#23262b" text-anchor="middle" font-weight="bold">kernel</text>
+<text x="504" y="212" font-size="30" fill="#23262b" text-anchor="middle" font-weight="normal">=</text>
+<rect x="546" y="117" width="58" height="58" fill="#fbe7d3" stroke="#1f8a7d" stroke-width="1"/>
+<text x="575" y="153" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">-2</text>
+<rect x="604" y="117" width="58" height="58" fill="#ecdff4" stroke="#1f8a7d" stroke-width="1"/>
+<text x="633" y="153" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">0</text>
+<rect x="662" y="117" width="58" height="58" fill="#ecdff4" stroke="#1f8a7d" stroke-width="1"/>
+<text x="691" y="153" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">-1</text>
+<rect x="546" y="175" width="58" height="58" fill="#ecdff4" stroke="#1f8a7d" stroke-width="1"/>
+<text x="575" y="211" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">-2</text>
+<rect x="604" y="175" width="58" height="58" fill="#ecdff4" stroke="#1f8a7d" stroke-width="1"/>
+<text x="633" y="211" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">3</text>
+<rect x="662" y="175" width="58" height="58" fill="#ecdff4" stroke="#1f8a7d" stroke-width="1"/>
+<text x="691" y="211" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">-2</text>
+<rect x="546" y="233" width="58" height="58" fill="#ecdff4" stroke="#1f8a7d" stroke-width="1"/>
+<text x="575" y="269" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">0</text>
+<rect x="604" y="233" width="58" height="58" fill="#ecdff4" stroke="#1f8a7d" stroke-width="1"/>
+<text x="633" y="269" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">1</text>
+<rect x="662" y="233" width="58" height="58" fill="#ecdff4" stroke="#1f8a7d" stroke-width="1"/>
+<text x="691" y="269" font-size="21" fill="#23262b" text-anchor="middle" font-weight="normal">1</text>
+<rect x="546" y="117" width="58" height="58" rx="0" fill="none" stroke="#d0701a" stroke-width="3.5"/>
+<text x="633" y="105" font-size="21" fill="#23262b" text-anchor="middle" font-weight="bold">output</text>
+<text x="24" y="367" font-size="21" fill="#667080">Slide the kernel: at each stop, multiply overlapping numbers and add.</text>
+<text x="24" y="394" font-size="21" fill="#667080">3*1 + 1*0 + 2*0 + 5*(-1) = -2 at the top left. The kernel is not flipped.</text>
+</svg>

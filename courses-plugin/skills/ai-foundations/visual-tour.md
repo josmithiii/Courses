@@ -203,6 +203,8 @@ loss
 
 ### 3.1 An image as a tensor of channels
 
+![An image as a tensor of channels](figures/rgb-channels.svg)
+
 - Image search: [RGB image channels tensor diagram](https://www.google.com/search?tbm=isch&q=RGB+image+channels+tensor+diagram)
 
 - **Grammar:** Slab
@@ -215,6 +217,8 @@ loss
 **3.2** Convolution: sliding filters, what a filter "detects" — intuition.
 
 ### 3.2 Convolution: a filter sliding over a grid
+
+![Convolution: a filter sliding over a grid](figures/convolution.svg)
 
 - Image search: [convolution kernel sliding over image diagram](https://www.google.com/search?tbm=isch&q=convolution+kernel+sliding+over+image+diagram)
 - [Dumoulin & Visin, Fig. 1.1, PDF page 7](https://arxiv.org/pdf/1603.07285#page=7)
@@ -240,6 +244,8 @@ input            kernel        output
 **3.3** Feature maps, stride, padding, pooling.
 
 ### 3.3 Stride, padding and pooling
+
+![Stride, padding and pooling](figures/stride-padding-pooling.svg)
 
 - Image search: [CNN stride padding pooling diagram](https://www.google.com/search?tbm=isch&q=CNN+stride+padding+pooling+diagram)
 - [Dumoulin & Visin, Figs. 1.5 and 1.6, PDF page 11](https://arxiv.org/pdf/1603.07285#page=11)
@@ -281,6 +287,8 @@ input            kernel        output
 
 ### 3.5 Receptive field
 
+![Receptive field](figures/receptive-field.svg)
+
 - Image search: [receptive field CNN layers diagram](https://www.google.com/search?tbm=isch&q=receptive+field+CNN+layers+diagram)
 - [Zeiler & Fergus, Fig. 2, PDF page 4](https://arxiv.org/pdf/1311.2901#page=4)
 
@@ -295,6 +303,8 @@ input            kernel        output
 **3.6** Transfer learning: reuse a pretrained vision model.
 
 ### 3.6 AlexNet and VGG
+
+![AlexNet and VGG](figures/alexnet-vgg.svg)
 
 - Image search: [AlexNet architecture diagram](https://www.google.com/search?tbm=isch&q=AlexNet+architecture+diagram)
 - Image search: [VGG16 architecture diagram](https://www.google.com/search?tbm=isch&q=VGG16+architecture+diagram)
@@ -311,6 +321,8 @@ input            kernel        output
 
 ### 3.6 Inception module
 
+![Inception module](figures/inception.svg)
+
 - Image search: [Inception module GoogLeNet diagram](https://www.google.com/search?tbm=isch&q=Inception+module+GoogLeNet+diagram)
 - [Szegedy et al., Fig. 2, PDF page 5](https://arxiv.org/pdf/1409.4842#page=5)
 
@@ -322,6 +334,8 @@ input            kernel        output
 - **Check:** Why put a 1x1 before a 5x5? (To reduce channels, and so reduce computation.)
 
 ### 3.6 ResNet and the residual block
+
+![ResNet and the residual block](figures/resnet-block.svg)
 
 - Image search: [ResNet residual block skip connection diagram](https://www.google.com/search?tbm=isch&q=ResNet+residual+block+skip+connection+diagram)
 - [He et al., Fig. 2, PDF page 2](https://arxiv.org/pdf/1512.03385#page=2)
