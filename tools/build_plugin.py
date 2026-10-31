@@ -40,7 +40,7 @@ REPO = Path(__file__).resolve().parent.parent
 PLUGIN_DIR_NAME = "courses-plugin"
 PLUGIN_NAME = "courses"
 PLUGIN_DISPLAY_NAME = "JOS Courses"  # what the desktop app lists and searches; the bare name drowns among connectors
-PLUGIN_VERSION = "0.5.2"
+PLUGIN_VERSION = "0.5.3"
 TEMPLATE_COURSE = "course-template"
 
 ASSET_PREFIX = "../curricula/assets/"

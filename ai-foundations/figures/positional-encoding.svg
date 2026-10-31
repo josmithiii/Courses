@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 530" width="880" height="530" font-family="Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 530" width="880" height="530" style="font-family:Helvetica, Arial, sans-serif">
 <rect width="880" height="530" rx="10" fill="#ffffff"/>
 <text x="24" y="42" font-size="26" font-weight="bold" fill="#23262b">Positional encoding</text>
 <rect x="788" y="16" width="72" height="36" rx="18" fill="#f1f3f6" stroke="#aab2bd"/>

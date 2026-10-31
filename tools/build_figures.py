@@ -145,8 +145,10 @@ class Fig:
         foot = [f'<text x="24" y="{y0 + 27 * i}" font-size="{TEXT}" fill="{MUTED}">{escape(line)}</text>'
                 for i, line in enumerate(self.legend)]
         body = "\n".join(head + self.parts + foot)
+        # An inline style, not a font-family attribute: Emacs gives every SVG a stylesheet
+        # naming its default font, which outranks an attribute but not an inline style.
         return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {self.width} {self.height}"'
-                f' width="{self.width}" height="{self.height}" font-family="{FONT}">\n{body}\n</svg>\n')
+                f' width="{self.width}" height="{self.height}" style="font-family:{FONT}">\n{body}\n</svg>\n')
 
 
 def mlp() -> str:

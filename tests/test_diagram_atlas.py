@@ -147,6 +147,13 @@ def test_figure_text_meets_the_minimum_size(name: str) -> None:
     assert max(sizes) == bf.TITLE
 
 
+@pytest.mark.parametrize("name", FIGURE_NAMES)
+def test_figure_font_survives_a_viewer_stylesheet(name: str) -> None:
+    """Emacs's SVG stylesheet beats a font-family attribute, and monospace text then overflows."""
+    root = ElementTree.fromstring((COURSE / f"figures/{name}.svg").read_text())
+    assert root.get("style") == f"font-family:{bf.FONT}"
+
+
 def test_text_below_the_minimum_fails_the_build() -> None:
     fig = bf.Fig(400, 200, "t", "Plot", [])
     with pytest.raises(SystemExit):
