@@ -54,3 +54,8 @@ They teach alongside the famous originals
 rather than replacing them, since those are what learners will meet elsewhere. No text
 goes below size 21; the build fails if it does, or if text leaves its canvas or box.
 Learners can open `figures/gallery.html` in a browser to see them all with a size slider.
+
+Opening a figure moves the learner's focus, so the tutor asks at the first figure and records
+the answer as the **Figures** preference in `progress.md`. A learner who chose "tutor opens
+them" has asked for `open <figure>` to be run during lessons, one figure at a time. The tutor
+never asks twice, and always gives the command in chat as well.

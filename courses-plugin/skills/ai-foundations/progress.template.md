@@ -11,6 +11,7 @@
 - Math (linear algebra/calculus/probability): _(rusty / comfortable basics / strong)_
 - Time budget: ~1 hour/day
 - Style: patient, friendly, analogy-first, verify with small exercises before advancing
+- Figures: _(unset / tutor opens them / learner opens them; asked at the first figure)_
 
 ## Status
 - **Current phase:** 0 — Orientation

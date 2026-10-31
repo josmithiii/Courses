@@ -202,6 +202,13 @@ def test_tutor_is_told_to_show_the_figure() -> None:
     assert "course figure" in (COURSE / ".claude/commands/lesson.md").read_text()
 
 
+def test_figures_preference_is_asked_once_and_recorded() -> None:
+    assert "**Figures** preference" in ATLAS
+    assert "**Figures** preference" in (COURSE / ".claude/commands/lesson.md").read_text()
+    assert "**Figures** preference" in (COURSE / "CLAUDE.md").read_text()
+    assert "- Figures: _(unset" in (COURSE / "progress.template.md").read_text()
+
+
 def test_convolution_output_matches_the_atlas_check() -> None:
     assert ">-2</text>" in bf.convolution()
 

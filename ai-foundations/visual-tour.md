@@ -31,11 +31,10 @@ Every topic in the course, in order, with the famous diagrams beside the topics 
 - **Grammar:** Graph
 - **Source:** No single origin; the picture is folklore.
 - **Read it:** Inputs on the left, each multiplied by its weight; a sum (plus bias); a squashing
-  function; one output.
+  function, which topic 1.4 teaches; one output.
 - **Trap:** The one circle hides two steps, the weighted sum and the activation. The side-by-side
   biological neuron is a loose inspiration, not a working model.
-- **Check:** With x = (1, 2), w = (0.5, -1), b = 1 and ReLU, what comes out? (0, since the sum
-  is -0.5.)
+- **Check:** With x = (1, 2), w = (0.5, -1), b = 1, what is the weighted sum plus bias? (-0.5.)
 
 ```
 x1 --w1--\
@@ -56,8 +55,9 @@ x3 --w3--/
 - **Read it:** The horizontal axis is the neuron's weighted sum; the vertical axis is its output.
 - **Trap:** The horizontal axis is not time and not the raw input. The bend is the whole point:
   a straight line here would make stacked layers collapse into one.
-- **Check:** Where on the sigmoid is the slope nearly zero, and what might that do to learning?
-  (Far from 0 on either side; the gradient nearly vanishes.)
+- **Check:** The neuron in the 1.3 check has a weighted sum plus bias of -0.5. What does ReLU
+  output? (0, since ReLU turns negatives into 0.) Where on the sigmoid is the slope nearly zero,
+  and what might that do to learning? (Far from 0 on either side; the gradient nearly vanishes.)
 
 ```
 sigmoid:      ______        ReLU:           /

@@ -69,7 +69,9 @@ This course separates shipped **content** from personal **learner state**:
 - **Diagrams are required, not optional:** search `the-diagram-atlas.md` for headings
   with today's topic number, and for each one follow "How to use an entry" there
   (course figure, famous picture via image-search link, read it together, its trap,
-  its check). You cannot see the search results: ask what the learner sees.
+  its check). You cannot see the search results: ask what the learner sees. Before
+  opening a figure, follow the learner's **Figures** preference in `progress.md`; if
+  it's unset, ask once as that section says and record the answer.
 - Then give a tiny exercise (by hand, or 2–10 lines of code). Have them attempt it.
 - Check their answer. If wrong/unsure, re-explain a *different* way and retry.
   Only advance when it's genuinely solid.

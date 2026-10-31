@@ -12,10 +12,15 @@ it. A topic may have several entries, and most topics have none.
 
 The analogy still comes first. Then, for each entry headed with today's topic number:
 
-1. **Show the course figure.** Point the learner to the entry's **Figure** file, which they
-   open in a browser or image viewer, and name its grammar (below). Every figure is also in
-   `figures/gallery.html`, which has a size slider. Draw the ASCII sketch in chat when the
-   entry has one, or when they can't open files.
+1. **Show the course figure.** Follow the **Figures** preference in the learner's
+   `progress.md`. If it is unset, this is their first figure: ask whether they want you to open
+   figures for them, which moves focus to their browser or image viewer, or to get the command
+   and open them themselves. Record the answer there straight away, so it is asked only once.
+   Skip the offer if you can't run commands; they open the file themselves. Either way, give
+   the full command in chat (`open <absolute path>` on macOS, `xdg-open` on Linux), so a
+   blocked call still leaves them a way forward. Name the figure's grammar (below). Every figure
+   is also in `figures/gallery.html`, which has a size slider. Draw the ASCII sketch in chat
+   when the entry has one, or when they can't open files.
 2. **Show the famous picture.** Give the learner a clickable image search built from the
    entry's **Search** phrase, `https://www.google.com/search?tbm=isch&q=<phrase, spaces as +>`,
    plus the **Source** link when there is one. This is the version they will meet elsewhere.
@@ -55,11 +60,10 @@ millions of numbers. That difference is the single most useful thing in this fil
 - **Search:** artificial neuron perceptron diagram
 - **Source:** No single origin; the picture is folklore.
 - **Read it:** Inputs on the left, each multiplied by its weight; a sum (plus bias); a squashing
-  function; one output.
+  function, which topic 1.4 teaches; one output.
 - **Trap:** The one circle hides two steps, the weighted sum and the activation. The side-by-side
   biological neuron is a loose inspiration, not a working model.
-- **Check:** With x = (1, 2), w = (0.5, -1), b = 1 and ReLU, what comes out? (0, since the sum
-  is -0.5.)
+- **Check:** With x = (1, 2), w = (0.5, -1), b = 1, what is the weighted sum plus bias? (-0.5.)
 
 ```
 x1 --w1--\
@@ -75,8 +79,9 @@ x3 --w3--/
 - **Read it:** The horizontal axis is the neuron's weighted sum; the vertical axis is its output.
 - **Trap:** The horizontal axis is not time and not the raw input. The bend is the whole point:
   a straight line here would make stacked layers collapse into one.
-- **Check:** Where on the sigmoid is the slope nearly zero, and what might that do to learning?
-  (Far from 0 on either side; the gradient nearly vanishes.)
+- **Check:** The neuron in the 1.3 check has a weighted sum plus bias of -0.5. What does ReLU
+  output? (0, since ReLU turns negatives into 0.) Where on the sigmoid is the slope nearly zero,
+  and what might that do to learning? (Far from 0 on either side; the gradient nearly vanishes.)
 
 ```
 sigmoid:      ______        ReLU:           /
